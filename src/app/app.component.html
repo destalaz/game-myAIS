@@ -1,4 +1,17 @@
-
-<div>
-  <app-login></app-login>
-</div>
+<body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #c0ebc0;" >
+    <div class="container">
+      <h4>{{title}}</h4>
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="navbar-brand" routerLink="/config" routerLinkActive="active">Config</a>          
+      </div> 
+    </div>
+  </nav>
+   
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div><!-- /.container -->
+    <!-- <app-login></app-login> -->
+  
+</body>
