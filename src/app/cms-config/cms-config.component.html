@@ -91,22 +91,11 @@
                             </div>
                         </div>
                         <div>
-                            <button onclick="createJSONFile()" type="submit"
-                                class="color-ais block butsubmit">Action</button>
+                            <button type="submit" class="color-ais block butsubmit">Action</button>
                         </div>
 
                     </form>
                 </div>
-            </div>
-
-            <div class="card" style="padding: 24px; margin-top: 24px; ">
-
-                <div  *ngFor="let number of [1,2] " >
-                    Flip
-
-                </div>
-
-
             </div>
 
             <!-- <div class="card" style="padding: 24px; margin-top: 24px; ">
@@ -126,13 +115,44 @@
                         </tbody>
                     </table>
             </div> -->
-
-
-
         </div>
         <div class="col-sm-2 col-md-2 col-lg-3"></div>
     </div>
 
+    <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-3"></div>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
 
+            <div *ngIf="f.playerAmt.value !> 0" class="card" style="padding: 24px; margin-top: 24px; ">
+                <label>Difficulty Detail : {{difficulty}} </label>
+                        <table  class=" table table-sm table-bordered text-center">
+                            <thead class="table-active" >
+                                <tr>
+                                    <th *ngFor="let loopdata of headers" class="">{{ loopdata }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let loopdata of data">
+                                    <td class="text-nowrap" style="color: rgb(50, 136, 38);" >{{ loopdata.flip }}</td>
+                                    <td class=" text-nowrap">
+                                        <select class="custom-select" >
+                                        <option value={{number}} *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">{{number}}
+                                        </option>
+                                    </select>
+                                    </td>
+                                    <td class=" text-nowrap">
+                                        <select class="custom-select" >
+                                            <option value={{number}} *ngFor="let number of fipAmtOptionList">{{number}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+            </div>
+
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-3"></div>
+    </div>
 
 </div>

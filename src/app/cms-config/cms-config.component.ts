@@ -17,7 +17,7 @@ export class CmsConfigComponent implements OnInit {
   headers: string[];
   data: any[];
   rewardOptionList = [1];
-  
+  fipAmtOptionList = [];
   
 
   constructor(
@@ -30,7 +30,8 @@ export class CmsConfigComponent implements OnInit {
      this.createJSONFile();
 
     for(let i = 10; i <= 300 ; i = i + 10){ this.rewardOptionList.push(i) }
-    
+    for(let i = 1; i <= 50 ; i++ ){ this.fipAmtOptionList.push(i) }
+    console.log();
     this.configForm = this.formBuilder.group({
       level: [1, [Validators.required]],
       point: ['', [Validators.required]],
