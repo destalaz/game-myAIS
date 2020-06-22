@@ -30,7 +30,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
+              "src/assets/aunjaiAssets/js/jqueryui.js",
+              "src/assets/aunjaiAssets/js/script.js"]
           },
           "configurations": {
             "production": {
@@ -95,7 +97,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
+              "src/assets/aunjaiAssets/js/jqueryui.js",
+              "src/assets/aunjaiAssets/js/script.js"]
           }
         },
         "lint": {
