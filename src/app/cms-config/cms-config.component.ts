@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiConfigBDService } from '../service/apiConfigDB.service';
 
-import * as fs from 'file-system';
+// import * as fs from 'file-system';
 // import * as fs from 'fs'
-
 
 @Component({
   selector: 'app-cms-config',
@@ -105,22 +104,23 @@ createJSONFile() {
   // fs.writeFile('path/test.txt', 'aaa', function(err) {})
 
 
-  var obj = {
-    table: []
- };
- obj.table.push({id: 1, square:2});
- var json = JSON.stringify(obj);
-//  var fs = require('fs');
-fs.writeFile('myjsonfile.json', json, 'utf8');
-fs.readFile('/myjsonfile.json', 'utf8', function readFileCallback(err, data){
-  if (err){
-      console.log(err);
-  } else {
-  obj = JSON.parse(data); //now it an object
-  obj.table.push({id: 2, square:3}); //add some data
-  json = JSON.stringify(obj); //convert it back to json
-  fs.writeFile('myjsonfile.json', json, 'utf8'); // write it back 
-}});
+//   var obj = {
+//     table: []
+//  };
+//  obj.table.push({id: 1, square:2});
+//  var json = JSON.stringify(obj);
+// //  var fs = require('fs');
+// fs.writeFile('myjsonfile.json', json, 'utf8');
+// fs.readFile('/myjsonfile.json', 'utf8', function readFileCallback(err, data){
+//   if (err){
+//       console.log(err);
+//   } else {
+//   obj = JSON.parse(data); //now it an object
+//   obj.table.push({id: 2, square:3}); //add some data
+//   json = JSON.stringify(obj); //convert it back to json
+//   fs.writeFile('myjsonfile.json', json, 'utf8'); // write it back 
+// }});
+
 
 }
 
