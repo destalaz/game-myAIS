@@ -12,8 +12,6 @@ export class ApiConfigBDService {
   }
   configDB: any = ConfigDB;
 
-
-
   constructor() { }
 
   getConfig() {

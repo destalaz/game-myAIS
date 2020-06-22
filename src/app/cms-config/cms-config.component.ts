@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiConfigBDService } from '../service/apiConfigDB.service';
 
+import * as fs from 'file-system';
+// import * as fs from 'fs'
+
+
 @Component({
   selector: 'app-cms-config',
   templateUrl: './cms-config.component.html',
@@ -15,6 +19,7 @@ export class CmsConfigComponent implements OnInit {
   data: any[];
   rewardOptionList = [1];
   
+  
 
   constructor(
     private formBuilder: FormBuilder , 
@@ -22,6 +27,8 @@ export class CmsConfigComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+     this.createJSONFile();
 
     for(let i = 10; i <= 300 ; i = i + 10){ this.rewardOptionList.push(i) }
     
@@ -73,6 +80,48 @@ export class CmsConfigComponent implements OnInit {
 
       // console.log(this.configForm.value); 
   }
+}
+
+createJSONFile() {
+  // var sampleObject = {
+  //     a: 1,
+  //     b: 2,
+  //     c: {
+  //         x: 11,
+  //         y: 22
+  //     }
+  // };
+  
+  // fs.writeFile("./object.json", JSON.stringify(sampleObject, null, 4), (err) => {
+  //     if (err) {
+  //         console.error(err);
+  //         return;
+  //     };
+  //     console.log("File has been created");
+  // });
+
+
+
+  // fs.writeFile('path/test.txt', 'aaa', function(err) {})
+
+
+  var obj = {
+    table: []
+ };
+ obj.table.push({id: 1, square:2});
+ var json = JSON.stringify(obj);
+//  var fs = require('fs');
+fs.writeFile('myjsonfile.json', json, 'utf8');
+fs.readFile('/myjsonfile.json', 'utf8', function readFileCallback(err, data){
+  if (err){
+      console.log(err);
+  } else {
+  obj = JSON.parse(data); //now it an object
+  obj.table.push({id: 2, square:3}); //add some data
+  json = JSON.stringify(obj); //convert it back to json
+  fs.writeFile('myjsonfile.json', json, 'utf8'); // write it back 
+}});
+
 }
 
 
