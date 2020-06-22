@@ -1,3 +1,4 @@
+
 <div style="margin: 1rem; margin-top: 7% ; margin-bottom: 10%; ">
     <div class="row">
         <div class="col-sm-2 col-md-2 col-lg-3"></div>
@@ -12,11 +13,11 @@
                                 <span class="input-group-text">Level</span>
                             </div>
                             <select class="custom-select" formControlName="level"
-                                [ngClass]="{ 'is-invalid': submitted && f.level.errors }" required>
-                                <option value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                [ngClass]="{ 'is-invalid': submitted && f.level.errors }" 
+                                (change)="levelOnChange()" required>
+                                <option value="1">Easy</option>
+                                <option value="2">Medium</option>
+                                <option value="3">Hard</option>
                             </select>
                             <div *ngIf="submitted && f.level.errors" class="invalid-feedback">
                                 <div *ngIf="f.level.errors.required">level is required</div>
@@ -25,15 +26,14 @@
 
                         <div class="input-group input-frm">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Point for play (1-10)</span>
+                                <span class="input-group-text">Point for play</span>
                             </div>
                             <select class="custom-select" formControlName="point"
                                 [ngClass]="{ 'is-invalid': submitted && f.point.errors }" required>
-                                <option value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value = {{number}}  *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">{{number}}</option>
                             </select>
+    
+
                             <div *ngIf="submitted && f.point.errors" class="invalid-feedback">
                                 <div *ngIf="f.point.errors.required">point for play is required</div>
                             </div>
@@ -41,14 +41,11 @@
 
                         <div class="input-group input-frm">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Reward (1-300)</span>
+                                <span class="input-group-text">Reward</span>
                             </div>
                             <select class="custom-select" formControlName="reward"
                                 [ngClass]="{ 'is-invalid': submitted && f.reward.errors }" required>
-                                <option value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value = {{number}}  *ngFor="let number of rewardOptionList">{{number}}</option> 
                             </select>
                             <div *ngIf="submitted && f.reward.errors" class="invalid-feedback">
                                 <div *ngIf="f.reward.errors.required">reward is required</div>
@@ -57,14 +54,12 @@
 
                         <div class="input-group input-frm">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Amount of Win (1-10)</span>
+                                <span class="input-group-text">Amount of Win</span>
                             </div>
                             <select class="custom-select" formControlName="amountWin"
                                 [ngClass]="{ 'is-invalid': submitted && f.amountWin.errors }" required>
-                                <option value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <!-- <option value="">Open this select Amount of Win</option> -->
+                                <option value = {{number}}  *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">{{number}}</option>
                             </select>
                             <div *ngIf="submitted && f.amountWin.errors" class="invalid-feedback">
                                 <div *ngIf="f.amountWin.errors.required">Amount of Win is required</div>
@@ -76,7 +71,7 @@
                                 <span class="input-group-text">Player Amt</span>
                             </div>
                             <input type="number" class="form-control" formControlName="playerAmt"
-                                [ngClass]="{ 'is-invalid': submitted && f.playerAmt.errors }" 
+                                [ngClass]="{ 'is-invalid': submitted && f.playerAmt.errors }"
                                 placeholder="Enter Player Amt" />
                             <div *ngIf="submitted && f.playerAmt.errors" class="invalid-feedback">
                                 <div *ngIf="f.playerAmt.errors.required">Player Amt is required</div>
@@ -87,9 +82,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Winner Amt</span>
                             </div>
-                            <input type="number"  class="form-control" formControlName="winnerAmt"
+                            <input type="number" class="form-control" formControlName="winnerAmt"
                                 [ngClass]="{ 'is-invalid': submitted && f.winnerAmt.errors }"
-                                placeholder="Winner Amt"  />
+                                placeholder="Winner Amt" />
                             <div *ngIf="submitted && f.winnerAmt.errors" class="invalid-feedback">
                                 <div *ngIf="f.winnerAmt.errors.required">Winner Amt is required</div>
                             </div>
@@ -102,12 +97,24 @@
                 </div>
             </div>
 
-            <div class="card" style="padding: 24px; margin-top: 24px; ">
-               
+            <!-- <div class="card" style="padding: 24px; margin-top: 24px; ">
                 <label>Difficulty Detail : {{difficulty}} </label>
+                    <table datatable class=" table table-sm table-bordered text-center">
+                        <thead class="table-active" >
+                            <tr>
+                                <th *ngFor="let loopdata of headers" class="">{{ loopdata }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let loopdata of data">
+                                <td class="text-nowrap ">{{ loopdata.flip }}</td>
+                                <td class=" text-nowrap">{{ loopdata.speed }}</td>
+                                <td class=" text-nowrap">{{ loopdata.flp }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div> -->
 
-                
-            </div>
 
 
         </div>

@@ -1,6 +1,6 @@
 import { Injectable, HostListener } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import ConfigDB from '../db/configDB.json';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,8 @@ export class ApiService {
   reportDetail = new Array();
   reportName = new Array();
   reloadData;
-  //  private baseUrl = 'https://sheltered-dawn-67205.herokuapp.com/'
-  // private baseUrl = 'http://localhost:3000/'
   private baseUrl = 'https://iot-apiv3.ais.co.th'
+  configDB: any = ConfigDB;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -39,12 +38,15 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   oauth(body: any) {
-
     let headerOauth = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     };
     let urlApi = "/auth/v3.1/oauth/token";
     return this.http.post(this.baseUrl + urlApi, body.toString(), headerOauth);
+  }
+
+  getConfig() {
+    return this.configDB ;
   }
 
 

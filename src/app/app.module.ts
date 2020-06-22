@@ -10,6 +10,7 @@ import { CmsConfigComponent } from './cms-config/cms-config.component';
 import { LoginComponent } from './login/login.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { DataTablesModule } from 'angular-datatables';  // npm i @types/datatables.net --save-dev
 
 
 const appRoutes: Routes = [
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     CmsConfigComponent
   ],
   imports: [
+    DataTablesModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,

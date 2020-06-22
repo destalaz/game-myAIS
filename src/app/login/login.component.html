@@ -15,7 +15,7 @@
                         </div>
 
                         <label for="pwd" style="margin-top: 8px;">password</label>
-                        <input type="text" class="form-control" formControlName="pwd"
+                        <input type="password" class="form-control" formControlName="pwd"
                             [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" />
                         <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
                             <div *ngIf="f.pwd.errors.required">password is required</div>
@@ -24,10 +24,16 @@
                         <div>
                             <button type="submit" class=" color-ais  butsubmit block">Submit</button>
                         </div>
-
                     </form>
                 </div>
             </div>
+
+            <div class="card" style="padding: 18px; margin-top: 24px;" >
+                <h5>- Log -</h5>
+                <label>{{msg}}</label>
+            </div>
+            
+
         </div>
         <div class="col-sm-2 col-md-2 col-lg-3"></div>
     </div>

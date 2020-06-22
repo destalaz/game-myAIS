@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/users';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { ApiService } from '../service/api.service';
+ import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +10,11 @@ import { ApiService } from '../service/api.service';
 })
 export class LoginComponent implements OnInit {
 
-  id: User;
-
   loginForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
+  msg: string;
 
 
   constructor(
@@ -25,6 +23,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       pwd: ['', [Validators.required]],
@@ -56,6 +55,7 @@ export class LoginComponent implements OnInit {
   getOauth(body) {
     this.apiService.oauth(body).subscribe((res: any) => {
       console.log("res => ", res);
+      this.msg = JSON.stringify(res);
     });
   }
 
