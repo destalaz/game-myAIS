@@ -34,7 +34,8 @@ export class CmsService {
 
     cancelLevel(id: string) {
         let urlApi = "/cms/config/cancal";
-        return this.http.put(this.baseUrl + urlApi , id );
+        console.log(this.baseUrl + urlApi );
+        return this.http.post(this.baseUrl + urlApi , { _id : id } );
     }
 
     createLevel(body: any) {
