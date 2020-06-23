@@ -1,52 +1,75 @@
-#content {
-  // background: transparent url("../../../assets/aunjaiAssets/img/bg_game@2x.png");
-  top: 0px;
-  left: 0px;
-  height: 640px;
-  width: 360px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+
+#divBtn {
+  position: absolute;
+  top: 960px;
+  width: 440px;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
-#bodyGame {
-  // height: 100%;
-  margin: 0;
-  background-color: black;
+.buttonStart {
+  background: transparent url(../../../assets/aunjaiAssets/component/btn@2x.png);
+  width: 440px;
+  height: 164px;
+  position: relative;
+  margin: auto;
+  border: none;
+  outline: none;
+  font-size: 46px;
+  opacity: 0.92;
+}
+.buttonStart:hover {
+  opacity: 1;
+}
+
+#content {
+  width: 720px;
+  margin: 10px auto;
+  background-color: #fff;
+  min-height: 1280px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  box-shadow: #888 0px 0px 5px;
+  background: transparent url(../../../assets/aunjaiAssets/bg/bg_game@2x.png);
+  background-size: cover;
 }
 
 #board {
-  opacity: 1;
-  margin: auto;
-  display: table;
-  margin-top: 380px;
+  padding: 660px 0px 20px 0px;
+  overflow: hidden;
+  width: 720px;
+  text-align: center;
+}
+
+#box1,
+#box2,
+#box3 {
+  position: relative;
+  float: left;
+  z-index: 300;
 }
 
 #box1,
 #box2,
 #box3 {
   overflow: hidden;
-  height: auto;
-  display: inline-block;
 }
 
 #box1 #box_o_t,
 #box2 #box_o_t,
 #box3 #box_o_t {
-  position: relative;
-  width: 80px;
-  z-index: 100;
-  margin: 10px;
-}
-
-#box1 #box_o_b,
-#box2 #box_o_b,
-#box3 #box_o_b {
   left: 0px;
   position: relative;
-  top: -33px;
-  z-index: 300;
+  top: 0px;
+  z-index: 100;
 }
 
 #kick_jump {
@@ -57,55 +80,19 @@
   display: none;
 }
 
-#msg_bd {
-  position: absolute;
-  top: 512px;
-  left: 97px;
-  width: 167px;
-  height: 67px;
-  background: transparent linear-gradient(0deg, #bf260f 0%, #d45e45 100%) 0% 0% no-repeat padding-box;
-  opacity: 1;
-}
-
-.color_0 {
-  background-color: #70b3cd !important;
-}
-
-.color_1 {
-  background-color: #b12f2f !important;
-}
-
-.color_2 {
-  background-color: #1f8e1a !important;
+#box_o_b {
+  width: 240px;
 }
 
 #footer {
-  width: 163px;
-  height: 63px;
-  background: transparent linear-gradient(0deg, #c43300 0%, #fc945c 100%) 0% 0% no-repeat padding-box;
-  opacity: 1;
+  position: fixed;
+  text-align: center;
+  background-color: #efefef;
+  color: #fff;
+  box-shadow: 0 0 5px #888;
+  font-size: 11px;
+  bottom: 0px;
+  width: 100%;
+  padding: 5px;
 }
 
-#btnStart {
-  width: 123px;
-  height: 18px;
-  // background: transparent url("img/Rectangle 13.png") 0% 0% no-repeat padding-box;
-  opacity: 1;
-}
-
-
-
-#start_game:hover {
-  background-color: #fee296;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fee296), to(#fec166));
-  /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(top, #fee296, #fec166);
-  /* Chrome 10+, Saf5.1+ */
-  background-image: -moz-linear-gradient(top, #fee296, #fec166);
-  /* FF3.6 */
-  background-image: -ms-linear-gradient(top, #fee296, #fec166);
-  /* IE10 */
-  background-image: -o-linear-gradient(top, #fee296, #fec166);
-  /* Opera 11.10+ */
-  background-image: linear-gradient(top, #fee296, #fec166);
-}
