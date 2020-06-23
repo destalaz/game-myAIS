@@ -1,9 +1,13 @@
+import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiConfigBDService } from '../service/apiConfigDB.service';
 
-// import * as fs from 'file-system';
-// import * as fs from 'fs'
+import { CmsService } from "../service/cms.service";
+
+import * as fs from 'file-system';
+// import * as fs from 'fs' 
+
 
 @Component({
   selector: 'app-cms-config',
@@ -13,42 +17,48 @@ import { ApiConfigBDService } from '../service/apiConfigDB.service';
 export class CmsConfigComponent implements OnInit {
   configForm: FormGroup;
   submitted = false;
-  difficulty = "easy"
+  difficulty = ""
   headers: string[];
   data: any[];
   rewardOptionList = [1];
   fipAmtOptionList = [];
-  
+  configData: any;
+  diffDetail: any;
 
   constructor(
-    private formBuilder: FormBuilder , 
+    private formBuilder: FormBuilder,
+    private cmsService: CmsService,
     private apiConfigBDService: ApiConfigBDService
-  ) {}
+  ) { }
 
   ngOnInit() {
 
-     this.createJSONFile();
+    //  this.createJSONFile();
 
-    for(let i = 10; i <= 300 ; i = i + 10){ this.rewardOptionList.push(i) }
-    for(let i = 1; i <= 50 ; i++ ){ this.fipAmtOptionList.push(i) }
-    console.log();
+
+    for (let i = 10; i <= 300; i = i + 10) { this.rewardOptionList.push(i) }
+    for (let i = 1; i <= 50; i++) { this.fipAmtOptionList.push(i) }
+
     this.configForm = this.formBuilder.group({
-      level: [1, [Validators.required]],
+      levelIdx: [1, [Validators.required]],
       point: ['', [Validators.required]],
       reward: ['', [Validators.required]],
       amountWin: ['', [Validators.required]],
       playerAmt: ['', [Validators.required]],
       winnerAmt: ['', [Validators.required]],
+      _id: ''
     });
 
     this.headers = ['Flip', 'Speed(0-10)', 'fip Amount'];
-    this.data = [ 
-      {"flip" : "1" , "speed":"2","flp":"4" }  ,
-      {"flip" : "2" , "speed":"4","flp":"6" } , 
-      {"flip" : "3" , "speed":"6","flp":"7" } 
-  ]
+    this.data = [
+      { "flip": "1", "speed": "2", "flp": "4" },
+      { "flip": "2", "speed": "4", "flp": "6" },
+      { "flip": "3", "speed": "6", "flp": "7" }
+    ]
 
-  this.getConfig();
+    this.getConfig();
+
+
   }
 
   get f() { return this.configForm.controls; }
@@ -59,72 +69,50 @@ export class CmsConfigComponent implements OnInit {
   }
 
   levelOnChange() {
-    this.getConfig()
+    // loop diffDetail
+
+    for (let i in this.configData) {
+      if ( this.configForm.controls.levelIdx.value.toString() ===  this.configData[i].levelIdx.toString() ) {
+        this.configForm = this.formBuilder.group({
+          levelIdx: [this.configData[i].levelIdx, [Validators.required]],
+          point: [this.configData[i].point, [Validators.required]],
+          reward: [this.configData[i].reward, [Validators.required]],
+          amountWin: [this.configData[i].amountWin, [Validators.required]],
+          playerAmt: [this.configData[i].playerAmt, [Validators.required]],
+          winnerAmt: [this.configData[i].winnerAmt, [Validators.required]],
+          _id: [this.configData[i]._id , []], 
+        });
+        console.log(this.configForm.controls._id.value.toString() )
+        return;
+      }
+    }
+
   }
 
   getConfig() {
-    const configObj = this.apiConfigBDService.getConfig() ;
-
-    for (let configArr of configObj) {
-      if ( this.configForm.controls.level.value.toString() ===  configArr.levelIdx.toString() ) {
-        this.configForm = this.formBuilder.group({
-          level: [configArr.levelIdx, [Validators.required]],
-          point: [configArr.point, [Validators.required]],
-          reward: [configArr.reward, [Validators.required]],
-          amountWin: [configArr.amountWin, [Validators.required]],
-          playerAmt: [configArr.playerAmt, [Validators.required]],
-          winnerAmt: [configArr.winnerAmt, [Validators.required]],
-        });
-        return ;
+    this.alertLoading(true);
+    // const configObj = this.apiConfigBDService.getConfig();
+    this.cmsService.getConfig().subscribe((res: any) => {
+      if (res.resultCode === "20000") {
+        this.configData = res.data;
+        this.levelOnChange();
       }
-
-      // console.log(this.configForm.value); 
+      // Err
+      this.alertLoading(false);
+    });
   }
-}
 
-createJSONFile() {
-  // var sampleObject = {
-  //     a: 1,
-  //     b: 2,
-  //     c: {
-  //         x: 11,
-  //         y: 22
-  //     }
-  // };
-  
-  // fs.writeFile("./object.json", JSON.stringify(sampleObject, null, 4), (err) => {
-  //     if (err) {
-  //         console.error(err);
-  //         return;
-  //     };
-  //     console.log("File has been created");
-  // });
+  alertLoading(val: boolean): void {
+    if (val === true) {
+      let element: HTMLInputElement = document.getElementById('modalLoading') as HTMLInputElement;
+      element.style.display = "block";
+      element.click();
+    } else if (val === false) {
+      let element: HTMLInputElement = document.getElementById('closeModalLoading') as HTMLInputElement;
+      element.style.display = "none";
+      element.click();
+    }
+  }
 
 
-
-  // fs.writeFile('path/test.txt', 'aaa', function(err) {})
-
-
-//   var obj = {
-//     table: []
-//  };
-//  obj.table.push({id: 1, square:2});
-//  var json = JSON.stringify(obj);
-// //  var fs = require('fs');
-// fs.writeFile('myjsonfile.json', json, 'utf8');
-// fs.readFile('/myjsonfile.json', 'utf8', function readFileCallback(err, data){
-//   if (err){
-//       console.log(err);
-//   } else {
-//   obj = JSON.parse(data); //now it an object
-//   obj.table.push({id: 2, square:3}); //add some data
-//   json = JSON.stringify(obj); //convert it back to json
-//   fs.writeFile('myjsonfile.json', json, 'utf8'); // write it back 
-// }});
-
-
-}
-
-
-  
 }

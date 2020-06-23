@@ -1,6 +1,6 @@
 import { Injectable, HostListener } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import ConfigDB from '../db/configDB.json';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,6 @@ export class ApiService {
   reportName = new Array();
   reloadData;
   private baseUrl = 'https://iot-apiv3.ais.co.th'
-  configDB: any = ConfigDB;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -33,10 +32,7 @@ export class ApiService {
     "client_id": "JjIVkneVcJuNz6tFQ4Ki5E4QBx6SBcIC37zyEnVK0HQ"
   });
 
-
-
   constructor(private http: HttpClient) { }
-
   oauth(body: any) {
     let headerOauth = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
@@ -45,9 +41,7 @@ export class ApiService {
     return this.http.post(this.baseUrl + urlApi, body.toString(), headerOauth);
   }
 
-  getConfig() {
-    return this.configDB ;
-  }
+
 
 
 }
