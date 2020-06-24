@@ -5,13 +5,20 @@
 }
 .img-Round {
     background: transparent url(../../../../assets/aunjaiAssets/component/game_round_bg.svg);
-    width: 300px;
     height: 100px;
     float: left;
     margin-top: 10px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 32px;
 }
 .round-cup {
     float: right;

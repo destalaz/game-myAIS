@@ -5,23 +5,27 @@ $(document).ready(function () {
       box2 = $("#box2"),
       box3 = $("#box3"),
       kick = $("#kick_jump"),
+      contentMain = $("#board"),
+      HeaderText = $("#heading-Text"),
       startButton = $("#start_game"),
-      messageBar = $("#msg_bd"),
+      messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
       shuffleSpeed = 400,
-      nuberOfShuffels = 25,
-      z = 0;
+      nuberOfShuffels = 1,
+      z = 0,
+      countWin = 0;
 
     var ans = Math.floor(Math.random() * 3) + 1;
 
-    startButton.on("click", function (event) {
+    startButton.on("click", function startGame(event) {
       divBtn.hide();
-      event.preventDefault();
+      HeaderText.hide();
+      // event.preventDefault();
       var kickInitialPosition = 0;
       //Show the character fist
       kick.show();
       // Show the message "Starting the game"
-      setMessage("Starting the game", "color_0");
+      setMessage("Game " + parseInt(countWin + 1) + " of 3");
       // Update the initial position based on the answer
       kickInitialPosition = 30 + ((ans - 1) * 240);
 
@@ -48,27 +52,27 @@ $(document).ready(function () {
               top: 'easeOutBounce'
             },
             complete: function () {
-              setMessage("Closing the boxes ;)")
+              // setMessage("Closing the boxes ;)")
 
               // Close all the three boxes in a regular interval.
               box1.delay(500).queue(function (n) {
-                $(this).animate({
-                  top: "20px"
-                });
+                // $(this).animate({
+                //   top: "20px"
+                // });
                 if (ans == 1) kick.hide();
                 n();
               });
               box2.delay(1000).queue(function (n) {
-                $(this).animate({
-                  top: "20px"
-                });
+                // $(this).animate({
+                //   top: "20px"
+                // });
                 if (ans == 2) kick.hide();
                 n();
               });
               box3.delay(1500).queue(function (n) {
-                $(this).animate({
-                  top: box2.position().top
-                });
+                // $(this).animate({
+                //   top: box2.position().top
+                // });
                 if (ans == 3) kick.hide();
 
 
@@ -102,7 +106,7 @@ $(document).ready(function () {
 
                 var interval = setInterval(function () {
 
-                  setMessage("Shuffling ....");
+                  // setMessage("Game 1 of 3");
 
 
 
@@ -133,8 +137,8 @@ $(document).ready(function () {
                 setTimeout(function () {
                   clearInterval(interval);
                   var flag = 0;
-                  $('div[id^="box"]').css("cursor", "pointer");
-                  setMessage("Click on the box, that you think Aunjai is hidden >> :p")
+                  // $('div[id^="box"]').css("cursor", "pointer");
+                  // setMessage("Click on the box, that you think Aunjai is hidden >> :p")
 
                   box1.click(function () {
                     if (flag == 0) {
@@ -146,12 +150,15 @@ $(document).ready(function () {
                         kick.css({
                           left: $(this).position().left + 46 + "px"
                         });
-
+                        countWin = countWin + 1;
                         flag = 1;
                         slide_out();
+                        clearPosition();
+                        startGame();
                       } else {
                         print_error();
                         flag = 1;
+                        clearPosition();
                       }
                     }
                   });
@@ -166,12 +173,15 @@ $(document).ready(function () {
                         kick.css({
                           left: $(this).position().left + 46 + "px"
                         });
-
+                        countWin = countWin + 1;
                         flag = 1;
                         slide_out();
+                        clearPosition();
+                        startGame();
                       } else {
                         flag = 1;
                         print_error();
+                        clearPosition();
                       }
                     }
                   });
@@ -186,19 +196,22 @@ $(document).ready(function () {
                         kick.css({
                           left: $(this).position().left + 46 + "px"
                         });
-
+                        countWin = countWin + 1;
                         flag = 1;
                         slide_out();
+                        clearPosition();
+                        startGame();
                       } else {
                         flag = 1;
                         print_error();
+                        clearPosition();
                       }
                     }
                   });
 
 
                   function slide_out() {
-                    setMessage("Congrats You won hard mode!!!! <a href='index.html' >Play again</a>", "color_2");
+                    // setMessage("Congrats You won hard mode!!!! <a href='index.html' >Play again</a>", "color_2");
                     kick.show();
                     kick.animate({
                       top: "750px"
@@ -212,10 +225,12 @@ $(document).ready(function () {
                   }
 
                   function print_error() {
-                    setMessage("Nothing found.. :P :P <a href='index.html' >try again</a>", "color_1");
+                    // setMessage("Nothing found.. :P :P <a href='index.html' >try again</a>", "color_1");
                   }
 
-
+                  function clearPosition() {
+                    contentMain.removeAttr('style');
+                  }
 
                 }, nuberOfShuffels * shuffleSpeed);
                 n();
@@ -226,8 +241,8 @@ $(document).ready(function () {
       });
     });
 
-    function setMessage(message, color) {
-      messageBar.html(message).addClass(color);
+    function setMessage(message) {
+      messageRound.html(message);
     }
 
   })();
