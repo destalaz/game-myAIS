@@ -15,11 +15,11 @@ export class CmsConfigComponent implements OnInit {
   configForm: FormGroup;
   submitted = false;
   difficulty = ""
-  headers: string[];
   rewardOptionList = [1];
   fipAmtOptionList = [];
   configData: any;
   diffDetail: any;
+  diffTb: any; 
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,7 +31,6 @@ export class CmsConfigComponent implements OnInit {
 
     for (let i = 10; i <= 300; i = i + 10) { this.rewardOptionList.push(i) }
     for (let i = 1; i <= 50; i++) { this.fipAmtOptionList.push(i) }
-
     this.configForm = this.formBuilder.group({
       levelIdx: [1, [Validators.required]],
       point: ['', [Validators.required]],
@@ -41,26 +40,23 @@ export class CmsConfigComponent implements OnInit {
       winnerAmt: ['', [Validators.required]],
       _id: '',
       level: ''
-    });
-
-    this.headers = ['Flip', 'Speed(0-10)', 'fip Amount'];
+    })
     this.getConfig();
   }
 
   get f() { return this.configForm.controls; }
 
- 
 
-  playerAmtOnChange() {
-    // console.log(this.configForm.controls.playerAmt.value.toString());
-    // console.log(this.diffDetail.length);
-    if (this.configForm.controls.playerAmt.value != this.diffDetail.length) {
+
+  amountWinOnChange() {
+    console.log(this.configForm.controls.amountWin.value.toString());
+    console.log(this.diffDetail.length);
+    if (this.configForm.controls.amountWin.value != this.diffDetail.length) {
       this.diffDetail = [];
-      for (let i = 1; i <= this.configForm.controls.playerAmt.value; i++) {
+      for (let i = 1; i <= this.configForm.controls.amountWin.value; i++) {
         const diffArr = { "flip": i, "speed": 1, "flipAmt": 1 };
         this.diffDetail.push(diffArr);
       }
-
     }
   }
 
@@ -79,9 +75,20 @@ export class CmsConfigComponent implements OnInit {
     // console.log("=> ", this.diffDetail);
   }
 
-  levelOnChange() {
+  levelOnChange(vLevelId: string, modal: string) {
+
+    if (modal === "set") {
+      let element: HTMLInputElement = document.getElementById('modalEdit') as HTMLInputElement;
+      element.style.display = "block";
+      element.click();
+    } else if (modal === "diff") {
+      let elemen2: HTMLInputElement = document.getElementById('modalDeff') as HTMLInputElement;
+      elemen2.style.display = "block";
+      elemen2.click();
+    }
     for (let i in this.configData) {
-      if (this.configForm.controls.levelIdx.value.toString() === this.configData[i].levelIdx.toString()) {
+      // if (this.configForm.controls.levelIdx.value.toString() === this.configData[i].levelIdx.toString()) {
+      if (vLevelId.toString() === this.configData[i].levelIdx.toString()) {
         this.configForm = this.formBuilder.group({
           levelIdx: [this.configData[i].levelIdx, [Validators.required]],
           point: [this.configData[i].point, [Validators.required]],
@@ -105,7 +112,7 @@ export class CmsConfigComponent implements OnInit {
     this.cmsService.getConfig().subscribe((res: any) => {
       if (res.resultCode === "20000") {
         this.configData = res.data;
-        this.levelOnChange();
+        // this.levelOnChange();
       }
       // Err
       this.alertLoading(false);
@@ -138,20 +145,24 @@ export class CmsConfigComponent implements OnInit {
       difficulty: this.diffDetail
 
     };
-    console.log("obj => ", data);
 
     this.cmsService.cancelLevel(this.configForm.controls._id.value.toString())
       .subscribe((res: any) => {
-        console.log("cancelLevel=> ", res)
         if (res.resultCode === "20000") {
           this.cmsService.createLevel(data).subscribe(
             (res: any) => {
-              console.log("createLevel => ", res)
+              this.getConfig();
             });
         }
         // Err
-        this.getConfig();
+
         this.alertLoading(false);
+        let element: HTMLInputElement = document.getElementById('closeModalEdit') as HTMLInputElement;
+        element.style.display = "none";
+        element.click();
+        let element2: HTMLInputElement = document.getElementById('closeModalDeff') as HTMLInputElement;
+        element2.style.display = "none";
+        element2.click();
       });
 
 

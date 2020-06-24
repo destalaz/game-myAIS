@@ -2,11 +2,11 @@
     <h2 class="text-center">CMS Config</h2>
     <div class="row">
         <div class="col-12">
-            <div style="margin-top: 48px;">    
+            <div style="margin-top: 48px;">
                 <p><b> Flip The Cup Game Difficulty </b></p>
             </div>
             <div class="card" style="padding: 24px;  ">
-                <table  class=" text-center table table-sm table-bordered text-center">
+                <table class=" text-center table table-sm table-bordered text-center">
                     <thead class="table-active">
                         <tr>
                             <th>Level</th>
@@ -27,159 +27,17 @@
                             <td class=" text-nowrap">{{ loopdata.playerAmt }}</td>
                             <td class=" text-nowrap">{{ loopdata.winnerAmt }}</td>
                             <td class=" text-nowrap">
-                                <button type="button" class="color-ais btn-sm block2">Click</button>
-                            </td>
-                            
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="row">
-        <div class="col-0"></div>
-        <div class="col-7">
-            <span style="margin-top: 24px;" class="d-block p-2 bg-dark text-white">Difficulty Detail : <span style="color: rgb(196, 196, 196);">{{difficulty}} Level</span></span>
-            <div *ngIf="f.playerAmt.value !> 0" class="card" style="padding: 24px; ">
-                <!-- <label>Difficulty Detail : <b> {{difficulty}} Level </b></label> -->
-                <table class=" table table-sm table-bordered text-center">
-                    <thead class="table-active">
-                        <tr>
-                            <th *ngFor="let loopdata of headers" class="">{{ loopdata }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr *ngFor="let loopdata of diffDetail; let i = index;">
-                            <td class="text-nowrap" style="color: rgb(50, 136, 38);">{{ loopdata.flip }}</td>
-                            <td class=" text-nowrap">
-                                <select class="custom-select" value={{loopdata.speed}} [(ngModel)]="diffDetail[i].speed"
-                                    (change)="diffConvert()">
-                                    <option type="number" value={{number}}
-                                        *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10]">{{number}}
-                                    </option>
-                                </select>
-                            </td>
-                            <td class=" text-nowrap">
-                                <select class="custom-select" value={{loopdata.flipAmt}}
-                                    [(ngModel)]="diffDetail[i].flipAmt" (change)="diffConvert()">
-                                    <option value={{number}} *ngFor="let number of fipAmtOptionList">{{number}}
-                                    </option>
-                                </select>
+                                <button type="button" class="color-ais btn-sm block2"
+                                    (click)="levelOnChange(loopdata.levelIdx,'set')">Edit</button>
+                                <button type="button" class="color-ais btn-sm block2"
+                                    (click)="levelOnChange(loopdata.levelIdx,'diff')">Edit Difficulty</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="col-5">
-            <span class="d-block p-2 bg-dark text-white" style="margin-top: 24px;" >Setting Config </span>
-            <div class="card" style="padding: 0px 24px 24px 24px; ">
-                <div class="form-group form-config ">
-                    <form [formGroup]="configForm" (ngSubmit)="save()">
-                        <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val" >Level</span>
-                            </div>
-                            <select class="custom-select" formControlName="levelIdx"
-                                [ngClass]="{ 'is-invalid': submitted && f.levelIdx.errors }" (change)="levelOnChange()"
-                                required>
-                                <!-- <option *ngFor="let loopdata of configData; let i = index;" 
-                                value="{{loopdata.levelIdx}}" >{{loopdata.level}}</option> -->
-                                <option value="1">Easy</option>
-                                <option value="2">Medium</option>
-                                <option value="3">Hard</option>
-                            </select>
-                            <div *ngIf="submitted && f.levelIdx.errors" class="invalid-feedback">
-                                <div *ngIf="f.levelIdx.errors.required">levelIdx is required</div>
-                            </div>
-                        </div>
-
-                        <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val">Point for play</span>
-                            </div>
-                            <select class="custom-select" formControlName="point"
-                                [ngClass]="{ 'is-invalid': submitted && f.point.errors }" required>
-                                <option value={{number}} *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">{{number}}
-                                </option>
-                            </select>
-
-
-                            <div *ngIf="submitted && f.point.errors" class="invalid-feedback">
-                                <div *ngIf="f.point.errors.required">point for play is required</div>
-                            </div>
-                        </div>
-
-                        <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val">Reward</span>
-                            </div>
-                            <select class="custom-select" formControlName="reward"
-                                [ngClass]="{ 'is-invalid': submitted && f.reward.errors }" required>
-                                <option value={{number}} *ngFor="let number of rewardOptionList">{{number}}</option>
-                            </select>
-                            <div *ngIf="submitted && f.reward.errors" class="invalid-feedback">
-                                <div *ngIf="f.reward.errors.required">reward is required</div>
-                            </div>
-                        </div>
-
-                        <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val">Amount of Win</span>
-                            </div>
-                            <select class="custom-select" formControlName="amountWin"
-                                [ngClass]="{ 'is-invalid': submitted && f.amountWin.errors }" required>
-                                <!-- <option value="">Open this select Amount of Win</option> -->
-                                <option value={{number}} *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">{{number}}
-                                </option>
-                            </select>
-                            <div *ngIf="submitted && f.amountWin.errors" class="invalid-feedback">
-                                <div *ngIf="f.amountWin.errors.required">Amount of Win is required</div>
-                            </div>
-                        </div>
-
-                        <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val">Player Amt</span>
-                            </div>
-                            <input type="number" class="form-control" formControlName="playerAmt"
-                                [ngClass]="{ 'is-invalid': submitted && f.playerAmt.errors }"
-                                placeholder="Enter Player Amt" (change)="playerAmtOnChange()" />
-                            <div *ngIf="submitted && f.playerAmt.errors" class="invalid-feedback">
-                                <div *ngIf="f.playerAmt.errors.required">Player Amt is required</div>
-                            </div>
-                        </div>
-
-                        <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val">Winner Amt</span>
-                            </div>
-                            <input type="number" class="form-control" formControlName="winnerAmt"
-                                [ngClass]="{ 'is-invalid': submitted && f.winnerAmt.errors }"
-                                placeholder="Winner Amt" />
-                            <div *ngIf="submitted && f.winnerAmt.errors" class="invalid-feedback">
-                                <div *ngIf="f.winnerAmt.errors.required">Winner Amt is required</div>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="submit"  class="color-ais block butsubmit">Save</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-0"></div>
     </div>
-
-
 
 </div>
 
@@ -197,3 +55,196 @@
     </div>
 </div>
 <!-- modal loadling -->
+
+
+<!-- modal Edit Set -->
+<input type="button" id="modalEdit" name="modalEdit" onclick="document.getElementById('Edit').style.display='block'"
+    hidden>
+<input type="button" id="closeModalEdit" name="closeModalEdit"
+    onclick="document.getElementById('Edit').style.display='none'" hidden>
+
+<div id="Edit" class="w3-modal">
+    <div class="text-center" style="margin-top:15% ;">
+        <div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <span class="d-block p-2 bg-dark text-white" style="margin-top: 24px;">
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true" id="closeModalEdit" name="closeModalEdit"
+                                onclick="document.getElementById('Edit').style.display='none'"
+                                (click)="getConfig()">&times;</span>
+                        </button>
+                        Setting Config : <span style="color: rgb(196, 196, 196);">{{difficulty}} Level</span>
+                    </span>
+                    <div class="card" style="padding: 0px 24px 24px 24px; ">
+                        <div class="form-group form-config ">
+                            <form [formGroup]="configForm" (ngSubmit)="save()">
+
+                                <!-- <div class="input-group input-frm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text text-val" >Level</span>
+                            </div>
+                            <select class="custom-select" formControlName="levelIdx"
+                                [ngClass]="{ 'is-invalid': submitted && f.levelIdx.errors }" (change)="levelOnChange()"
+                                required>
+                                
+                                <option value="1">Easy</option>
+                                <option value="2">Medium</option>
+                                <option value="3">Hard</option>
+                            </select>
+                            <div *ngIf="submitted && f.levelIdx.errors" class="invalid-feedback">
+                                <div *ngIf="f.levelIdx.errors.required">levelIdx is required</div>
+                            </div>
+                        </div> -->
+
+                                <div class="input-group input-frm">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text text-val">Point for play</span>
+                                    </div>
+                                    <select class="custom-select" formControlName="point"
+                                        [ngClass]="{ 'is-invalid': submitted && f.point.errors }" required>
+                                        <option value={{number}} *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">
+                                            {{number}}
+                                        </option>
+                                    </select>
+
+
+                                    <div *ngIf="submitted && f.point.errors" class="invalid-feedback">
+                                        <div *ngIf="f.point.errors.required">point for play is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group input-frm">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text text-val">Reward</span>
+                                    </div>
+                                    <select class="custom-select" formControlName="reward"
+                                        [ngClass]="{ 'is-invalid': submitted && f.reward.errors }" required>
+                                        <option value={{number}} *ngFor="let number of rewardOptionList">{{number}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="submitted && f.reward.errors" class="invalid-feedback">
+                                        <div *ngIf="f.reward.errors.required">reward is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group input-frm">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text text-val">Amount of Win</span>
+                                    </div>
+                                    <select class="custom-select" formControlName="amountWin"
+                                        [ngClass]="{ 'is-invalid': submitted && f.amountWin.errors }"
+                                        (change)="amountWinOnChange()" required>
+                                        <!-- <option value="">Open this select Amount of Win</option> -->
+                                        <option value={{number}} *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">
+                                            {{number}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="submitted && f.amountWin.errors" class="invalid-feedback">
+                                        <div *ngIf="f.amountWin.errors.required">Amount of Win is required</div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="input-group input-frm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text text-val">Player Amt</span>
+                            </div>
+                            <input type="number" class="form-control" formControlName="playerAmt"
+                                [ngClass]="{ 'is-invalid': submitted && f.playerAmt.errors }"
+                                placeholder="Enter Player Amt" />
+                            <div *ngIf="submitted && f.playerAmt.errors" class="invalid-feedback">
+                                <div *ngIf="f.playerAmt.errors.required">Player Amt is required</div>
+                            </div>
+                        </div>
+
+                        <div class="input-group input-frm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text text-val">Winner Amt</span>
+                            </div>
+                            <input type="number" class="form-control" formControlName="winnerAmt"
+                                [ngClass]="{ 'is-invalid': submitted && f.winnerAmt.errors }"
+                                placeholder="Winner Amt" />
+                            <div *ngIf="submitted && f.winnerAmt.errors" class="invalid-feedback">
+                                <div *ngIf="f.winnerAmt.errors.required">Winner Amt is required</div>
+                            </div>
+                        </div> -->
+
+                                <div>
+                                    <button type="submit" class="color-ais block butsubmit">Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal Edit -->
+
+
+<!-- modal Edit -->
+<input type="button" id="modalDeff" name="modalDeff"
+    onclick="document.getElementById('diffDetail').style.display='block'" hidden>
+<input type="button" id="closeModalDeff" name="closeModalDeff"
+    onclick="document.getElementById('diffDetail').style.display='none'" hidden>
+
+<div id="diffDetail" class="w3-modal">
+    <div class="text-center" style="margin-top:15% ;">
+        <div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <span style="margin-top: 24px;" class="d-block p-2 bg-dark text-white">
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true" id="closeXDiff" name="closeXDiff"
+                                onclick="document.getElementById('diffDetail').style.display='none'"
+                                (click)="getConfig()">&times;</span>
+                        </button>
+                        Difficulty Detail : <span style="color: rgb(196, 196, 196);">{{difficulty}} Level</span></span>
+                    <div *ngIf="f.playerAmt.value !> 0" class="card" style="padding: 24px; ">
+                        <table class=" table table-sm table-bordered text-center">
+                            <thead class="table-active">
+                                <tr>
+                                    <th>Flip</th>
+                                    <th>Speed(0-10)</th>
+                                    <th>fip Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let loopdata of diffDetail; let i = index;">
+                                    <td class="text-nowrap" style="color: rgb(50, 136, 38);">{{ loopdata.flip }}</td>
+                                    <td class=" text-nowrap">
+                                        <select class="custom-select" value={{loopdata.speed}}
+                                            [(ngModel)]="diffDetail[i].speed" (change)="diffConvert()">
+                                            <option type="number" value={{number}}
+                                                *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10]">{{number}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td class=" text-nowrap">
+                                        <select class="custom-select" value={{loopdata.flipAmt}}
+                                            [(ngModel)]="diffDetail[i].flipAmt" (change)="diffConvert()">
+                                            <option value={{number}} *ngFor="let number of fipAmtOptionList">{{number}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                            <button type="submit" class="color-ais block butsubmit" (click)="save()">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal Edit -->
