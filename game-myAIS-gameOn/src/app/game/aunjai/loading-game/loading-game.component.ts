@@ -23,10 +23,16 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class LoadingGameComponent implements OnInit {
+  loading : boolean;
 
-  constructor() { }
+  constructor() {
+    this.loading = false ; 
+   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.loading = true;
+    }, 2000);
   }
 
 }
