@@ -235,8 +235,19 @@ $(document).ready(function () {
                         top: 'easeInQuint'
                       }
                     });
+                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t" alt="" width="400px">');
+                    HeaderText.show();
+                    HeaderText.animate({
+                      top: "200px"
+                    }, {
+                      duration: 500,
+                      specialEasing: {
+                        top: 'easeInQuint'
+                      }
+                    });
 
                   }
+
 
                   function print_error() {
                     // setMessage("Nothing found.. :P :P <a href='index.html' >try again</a>", "color_1");
@@ -256,18 +267,6 @@ $(document).ready(function () {
     function setMessage(message) {
       messageRound.html(message);
     }
-    // function clearPosition() {
-    //   box1.finish();
-    //   box2.finish();
-    //   box3.finish();
-    //   kick.finish();
-    //   cup_a.finish();
-    //   cup_b.finish();
-    //   $("#box1").html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
-    //   $("#box2").html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
-    //   $("#box3").html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
-    //   console.log("clear opsition");
-    // }
 
   })();
 
