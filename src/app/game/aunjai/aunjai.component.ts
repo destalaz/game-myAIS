@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 declare var jQuery: any;
 @Component({
   selector: 'game-aunjai',
@@ -9,13 +9,11 @@ declare var jQuery: any;
   }
 })
 export class AunjaiComponent implements OnInit {
-  name = 'Angular';
-  isMobile: boolean = false;
-  width:number = window.innerWidth;
-  height:number = window.innerHeight;
-  mobileWidth:number  = 760;
-
-
+  isTablet: boolean = false;
+  width: number = window.innerWidth;
+  height: number = window.innerHeight;
+  mobileWidth: number = 720;
+  mobileHeight: number = 1280;
 
 
   ngOnInit() {
@@ -25,14 +23,26 @@ export class AunjaiComponent implements OnInit {
       });
     })(jQuery);
 
-    this.isMobile = this.width < this.mobileWidth;
+
   }
+
+  //Check Resolution Width720 Height1280 Fix BG
   onWindowResize(event) {
     this.width = event.target.innerWidth;
     this.height = event.target.innerHeight;
-    this.isMobile = this.width < this.mobileWidth;
-}
+    if (this.width >= this.mobileWidth && this.height >= this.mobileHeight) {
+      this.isTablet = true;
+    } else {
+      this.isTablet = false;
+    }
+    console.log(this.isTablet)
 
- 
+  }
+
+  testfn(){
+    console.log("@click");
+  }
+
+
 
 }

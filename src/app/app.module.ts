@@ -7,12 +7,18 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderGameComponent } from './game/aunjai/header-game/header-game.component';
+import { PopupComponent } from './game/aunjai/popup/popup.component';
+import { LoadingGameComponent } from './game/aunjai/loading-game/loading-game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AunjaiComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderGameComponent,
+    PopupComponent,
+    LoadingGameComponent
   ],
   imports: [
     HttpClientModule,

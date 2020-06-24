@@ -96,3 +96,21 @@
   padding: 5px;
 }
 
+
+
+#heading {
+  z-index: 200;
+  position: absolute;
+  top: 200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+#textHeader{
+  width: 400px;
+}
