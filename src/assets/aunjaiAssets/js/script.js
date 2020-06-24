@@ -5,19 +5,21 @@ $(document).ready(function () {
       box2 = $("#box2"),
       box3 = $("#box3"),
       kick = $("#kick_jump"),
-      contentMain = $("#board"),
+      cup_a = $("#box_o_t"),
+      cup_b = $("#box_o_b"),
       HeaderText = $("#heading-Text"),
       startButton = $("#start_game"),
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
       shuffleSpeed = 400,
-      nuberOfShuffels = 1,
+      nuberOfShuffels = 5,
       z = 0,
       countWin = 0;
 
     var ans = Math.floor(Math.random() * 3) + 1;
 
     startButton.on("click", function startGame(event) {
+      clearPosition();
       divBtn.hide();
       HeaderText.hide();
       // event.preventDefault();
@@ -56,30 +58,30 @@ $(document).ready(function () {
 
               // Close all the three boxes in a regular interval.
               box1.delay(500).queue(function (n) {
-                // $(this).animate({
-                //   top: "20px"
-                // });
+                $(this).animate({
+                  top: + 20 + "px"
+                });
                 if (ans == 1) kick.hide();
                 n();
               });
               box2.delay(1000).queue(function (n) {
-                // $(this).animate({
-                //   top: "20px"
-                // });
+                $(this).animate({
+                  top: + 20 + "px"
+                });
                 if (ans == 2) kick.hide();
                 n();
               });
               box3.delay(1500).queue(function (n) {
-                // $(this).animate({
-                //   top: box2.position().top
-                // });
+                $(this).animate({
+                  top: box2.position().top 
+                });
                 if (ans == 3) kick.hide();
 
 
                 var box1_left = box1.position().left,
                   box2_left = box2.position().left,
                   box3_left = box3.position().left,
-                  box_top = box1.position().top;
+                  box_top = box3.position().top + 20 + "px";
 
                 box1.css({
                   position: "absolute",
@@ -144,7 +146,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2070.svg" id="box_o_t" alt="" width="240px">');
                       box1.animate({
-                        top: "520px"
+                        top: $(this).position().top + -200 + "px"
                       });
                       if (ans == 1) {
                         kick.css({
@@ -152,13 +154,11 @@ $(document).ready(function () {
                         });
                         countWin = countWin + 1;
                         flag = 1;
-                        slide_out();
-                        // clearPosition();
-                        // startGame();
+                        // slide_out();
+                        startGame();
                       } else {
                         print_error();
                         flag = 1;
-                        // clearPosition();
                       }
                     }
                   });
@@ -167,7 +167,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2070.svg" id="box_o_t" alt="" width="240px">');
                       box2.animate({
-                        top: "520px"
+                        top: $(this).position().top + -200 + "px"
                       });
                       if (ans == 2) {
                         kick.css({
@@ -175,13 +175,11 @@ $(document).ready(function () {
                         });
                         countWin = countWin + 1;
                         flag = 1;
-                        slide_out();
-                        // clearPosition();
-                        // startGame();
+                        // slide_out();
+                        startGame();
                       } else {
                         flag = 1;
-                        // print_error();
-                        // clearPosition();
+                        print_error();
                       }
                     }
                   });
@@ -190,7 +188,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2070.svg" id="box_o_t" alt="" width="240px">');
                       box3.animate({
-                        top: "440px"
+                        top: $(this).position().top + -200 + "px"
                       });
                       if (ans == 3) {
                         kick.css({
@@ -198,39 +196,35 @@ $(document).ready(function () {
                         });
                         countWin = countWin + 1;
                         flag = 1;
-                        slide_out();
-                        // clearPosition();
-                        // startGame();
+                        // slide_out();
+                        startGame();
                       } else {
                         flag = 1;
                         print_error();
-                        // clearPosition();
                       }
                     }
                   });
 
 
-                  function slide_out() {
-                    // setMessage("Congrats You won hard mode!!!! <a href='index.html' >Play again</a>", "color_2");
-                    kick.show();
-                    kick.animate({
-                      top: "750px"
-                    }, {
-                      duration: 500,
-                      specialEasing: {
-                        top: 'easeInQuint'
-                      }
-                    });
+                  // function slide_out() {
+                  //   // setMessage("Congrats You won hard mode!!!! <a href='index.html' >Play again</a>", "color_2");
+                  //   kick.show();
+                  //   kick.animate({
+                  //     top: "750px"
+                  //   }, {
+                  //     duration: 500,
+                  //     specialEasing: {
+                  //       top: 'easeInQuint'
+                  //     }
+                  //   });
 
-                  }
+                  // }
 
                   function print_error() {
                     // setMessage("Nothing found.. :P :P <a href='index.html' >try again</a>", "color_1");
                   }
 
-                  function clearPosition() {
-                    contentMain.removeAttr('style');
-                  }
+
 
                 }, nuberOfShuffels * shuffleSpeed);
                 n();
@@ -243,6 +237,18 @@ $(document).ready(function () {
 
     function setMessage(message) {
       messageRound.html(message);
+    }
+    function clearPosition() {
+      box1.finish();
+      box2.finish();
+      box3.finish();
+      kick.finish();
+      cup_a.finish();
+      cup_b.finish();
+      $("#box1").html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+      $("#box2").html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+      $("#box3").html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+      console.log("clear opsition");
     }
 
   })();
