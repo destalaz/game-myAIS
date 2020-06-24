@@ -12,7 +12,7 @@ $(document).ready(function () {
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
       shuffleSpeed = 400,
-      nuberOfShuffels = 5,
+      nuberOfShuffels = 1,
       z = 0,
       countWin = 0;
 
@@ -148,17 +148,24 @@ $(document).ready(function () {
                       box1.animate({
                         top: $(this).position().top + -200 + "px"
                       });
+
                       if (ans == 1) {
                         kick.css({
                           left: $(this).position().left + 46 + "px"
                         });
                         countWin = countWin + 1;
                         flag = 1;
-                        // slide_out();
-                        startGame();
+                        slide_out();
                       } else {
                         print_error();
                         flag = 1;
+                        // clearPosition();
+                        setTimeout(() => {
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+                          box1.animate({
+                            top: "660px"
+                          });
+                        }, 1500);
                       }
                     }
                   });
@@ -175,11 +182,17 @@ $(document).ready(function () {
                         });
                         countWin = countWin + 1;
                         flag = 1;
-                        // slide_out();
-                        startGame();
+                        slide_out();
                       } else {
                         flag = 1;
-                        print_error();
+                        setTimeout(() => {
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+                          box2.animate({
+                            top: "660px"
+                          });
+                        }, 1500);
+                        // print_error();
+                        // clearPosition();
                       }
                     }
                   });
@@ -196,9 +209,14 @@ $(document).ready(function () {
                         });
                         countWin = countWin + 1;
                         flag = 1;
-                        // slide_out();
-                        startGame();
+                       slide_out();
                       } else {
+                        setTimeout(() => {
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+                          box3.animate({
+                            top: "660px"
+                          });
+                        }, 1500);
                         flag = 1;
                         print_error();
                       }
@@ -206,19 +224,19 @@ $(document).ready(function () {
                   });
 
 
-                  // function slide_out() {
-                  //   // setMessage("Congrats You won hard mode!!!! <a href='index.html' >Play again</a>", "color_2");
-                  //   kick.show();
-                  //   kick.animate({
-                  //     top: "750px"
-                  //   }, {
-                  //     duration: 500,
-                  //     specialEasing: {
-                  //       top: 'easeInQuint'
-                  //     }
-                  //   });
+                  function slide_out() {
+                    // setMessage("Congrats You won hard mode!!!! <a href='index.html' >Play again</a>", "color_2");
+                    kick.show();
+                    kick.animate({
+                      top: "750px"
+                    }, {
+                      duration: 500,
+                      specialEasing: {
+                        top: 'easeInQuint'
+                      }
+                    });
 
-                  // }
+                  }
 
                   function print_error() {
                     // setMessage("Nothing found.. :P :P <a href='index.html' >try again</a>", "color_1");
