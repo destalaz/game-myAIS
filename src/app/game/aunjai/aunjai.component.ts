@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 declare var jQuery: any;
+
 @Component({
   selector: 'game-aunjai',
   templateUrl: './aunjai.component.html',
@@ -10,12 +11,11 @@ declare var jQuery: any;
 })
 export class AunjaiComponent implements OnInit {
   isTablet: boolean = false;
+
   width: number = window.innerWidth;
   height: number = window.innerHeight;
   mobileWidth: number = 720;
   mobileHeight: number = 1280;
-
-
   ngOnInit() {
     (function ($) {
       $(document).ready(function () {
@@ -25,7 +25,6 @@ export class AunjaiComponent implements OnInit {
 
 
   }
-
   //Check Resolution Width720 Height1280 Fix BG
   onWindowResize(event) {
     this.width = event.target.innerWidth;
@@ -39,7 +38,7 @@ export class AunjaiComponent implements OnInit {
 
   }
 
-  testfn(){
+  testfn() {
     console.log("@click");
   }
 

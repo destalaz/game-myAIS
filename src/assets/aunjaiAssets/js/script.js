@@ -11,8 +11,8 @@ $(document).ready(function () {
       startButton = $("#start_game"),
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
-      shuffleSpeed = 400,
-      nuberOfShuffels = 1,
+      shuffleSpeed = 600,
+      nuberOfShuffels = 25,
       z = 0,
       countWin = 0;
 
@@ -240,7 +240,7 @@ $(document).ready(function () {
                     HeaderText.animate({
                       top: "200px"
                     }, {
-                      duration: 500,
+                      duration: 900,
                       specialEasing: {
                         top: 'easeInQuint'
                       }

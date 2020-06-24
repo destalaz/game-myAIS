@@ -1,9 +1,8 @@
-
 <div id="content">
     <header-game></header-game>
     <div id="divBtn">
         <button class="buttonStart" id="start_game" (click)="testfn()">
-            เล่นเลย 
+            เล่นเลย
         </button>
     </div>
 
@@ -27,11 +26,8 @@
 
 </div>
 
-<div id="footer">
-    <div id="dimensions" style="color: black;">
-        <div *ngIf="isTablet">I am Tablet ++ Device</div>
-        <div><strong>Width:</strong>&nbsp;{{width}}</div>
-        <div><strong>Height:</strong>&nbsp;{{height}}</div>
-    </div>
-</div>
-<br>
+
+
+<div *ngIf="isTablet">I am Tablet ++ Device</div>
+<div><strong>Width:</strong>&nbsp;{{width}}</div>
+<div><strong>Height:</strong>&nbsp;{{height}}</div>
