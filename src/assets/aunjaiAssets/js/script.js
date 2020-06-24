@@ -153,12 +153,12 @@ $(document).ready(function () {
                         countWin = countWin + 1;
                         flag = 1;
                         slide_out();
-                        clearPosition();
-                        startGame();
+                        // clearPosition();
+                        // startGame();
                       } else {
                         print_error();
                         flag = 1;
-                        clearPosition();
+                        // clearPosition();
                       }
                     }
                   });
@@ -176,12 +176,12 @@ $(document).ready(function () {
                         countWin = countWin + 1;
                         flag = 1;
                         slide_out();
-                        clearPosition();
-                        startGame();
+                        // clearPosition();
+                        // startGame();
                       } else {
                         flag = 1;
-                        print_error();
-                        clearPosition();
+                        // print_error();
+                        // clearPosition();
                       }
                     }
                   });
@@ -199,12 +199,12 @@ $(document).ready(function () {
                         countWin = countWin + 1;
                         flag = 1;
                         slide_out();
-                        clearPosition();
-                        startGame();
+                        // clearPosition();
+                        // startGame();
                       } else {
                         flag = 1;
                         print_error();
-                        clearPosition();
+                        // clearPosition();
                       }
                     }
                   });
