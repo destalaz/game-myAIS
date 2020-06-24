@@ -12,7 +12,7 @@ $(document).ready(function () {
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
       shuffleSpeed = 600,
-      nuberOfShuffels = 25,
+      nuberOfShuffels = 15,
       z = 0,
       countWin = 0;
 

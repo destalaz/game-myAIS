@@ -7,7 +7,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./loading-game.component.scss'],
   animations: [
     trigger('FadeOutAnimation', [
-      state('in', style({ opacity: 0.5, display: 'none' })),
+      state('in', style({ opacity: 0.8, display: 'none' })),
       transition(':enter', [
         style({ opacity: 1 }),
         animate(4000)
