@@ -1,0 +1,116 @@
+
+
+#divBtn {
+  position: absolute;
+  top: 960px;
+  width: 440px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.buttonStart {
+  background: transparent url(../../../assets/aunjaiAssets/component/btn@2x.png);
+  width: 440px;
+  height: 164px;
+  position: relative;
+  margin: auto;
+  border: none;
+  outline: none;
+  font-size: 46px;
+  opacity: 0.92;
+}
+.buttonStart:hover {
+  opacity: 1;
+}
+
+#content {
+  width: 720px;
+  margin: 10px auto;
+  background-color: #fff;
+  min-height: 1280px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  box-shadow: #888 0px 0px 5px;
+  background: transparent url(../../../assets/aunjaiAssets/bg/bg_game@2x.png);
+  background-size: cover;
+}
+
+#board {
+  padding: 660px 0px 20px 0px;
+  overflow: hidden;
+  width: 720px;
+  text-align: center;
+}
+
+#box1,
+#box2,
+#box3 {
+  position: relative;
+  float: left;
+  z-index: 300;
+}
+
+#box1,
+#box2,
+#box3 {
+  overflow: hidden;
+}
+
+#box1 #box_o_t,
+#box2 #box_o_t,
+#box3 #box_o_t {
+  left: 0px;
+  position: relative;
+  top: 0px;
+  z-index: 100;
+}
+
+#kick_jump {
+  position: absolute;
+  z-index: 200;
+  top: -100px;
+  left: 0px;
+  display: none;
+}
+
+#box_o_b {
+  width: 240px;
+}
+
+#footer {
+  position: fixed;
+  text-align: center;
+  background-color: #efefef;
+  color: #fff;
+  box-shadow: 0 0 5px #888;
+  font-size: 11px;
+  bottom: 0px;
+  width: 100%;
+  padding: 5px;
+}
+
+
+
+#heading-Text {
+  z-index: 200;
+  position: absolute;
+  top: 200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+#textHeader{
+  width: 400px;
+}
