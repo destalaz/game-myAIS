@@ -12,6 +12,16 @@ body {
         width: 52%;
         margin-right: 10px;
     }
+    .bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1005;
+        background-color: rgba(85, 100, 47, 0.9); //สีตาม design แปลง rgba
+    }
     .card-tutorial {
         background-color: white;
         display: block;
@@ -21,6 +31,7 @@ body {
         border-radius: 36px;
         bottom: 14%;
         position: fixed;
+        font-style: italic;
 
         .text-header {
             margin: 1rem;
@@ -34,7 +45,7 @@ body {
             opacity: 1;
         }
         .card-content {
-            margin: 1rem;
+            margin: 1.5rem;
             text-align: left;
             font-size: 22px;
             font-weight: bolder;
@@ -42,6 +53,54 @@ body {
             letter-spacing: 0px;
             color: #49382f;
             opacity: 1;
+
+            .how-to-play2 {
+                display: inherit;
+                width: 14%;
+                left: 43%;
+                bottom: 23%;
+                position: fixed;
+            }
+            .how-to-play3 {
+                display: inherit;
+                width: 14%;
+                left: 43%;
+                bottom: 23%;
+                position: fixed;
+            }
+            .img-get-point {
+                display: inherit;
+                width: 12%;
+                left: 44%;
+                bottom: 22%;
+                position: fixed;
+            }
+        }
+        .card-content-final {
+            margin: 1.5rem;
+            text-align: left;
+            font-size: 22px;
+            font-weight: bolder;
+            font-family: DB Heavent;
+            letter-spacing: 0px;
+            color: #49382f;
+            opacity: 1;
+
+            .how-to-play5 {
+                display: inherit;
+                width: 27%;
+                height: 72%;
+                left: 36.5%;
+                bottom: 12%;
+                position: fixed;
+            }
+            .close-ic {
+                display: inherit;
+                width: 3%;
+                left: 60%;
+                bottom: 77%;
+                position: fixed;
+            }
         }
         .ais-point-ic {
             display: inherit;
@@ -58,7 +117,7 @@ body {
             position: fixed;
         }
         .tab-next {
-            background-color: aqua;
+            background-color: white;
             width: 26%;
             height: 9%;
             left: 37%;
