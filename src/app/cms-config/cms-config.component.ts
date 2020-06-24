@@ -1,8 +1,6 @@
 import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiConfigBDService } from '../service/apiConfigDB.service';
-
 import { CmsService } from "../service/cms.service";
 
 
@@ -24,10 +22,10 @@ export class CmsConfigComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private cmsService: CmsService,
-    private apiConfigBDService: ApiConfigBDService
   ) { }
 
   ngOnInit() {
+    
 
     for (let i = 10; i <= 300; i = i + 10) { this.rewardOptionList.push(i) }
     for (let i = 1; i <= 50; i++) { this.fipAmtOptionList.push(i) }
