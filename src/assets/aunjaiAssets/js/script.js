@@ -73,7 +73,7 @@ $(document).ready(function () {
               });
               box3.delay(1500).queue(function (n) {
                 $(this).animate({
-                  top: box2.position().top 
+                  top: box2.position().top
                 });
                 if (ans == 3) kick.hide();
 
@@ -163,7 +163,7 @@ $(document).ready(function () {
                         setTimeout(() => {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
                           box1.animate({
-                            top: "660px"
+                            top: $(this).position().top + +200 + "px"
                           });
                         }, 1500);
                       }
@@ -188,7 +188,7 @@ $(document).ready(function () {
                         setTimeout(() => {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
                           box2.animate({
-                            top: "660px"
+                            top: $(this).position().top + +200 + "px"
                           });
                         }, 1500);
                         // print_error();
@@ -209,12 +209,12 @@ $(document).ready(function () {
                         });
                         countWin = countWin + 1;
                         flag = 1;
-                       slide_out();
+                        slide_out();
                       } else {
                         setTimeout(() => {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
                           box3.animate({
-                            top: "660px"
+                            top: $(this).position().top + +200 + "px"
                           });
                         }, 1500);
                         flag = 1;
