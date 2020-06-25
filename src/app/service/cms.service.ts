@@ -14,7 +14,7 @@ export class CmsService {
     reportDetail = new Array();
     reportName = new Array();
     reloadData;
-    private baseUrl = 'http://localhost:3000'
+    private baseUrl = 'http://localhost:3000';
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -28,18 +28,19 @@ export class CmsService {
 
 
     getConfig() {
-        let urlApi = "/cms/config";
+        let urlApi = "/config";
+        console.log("log=> " ,this.baseUrl + urlApi);
         return this.http.get(this.baseUrl + urlApi);
     }
 
     cancelLevel(id: string) {
-        let urlApi = "/cms/config/cancal";
+        let urlApi = "/config/cancal";
         console.log(this.baseUrl + urlApi );
         return this.http.post(this.baseUrl + urlApi , { _id : id } );
     }
 
     createLevel(body: any) {
-        let urlApi = "/cms/config/create";
+        let urlApi = "/config/create";
         return this.http.post(this.baseUrl + urlApi , body );
     }
 
