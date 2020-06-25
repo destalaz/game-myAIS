@@ -12,15 +12,19 @@ export class TutorialPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.pageNo);
   }
 
-  clickPage() {
+  backPage() {
+  }
 
-    for (let i = 1; i <= 4; i++) {
+  nextPage() {
+
+    for (let i = 0; i <= 4; i++) {
       if (this.pageNo === 0) {
         this.pageNo = this.pageNo + 1;
+        i++;
         console.log('ก่อน => ', this.pageNo);
+        console.log('i => ', i);
 
       } else {
         if (((this.pageNo === i) && (i === 1) && (this.pageNo) === 1)) {
