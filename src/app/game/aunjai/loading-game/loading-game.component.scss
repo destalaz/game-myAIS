@@ -1,16 +1,13 @@
 
 .tablet-loading-body {
-    width: 720px;
-    margin: 10px auto;
-    background-color: #fff;
-    min-height: 1280px;
-    position: relative;
-    top: 0px;
-    left: 0px;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
     box-shadow: #888 0px 0px 5px;
-    background: transparent url(../../../../assets/aunjaiAssets/bg/bg_AIS-Game_1024x768.png);
-    background-size: cover;
-    zoom: 50%;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
+    background-size: auto 100%;
+    background-position-x: center;
+    
 }
 
 #heading {
@@ -66,5 +63,5 @@
 .aunjai-logo {
     width: 668px;
     height: 648px;
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group2048@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2048@2x.png);
 }

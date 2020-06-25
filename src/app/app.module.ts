@@ -23,7 +23,7 @@ import { PopupComponent  } from './game/aunjai/popup/popup.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'config', component: CmsConfigComponent },
-  { path: 'game', component: GameAunjaiInboxComponent },
+  { path: '', component: LoadingGameComponent },
   { path: 'tutorial', component: TutorialPageComponent },
   { path: 'aunjai', component: AunjaiComponent },
   { path: 'popup', component: PopupComponent},
