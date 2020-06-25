@@ -1,17 +1,43 @@
 #content {
-    width: 720px;
-    margin: 10px auto;
-    background-color: #fff;
-    min-height: 1280px;
+    position: absolute;
+    top: 178px;
+    width: 90%;
+    height: 297px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000048;
+    border-radius: 20px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.close {
+    top: -150px;
     position: relative;
-    top: 0px;
-    left: 0px;
-    box-shadow: #888 0px 0px 5px;
-    background-image:url(../../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
-    background-size: auto 100%;
-    background-position: center;
+    right: 32px;
+    border: 2px solid;
+    background-color: green;
+    color: wheat;
+    border-radius: 50%;
+    font-size: 33px;
+    padding: 8px;
+    box-shadow: inset 0px 0px 4px 0px black;
+}
 
-    background-repeat:no-repeat;
-    background-position: center center;
-    min-height:100%;
+.aunjai-logo {
+    position: relative;
+    width: 240px;
+    height: 300px;
+    top: -160px;
+    margin: auto;
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2046.png);
+}
+
+span {
+    top: 260px;
+    position: relative;
+    left: 38%;
 }
