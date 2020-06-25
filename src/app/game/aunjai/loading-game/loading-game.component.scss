@@ -1,0 +1,70 @@
+
+.tablet-loading-body {
+    width: 720px;
+    margin: 10px auto;
+    background-color: #fff;
+    min-height: 1280px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    box-shadow: #888 0px 0px 5px;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/bg_game@2x.png);
+    background-size: cover;
+    zoom: 50%;
+}
+
+#heading {
+    z-index: 200;
+    position: absolute;
+    top: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#textHeader {
+    width: 600px;
+}
+#heading-loading {
+    z-index: 200;
+    position: absolute;
+    top: 420px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 20px;
+    background: #b1a6b2 0% 0% no-repeat padding-box;
+    border-radius: 54px;
+    opacity: 1;
+    background: transparent url(../../../../assets/aunjaiAssets/component/loading_bg.svg);
+}
+
+.loading-Bar {
+    width: 128px;
+    height: 15px;
+    background: transparent url(../../../../assets/aunjaiAssets/component/loading_process_ic.svg);
+}
+#logo-loading {
+    z-index: 200;
+    position: absolute;
+    top: 420px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 54px;
+    opacity: 1;
+}
+
+.aunjai-logo {
+    width: 668px;
+    height: 648px;
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group2048@2x.png);
+}

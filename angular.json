@@ -32,7 +32,9 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
+              "src/assets/aunjaiAssets/js/jqueryui.js",
+              "src/assets/aunjaiAssets/js/script.js"]
           },
           "configurations": {
             "production": {
@@ -97,13 +99,11 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "src/styles.scss",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css" 
+              "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js"
-            ]
+            "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
+              "src/assets/aunjaiAssets/js/jqueryui.js",
+              "src/assets/aunjaiAssets/js/script.js"]
           }
         },
         "lint": {
