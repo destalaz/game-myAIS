@@ -48,7 +48,7 @@ $(document).ready(function () {
           top: 'easeOutBounce'
         },
         complete: function () {
-          kick.html("<img src='../../assets/aunjaiAssets/avatar/Cloth_Point_02@2x.png' width='200px' />");
+          kick.html("<img src='../../../assets/aunjaiAssets/avatar/Cloth_Point_02@2x.png' width='200px' />");
           kick.animate({
             top: "780px"
           }, {
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
                   box1.click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2070.svg" id="box_o_t" alt="" width="240px">');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" alt="" width="240px">');
                       box1.animate({
                         top: $(this).position().top + -200 + "px"
                       });
@@ -164,7 +164,7 @@ $(document).ready(function () {
                         flag = 1;
                         // clearPosition();
                         setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                           box1.animate({
                             top: $(this).position().top + +200 + "px"
                           });
@@ -175,7 +175,7 @@ $(document).ready(function () {
 
                   box2.click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2070.svg" id="box_o_t" alt="" width="240px">');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" alt="" width="240px">');
                       box2.animate({
                         top: $(this).position().top + -200 + "px"
                       });
@@ -189,7 +189,7 @@ $(document).ready(function () {
                       } else {
                         flag = 1;
                         setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                           box2.animate({
                             top: $(this).position().top + +200 + "px"
                           });
@@ -202,7 +202,7 @@ $(document).ready(function () {
 
                   $("#box3").click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2070.svg" id="box_o_t" alt="" width="240px">');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" alt="" width="240px">');
                       box3.animate({
                         top: $(this).position().top + -200 + "px"
                       });
@@ -215,7 +215,7 @@ $(document).ready(function () {
                         slide_out();
                       } else {
                         setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_t" alt="" width="240px">');
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                           box3.animate({
                             top: $(this).position().top + +200 + "px"
                           });
