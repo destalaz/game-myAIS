@@ -1,0 +1,38 @@
+<br><br><br>
+<button (click)="testfn()">
+    test loggggggggg
+</button>
+<br><br><br>
+<div id="content">
+    <header-game></header-game>
+    <div id="divBtn">
+        <button class="buttonStart" id="start_game" (click)="testfn()">
+            เล่นเลย
+        </button>
+    </div>
+
+    <div id="kick_jump">
+        <img src="../../../assets/aunjaiAssets/avatar/Cloth_Point_02@2x.png" alt="" width="200px">
+    </div>
+    <div id="heading-Text">
+        <img src="../../../assets/aunjaiAssets/header/ready_ic.svg" id="textHeader">
+    </div>
+    <div id="board">
+        <div id="box1">
+            <img src="../../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_b">
+        </div>
+        <div id="box2">
+            <img src="../../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_b">
+        </div>
+        <div id="box3">
+            <img src="../../../assets/aunjaiAssets/component/Group 2069.svg" id="box_o_b">
+        </div>
+    </div>
+
+</div>
+
+
+
+<div *ngIf="isTablet">I am Tablet ++ Device</div>
+<div><strong>Width:</strong>&nbsp;{{width}}</div>
+<div><strong>Height:</strong>&nbsp;{{height}}</div>

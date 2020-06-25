@@ -14,13 +14,21 @@ import { DataTablesModule } from 'angular-datatables';
 import { GameAunjaiInboxComponent } from './game-aunjai-inbox/game-aunjai-inbox.component';
 import { TutorialPageComponent } from './game-aunjai-inbox/tutorial-page/tutorial-page.component';  // npm i @types/datatables.net --save-dev
 
+import { AunjaiComponent } from './game/aunjai/aunjai.component';
+import { HeaderGameComponent } from './game/aunjai/header-game/header-game.component';
+import { LoadingGameComponent } from './game/aunjai/loading-game/loading-game.component';
+import { PopupComponent  } from './game/aunjai/popup/popup.component';
+
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'config', component: CmsConfigComponent },
   { path: 'game', component: GameAunjaiInboxComponent },
   { path: 'tutorial', component: TutorialPageComponent },
-  { path: '',
+  { path: 'aunjai', component: AunjaiComponent },
+  { path: 'popup', component: PopupComponent},
+  {
+    path: '',
     redirectTo: '/login',
     pathMatch: 'full'
   },
@@ -33,7 +41,11 @@ const appRoutes: Routes = [
     LoginComponent,
     CmsConfigComponent,
     GameAunjaiInboxComponent,
-    TutorialPageComponent
+    TutorialPageComponent,
+    AunjaiComponent,
+    HeaderGameComponent,
+    LoadingGameComponent,
+    PopupComponent
   ],
   imports: [
     DataTablesModule,
@@ -47,7 +59,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only set true
     )
     // other imports here
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
