@@ -12,13 +12,16 @@ $(document).ready(function () {
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
       shuffleSpeed = 600,
-      nuberOfShuffels = 15,
+      nuberOfShuffels = 4,
       z = 0,
-      countWin = 0;
+      countWin = 1;
+      var data1 = localStorage.getItem('Mobile');
 
     var ans = Math.floor(Math.random() * 3) + 1;
 
     startButton.on("click", function startGame(event) {
+      console.log("this->script->recive parameter",localStorage.getItem('Mobile'));
+      
       // clearPosition();
       divBtn.hide();
       HeaderText.hide();
@@ -245,7 +248,7 @@ $(document).ready(function () {
                         top: 'easeInQuint'
                       }
                     });
-
+                    localStorage.setItem('Mobile','800');
                   }
 
 

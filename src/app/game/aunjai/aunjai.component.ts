@@ -16,13 +16,14 @@ export class AunjaiComponent implements OnInit {
   height: number = window.innerHeight;
   mobileWidth: number = 720;
   mobileHeight: number = 1280;
+  
   ngOnInit() {
     (function ($) {
       $(document).ready(function () {
         console.log("Hello from jQuery!");
       });
     })(jQuery);
-
+    localStorage.setItem('Mobile', this.mobileWidth.toString());
 
   }
   //Check Resolution Width720 Height1280 Fix BG
@@ -38,8 +39,10 @@ export class AunjaiComponent implements OnInit {
 
   }
 
+  
+
   testfn() {
-    console.log("@click");
+    console.log("recive parameter",localStorage.getItem('Mobile'));
   }
 
 
