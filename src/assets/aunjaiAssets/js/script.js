@@ -32,6 +32,8 @@ $(document).ready(function () {
 
 
     startButton.on("click", function startGame(event) {
+
+      console.log("Script Game Start");
       check_win();
       var ans = Math.floor(Math.random() * 3) + 1;
       var kickInitialPosition = 0;
