@@ -181,7 +181,7 @@ $(document).ready(function () {
                         flag = 1;
                         slide_out();
                       } else {
-                        print_error();
+                        gameOver();
                         flag = 1;
                         // clearPosition();
                         setTimeout(() => {
@@ -208,8 +208,7 @@ $(document).ready(function () {
                         setTimeout(() => {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                         }, 1500);
-                        // print_error();
-                        // clearPosition();
+                        gameOver();
                       }
                     }
                   });
@@ -231,7 +230,7 @@ $(document).ready(function () {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                         }, 1500);
                         flag = 1;
-                        print_error();
+                        gameOver();
                       }
                     }
                   });
@@ -280,8 +279,9 @@ $(document).ready(function () {
                   }
 
 
-                  function print_error() {
+                  function gameOver() {
                     // setMessage("Nothing found.. :P :P <a href='index.html' >try again</a>", "color_1");
+                    console.log("game Over");
                   }
 
                 }, nuberOfShuffels * shuffleSpeed);
