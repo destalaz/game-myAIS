@@ -18,13 +18,17 @@ import { AunjaiComponent } from './game/aunjai/aunjai.component';
 import { HeaderGameComponent } from './game/aunjai/header-game/header-game.component';
 import { LoadingGameComponent } from './game/aunjai/loading-game/loading-game.component';
 import { PopupComponent  } from './game/aunjai/popup/popup.component';
+import { RewardFlipComponent } from './game-aunjai-inbox/reward-flip/reward-flip.component';
 
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'config', component: CmsConfigComponent },
+
   { path: '', component: LoadingGameComponent },
   { path: 'tutorial', component: TutorialPageComponent },
+  { path: 'reward_flip', component: RewardFlipComponent },
+
   { path: 'aunjai', component: AunjaiComponent },
   { path: 'popup', component: PopupComponent},
   {
@@ -45,7 +49,8 @@ const appRoutes: Routes = [
     AunjaiComponent,
     HeaderGameComponent,
     LoadingGameComponent,
-    PopupComponent
+    PopupComponent,
+    RewardFlipComponent
   ],
   imports: [
     DataTablesModule,

@@ -1,0 +1,52 @@
+.bg-img-style {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    box-shadow: #888 0px 0px 5px;
+    background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
+    background-size: auto 100%;
+    background-position-x: center;
+
+    .img-logo-reward-flip {
+        position: fixed;
+        width: 70%;
+        bottom: 56%;
+        left: 14%;
+    }
+    .box-landing_1 {
+        padding: 1rem;
+        position: fixed;
+        width: 94%;
+        height: 12%;
+        border: 0px solid;
+        border-radius: 76px;
+        bottom: 47%;
+        left: 3%;
+        background-color: #f8f9fa96;
+        box-shadow: 0px 3px 5px grey;
+    }
+    .box-landing_2 {
+        padding: 1rem;
+        position: fixed;
+        width: 94%;
+        height: 12%;
+        border: 0px solid;
+        border-radius: 76px;
+        bottom: 33%;
+        left: 3%;
+        background-color: #f8f9fa96;
+        box-shadow: 0px 3px 5px grey;
+    }
+    .box-landing_3 {
+        padding: 1rem;
+        position: fixed;
+        width: 94%;
+        height: 12%;
+        border: 0px solid;
+        border-radius: 76px;
+        bottom: 19%;
+        left: 3%;
+        background-color: #f8f9fa96;
+        box-shadow: 0px 3px 5px grey;
+    }
+}

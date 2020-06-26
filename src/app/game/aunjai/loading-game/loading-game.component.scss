@@ -16,6 +16,14 @@
     bottom: 56.5%;
     left: 32.5%;
     z-index: 2;
+
+    @media only screen and (max-device-width: 420px) {
+        position: fixed;
+        width: 29%;
+        bottom: 58.5%;
+        left: 27.5%;
+        z-index: 2;
+    }
 }
 
 .aunjai-logo {
@@ -23,6 +31,13 @@
     width: 60%;
     bottom: 18%;
     left: 22%;
+
+    @media only screen and (max-device-width: 420px) {
+        position: fixed;
+        width: 80%;
+        bottom: 18%;
+        left: 13%;
+    }
 }
 
 .logo-loading {
@@ -30,10 +45,25 @@
     width: 65%;
     bottom: 58%;
     left: 20%;
+
+    //for Iphone
+    @media only screen and (max-device-width: 420px) {
+        position: fixed;
+        width: 85%;
+        bottom: 59%;
+        left: 10%;
+    }
 }
 .load-bg {
     position: fixed;
     width: 38%;
     bottom: 56%;
     left: 32%;
+
+    @media only screen and (max-device-width: 420px) {
+        position: fixed;
+        width: 49%;
+        bottom: 58%;
+        left: 27%;
+    }
 }
