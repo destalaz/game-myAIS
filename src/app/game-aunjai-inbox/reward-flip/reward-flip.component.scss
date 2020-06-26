@@ -12,6 +12,19 @@
         width: 70%;
         bottom: 56%;
         left: 14%;
+
+        @media only screen and (max-device-width: 420px) {
+            position: fixed;
+            width: 80%;
+            bottom: 60%;
+            left: 10%;
+        }
+        @media only screen and (max-device-width: 375px) {
+            position: fixed;
+            width: 90%;
+            bottom: 60%;
+            left: 3%;
+        }
     }
     .box-landing_1 {
         padding: 1rem;
@@ -48,5 +61,81 @@
         left: 3%;
         background-color: #f8f9fa96;
         box-shadow: 0px 3px 5px grey;
+    }
+    .box-landing_test {
+        padding: 1rem;
+        position: fixed;
+        width: 94%;
+        height: 12%;
+        border: 0px solid;
+        border-radius: 76px;
+        bottom: 19%;
+        left: 3%;
+        background-color: #f8f9fa96;
+        box-shadow: 0px 3px 5px grey;
+    }
+    .point_20 {
+        position: fixed;
+        width: 16%;
+        bottom: 19%;
+        left: 4%;
+        z-index: 1;
+
+        @media only screen and (max-device-width: 420px) {
+            width: 21%;
+        }
+        @media only screen and (max-device-width: 375px) {
+            width: 26%;
+        }
+    }
+    .text-detail {
+        font-size: 32px;
+        text-align: center;
+        position: fixed;
+        bottom: 21%;
+        left: 33%;
+        font-style: italic;
+        z-index: 1;
+
+        @media only screen and (max-device-width: 420px) {
+            font-size: 18px;
+            text-align: center;
+            position: fixed;
+            bottom: 21%;
+            left: 28%;
+            font-style: italic;
+            z-index: 1;
+        }
+        @media only screen and (max-device-width: 375px) {
+            font-size: 16px;
+            text-align: center;
+            position: fixed;
+            bottom: 22%;
+            left: 30%;
+            font-style: italic;
+            z-index: 1;
+        }
+    }
+    .btn_play {
+        position: fixed;
+        width: 11%;
+        bottom: 21%;
+        left: 85%;
+        z-index: 1;
+
+        @media only screen and (max-device-width: 420px) {
+            position: fixed;
+            width: 14%;
+            bottom: 21%;
+            left: 80%;
+            z-index: 1;
+        }
+        @media only screen and (max-device-width: 375px) {
+            position: fixed;
+            width: 17%;
+            bottom: 21%;
+            left: 80%;
+            z-index: 1;
+        }
     }
 }
