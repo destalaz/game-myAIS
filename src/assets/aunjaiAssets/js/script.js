@@ -1,9 +1,3 @@
-$(window).load(function () {
-  console.log("load");
-
-});
-
-
 $(document).ready(function () {
   (function () {
     var box1 = $("#box1"),
@@ -15,39 +9,50 @@ $(document).ready(function () {
       startButton = $("#start_game"),
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
-      shuffleSpeed,
-      nuberOfShuffels = 3,
+      shuffleSpeed = 700,
+      nuberOfShuffels = 10,
       cup1 = $("#img-Round-cup1"),
       cup2 = $("#img-Round-cup2"),
       cup3 = $("#img-Round-cup3"),
       countWin = 1,
-      bodyRoot = $("#body-Root"),
-      btnpopup = $("#btnclosepopup"),
-      popup = $("#body-popup"),
-      testClick = $("#start_game2"),
-      btnResume = $("#btn_resume"),
-      totalwin = 3,
+      win = false,
       data1 = localStorage.getItem('Mobile');
 
 
 
     startButton.on("click", function startGame(event) {
-
-      console.log("Script Game Start");
-      check_win();
+      divBtn.hide();
       var ans = Math.floor(Math.random() * 3) + 1;
       var kickInitialPosition = 0;
       reset_position();
       console.log("this->script->recive parameter", localStorage.getItem('Mobile'));
       console.log("this count wind", countWin);
-      // clearPosition();
+      if (countWin === 4) {
+        kick.hide();
+        divBtn.show();
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/for_score_ic@2x.png" id="box_o_t" alt="" width="400px">');
+        HeaderText.show();
+        HeaderText.animate({
+          top: "200px"
+        }, {
+          duration: 900,
+          specialEasing: {
+            top: 'easeInQuint'
+          }
+        });
+        console.log("false");
+        if (!win) {
+          win = true;
+          countWin = 1;
+          setMessage("Game " + countWin + " of 3");
+          return false;
+        }
+
+      }
       divBtn.hide();
       ready_game();
-      // HeaderText.hide();
-      // event.preventDefault();
-
-      //Show the character fist
       kick.show();
+
 
 
       // Update the initial position based on the answer
@@ -76,29 +81,19 @@ $(document).ready(function () {
               top: 'easeOutBounce'
             },
             complete: function () {
-              // setMessage("Closing the boxes ;)")
 
               // Close all the three boxes in a regular interval.
               box1.delay(500).queue(function (n) {
-                // $(this).animate({
-                //   top: + 20 + "px"
-                // });
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" alt="" width="240px">');
                 if (ans == 1) kick.hide();
                 n();
               });
               box2.delay(1000).queue(function (n) {
-                // $(this).animate({
-                //   top: + 20 + "px"
-                // });
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" alt="" width="240px">');
                 if (ans == 2) kick.hide();
                 n();
               });
               box3.delay(1500).queue(function (n) {
-                // $(this).animate({
-                //   top: box2.position().top
-                // });
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" alt="" width="240px">');
                 if (ans == 3) kick.hide();
 
@@ -132,11 +127,6 @@ $(document).ready(function () {
                 };
 
                 var interval = setInterval(function () {
-
-                  // setMessage("Game 1 of 3");
-
-
-
                   var array = shuffle([1, 2, 3]);
 
                   $("#box" + array[0]).animate({
@@ -164,7 +154,6 @@ $(document).ready(function () {
                 setTimeout(function () {
                   clearInterval(interval);
                   var flag = 0;
-                  // $('div[id^="box"]').css("cursor", "pointer");
                   // setMessage("Click on the box, that you think Aunjai is hidden >> :p")
 
                   box1.click(function () {
@@ -180,12 +169,21 @@ $(document).ready(function () {
                         flag = 1;
                         slide_out();
                       } else {
-                        print_error();
-                        flag = 1;
-                        // clearPosition();
                         setTimeout(() => {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                         }, 1500);
+                        flag = 1;
+                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" alt="" width="400px">');
+                        HeaderText.show();
+                        HeaderText.animate({
+                          top: "200px"
+                        }, {
+                          duration: 900,
+                          specialEasing: {
+                            top: 'easeInQuint'
+                          }
+                        });
+                        gameOver();
                       }
                     }
                   });
@@ -203,11 +201,21 @@ $(document).ready(function () {
                         flag = 1;
                         slide_out();
                       } else {
-                        print_error();
-                        flag = 1;
                         setTimeout(() => {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                         }, 1500);
+                        flag = 1;
+                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" alt="" width="400px">');
+                        HeaderText.show();
+                        HeaderText.animate({
+                          top: "200px"
+                        }, {
+                          duration: 900,
+                          specialEasing: {
+                            top: 'easeInQuint'
+                          }
+                        });
+                        gameOver();
                       }
                     }
                   });
@@ -225,17 +233,28 @@ $(document).ready(function () {
                         flag = 1;
                         slide_out();
                       } else {
-                        print_error();
                         setTimeout(() => {
                           $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
                         }, 1500);
                         flag = 1;
+                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" alt="" width="400px">');
+                        HeaderText.show();
+                        HeaderText.animate({
+                          top: "200px"
+                        }, {
+                          duration: 900,
+                          specialEasing: {
+                            top: 'easeInQuint'
+                          }
+                        });
+                        gameOver();
                       }
                     }
                   });
 
 
                   function slide_out() {
+                    win = false;
                     kick.show();
                     kick.animate({
                       top: "750px"
@@ -257,43 +276,33 @@ $(document).ready(function () {
                     });
                     localStorage.setItem('Mobile', '800');
                     setTimeout(() => {
-                      bodyRoot.css({ overflow: 'hidden' });
-                      popup.show();
+                      countWin = parseInt(countWin) + 1;
+                      if (countWin === 2) {
+                        console.log("countWin 2");
+                        shuffleSpeed = 500;
+                        setMessage("Game " + countWin + " of 3");
+                      } else if (countWin === 3) {
+                        console.log("countWin 3");
+                        shuffleSpeed = 400;
+                        setMessage("Game " + countWin + " of 3");
+                      } else if (countWin === 4) {
+                        console.log("countWin 4");
+                        setMessage("Game " + 3 + " of 3");
+                      }
+
+
+                      startGame();
                     }, 5000);
 
                   }
 
-                  btnpopup.click(function () {
-                    popup.hide();
-                    countWin = parseInt(countWin) + 1;
+
+                  function gameOver() {
+                    win = false;
+                    divBtn.show();
+                    console.log("game Over");
+                    countWin = 1;
                     setMessage("Game " + countWin + " of 3");
-                    bodyRoot.css({ overflow: 'auto' });
-                    startGame();
-                  });
-
-                  btnResume.click(function () {
-                    popup.hide();
-                    countWin = parseInt(countWin) + 1;
-                    setMessage("Game " + countWin + " of 3");
-                    bodyRoot.css({ overflow: 'auto' });
-                    startGame();
-                  });
-
-
-                  function print_error() {
-                    HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" alt="" width="400px">');
-                    HeaderText.show();
-                    HeaderText.animate({
-                      top: "200px"
-                    }, {
-                      duration: 900,
-                      specialEasing: {
-                        top: 'easeInQuint'
-                      }
-                    });
-                    HeaderText.click(function () {
-                      startGame();
-                    });
                   }
 
                 }, nuberOfShuffels * shuffleSpeed);
@@ -322,41 +331,19 @@ $(document).ready(function () {
     function count_win_cup() {
       if (countWin === 1) {
         cup1.css('opacity', '1');
-        shuffleSpeed = 800;
+        cup2.css('opacity', '0.2');
+        cup3.css('opacity', '0.2');
       }
       else if (countWin === 2) {
         cup1.css('opacity', '1');
         cup2.css('opacity', '1');
-        shuffleSpeed = 700;
+        cup3.css('opacity', '0.2');
       } else {
         cup1.css('opacity', '1');
         cup2.css('opacity', '1');
         cup3.css('opacity', '1');
-        shuffleSpeed = 600;
       }
     }
-
-    function check_win() {
-      if (parseInt(countWin) > parseInt(totalwin)) {
-        console.log("count win start");
-      }
-    }
-
-    // function mode(level) {
-    //   if (level === "easy") {
-    //     totalwin = 7;
-    //     shuffleSpeed = 800;
-    //     nuberOfShuffels = 1;
-    //   } else if (level === "medium") {
-    //     totalwin = 5;
-    //     shuffleSpeed = 1000;
-    //     nuberOfShuffels = 1;
-    //   } else{
-    //     totalwin = 8;
-    //     shuffleSpeed = 1000;
-    //     nuberOfShuffels = 1;
-    //   }
-    // }
 
     function ready_game() {
       setTimeout(function () {

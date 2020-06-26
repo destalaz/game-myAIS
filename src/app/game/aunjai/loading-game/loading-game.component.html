@@ -1,18 +1,14 @@
-<body class="image-fade-in" [@FadeOutAnimation]="'in'"  class="tablet-loading-body">
-    <div>
-        <img class="logo-loading" src="../../../../assets/aunjaiAssets/header/loading_game_ic.svg">
+<div class="image-fade-in" [@FadeOutAnimation]="'in'" class="tablet-loading-body">
+    <div id="heading">
+        <img src="../../../../assets/aunjaiAssets/header/loading_game_ic.svg" id="textHeader">
+    </div>
+    <div id="heading-loading">
+        <div *ngIf="loading"  class="loading-Bar"></div>
     </div>
 
-    <div>
-        <img *ngIf="loading" class="loading-Bar" src="../../../../assets/aunjaiAssets/component/loading_process_ic.svg">
-        <img class="load-bg" src="../../../../assets/aunjaiAssets/component/loading_bg.svg">
+    <div id="logo-loading">
+        <div class="aunjai-logo">
+        </div>
     </div>
-
-    <div>
-        <img class="aunjai-logo" src="../../../../assets/aunjaiAssets/avatar/Group_2048@2x.png">
-    </div>
-</body>
-
-<app-tutorial-page [@FadeInAnimation]="'out'"></app-tutorial-page>
-
-
+</div>
+<game-aunjai [@FadeInAnimation]="'out'"></game-aunjai>

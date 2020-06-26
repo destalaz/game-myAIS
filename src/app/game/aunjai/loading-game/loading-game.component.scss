@@ -1,69 +1,70 @@
-// default style ipad pro, tablet
 
 .tablet-loading-body {
-    width: 100%;
-    min-height: 100%;
-    position: fixed;
+    width: 720px;
+    margin: 10px auto;
+    background-color: #fff;
+    min-height: 1280px;
+    position: relative;
+    top: 0px;
+    left: 0px;
     box-shadow: #888 0px 0px 5px;
-    background: transparent url(../../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
-    background-size: auto 100%;
-    background-position-x: center;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/bg_game@2x.png);
+    background-size: cover;
+    zoom: 50%;
+}
+
+#heading {
+    z-index: 200;
+    position: absolute;
+    top: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#textHeader {
+    width: 600px;
+}
+#heading-loading {
+    z-index: 200;
+    position: absolute;
+    top: 420px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 20px;
+    background: #b1a6b2 0% 0% no-repeat padding-box;
+    border-radius: 54px;
+    opacity: 1;
+    background: transparent url(../../../../assets/aunjaiAssets/component/loading_bg.svg);
 }
 
 .loading-Bar {
-    position: fixed;
-    width: 23%;
-    bottom: 56.5%;
-    left: 32.5%;
-    z-index: 2;
-
-    @media only screen and (max-device-width: 420px) {
-        position: fixed;
-        width: 29%;
-        bottom: 58.5%;
-        left: 27.5%;
-        z-index: 2;
-    }
+    width: 128px;
+    height: 15px;
+    background: transparent url(../../../../assets/aunjaiAssets/component/loading_process_ic.svg);
+}
+#logo-loading {
+    z-index: 200;
+    position: absolute;
+    top: 420px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 54px;
+    opacity: 1;
 }
 
 .aunjai-logo {
-    position: fixed;
-    width: 60%;
-    bottom: 18%;
-    left: 22%;
-
-    @media only screen and (max-device-width: 420px) {
-        position: fixed;
-        width: 80%;
-        bottom: 18%;
-        left: 13%;
-    }
-}
-
-.logo-loading {
-    position: fixed;
-    width: 65%;
-    bottom: 58%;
-    left: 20%;
-
-    //for Iphone
-    @media only screen and (max-device-width: 420px) {
-        position: fixed;
-        width: 85%;
-        bottom: 59%;
-        left: 10%;
-    }
-}
-.load-bg {
-    position: fixed;
-    width: 38%;
-    bottom: 56%;
-    left: 32%;
-
-    @media only screen and (max-device-width: 420px) {
-        position: fixed;
-        width: 49%;
-        bottom: 58%;
-        left: 27%;
-    }
+    width: 668px;
+    height: 648px;
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2048@2x.png);
 }
