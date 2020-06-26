@@ -14,12 +14,14 @@ $(document).ready(function () {
       cup1 = $("#img-Round-cup1"),
       cup2 = $("#img-Round-cup2"),
       cup3 = $("#img-Round-cup3"),
-      countWin = 1;
-    var data1 = localStorage.getItem('Mobile');
+      countWin = 1,
+       data1 = localStorage.getItem('Mobile');
 
-    var ans = Math.floor(Math.random() * 3) + 1;
+
 
     startButton.on("click", function startGame(event) {
+      var ans = Math.floor(Math.random() * 3) + 1;
+      var kickInitialPosition = 0;
       reset_position();
       console.log("this->script->recive parameter", localStorage.getItem('Mobile'));
       console.log("this count wind", countWin);
@@ -28,7 +30,7 @@ $(document).ready(function () {
       ready_game();
       // HeaderText.hide();
       // event.preventDefault();
-      var kickInitialPosition = 0;
+
       //Show the character fist
       kick.show();
 
