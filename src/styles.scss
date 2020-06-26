@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+@font-face {
+    font-family: 'DB Helvethaica';
+    src: url('../src/assets/fonts/db_helvethaicaais_x_v3.2-webfont\ 2.woff') format("woff")
+  }
