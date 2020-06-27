@@ -17,7 +17,7 @@ import { TutorialPageComponent } from './game-aunjai-inbox/tutorial-page/tutoria
 import { AunjaiComponent } from './game/aunjai/aunjai.component';
 import { HeaderGameComponent } from './game/aunjai/header-game/header-game.component';
 import { LoadingGameComponent } from './game/aunjai/loading-game/loading-game.component';
-import { PopupComponent  } from './game/aunjai/popup/popup.component';
+import { PopupComponent } from './game/aunjai/popup/popup.component';
 import { RewardFlipComponent } from './game-aunjai-inbox/reward-flip/reward-flip.component';
 
 
@@ -30,12 +30,7 @@ const appRoutes: Routes = [
   { path: 'reward_flip', component: RewardFlipComponent },
 
   { path: 'aunjai', component: AunjaiComponent },
-  { path: 'popup', component: PopupComponent},
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
+  { path: 'popup', component: PopupComponent },
   // { path: '**', component: PagenofoundComponent }
 ];
 
@@ -66,6 +61,7 @@ const appRoutes: Routes = [
     // other imports here
 
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
