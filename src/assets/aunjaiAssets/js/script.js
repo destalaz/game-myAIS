@@ -22,18 +22,20 @@ $(document).ready(function () {
 
     startButton.on("click", function startGame(event) {
       divBtn.hide();
+      HeaderText.hide();
       var ans = Math.floor(Math.random() * 3) + 1;
       var kickInitialPosition = 0;
       reset_position();
       console.log("this->script->recive parameter", localStorage.getItem('Mobile'));
       console.log("this count wind", countWin);
+      console.log("win is ", ans);
       if (countWin === 4) {
         kick.hide();
         divBtn.show();
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/for_score_ic@2x.png" id="box_o_t" alt="" width="400px">');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/for_score_ic@2x.png" id="box_o_t" style="width:30vw;">');
         HeaderText.show();
         HeaderText.animate({
-          top: "200px"
+          top: "10vh"
         }, {
           duration: 900,
           specialEasing: {
@@ -56,8 +58,16 @@ $(document).ready(function () {
 
 
       // Update the initial position based on the answer
-      kickInitialPosition = 30 + ((ans - 1) * 240);
-
+      kickInitialPosition = 30 + ((ans - 1) * 230);
+      30 + ((ans - 1) * 240);
+      if (ans === 1) {
+        kickInitialPosition = box1.position().left;
+      } else if (ans === 2) {
+        kickInitialPosition = box2.position().left;
+      } else {
+        kickInitialPosition = box3.position().left;
+      }
+      console.log("kick init ", kickInitialPosition);
       // Move kick Under the relative box based on answer
       kick.css({
         left: kickInitialPosition + "px"
@@ -65,16 +75,16 @@ $(document).ready(function () {
 
       // Droping kick from the top into the box.
       kick.animate({
-        top: "690px"
+        top: "50%"
       }, {
         duration: kickDropDownAnimationDelay,
         specialEasing: {
           top: 'easeOutBounce'
         },
         complete: function () {
-          kick.html("<img src='../../../assets/aunjaiAssets/avatar/Cloth_Point_02@2x.png' width='200px' />");
+          kick.html("<img src='../../../assets/aunjaiAssets/avatar/Cloth_Point_02@2x.png' style='width:28vw;' />");
           kick.animate({
-            top: "580px"
+            top: "46%"
           }, {
             duration: 500,
             specialEasing: {
@@ -84,17 +94,17 @@ $(document).ready(function () {
 
               // Close all the three boxes in a regular interval.
               box1.delay(500).queue(function (n) {
-                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" alt="" width="240px">');
+                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b"  style="width:30vw;">');
                 if (ans == 1) kick.hide();
                 n();
               });
               box2.delay(1000).queue(function (n) {
-                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" alt="" width="240px">');
+                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" style="width:30vw;">');
                 if (ans == 2) kick.hide();
                 n();
               });
               box3.delay(1500).queue(function (n) {
-                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" alt="" width="240px">');
+                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" style="width:30vw;">');
                 if (ans == 3) kick.hide();
 
 
@@ -106,19 +116,19 @@ $(document).ready(function () {
                 box1.css({
                   position: "absolute",
                   top: box_top,
-                  left: box1_left + "px"
+                  left: 0 + "vw"
                 });
 
                 box2.css({
                   position: "absolute",
                   top: box_top,
-                  left: box2_left + "px"
+                  left: 33 + "vw"
                 });
 
                 box3.css({
                   position: "absolute",
                   top: box_top,
-                  left: box3_left + "px"
+                  left: 66 + "vw"
                 });
 
                 shuffle = function (o) { //v1.0
@@ -158,25 +168,23 @@ $(document).ready(function () {
 
                   box1.click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px" >');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;">');
                       box1.animate({
-                        top: $(this).position().top + -200 + "px"
+                        top: $(this).position().top + -18 + "vh"
                       });
                       if (ans == 1) {
-                        kick.css({
-                          left: $(this).position().left + 46 + "px"
-                        });
                         flag = 1;
+                        ans_position_left = box3.position().left;
                         slide_out();
                       } else {
                         setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;">');
                         }, 1500);
                         flag = 1;
-                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" alt="" width="400px">');
+                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" style="width:40vw;">');
                         HeaderText.show();
                         HeaderText.animate({
-                          top: "200px"
+                          top: "20vh"
                         }, {
                           duration: 900,
                           specialEasing: {
@@ -190,25 +198,23 @@ $(document).ready(function () {
 
                   box2.click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px" >');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
-                        top: $(this).position().top + -200 + "px"
+                        top: $(this).position().top - 18 + "vh"
                       });
                       if (ans == 2) {
-                        kick.css({
-                          left: $(this).position().left + 46 + "px"
-                        });
                         flag = 1;
+                        ans_position_left = box3.position().left;
                         slide_out();
                       } else {
                         setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" style="width:30vw;">');
                         }, 1500);
                         flag = 1;
-                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" alt="" width="400px">');
+                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" style="width:40vw;">');
                         HeaderText.show();
                         HeaderText.animate({
-                          top: "200px"
+                          top: "20vh"
                         }, {
                           duration: 900,
                           specialEasing: {
@@ -222,25 +228,23 @@ $(document).ready(function () {
 
                   $("#box3").click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
-                        top: $(this).position().top + -200 + "px"
+                        top: $(this).position().top + -18 + "vh"
                       });
                       if (ans == 3) {
-                        kick.css({
-                          left: $(this).position().left + 46 + "px"
-                        });
                         flag = 1;
+                        ans_position_left = box3.position().left;
                         slide_out();
                       } else {
                         setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" width="240px">');
+                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;">');
                         }, 1500);
                         flag = 1;
-                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" alt="" width="400px">');
+                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" style="width:40vw;">');
                         HeaderText.show();
                         HeaderText.animate({
-                          top: "200px"
+                          top: "10vh"
                         }, {
                           duration: 900,
                           specialEasing: {
@@ -255,19 +259,13 @@ $(document).ready(function () {
 
                   function slide_out() {
                     win = false;
+                    
+                    kick.css({ top: '56%', left: ans_position_left });
                     kick.show();
-                    kick.animate({
-                      top: "750px"
-                    }, {
-                      duration: 500,
-                      specialEasing: {
-                        top: 'easeInQuint'
-                      }
-                    });
-                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t" alt="" width="400px">');
+                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:40vw;">');
                     HeaderText.show();
                     HeaderText.animate({
-                      top: "200px"
+                      top: "20vh"
                     }, {
                       duration: 900,
                       specialEasing: {
@@ -319,13 +317,13 @@ $(document).ready(function () {
     }
 
     function reset_position() {
-      box1.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:240px;">');
-      box2.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:240px;">');
-      box3.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:240px;">');
-      kick.css({ top: '100px', left: '0px' });
-      box1.css({ left: '0px', top: '660px', position: 'absolute' });
-      box2.css({ left: '240px', top: '660px', position: 'absolute' });
-      box3.css({ left: '480px', top: '660px', position: 'absolute' });
+      box1.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      box2.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      box3.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      kick.css({ top: '0px', left: '0px' });
+      box1.css({ left: '0vw', top: '0px', position: 'absolute' });
+      box2.css({ left: '33vw', top: '0px', position: 'absolute' });
+      box3.css({ left: '66vw', top: '0px', position: 'absolute' });
       count_win_cup();
     }
     function count_win_cup() {
@@ -347,13 +345,14 @@ $(document).ready(function () {
 
     function ready_game() {
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t" alt="" width="400px"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:70px;">3</div>');
+        HeaderText.show();
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:40vw;"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:10vh;">3</div>');
 
         setTimeout(function () {
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t" alt="" width="400px"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:70px;">2</div>');
+          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"style="width:40vw;"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:10vh;">2</div>');
         }, 1000);
         setTimeout(function () {
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t" alt="" width="400px"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:70px;">1</div>');
+          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t" style="width:40vw;"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:10vh;">1</div>');
         }, 2000);
         setTimeout(function () {
           HeaderText.hide();
