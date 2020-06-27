@@ -11,7 +11,6 @@ declare var jQuery: any;
 })
 export class AunjaiComponent implements OnInit {
   isTablet: boolean = false;
-
   width: number = window.innerWidth;
   height: number = window.innerHeight;
   mobileWidth: number = 720;
@@ -21,6 +20,14 @@ export class AunjaiComponent implements OnInit {
     (function ($) {
       $(document).ready(function () {
         console.log("Hello Script!");
+        if (window.localStorage) {
+          if (!localStorage.getItem('firstLoad')) {
+            localStorage['firstLoad'] = true;
+            window.location.reload();
+          }
+          else
+            localStorage.removeItem('firstLoad');
+        }
       });
     })(jQuery);
     localStorage.setItem('Mobile', this.mobileWidth.toString());
@@ -37,5 +44,10 @@ export class AunjaiComponent implements OnInit {
     }
     console.log(this.isTablet)
 
+  }
+
+  ngOnDestroy() {
+    localStorage.removeItem('firstLoad');
+    console.log('Service destroy')
   }
 }
