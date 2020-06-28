@@ -170,11 +170,11 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;">');
                       box1.animate({
-                        top: $(this).position().top + -18 + "vh"
+                        top: $(this).position().top + -24 + "vh"
                       });
                       if (ans == 1) {
                         flag = 1;
-                        ans_position_left = box3.position().left;
+                        ans_position_left = box1.position().left;
                         slide_out();
                       } else {
                         setTimeout(() => {
@@ -200,11 +200,11 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
-                        top: $(this).position().top - 18 + "vh"
+                        top: $(this).position().top - 24 + "vh"
                       });
                       if (ans == 2) {
                         flag = 1;
-                        ans_position_left = box3.position().left;
+                        ans_position_left = box2.position().left;
                         slide_out();
                       } else {
                         setTimeout(() => {
@@ -230,10 +230,11 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
-                        top: $(this).position().top + -18 + "vh"
+                        top: $(this).position().top + -24 + "vh"
                       });
                       if (ans == 3) {
                         flag = 1;
+                        // ans_position_left = box3.position().left;
                         ans_position_left = box3.position().left;
                         slide_out();
                       } else {
@@ -258,14 +259,22 @@ $(document).ready(function () {
 
 
                   function slide_out() {
+                    kick.css({ left:ans_position_left });
                     win = false;
-                    
-                    kick.css({ top: '56%', left: ans_position_left });
                     kick.show();
+                    kick.animate({
+                      top: "56%",
+                      left: ans_position_left
+                    }, {
+                      duration: 500,
+                      specialEasing: {
+                        top: 'easeInQuint'
+                      }
+                    });
                     HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:40vw;">');
                     HeaderText.show();
                     HeaderText.animate({
-                      top: "20vh"
+                      top: "8vh"
                     }, {
                       duration: 900,
                       specialEasing: {

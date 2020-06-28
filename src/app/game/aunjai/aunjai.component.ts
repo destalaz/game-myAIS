@@ -15,23 +15,25 @@ export class AunjaiComponent implements OnInit {
   height: number = window.innerHeight;
   mobileWidth: number = 720;
   mobileHeight: number = 1280;
+  url = '../../../assets/aunjaiAssets/js/script.js';
 
   ngOnInit() {
-    (function ($) {
-      $(document).ready(function () {
-        console.log("Hello Script!");
-        if (window.localStorage) {
-          if (!localStorage.getItem('firstLoad')) {
-            localStorage['firstLoad'] = true;
-            window.location.reload();
-          }
-          else
-            localStorage.removeItem('firstLoad');
-        }
-      });
-    })(jQuery);
-    localStorage.setItem('Mobile', this.mobileWidth.toString());
+    // (function ($) {
+    //   $(document).ready(function () {
+    //     console.log("Hello Script!");
+    //     if (window.localStorage) {
+    //       if (!localStorage.getItem('firstLoad')) {
+    //         localStorage['firstLoad'] = true;
+    //         window.location.reload();
+    //       }
+    //       else
+    //         localStorage.removeItem('firstLoad');
+    //     }
+    //   });
+    // })(jQuery);
+    // localStorage.setItem('Mobile', this.mobileWidth.toString());
 
+this.loadScript();
   }
   //Check Resolution Width720 Height1280 Fix BG
   onWindowResize(event) {
@@ -44,6 +46,17 @@ export class AunjaiComponent implements OnInit {
     }
     console.log(this.isTablet)
 
+  }
+
+  constructor() { }
+  public loadScript() {
+    console.log('preparing to load...')
+    let node = document.createElement('script');
+    node.src = this.url;
+    node.type = 'text/javascript';
+    node.async = true;
+    node.charset = 'utf-8';
+    document.getElementsByTagName('head')[0].appendChild(node);
   }
 
   ngOnDestroy() {

@@ -33,8 +33,7 @@
               "src/styles.scss"
             ],
             "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
-              "src/assets/aunjaiAssets/js/jqueryui.js",
-              "src/assets/aunjaiAssets/js/script.js"]
+              "src/assets/aunjaiAssets/js/jqueryui.js"]
           },
           "configurations": {
             "production": {
@@ -103,8 +102,7 @@
               "node_modules/datatables.net-dt/css/jquery.dataTables.css" 
             ],
             "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
-              "src/assets/aunjaiAssets/js/jqueryui.js",
-              "src/assets/aunjaiAssets/js/script.js"]
+              "src/assets/aunjaiAssets/js/jqueryui.js"]
           }
         },
         "lint": {
