@@ -1,64 +1,120 @@
-// #content {
-//     position: absolute;
-//     top: 178px;
-//     width: 90%;
-//     height: 297px;
-//     background: #ffffff 0% 0% no-repeat padding-box;
-//     box-shadow: 0px 3px 6px #00000048;
-//     border-radius: 20px;
-//     margin: auto;
-//     display: flex;
-//     align-items: center;
-//     border-radius: 10px;
-//     opacity: 1;
-//     left: 50%;
-//     transform: translateX(-50%);
-// }
-// .close {
-//     top: -147px;
-//     position: relative;
-//     right: -15px;
-//     border-radius: 50%;
-//     width: 37px;
-//     height: 34px;
-//     outline: none;
-//     opacity: 1;
-// }
+::ng-deep popup-game {
+    font-family: "DB Helvethaica"!important;
+}
+.close {
+    background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
+    top: 17%;
+    margin: auto;
+    background-position: center;
+    min-height: 9%;
+    min-width: 26%;
+    position: fixed;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    right: -2px;
+    outline: none;
+    opacity: 1;
+}
 
-// #btnclosepopup{
-//     background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
-//     width: 53px;
-//     height: 59px;
-//     position: absolute;
-//     left: -12px;
-//     top: -14px;
-// }
 
-// .aunjai-logo {
-//     position: relative;
-//     width: 240px;
-//     height: 300px;
-//     top: -160px;
-//     margin: auto;
-//     background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2046.png);
-// }
 
-// .textSHow {
-//     top: 260px;
-//     position: relative;
-//     left: 38%;
-// }
+.aunjai-logo {
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2061@2x.png);
+    top: 0px;
+    margin: auto;
+    background-position: center;
+    min-height: 35%;
+    min-width: 50%;
+    position: fixed;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    left: 28%;
+}
 
-// .textBody{
-//     top: 300px;
-//     position: relative;
-//     font-size: 32px;
-// }
+.textSHow {
+    top: 260px;
+    position: relative;
+    left: 38%;
+}
 
-// #body-popup {
-//     display: none;
+.textBody {
+    position: relative;
+    font-size: 4vh;
+    top: 20vh;
+}
+
+#body-popup {
+    display: none;
+    pointer-events: all;
+    z-index: 99999;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bodyThis {
+    position: relative;
+    width: 80%;
+    height: 70%;
+    display: table;
+    margin: 0 auto;
+    z-index: 100;
+    top: 20%;
+    background-color: white;
+    border-radius: 4vh;
+    padding: 2vh;
+}
+
+#divBtn {
+    position: absolute;
+    top: 866px;
+    width: 440px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    zoom: 45%;
+}
+
+.buttonResume {
+    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    border: none;
+    top: 70vh;
+    margin: auto;
+    background-position: center;
+    min-height: 14%;
+    min-width: 42%;
+    position: fixed;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    outline: none;
+    opacity: 1;
+    font-size: 4vh;
+    left: 30%;
+}
+
+// .baground_forest {
+//     // background: transparent url(../../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
+//     // background-position: center;
+//     // min-height: 100%;
+//     // min-width: 100%;
+//     // position: fixed;
+//     // background-size: 100% 100%;
+//     // background-position-x: center;
+//     // background-repeat: no-repeat;
+//     display: block;
 //     pointer-events: all;
-//     z-index: 99999;
 //     border: none;
 //     margin: 0px;
 //     padding: 0px;
@@ -66,46 +122,10 @@
 //     height: 100%;
 //     top: 0px;
 //     left: 0px;
-//     cursor: wait;
 //     position: fixed;
 //     background-color: rgba(0, 0, 0, 0.5);
-//     // overflow: hidden;
+//     z-index: 9;
 // }
-
-// #divBtn {
-//     position: absolute;
-//     top: 866px;
-//     width: 440px;
-//     margin: auto;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     zoom: 45%;
-// }
-
-//   .buttonResume {
-//     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
-//     width: 440px;
-//     height: 164px;
-//     position: relative;
-//     margin: auto;
-//     border: none;
-//     outline: none;
-//     font-size: 46px;
-//     opacity: 0.92;
-//   }
-
-.baground_forest {
-    background-position: center;
-    min-height: 100%;
-    min-width: 100%;
-    position: fixed;
-    background: transparent url(../../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
-    background-size: auto 100%;
-    background-position-x: center;
-}
 
 .container {
     padding: 0px;

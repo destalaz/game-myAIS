@@ -11,16 +11,29 @@ $(document).ready(function () {
       kickDropDownAnimationDelay = 1500,
       shuffleSpeed = 700,
       nuberOfShuffels = 10,
+      btnResume = $("#btn_resume"),
+      btnClose = $("#btn_close"),
+      bodyPopup = $("#body-popup"),
       cup1 = $("#img-Round-cup1"),
       cup2 = $("#img-Round-cup2"),
       cup3 = $("#img-Round-cup3"),
       countWin = 1,
       win = false,
       data1 = localStorage.getItem('Mobile');
+    btnResume.click(function () {
+      bodyPopup.hide();
+      console.log("hide");
+    });
 
+    btnClose.click(function () {
+      bodyPopup.hide();
+      console.log("hide");
+    });
 
 
     startButton.on("click", function startGame(event) {
+      
+     bodyPopup.show();
       divBtn.hide();
       HeaderText.hide();
       var ans = Math.floor(Math.random() * 3) + 1;
@@ -84,13 +97,14 @@ $(document).ready(function () {
         complete: function () {
           kick.html("<img src='../../../assets/aunjaiAssets/avatar/Cloth_Point_02@2x.png' style='width:28vw;' />");
           kick.animate({
-            top: "46%"
+            top: "52%"
           }, {
             duration: 500,
             specialEasing: {
               top: 'easeOutBounce'
             },
             complete: function () {
+          
 
               // Close all the three boxes in a regular interval.
               box1.delay(500).queue(function (n) {
@@ -259,7 +273,7 @@ $(document).ready(function () {
 
 
                   function slide_out() {
-                    kick.css({ left:ans_position_left });
+                    kick.css({ left: ans_position_left });
                     win = false;
                     kick.show();
                     kick.animate({
@@ -311,6 +325,7 @@ $(document).ready(function () {
                     countWin = 1;
                     setMessage("Game " + countWin + " of 3");
                   }
+
 
                 }, nuberOfShuffels * shuffleSpeed);
                 n();
