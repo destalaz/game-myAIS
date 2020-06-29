@@ -32,15 +32,12 @@ $(document).ready(function () {
     if (localStorage.getItem('countWin') === null) {
       localStorage.setItem('countWin', 1);
     }
-    // localStorage.setItem('countWin', '1');
-    // console.log(localStorage.getItem('countWin'));
+
 
     setMessage("Game " + localStorage.getItem('countWin') + "of " + localStorage.getItem('amountWin'));
 
 
-    function popupmix() {
-      bodyPopup.show();
-    }
+
 
 
     if (localStorage.getItem('amountWin') === "3") {
@@ -109,18 +106,6 @@ $(document).ready(function () {
         localStorage.setItem('countWin', 1);
       }
 
-
-      // win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
-      // countWinBefore = localStorage.setItem('win_now', '1');
-      // console.log("winnn now", win_now);
-
-
-      // popupmix();
-
-
-
-
-      // count_win_cup();
       btnResume.click(function () {
         bodyPopup.hide();
       });
@@ -128,9 +113,6 @@ $(document).ready(function () {
       btnClose.click(function () {
         bodyPopup.hide();
       });
-
-      // bodyWin = $("#body-popup-win"),
-      // btnWin = $("#win-goto"),
 
       divBtn.hide();
       HeaderText.show();
@@ -140,28 +122,6 @@ $(document).ready(function () {
       console.log("this->script->recive parameter", localStorage.getItem('Mobile'));
 
       console.log("win is ", ans);
-      // if (countWin === 4) {
-      //   kick.hide();
-      //   divBtn.show();
-      //   HeaderText.html('<img src="../../assets/aunjaiAssets/component/for_score_ic@2x.png" id="box_o_t" style="width:30vw;">');
-      //   HeaderText.show();
-      //   HeaderText.animate({
-      //     top: "10vh"
-      //   }, {
-      //     duration: 900,
-      //     specialEasing: {
-      //       top: 'easeInQuint'
-      //     }
-      //   });
-      //   console.log("false");
-      //   if (!win) {
-      //     win = true;
-      //     countWin = 1;
-      //     setMessage("Game " + countWin + " of 3");
-      //     return false;
-      //   }
-
-      // }
       divBtn.hide();
 
       kick.show();
@@ -333,80 +293,63 @@ $(document).ready(function () {
                     win = false;
                     kick.show();
                     kick.animate({
-                      top: "56%",
+                      top: "54%",
                       left: ans_position_left
                     }, {
-                      duration: 500,
+                      duration: 400,
                       specialEasing: {
                         top: 'easeInQuint'
                       }
                     });
-                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:40vw;">');
+                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:70vw;">');
                     HeaderText.show();
                     HeaderText.animate({
-                      top: "8vh"
+                      top: "4vh"
                     }, {
-                      duration: 900,
+                      duration: 400,
                       specialEasing: {
                         top: 'easeInQuint'
                       }
                     });
                     setTimeout(() => {
-                      // countWin = parseInt(countWin) + 1;
-                      // if (countWin === 2) {
-                      //   console.log("countWin 2");
-                      //   shuffleSpeed = 500;
-                      //   setMessage("Game " + countWin + " of 3");
-                      // } else if (countWin === 3) {
-                      //   console.log("countWin 3");
-                      //   shuffleSpeed = 400;
-                      //   setMessage("Game " + countWin + " of 3");
-                      // } else if (countWin === 4) {
-                      //   console.log("countWin 4");
-                      //   setMessage("Game " + 3 + " of 3");
-                      // }
-
-
-                      setTimeout(() => {
-                        win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
-                        localStorage.setItem('countWin', win_now);
+                      win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
+                      localStorage.setItem('countWin', win_now);
 
 
 
-                        if (localStorage.getItem('countWin') === "1") {
-                          btnResume1.show();
+                      if (localStorage.getItem('countWin') === "1") {
+                        btnResume1.show();
+                        bodyPopup.show();
+                      } else if (localStorage.getItem('countWin') === "2") {
+                        btnResume2.show();
+                        bodyPopup.show();
+                      } else if (localStorage.getItem('countWin') === "3") {
+                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
+                          localStorage.setItem('countWin', 1);
+                          bodyWin.show();
+                        } else {
+                          btnResume3.show();
                           bodyPopup.show();
-                        } else if (localStorage.getItem('countWin') === "2") {
-                          btnResume2.show();
+                        }
+                      } else if (localStorage.getItem('countWin') === "4") {
+                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
+                          localStorage.setItem('countWin', 1);
+                          bodyWin.show();
+                        } else {
+                          btnResume4.show();
                           bodyPopup.show();
-                        } else if (localStorage.getItem('countWin') === "3") {
-                          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
-                            localStorage.setItem('countWin', 1);
-                            bodyWin.show();
-                          } else {
-                            btnResume3.show();
-                            bodyPopup.show();
-                          }
-                        } else if (localStorage.getItem('countWin') === "4") {
-                          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
-                            localStorage.setItem('countWin', 1);
-                            bodyWin.show();
-                          } else {
-                            btnResume4.show();
-                            bodyPopup.show();
-                          }
                         }
-                        else if (localStorage.getItem('countWin') === "5") {
-                          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
-                            localStorage.setItem('countWin', 1);
-                            bodyWin.show();
-                          } else {
-                            btnResume5.show();
-                            bodyPopup.show();
-                          }
+                      }
+                      else if (localStorage.getItem('countWin') === "5") {
+                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
+                          localStorage.setItem('countWin', 1);
+                          bodyWin.show();
+                        } else {
+                          btnResume5.show();
+                          bodyPopup.show();
                         }
-                      }, 2000);
-                    }, 5000);
+                      }
+                    }, 3000);
                   }
 
 
@@ -459,13 +402,13 @@ $(document).ready(function () {
 
           if (localStorage.getItem('countWin') === "1") {
             HeaderText.show();
-            HeaderText.html('<img src="../../assets/aunjaiAssets/header/ready_ic.svg" id="box_o_t" style="width:70vw;">');
+            HeaderText.html('<img src="../../assets/aunjaiAssets/header/ready_ic.svg" id="box_o_t" style="width:80vw;">');
           } else if (localStorage.getItem('countWin') === "2") {
             cup1.css('opacity', '1');
             cup2.css('opacity', '1');
             cup3.css('opacity', '0.2');
             console.log("local2");
-            HeaderText.html('<img src="../../assets/aunjaiAssets/header/game2_ic.svg" id="box_o_t" style="width:70vw;">');
+            HeaderText.html('<img src="../../assets/aunjaiAssets/header/game2_ic.svg" id="box_o_t" style="width:80vw;">');
             HeaderText.show();
 
           } else if (localStorage.getItem('countWin') === "3") {
@@ -474,33 +417,60 @@ $(document).ready(function () {
             cup2.css('opacity', '1');
             cup3.css('opacity', '1');
             console.log("local3");
-            HeaderText.html('<img src="../../assets/aunjaiAssets/header/game3_ic.svg" id="box_o_t" style="width:70vw;">');
+            HeaderText.html('<img src="../../assets/aunjaiAssets/header/game3_ic.svg" id="box_o_t" style="width:80vw;">');
             HeaderText.show();
           } else {
             cup1.css('opacity', '1');
             cup2.css('opacity', '0.2');
             cup3.css('opacity', '0.2');
             HeaderText.show();
-            HeaderText.html('<img src="../../assets/aunjaiAssets/header/ready_ic.svg" id="box_o_t" style="width:70vw;">');
+            HeaderText.html('<img src="../../assets/aunjaiAssets/header/ready_ic.svg" id="box_o_t" style="width:80vw;">');
           }
-        }, 1500);
+        }, 2000);
 
 
 
+        // setTimeout(function () {
+        //   HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">3</div>');
+        //   // HeaderText.fadeIn("easeOutBounce");
+        //   HeaderText.fadeOut("easeOutBounce");
+        // }, 3500);
+        // setTimeout(function () {
+        //   HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">2</div>');
+        //   // HeaderText.fadeIn("easeOutBounce");
+        //   HeaderText.fadeOut("easeOutBounce");
+        // }, 4500);
+        // setTimeout(function () {
+        //   HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">1</div>');
+        //   // HeaderText.fadeIn("easeOutBounce");
+        //   HeaderText.fadeOut("easeOutBounce");
+        // }, 5500);
 
+        
         setTimeout(function () {
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:40vw;"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:10vh;">3</div>');
-        }, 2500);
+          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">3</div>');
+          HeaderText.fadeIn(100);
+          HeaderText.animate({zoom: '120%'}, 500, "easeOutBounce");
+          HeaderText.fadeOut(100);
+          HeaderText.css({zoom: '100%'});
+        }, 3000);
         setTimeout(function () {
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"style="width:40vw;"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:10vh;">2</div>');
-
-        }, 3500);
+          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">2</div>');
+          HeaderText.fadeIn();
+          HeaderText.animate({zoom: '120%'}, 500, "easeOutBounce");
+          HeaderText.fadeOut(100);
+          HeaderText.css({zoom: '100%'});
+        }, 4000);
         setTimeout(function () {
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t" style="width:40vw;"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:10vh;">1</div>');
-        }, 4500);
+          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">1</div>');
+          HeaderText.fadeIn(100);
+          HeaderText.animate({zoom: '120%'}, 500, "easeOutBounce");
+          HeaderText.fadeOut(100);
+          HeaderText.css({zoom: '100%'});
+        }, 5000);
         setTimeout(function () {
           HeaderText.hide();
-        }, 5000);
+        }, 6500);
       }, 1000);
     }
 
