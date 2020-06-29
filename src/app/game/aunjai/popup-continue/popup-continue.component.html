@@ -1,0 +1,30 @@
+<div id="body-popup-win">
+
+
+    <div style="text-align: center;" class="bodyThis">
+        <div class="firstPage" *ngIf="!open">
+            <div class="aunjai_Social">
+
+            </div>
+            <span class="textBody"> เอไอเอสพอยท์ 20 คะแนน </span><br>
+            <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
+
+
+            <button class="buttonNext" (click)="openPage();">
+                เล่นต่อ
+            </button>
+        </div>
+        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="open" [routerLinkActive]="['isActive']"
+            [routerLink]="['/reward_flip']">
+            <div class="aunjai_fly">
+            </div>
+            <span class="textBody"> เอไอเอสพอยท์ 20 คะแนน </span><br>
+            <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
+
+
+                <span class="textBody" id="bottom"> คุณได้รับรางวัลครบแล้ว </span><br><br>
+                <span class="textBody" id="bottom"> มาร่วมสนุกใหม่เกมหน้า</span>
+            
+        </div>
+    </div>
+</div>

@@ -5,10 +5,7 @@ declare var jQuery: any;
 @Component({
   selector: 'game-aunjai',
   templateUrl: './aunjai.component.html',
-  styleUrls: ['./aunjai.component.scss'],
-  host: {
-    "(window:resize)": "onWindowResize($event)"
-  }
+  styleUrls: ['./aunjai.component.scss']
 })
 export class AunjaiComponent implements OnInit {
   isTablet: boolean = false;

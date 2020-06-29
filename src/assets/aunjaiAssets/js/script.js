@@ -9,8 +9,8 @@ $(document).ready(function () {
       startButton = $("#start_game"),
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
-      shuffleSpeed = 700,
-      nuberOfShuffels = 10,
+      shuffleSpeed = 600,
+      nuberOfShuffels = 15,
       btnResume = $("#btn_resume"),
       btnClose = $("#btn_close"),
       bodyPopup = $("#body-popup"),
@@ -24,11 +24,13 @@ $(document).ready(function () {
       btnResume3 = $("#btn_resume3"),
       btnResume4 = $("#btn_resume4"),
       btnResume5 = $("#btn_resume5"),
-      amountWin = localStorage.setItem('amountWin', '3'),
+      bodyWin = $("#body-popup-win"),
+      bodyLose = $("#body-popup-lose"),
       win = false;
+    localStorage.setItem('amountWin', '3');
+
     if (localStorage.getItem('countWin') === null) {
-      console.log("this nullll");
-      localStorage.setItem('countWin', '1');
+      localStorage.setItem('countWin', 1);
     }
     // localStorage.setItem('countWin', '1');
     // console.log(localStorage.getItem('countWin'));
@@ -41,10 +43,68 @@ $(document).ready(function () {
     }
 
 
+    if (localStorage.getItem('amountWin') === "3") {
+      cup1.css('display', 'inline');
+      cup2.css('display', 'inline');
+      cup3.css('display', 'inline');
+      cup4.css('display', 'none');
+      cup5.css('display', 'none');
+    } else if (localStorage.getItem('amountWin') === "4") {
+      cup1.css('display', 'inline');
+      cup2.css('display', 'inline');
+      cup3.css('display', 'inline');
+      cup4.css('display', 'inline');
+      cup5.css('display', 'none');
+    } else if (localStorage.getItem('amountWin') === "5") {
+      cup1.css('display', 'inline');
+      cup2.css('display', 'inline');
+      cup3.css('display', 'inline');
+      cup4.css('display', 'inline');
+      cup5.css('display', 'inline');
+    }
 
+
+    if (localStorage.getItem('countWin') === "1") {
+      cup1.css('opacity', '1');
+      cup2.css('opacity', '0.2');
+      cup3.css('opacity', '0.2');
+      cup4.css('opacity', '0.2');
+      cup5.css('opacity', '0.2');
+    } else if (localStorage.getItem('countWin') === "2") {
+      console.log("cup win 2");
+      cup1.css('opacity', '1');
+      cup2.css('opacity', '1');
+      cup3.css('opacity', '0.2');
+      cup4.css('opacity', '0.2');
+      cup5.css('opacity', '0.2');
+    } else if (localStorage.getItem('countWin') === "3") {
+      console.log("cup win 3");
+      cup1.css('opacity', '1');
+      cup2.css('opacity', '1');
+      cup3.css('opacity', '1');
+      cup4.css('opacity', '0.2');
+      cup5.css('opacity', '0.2');
+    } else if (localStorage.getItem('countWin') === "4") {
+      console.log("cup win 4");
+      cup1.css('opacity', '1');
+      cup2.css('opacity', '1');
+      cup3.css('opacity', '1');
+      cup4.css('opacity', '1');
+      cup5.css('opacity', '0.2');
+    }
+    else if (localStorage.getItem('countWin') === "5") {
+      console.log("cup win 5");
+      cup1.css('opacity', '1');
+      cup2.css('opacity', '1');
+      cup3.css('opacity', '1');
+      cup4.css('opacity', '1');
+      cup5.css('opacity', '1');
+    }
     startButton.on("click", function startGame(event) {
-      HeaderText.show();
+
+      ready_game();
       setMessage("Game " + localStorage.getItem('countWin') + "of " + localStorage.getItem('amountWin'));
+
       if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
         localStorage.setItem('countWin', 1);
       }
@@ -57,77 +117,23 @@ $(document).ready(function () {
 
       // popupmix();
 
-      if (localStorage.getItem('amountWin') === "3") {
-        cup1.css('display', 'inline');
-        cup2.css('display', 'inline');
-        cup3.css('display', 'inline');
-        cup4.css('display', 'none');
-        cup5.css('display', 'none');
-      } else if (localStorage.getItem('amountWin') === "4") {
-        cup1.css('display', 'inline');
-        cup2.css('display', 'inline');
-        cup3.css('display', 'inline');
-        cup4.css('display', 'inline');
-        cup5.css('display', 'none');
-      } else if (localStorage.getItem('amountWin') === "5") {
-        cup1.css('display', 'inline');
-        cup2.css('display', 'inline');
-        cup3.css('display', 'inline');
-        cup4.css('display', 'inline');
-        cup5.css('display', 'inline');
-      }
 
-
-      if (localStorage.getItem('countWin') === "1") {
-        cup1.css('opacity', '1');
-        cup2.css('opacity', '0.2');
-        cup3.css('opacity', '0.2');
-        cup4.css('opacity', '0.2');
-        cup5.css('opacity', '0.2');
-      } else if (localStorage.getItem('countWin') === "2") {
-        console.log("cup win 2");
-        cup1.css('opacity', '1');
-        cup2.css('opacity', '1');
-        cup3.css('opacity', '0.2');
-        cup4.css('opacity', '0.2');
-        cup5.css('opacity', '0.2');
-      } else if (localStorage.getItem('countWin') === "3") {
-        console.log("cup win 3");
-        cup1.css('opacity', '1');
-        cup2.css('opacity', '1');
-        cup3.css('opacity', '1');
-        cup4.css('opacity', '0.2');
-        cup5.css('opacity', '0.2');
-      } else if (localStorage.getItem('countWin') === "4") {
-        console.log("cup win 4");
-        cup1.css('opacity', '1');
-        cup2.css('opacity', '1');
-        cup3.css('opacity', '1');
-        cup4.css('opacity', '1');
-        cup5.css('opacity', '0.2');
-      }
-      else if (localStorage.getItem('countWin') === "5") {
-        console.log("cup win 5");
-        cup1.css('opacity', '1');
-        cup2.css('opacity', '1');
-        cup3.css('opacity', '1');
-        cup4.css('opacity', '1');
-        cup5.css('opacity', '1');
-      }
 
 
       // count_win_cup();
       btnResume.click(function () {
-
-        // bodyPopup.hide();
+        bodyPopup.hide();
       });
 
       btnClose.click(function () {
         bodyPopup.hide();
       });
 
+      // bodyWin = $("#body-popup-win"),
+      // btnWin = $("#win-goto"),
+
       divBtn.hide();
-      HeaderText.hide();
+      HeaderText.show();
       var ans = Math.floor(Math.random() * 3) + 1;
       var kickInitialPosition = 0;
       reset_position();
@@ -157,7 +163,7 @@ $(document).ready(function () {
 
       // }
       divBtn.hide();
-      ready_game();
+
       kick.show();
 
 
@@ -276,27 +282,13 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;">');
                       box1.animate({
-                        top: $(this).position().top + -24 + "vh"
+                        top: $(this).position().top + -18 + "vh"
                       });
                       if (ans == 1) {
                         flag = 1;
                         ans_position_left = box1.position().left;
                         slide_out();
                       } else {
-                        setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;">');
-                        }, 1500);
-                        flag = 1;
-                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" style="width:40vw;">');
-                        HeaderText.show();
-                        HeaderText.animate({
-                          top: "20vh"
-                        }, {
-                          duration: 900,
-                          specialEasing: {
-                            top: 'easeInQuint'
-                          }
-                        });
                         gameOver();
                       }
                     }
@@ -306,27 +298,13 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
-                        top: $(this).position().top - 24 + "vh"
+                        top: $(this).position().top - 18 + "vh"
                       });
                       if (ans == 2) {
                         flag = 1;
                         ans_position_left = box2.position().left;
                         slide_out();
                       } else {
-                        setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" alt="" style="width:30vw;">');
-                        }, 1500);
-                        flag = 1;
-                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" style="width:40vw;">');
-                        HeaderText.show();
-                        HeaderText.animate({
-                          top: "20vh"
-                        }, {
-                          duration: 900,
-                          specialEasing: {
-                            top: 'easeInQuint'
-                          }
-                        });
                         gameOver();
                       }
                     }
@@ -336,7 +314,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
-                        top: $(this).position().top + -24 + "vh"
+                        top: $(this).position().top + -18 + "vh"
                       });
                       if (ans == 3) {
                         flag = 1;
@@ -344,21 +322,6 @@ $(document).ready(function () {
                         ans_position_left = box3.position().left;
                         slide_out();
                       } else {
-                        setTimeout(() => {
-                          $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="width:30vw;">');
-                        }, 1500);
-                        flag = 1;
-                        HeaderText.html('<img src="../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png" id="box_o_t" style="width:40vw;">');
-                        HeaderText.show();
-                        HeaderText.animate({
-                          top: "10vh"
-                        }, {
-                          duration: 900,
-                          specialEasing: {
-                            top: 'easeInQuint'
-                          }
-                        });
-
                         gameOver();
                       }
                     }
@@ -378,8 +341,8 @@ $(document).ready(function () {
                         top: 'easeInQuint'
                       }
                     });
-                    HeaderText.show();
                     HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:40vw;">');
+                    HeaderText.show();
                     HeaderText.animate({
                       top: "8vh"
                     }, {
@@ -408,39 +371,56 @@ $(document).ready(function () {
                         win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
                         localStorage.setItem('countWin', win_now);
 
-                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
-                          localStorage.setItem('countWin', 1);
-                        }
+
 
                         if (localStorage.getItem('countWin') === "1") {
                           btnResume1.show();
+                          bodyPopup.show();
                         } else if (localStorage.getItem('countWin') === "2") {
                           btnResume2.show();
+                          bodyPopup.show();
                         } else if (localStorage.getItem('countWin') === "3") {
-                          btnResume3.show();
+                          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
+                            localStorage.setItem('countWin', 1);
+                            bodyWin.show();
+                          } else {
+                            btnResume3.show();
+                            bodyPopup.show();
+                          }
                         } else if (localStorage.getItem('countWin') === "4") {
-                          btnResume4.show();
+                          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
+                            localStorage.setItem('countWin', 1);
+                            bodyWin.show();
+                          } else {
+                            btnResume4.show();
+                            bodyPopup.show();
+                          }
                         }
                         else if (localStorage.getItem('countWin') === "5") {
-                          // btnResume5.show();
+                          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('amountWin'))) {
+                            localStorage.setItem('countWin', 1);
+                            bodyWin.show();
+                          } else {
+                            btnResume5.show();
+                            bodyPopup.show();
+                          }
                         }
-                        bodyPopup.show();
                       }, 2000);
                     }, 5000);
-
                   }
 
 
                   function gameOver() {
                     localStorage.setItem('countWin', '1');
                     win = false;
-                    divBtn.show();
+                    // divBtn.show();
                     console.log("game Over");
                     // countWin = 1;
                     setMessage("Game " + localStorage.getItem('countWin') + " of 3");
 
                     setTimeout(() => {
-                      bodyPopup.show();
+                      localStorage.setItem('countWin', 1);
+                      bodyLose.show();
                     }, 2000);
                   }
 
@@ -477,29 +457,31 @@ $(document).ready(function () {
 
         setTimeout(function () {
 
-          if (localStorage.getItem('countWin') === 1) {
+          if (localStorage.getItem('countWin') === "1") {
             HeaderText.show();
             HeaderText.html('<img src="../../assets/aunjaiAssets/header/ready_ic.svg" id="box_o_t" style="width:70vw;">');
-            
-
-          } else if (localStorage.getItem('countWin') === 2) {
+          } else if (localStorage.getItem('countWin') === "2") {
             cup1.css('opacity', '1');
             cup2.css('opacity', '1');
             cup3.css('opacity', '0.2');
             console.log("local2");
-            HeaderText.show();
             HeaderText.html('<img src="../../assets/aunjaiAssets/header/game2_ic.svg" id="box_o_t" style="width:70vw;">');
-           
+            HeaderText.show();
 
-          } else if (localStorage.getItem('countWin') === 3) {
+          } else if (localStorage.getItem('countWin') === "3") {
             console.log("cup win 3");
             cup1.css('opacity', '1');
             cup2.css('opacity', '1');
             cup3.css('opacity', '1');
             console.log("local3");
-            HeaderText.show();
             HeaderText.html('<img src="../../assets/aunjaiAssets/header/game3_ic.svg" id="box_o_t" style="width:70vw;">');
-           
+            HeaderText.show();
+          } else {
+            cup1.css('opacity', '1');
+            cup2.css('opacity', '0.2');
+            cup3.css('opacity', '0.2');
+            HeaderText.show();
+            HeaderText.html('<img src="../../assets/aunjaiAssets/header/ready_ic.svg" id="box_o_t" style="width:70vw;">');
           }
         }, 1500);
 
@@ -507,7 +489,6 @@ $(document).ready(function () {
 
 
         setTimeout(function () {
-          HeaderText.show();
           HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:40vw;"><div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size:10vh;">3</div>');
         }, 2500);
         setTimeout(function () {
