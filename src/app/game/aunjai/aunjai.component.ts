@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var jQuery: any;
 
 @Component({
@@ -16,7 +17,7 @@ export class AunjaiComponent implements OnInit {
   mobileWidth: number = 720;
   mobileHeight: number = 1280;
   url = '../../../assets/aunjaiAssets/js/script.js';
-
+ 
   ngOnInit() {
     // (function ($) {
     //   $(document).ready(function () {
@@ -33,22 +34,22 @@ export class AunjaiComponent implements OnInit {
     // })(jQuery);
     // localStorage.setItem('Mobile', this.mobileWidth.toString());
 
-this.loadScript();
+    this.loadScript();
   }
   //Check Resolution Width720 Height1280 Fix BG
-  onWindowResize(event) {
-    this.width = event.target.innerWidth;
-    this.height = event.target.innerHeight;
-    if (this.width >= this.mobileWidth && this.height >= this.mobileHeight) {
-      this.isTablet = true;
-    } else {
-      this.isTablet = false;
-    }
-    console.log(this.isTablet)
+  // onWindowResize(event) {
+  //   this.width = event.target.innerWidth;
+  //   this.height = event.target.innerHeight;
+  //   if (this.width >= this.mobileWidth && this.height >= this.mobileHeight) {
+  //     this.isTablet = true;
+  //   } else {
+  //     this.isTablet = false;
+  //   }
+  //   console.log(this.isTablet)
 
-  }
+  // }
 
-  constructor() { }
+  constructor(private router: Router) { }
   public loadScript() {
     console.log('preparing to load...')
     let node = document.createElement('script');

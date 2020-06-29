@@ -1,5 +1,5 @@
 ::ng-deep popup-game {
-    font-family: "DB Helvethaica"!important;
+    font-family: "DB Helvethaica" !important;
 }
 .close {
     background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
@@ -16,8 +16,6 @@
     outline: none;
     opacity: 1;
 }
-
-
 
 .aunjai-logo {
     background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2061@2x.png);
@@ -102,6 +100,14 @@
     opacity: 1;
     font-size: 4vh;
     left: 30%;
+}
+
+#btn_resume1,
+#btn_resume2,
+#btn_resume3,
+#btn_resume4,
+#btn_resume5 {
+    display: none;
 }
 
 // .baground_forest {

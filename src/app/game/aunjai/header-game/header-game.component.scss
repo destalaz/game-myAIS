@@ -1,3 +1,7 @@
+::ng-deep header-game {
+    font-family: "DB Helvethaica" !important;
+}
+
 .tablet-Header {
     position: absolute;
     display: inline-block;
@@ -48,4 +52,9 @@ img {
 #img-Round-cup5 {
     opacity: 0.2;
     display: inline;
+}
+
+#img-Round-cup4,
+#img-Round-cup5 {
+    display: none;
 }

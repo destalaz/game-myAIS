@@ -30,6 +30,11 @@ const appRoutes: Routes = [
   { path: 'reward_flip', component: RewardFlipComponent },
 
   { path: 'aunjai', component: AunjaiComponent },
+  { path: 'aunjai1', component: AunjaiComponent },
+  { path: 'aunjai2', component: AunjaiComponent },
+  { path: 'aunjai3', component: AunjaiComponent },
+  { path: 'aunjai4', component: AunjaiComponent },
+  { path: 'aunjai5', component: AunjaiComponent },
   { path: 'popup', component: PopupComponent },
   // { path: '**', component: PagenofoundComponent }
 ];
