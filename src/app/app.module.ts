@@ -22,6 +22,8 @@ import { RewardFlipComponent } from './game-aunjai-inbox/reward-flip/reward-flip
 import { PopupWinComponent } from './game/aunjai/popup-win/popup-win.component';
 import { PopupLoseComponent } from './game/aunjai/popup-lose/popup-lose.component';
 import { PopupContinueComponent } from './game/aunjai/popup-continue/popup-continue.component';
+import { PopupReadyComponent } from './game/aunjai/popup-ready/popup-ready.component';
+import { PopupErrorComponent } from './game/aunjai/popup-error/popup-error.component';
 
 
 const appRoutes: Routes = [
@@ -42,6 +44,8 @@ const appRoutes: Routes = [
   { path: 'popupWin', component: PopupWinComponent },
   { path: 'popupContinue', component: PopupContinueComponent },
   { path: 'popupLose', component: PopupLoseComponent },
+  { path: 'popupError', component: PopupErrorComponent },
+  { path: 'popupReady', component: PopupReadyComponent },
   // { path: '**', component: PagenofoundComponent }
 ];
 
@@ -59,7 +63,9 @@ const appRoutes: Routes = [
     RewardFlipComponent,
     PopupWinComponent,
     PopupLoseComponent,
-    PopupContinueComponent
+    PopupContinueComponent,
+    PopupReadyComponent,
+    PopupErrorComponent
   ],
   imports: [
     DataTablesModule,

@@ -1,0 +1,77 @@
+::ng-deep popup-ready {
+    font-family: "DB Heavent" !important;
+}
+.baground_forest {
+    background-position: center;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
+    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+#board {
+    min-width: 100%;
+    min-height: 100%;
+    position: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    top: 56vh;
+    z-index: 300;
+}
+#heading-Text {
+    top: 10vh;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.text-clound {
+    position: absolute;
+    font-size: 5vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 15vh;
+}
+
+#box1,
+#box2,
+#box3 {
+    position: absolute;
+    z-index: 300;
+}
+
+#box1,
+#box2,
+#box3 {
+    overflow: hidden;
+}
+
+#box1 #box_o_t,
+#box2 #box_o_t,
+#box3 #box_o_t {
+    left: 0px;
+    position: relative;
+    top: 0px;
+    z-index: 100;
+}
+#box_o_b {
+    width: 30vw;
+}
+
+.container {
+    padding: 0px;
+    margin: 0px;
+}

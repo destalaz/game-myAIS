@@ -74,6 +74,10 @@
   top: 0px;
   z-index: 100;
 }
+#box_o_b {
+  width: 30vw;
+}
+
 
 #kick_jump {
   position: absolute;
@@ -83,20 +87,7 @@
   display: none;
 }
 
-#box_o_b {
-  width: 30vw;
-}
-#footer {
-  position: fixed;
-  text-align: center;
-  background-color: #efefef;
-  color: #fff;
-  box-shadow: 0 0 5px #888;
-  font-size: 11px;
-  bottom: 0px;
-  width: 100%;
-  padding: 5px;
-}
+
 
 #heading-Text {
   z-index: 200;
