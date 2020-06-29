@@ -1,5 +1,5 @@
 body {
-    font-family: "DB Helvethaica";
+    font-family: "DB Heavent";
 }
 .bg-img-style {
     width: 100%;
@@ -42,8 +42,12 @@ body {
             color: #49382f;
             opacity: 1;
 
-            @media only screen and (max-device-width: 425px) {
+            @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                 font-size: 28px;
+            }
+
+            @media only screen and (max-device-width: 375px) {
+                font-size: 22px;
             }
         }
         .card-content {
@@ -55,8 +59,17 @@ body {
             color: #49382f;
             opacity: 1;
 
-            @media only screen and (max-device-width: 425px) {
+            @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                 font-size: 14px;
+            }
+
+            @media only screen and (max-device-width: 375px) {
+                margin: 1rem;
+                font-size: 14px;
+            }
+
+            @media only screen and (max-device-width: 320px) {
+                font-size: 10px;
             }
 
             .how-to-play2 {
@@ -71,16 +84,16 @@ body {
                     left: 33%;
                 }
 
-                @media only screen and (max-device-width: 425px) {
+                @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                     width: 42%;
                     left: 29%;
                     bottom: 32%;
                 }
 
                 @media only screen and (max-device-width: 375px) {
-                    width: 54%;
-                    left: 23%;
-                    bottom: 32%;
+                    width: 43%;
+                    left: 30%;
+                    bottom: 31%;
                 }
             }
             .how-to-play3 {
@@ -95,15 +108,15 @@ body {
                     left: 32%;
                 }
 
-                @media only screen and (max-device-width: 425px) {
+                @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                     width: 44%;
                     left: 28%;
                     bottom: 32%;
                 }
 
                 @media only screen and (max-device-width: 375px) {
-                    width: 60%;
-                    left: 20%;
+                    width: 46%;
+                    left: 28%;
                     bottom: 32%;
                 }
             }
@@ -118,7 +131,7 @@ body {
                     bottom: 30%;
                 }
 
-                @media only screen and (max-device-width: 425px) {
+                @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                     bottom: 31%;
                 }
 
@@ -152,7 +165,7 @@ body {
             bottom: 17%;
             position: fixed;
 
-            @media only screen and (max-device-width: 425px) {
+            @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                 display: inherit;
                 width: 54%;
                 left: 20%;
@@ -177,7 +190,7 @@ body {
             bottom: 19%;
             position: fixed;
 
-            @media only screen and (max-device-width: 425px) {
+            @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                 background-color: white;
                 width: 76%;
                 height: 11%;
@@ -193,8 +206,16 @@ body {
                 height: 9%;
                 left: 13%;
                 border-radius: 36px;
-                bottom: 20%;
+                bottom: 22%;
                 position: fixed;
+            }
+
+            @media only screen and (max-device-width: 320px) {
+                width: 66%;
+                height: 7%;
+                left: 17%;
+                border-radius: 36px;
+                bottom: 24%;
             }
 
             .ic-next {
@@ -208,15 +229,20 @@ body {
                     left: 84%;
                     bottom: 20%;
                 }
-                @media only screen and (max-device-width: 425px) {
+                @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                     left: 76%;
                     bottom: 22%;
                     width: 10%;
                 }
                 @media only screen and (max-device-width: 375px) {
-                    left: 72%;
-                    bottom: 21%;
-                    width: 13%;
+                    left: 76%;
+                    bottom: 23%;
+                    width: 9%;
+                }
+                @media only screen and (max-device-width: 320px) {
+                    left: 75%;
+                    bottom: 25%;
+                    width: 7%;
                 }
             }
             .ic-back {
@@ -232,16 +258,22 @@ body {
                     bottom: 20%;
                 }
 
-                @media only screen and (max-device-width: 425px) {
+                @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                     width: 10%;
                     left: 15%;
                     bottom: 22%;
                 }
 
                 @media only screen and (max-device-width: 375px) {
-                    width: 13%;
-                    left: 15%;
-                    bottom: 21%;
+                    width: 9%;
+                    left: 16%;
+                    bottom: 23%;
+                }
+
+                @media only screen and (max-device-width: 320px) {
+                    width: 7%;
+                    left: 19%;
+                    bottom: 25%;
                 }
             }
         }
@@ -268,18 +300,23 @@ body {
             left: 20.5%;
         }
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             left: 8.5%;
         }
 
-        @media only screen and (max-device-width: 375px) {
+        @media screen and (max-device-width: 375px) {
             height: 60%;
             left: 8.5%;
             bottom: 23%;
         }
+        @media screen and (max-device-height: 667px) {
+            height: 60%;
+            left: 16%;
+            bottom: 23%;
+        }
     }
     .close-ic {
-        display: inherit;
+        width: 7%;
         left: 74%;
         bottom: 77%;
         position: fixed;
@@ -289,8 +326,16 @@ body {
             bottom: 76%;
         }
         @media only screen and (max-device-width: 425px) {
-            left: 76%;
-            bottom: 75%;
+            left: 82%;
+            bottom: 77%;
+            width: 9%;
+        }
+        @media only screen and (max-device-width: 375px) {
+            @media screen and (max-device-height: 667px) {
+                left: 76%;
+                bottom: 77%;
+                width: 9%;
+            }
         }
     }
 }

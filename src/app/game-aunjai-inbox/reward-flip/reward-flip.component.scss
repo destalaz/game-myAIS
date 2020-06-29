@@ -1,3 +1,7 @@
+h3 {
+    text-shadow: 0.1em 0.1em #333;
+}
+
 .bg-img-style {
     width: 100%;
     min-height: 100%;
@@ -13,7 +17,7 @@
         bottom: 56%;
         left: 14%;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
             width: 90%;
             bottom: 60%;
@@ -81,7 +85,7 @@
         left: 4%;
         z-index: 1;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
             width: 17%;
             bottom: 20%;
@@ -94,6 +98,14 @@
             bottom: 20%;
             left: 5%;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                position: fixed;
+                width: 18%;
+                bottom: 20%;
+                left: 4%;
+                z-index: 1;
+            }
         }
     }
 
@@ -104,7 +116,7 @@
         left: 4%;
         z-index: 1;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
             width: 17%;
             bottom: 34%;
@@ -117,6 +129,14 @@
             bottom: 34%;
             left: 5%;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                position: fixed;
+                width: 18%;
+                bottom: 34%;
+                left: 4%;
+                z-index: 1;
+            }
         }
     }
 
@@ -127,7 +147,7 @@
         left: 4%;
         z-index: 1;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
             width: 17%;
             bottom: 48%;
@@ -140,11 +160,19 @@
             bottom: 48%;
             left: 4%;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                position: fixed;
+                width: 18%;
+                bottom: 48%;
+                left: 4%;
+                z-index: 1;
+            }
         }
     }
 
     .text-detail_20 {
-        font-family: "DB Helvethaica";
+        font-family: "DB Heavent";
         font-size: 32px;
         text-align: center;
         position: fixed;
@@ -157,7 +185,7 @@
         text-shadow: 2px 2px 4px #000000;
         -webkit-font-smoothing: antialiased;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             font-size: 22px;
             text-align: center;
             position: fixed;
@@ -174,11 +202,25 @@
             left: 29%;
             font-style: italic;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                font-size: 20px;
+                text-align: center;
+                position: fixed;
+                bottom: 20%;
+                left: 28%;
+                font-style: italic;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 320px) {
+            font-size: 18px;
+            left: 26%;
         }
     }
 
     .text-detail_50 {
-        font-family: "DB Helvethaica";
+        font-family: "DB Heavent";
         font-size: 32px;
         text-align: center;
         position: fixed;
@@ -191,7 +233,7 @@
         text-shadow: 2px 2px 4px #000000;
         -webkit-font-smoothing: antialiased;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             font-size: 22px;
             text-align: center;
             position: fixed;
@@ -208,11 +250,25 @@
             left: 28%;
             font-style: italic;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                font-size: 20px;
+                text-align: center;
+                position: fixed;
+                bottom: 35%;
+                left: 28%;
+                font-style: italic;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 320px) {
+            font-size: 18px;
+            left: 27%;
         }
     }
 
     .text-detail_100 {
-        font-family: "DB Helvethaica";
+        font-family: "DB Heavent";
         font-size: 32px;
         text-align: center;
         position: fixed;
@@ -225,7 +281,7 @@
         text-shadow: 2px 2px 4px #000000;
         -webkit-font-smoothing: antialiased;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             font-size: 22px;
             text-align: center;
             position: fixed;
@@ -242,6 +298,20 @@
             left: 28%;
             font-style: italic;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                font-size: 20px;
+                text-align: center;
+                position: fixed;
+                bottom: 48%;
+                left: 27%;
+                font-style: italic;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 320px) {
+            font-size: 18px;
+            left: 25%;
         }
     }
 
@@ -252,7 +322,7 @@
         left: 85%;
         z-index: 1;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
             width: 14%;
             bottom: 21%;
@@ -265,6 +335,14 @@
             bottom: 21%;
             left: 80%;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                position: fixed;
+                width: 14%;
+                bottom: 21%;
+                left: 80%;
+                z-index: 1;
+            }
         }
     }
     .btn_play_50 {
@@ -274,7 +352,7 @@
         left: 85%;
         z-index: 1;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
             width: 14%;
             bottom: 35%;
@@ -287,6 +365,14 @@
             bottom: 35%;
             left: 80%;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                position: fixed;
+                width: 14%;
+                bottom: 35%;
+                left: 80%;
+                z-index: 1;
+            }
         }
     }
     .btn_play_100 {
@@ -296,7 +382,7 @@
         left: 85%;
         z-index: 1;
 
-        @media only screen and (max-device-width: 425px) {
+        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
             width: 14%;
             bottom: 49%;
@@ -309,6 +395,14 @@
             bottom: 49%;
             left: 80%;
             z-index: 1;
+
+            @media screen and (max-device-height: 667px) {
+                position: fixed;
+                width: 14%;
+                bottom: 49%;
+                left: 80%;
+                z-index: 1;
+            }
         }
     }
 }
