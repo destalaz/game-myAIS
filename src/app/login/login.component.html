@@ -1,43 +1,53 @@
-<div style="margin: 1rem; margin-top: 10% ">
-    <div class="row">
-        <div class="col-sm-2 col-md-2 col-lg-3"></div>
-        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-            <div class="card" style="padding: 24px;">
-                <h2 class="text-center">Login</h2>
-                <div class="form-group form-login ">
-                    <form [formGroup]="loginForm" (ngSubmit)="login()">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" formControlName="username"
-                            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-
-                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                            <div *ngIf="f.username.errors.required">Username is required</div>
-                        </div>
-
-                        <label for="pwd" style="margin-top: 8px;">password</label>
-                        <input type="password" class="form-control" formControlName="pwd"
-                            [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" />
-                        <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
-                            <div *ngIf="f.pwd.errors.required">password is required</div>
-                        </div>
-
-                        <div>
-                            <button type="submit" class=" color-ais  butsubmit block">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="card" style="padding: 18px; margin-top: 24px;" >
-                <h5>- Log -</h5>
-                <label>{{msg}}</label>
-            </div>
-            
-
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+    <div class="container">
+        <h5>{{title}}</h5>
+        <div class="navbar-header ">
+            <!-- <a *ngIf="!loginSS" class="navbar-brand text-light" routerLink="/login" routerLinkActive="active">Login</a>
+        <a *ngIf="loginSS" (click)="logout()" class="navbar-brand text-light" routerLinkActive="active">Logout</a> -->
         </div>
-        <div class="col-sm-2 col-md-2 col-lg-3"></div>
     </div>
+</nav>
+
+<body class="container">
+    <div style="margin: 1rem; margin-top: 10% ">
+        <h4 style="text-align:center ;color:Tomato; margin-bottom: 3%; ">{{ msgAlert }}</h4>
+        <div class="row">
+            <div class="col-sm-2 col-md-2 col-lg-3"></div>
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+                <div class="card" style="padding: 24px;">
+                    <h2 class="text-center" style="text-align:center">Login</h2>
+                    <div class="form-group form-login ">
+                        <form [formGroup]="loginForm" (ngSubmit)="login()">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" formControlName="username"
+                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Username is required</div>
+                            </div>
+
+                            <label for="pwd" style="margin-top: 8px;">password</label>
+                            <input type="password" class="form-control" formControlName="pwd"
+                                [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" />
+                            <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                                <div *ngIf="f.pwd.errors.required">password is required</div>
+                            </div>
+
+                            <div>
+                                <button *ngIf="!loading" type="submit"
+                                    class=" color-ais  butsubmit block">Submit</button>
+                                <button *ngIf="loading" disabled type="submit"
+                                    class=" color-ais  butsubmit block">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-3"></div>
+        </div>
 
 
 
-</div>
+    </div>
+</body>

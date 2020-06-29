@@ -14,7 +14,8 @@ export class CmsService {
     reportDetail = new Array();
     reportName = new Array();
     reloadData;
-    private baseUrl = 'http://localhost:3000';
+    private baseUrl = 'https://gameapistg.wisdomcloud.net/api/cms';
+    // private baseUrl = 'http://localhost:3000/api/cms';
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -29,19 +30,17 @@ export class CmsService {
 
     getConfig() {
         let urlApi = "/config";
-        console.log("log=> " ,this.baseUrl + urlApi);
         return this.http.get(this.baseUrl + urlApi);
     }
 
-    cancelLevel(id: string) {
-        let urlApi = "/config/cancal";
-        console.log(this.baseUrl + urlApi );
-        return this.http.post(this.baseUrl + urlApi , { _id : id } );
+    login(username: string, password: string) {
+        let urlApi = "/config/login";
+        return this.http.post(this.baseUrl + urlApi, { username: username, password: password });
     }
 
     createLevel(body: any) {
-        let urlApi = "/config/create";
-        return this.http.post(this.baseUrl + urlApi , body );
+        let urlApi = "/config/create/level";
+        return this.http.post(this.baseUrl + urlApi, body);
     }
 
 

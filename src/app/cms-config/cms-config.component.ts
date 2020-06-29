@@ -2,6 +2,7 @@ import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CmsService } from "../service/cms.service";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,26 +14,27 @@ export class CmsConfigComponent implements OnInit {
   configForm: FormGroup;
   submitted = false;
   difficulty = ""
-  rewardOptionList = [1];
   fipAmtOptionList = [];
   configData: any;
   diffDetail: any;
-  diffTb: any; 
+  diffTb: any;
+  title = 'Game-myAIS';
 
   constructor(
     private formBuilder: FormBuilder,
     private cmsService: CmsService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
-    
 
-    for (let i = 10; i <= 300; i = i + 10) { this.rewardOptionList.push(i) }
     for (let i = 1; i <= 50; i++) { this.fipAmtOptionList.push(i) }
     this.configForm = this.formBuilder.group({
       levelIdx: [1, [Validators.required]],
-      point: ['', [Validators.required]],
-      reward: ['', [Validators.required]],
+      pointIdx: ['', [Validators.required]],
+      point: ['', []],
+      rewardIdx: ['', [Validators.required]],
+      reward: ['', []],
       amountWin: ['', [Validators.required]],
       playerAmt: ['', [Validators.required]],
       winnerAmt: ['', [Validators.required]],
@@ -47,12 +49,12 @@ export class CmsConfigComponent implements OnInit {
 
 
   amountWinOnChange() {
-    console.log(this.configForm.controls.amountWin.value.toString());
-    console.log(this.diffDetail.length);
+    // console.log(this.configForm.controls.amountWin.value.toString());
+    // console.log(this.diffDetail.length);
     if (this.configForm.controls.amountWin.value != this.diffDetail.length) {
       this.diffDetail = [];
       for (let i = 1; i <= this.configForm.controls.amountWin.value; i++) {
-        const diffArr = { "flip": i, "speed": 1, "flipAmt": 1 };
+        const diffArr = { "flip":  + i, "speed": 1, "flipAmt": 1 };
         this.diffDetail.push(diffArr);
       }
     }
@@ -89,8 +91,8 @@ export class CmsConfigComponent implements OnInit {
       if (vLevelId.toString() === this.configData[i].levelIdx.toString()) {
         this.configForm = this.formBuilder.group({
           levelIdx: [this.configData[i].levelIdx, [Validators.required]],
-          point: [this.configData[i].point, [Validators.required]],
-          reward: [this.configData[i].reward, [Validators.required]],
+          pointIdx: [this.configData[i].pointIdx, [Validators.required]],
+          rewardIdx: [this.configData[i].rewardIdx, [Validators.required]],
           amountWin: [this.configData[i].amountWin, [Validators.required]],
           playerAmt: [this.configData[i].playerAmt, [Validators.required]],
           winnerAmt: [this.configData[i].winnerAmt, [Validators.required]],
@@ -98,7 +100,7 @@ export class CmsConfigComponent implements OnInit {
           level: this.configData[i].level,
         });
         this.diffDetail = this.configData[i].difficulty;
-        this.difficulty = this.configData[i].level;
+        this.difficulty = this.configData[i].levelName;
         return;
       }
     }
@@ -130,43 +132,47 @@ export class CmsConfigComponent implements OnInit {
   }
 
   save() {
+    this.submitted = true;
     this.alertLoading(true);
     const data =
     {
-      levelIdx: this.configForm.controls.levelIdx.value.toString(),
+      levelIdx: Number(this.configForm.controls.levelIdx.value),
       level: this.configForm.controls.level.value.toString(),
-      point: this.configForm.controls.point.value.toString(),
-      reward: this.configForm.controls.reward.value.toString(),
-      amountWin: this.configForm.controls.amountWin.value.toString(),
-      playerAmt: this.configForm.controls.playerAmt.value.toString(),
-      winnerAmt: this.configForm.controls.winnerAmt.value.toString(),
+      pointIdx: Number(this.configForm.controls.pointIdx.value),
+      rewardIdx: Number(this.configForm.controls.rewardIdx.value),
+      amountWin: Number(this.configForm.controls.amountWin.value),
+      // playerAmt: this.configForm.controls.playerAmt.value.toString(),
+      // winnerAmt: this.configForm.controls.winnerAmt.value.toString(),
       difficulty: this.diffDetail
 
     };
-
-    this.cmsService.cancelLevel(this.configForm.controls._id.value.toString())
-      .subscribe((res: any) => {
+    // console.log("===> ", JSON.stringify(data))
+    this.cmsService.createLevel(data).subscribe(
+      (res: any) => {
         if (res.resultCode === "20000") {
-          this.cmsService.createLevel(data).subscribe(
-            (res: any) => {
-              this.getConfig();
-            });
+          setTimeout(() => {
+            this.getConfig();
+            let element: HTMLInputElement = document.getElementById('closeModalEdit') as HTMLInputElement;
+            element.style.display = "none";
+            element.click();
+            let element2: HTMLInputElement = document.getElementById('closeModalDeff') as HTMLInputElement;
+            element2.style.display = "none";
+            element2.click();
+            this.submitted = false;
+          }, 1500);
         }
-        // Err
 
-        this.alertLoading(false);
-        let element: HTMLInputElement = document.getElementById('closeModalEdit') as HTMLInputElement;
-        element.style.display = "none";
-        element.click();
-        let element2: HTMLInputElement = document.getElementById('closeModalDeff') as HTMLInputElement;
-        element2.style.display = "none";
-        element2.click();
       });
 
+    // Err
 
 
 
   }
 
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 }

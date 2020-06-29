@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
- import { ApiService } from '../service/api.service';
+//  import { ApiService } from '../service/api.service';
+import { CmsService } from "../service/cms.service";
 
 @Component({
   selector: 'app-login',
@@ -9,20 +11,28 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  title = 'Game-myAIS';
   loginForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
-  msg: string;
+  msgAlert = "";
 
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ApiService,
+    private cmsService: CmsService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
+    
+    if ( sessionStorage.getItem('username') ) {
+      sessionStorage.clear();
+      this.router.navigate(['/config']);
+    } else {
+      this.router.navigate(['/login']);
+    }
 
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
@@ -33,31 +43,22 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   login() {
-
     this.submitted = true;
     if (this.loginForm.invalid) { return; }
-
-    if (this.loginForm.value.username !== "admin" && this.loginForm.value.pwd !== "root") {
-      alert("The username or password is incorrect.");
-      return;
-    }
-
-    let bodyOauth = new URLSearchParams();
-    bodyOauth.set('client_secret', "7612efd12f7952634b7a28cf9aff3449");
-    bodyOauth.set('grant_type', "client_credentials");
-    bodyOauth.set('nonce', "MyAIS2020060000000");
-    bodyOauth.set('client_id', "JjIVkneVcJuNz6tFQ4Ki5E4QBx6SBcIC37zyEnVK0HQ");
-    this.getOauth(bodyOauth);
-
-    this.loading = true;
-  }
-
-  getOauth(body) {
-    this.apiService.oauth(body).subscribe((res: any) => {
-      console.log("res => ", res);
-      this.msg = JSON.stringify(res);
+    this.cmsService.login(this.loginForm.value.username, this.loginForm.value.pwd).subscribe((res: any) => {
+      // console.log(res)
+      if (res.loginStatus === true) {
+        sessionStorage.setItem('username', res.data.username)
+        this.loading = false;
+        this.router.navigate(['/config']);
+      } else {
+        this.msgAlert = "The username or password is incorrect.";
+        this.loading = false;
+      }
     });
+
   }
+
 
 }
 
