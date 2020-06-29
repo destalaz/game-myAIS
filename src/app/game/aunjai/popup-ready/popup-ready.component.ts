@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupReadyComponent implements OnInit {
 
+  totalRound: number;
   constructor() { }
 
   ngOnInit() {
+    this.totalRound = parseInt(localStorage.getItem('totalRound'));
   }
 
 }

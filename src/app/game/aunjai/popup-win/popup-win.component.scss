@@ -2,8 +2,34 @@
     font-family: "DB Helvethaica" !important;
 }
 
-.treatBox {
+.treatBox_20 {
     background: transparent url(../../../../assets/aunjaiAssets/component/for_20_score_ic@2x.png);
+    top: 44%;
+    background-position: center;
+    min-height: 26%;
+    min-width: 50%;
+    position: fixed;
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    left: 28%;
+}
+
+.treatBox_50 {
+    background: transparent url(../../../../assets/aunjaiAssets/component/for_50_score_ic@2x.png);
+    top: 44%;
+    background-position: center;
+    min-height: 26%;
+    min-width: 50%;
+    position: fixed;
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    left: 28%;
+}
+
+.treatBox_100 {
+    background: transparent url(../../../../assets/aunjaiAssets/component/for_200_score_ic@2x.png);
     top: 44%;
     background-position: center;
     min-height: 26%;

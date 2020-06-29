@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderGameComponent implements OnInit {
 
+  totalRound: any;
   constructor() { }
 
   ngOnInit() {
+    this.totalRound = parseInt(localStorage.getItem('totalRound'));
   }
-
 }

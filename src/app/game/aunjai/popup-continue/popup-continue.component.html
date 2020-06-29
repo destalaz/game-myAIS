@@ -6,7 +6,7 @@
             <div class="aunjai_Social">
 
             </div>
-            <span class="textBody"> เอไอเอสพอยท์ 20 คะแนน </span><br>
+            <span class="textBody"> เอไอเอสพอยท์ {{reward}} คะแนน </span><br>
             <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
 
 
@@ -15,16 +15,21 @@
             </button>
         </div>
         <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="open" [routerLinkActive]="['isActive']"
-            [routerLink]="['/reward_flip']">
+            [routerLink]="['/']">
             <div class="aunjai_fly">
             </div>
-            <span class="textBody"> เอไอเอสพอยท์ 20 คะแนน </span><br>
+            <span class="textBody"> เอไอเอสพอยท์ {{reward}} คะแนน </span><br>
             <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
 
 
-                <span class="textBody" id="bottom"> คุณได้รับรางวัลครบแล้ว </span><br><br>
-                <span class="textBody" id="bottom"> มาร่วมสนุกใหม่เกมหน้า</span>
+
+            <div id="heading-Text">
+                
+                <span class="text" id="bottom"> คุณได้รับรางวัลครบแล้ว </span><br><br>
+                <span class="text" id="bottom"> มาร่วมสนุกใหม่เกมหน้า</span>
             
+            </div>
+               
         </div>
     </div>
 </div>
