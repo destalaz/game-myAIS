@@ -66,6 +66,10 @@ body {
             @media only screen and (max-device-width: 375px) {
                 margin: 1rem;
                 font-size: 14px;
+
+                @media screen and (max-device-height: 640px) {
+                    font-size: 12px;
+                }
             }
 
             @media only screen and (max-device-width: 320px) {
@@ -139,6 +143,12 @@ body {
                     left: 30%;
                     width: 40%;
                     bottom: 30%;
+
+                    @media screen and (max-device-height: 640px) {
+                        left: 30%;
+                        width: 40%;
+                        bottom: 33%;
+                    }
                 }
             }
         }
@@ -190,6 +200,13 @@ body {
             bottom: 19%;
             position: fixed;
 
+            @media screen and (max-device-height: 1024px) {
+                width: 84%;
+                height: 9%;
+                left: 8%;
+                bottom: 19%;
+            }
+
             @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                 background-color: white;
                 width: 76%;
@@ -208,6 +225,13 @@ body {
                 border-radius: 36px;
                 bottom: 22%;
                 position: fixed;
+
+                @media screen and (max-device-height: 640px) {
+                    width: 72%;
+                    height: 10%;
+                    left: 14%;
+                    bottom: 23%;
+                }
             }
 
             @media only screen and (max-device-width: 320px) {
@@ -225,9 +249,16 @@ body {
                 bottom: 19%;
                 position: fixed;
 
+
                 @media only screen and (max-device-width: 768px) {
                     left: 84%;
                     bottom: 20%;
+
+                    @media screen and (max-device-height: 1024px) {
+                        width: 8%;
+                        left: 82%;
+                        bottom: 20%;
+                    }
                 }
                 @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
                     left: 76%;
@@ -238,6 +269,12 @@ body {
                     left: 76%;
                     bottom: 23%;
                     width: 9%;
+
+                    @media screen and (max-device-height: 640px) {
+                        left: 75%;
+                        bottom: 24%;
+                        width: 7%;
+                    }
                 }
                 @media only screen and (max-device-width: 320px) {
                     left: 75%;
@@ -256,6 +293,12 @@ body {
                     width: 8%;
                     left: 8%;
                     bottom: 20%;
+
+                    @media screen and (max-device-height: 1024px) {
+                        width: 8%;
+                        left: 10%;
+                        bottom: 20%;
+                    }
                 }
 
                 @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
@@ -268,6 +311,12 @@ body {
                     width: 9%;
                     left: 16%;
                     bottom: 23%;
+
+                    @media screen and (max-device-height: 640px) {
+                        width: 7%;
+                        left: 18%;
+                        bottom: 24%;
+                    }
                 }
 
                 @media only screen and (max-device-width: 320px) {
@@ -298,10 +347,22 @@ body {
 
         @media only screen and (max-device-width: 768px) {
             left: 20.5%;
+
+            // @media screen and (min-device-height: 1024px) {
+            //     left: 12.5%;
+            // }
+
+            @media screen and (min-device-height: 810px) {
+                left: 13%;
+            }
         }
 
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             left: 8.5%;
+
+            @media screen and (min-device-height: 810px) {
+                left: 3%;
+            }
         }
 
         @media screen and (max-device-width: 375px) {
@@ -324,11 +385,27 @@ body {
         @media only screen and (max-device-width: 768px) {
             left: 75%;
             bottom: 76%;
+
+            @media screen and (min-device-height: 1024px) {
+                left: 75%;
+                bottom: 76%;
+            }
+
+            @media screen and (min-device-height: 810px) {
+                left: 79%;
+                bottom: 77%;
+            }
         }
         @media only screen and (max-device-width: 425px) {
             left: 82%;
             bottom: 77%;
             width: 9%;
+
+            @media screen and (min-device-height: 810px) {
+                left: 83%;
+                bottom: 77%;
+                width: 9%;
+            }
         }
         @media only screen and (max-device-width: 375px) {
             @media screen and (max-device-height: 667px) {
