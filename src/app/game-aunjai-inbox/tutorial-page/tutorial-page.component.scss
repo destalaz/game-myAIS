@@ -36,9 +36,7 @@ body {
             margin: 1rem;
             text-align: center;
             font-size: 38px;
-            font-weight: bold;
-            border-spacing: 0px;
-            letter-spacing: 0px;
+            font-weight: bolder;
             color: #49382f;
             opacity: 1;
 
@@ -54,8 +52,6 @@ body {
             margin: 1.5rem;
             text-align: left;
             font-size: 22px;
-            font-weight: bolder;
-            letter-spacing: 0px;
             color: #49382f;
             opacity: 1;
 
@@ -348,11 +344,15 @@ body {
         @media only screen and (max-device-width: 768px) {
             left: 20.5%;
 
-            // @media screen and (min-device-height: 1024px) {
-            //     left: 12.5%;
-            // }
+            @media screen and (max-device-height: 960px) {
+                left: 12.5%;
+            }
 
-            @media screen and (min-device-height: 810px) {
+            @media screen and (max-device-height: 900px) {
+                left: 18%;
+            }
+
+            @media screen and (max-device-height: 810px) {
                 left: 13%;
             }
         }
@@ -386,12 +386,12 @@ body {
             left: 75%;
             bottom: 76%;
 
-            @media screen and (min-device-height: 1024px) {
-                left: 75%;
+            @media screen and (max-device-height: 900px) {
+                left: 78%;
                 bottom: 76%;
             }
 
-            @media screen and (min-device-height: 810px) {
+            @media screen and (max-device-height: 810px) {
                 left: 79%;
                 bottom: 77%;
             }
