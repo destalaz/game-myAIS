@@ -1,10 +1,10 @@
-::ng-deep popup-error {
-    font-family: "DB Heavent"!important;
-}
+// ::ng-deep popup-error {
+//     font-family: "DB Heavent" !important;
+// }
 
 .aunjai-logo {
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_046@2x-min.png);
-    top: 0px;
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/min/Group_046@2x-min.png);
+    top: -2vh;
     margin: auto;
     background-position: center;
     min-height: 40%;
@@ -26,9 +26,11 @@
     position: relative;
     font-size: 5vw;
     top: 18vh;
+    color: #49382f;
+    font-style: italic;
 }
 #body-popup-win {
-    display:block;
+    display: block;
     pointer-events: all;
     z-index: 99999;
     border: none;
@@ -82,8 +84,10 @@
     background-repeat: no-repeat;
     outline: none;
     opacity: 1;
-    font-size: 4.2vw;
     left: 30%;
+    font-size: 6vw;
+    font-family: "DB_Heavent_Bd_It";
+    color: #49382F;
 }
 
 .container {

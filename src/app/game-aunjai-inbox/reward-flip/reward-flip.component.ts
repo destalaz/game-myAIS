@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../../service/game.service';
 
@@ -8,20 +8,22 @@ import { GameService } from '../../service/game.service';
   styleUrls: ['./reward-flip.component.scss']
 })
 export class RewardFlipComponent implements OnInit {
-
-  constructor(
-    private router: Router,
-    private gameService: GameService
-  ) { }
-
-
+  constructor( private gameService: GameService,private router: Router) { }
+  // level: any;
+  open: boolean = false;
   ngOnInit() {
     localStorage.setItem('countWin', "1");
   }
-  goPlaces() {
-    this.router.navigateByUrl('/popupError');
-  }
+  termUrl="myais://gamesterms?lang=th&url=https%3A%2F%2Fais.co.th%2Fgames%2Freawrdsflip%2Fconditions%2Fth";
+  // goPlaces() {
+  //   this.router.navigateByUrl('/popupError');
+  // }
 
+
+  chooseLevel(level) {
+   this.open = true;
+    // this.errorState = true;
+  }
   easy() {
 
     localStorage.setItem('totalRound', "3");
@@ -31,7 +33,7 @@ export class RewardFlipComponent implements OnInit {
     localStorage.setItem('rewardpoint', "20");
     console.log("easy");
 
-    this.router.navigateByUrl('/popupError');
+    // this.router.navigateByUrl('/popupError');
   }
   normol() {
     localStorage.setItem('totalRound', "4");
@@ -40,7 +42,7 @@ export class RewardFlipComponent implements OnInit {
     localStorage.setItem('aispoint', "2");
     localStorage.setItem('rewardpoint', "50");
     console.log("normal");
-    this.router.navigateByUrl('/popupError');
+    // this.router.navigateByUrl('/popupError');
   }
 
   hard() {
@@ -51,7 +53,11 @@ export class RewardFlipComponent implements OnInit {
     localStorage.setItem('rewardpoint', "100");
     console.log("hard");
     // localStorage.getItem('speed');
-    this.router.navigateByUrl('/popupError');
+    // this.router.navigateByUrl('/popupError');
+  }
+
+  termCondition(){
+    window.open(this.termUrl, "_blank");
   }
 
   ServedPlayGame(level) {

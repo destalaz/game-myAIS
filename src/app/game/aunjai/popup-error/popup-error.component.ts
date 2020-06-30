@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'popup-error',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popup-error.component.scss']
 })
 export class PopupErrorComponent implements OnInit {
-
+ @Input() redeem_point: boolean = false;
   aispoint: any;
   constructor() { }
 

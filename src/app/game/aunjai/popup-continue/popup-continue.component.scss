@@ -45,7 +45,7 @@
     left: 30%;
 }
 .aunjai_Social {
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2048@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/aunjai_play_agin.png);
     top: 29vh;
     margin: auto;
     background-position: center;
@@ -81,12 +81,16 @@
     position: relative;
     font-size: 5vw;
     top: 6vh;
+    color: #49382f;
+    font-style: italic;
 }
 
 .textBottom {
     position: relative;
     font-size: 3vw;
     top: 30vh;
+    color: #49382f;
+    font-style: italic;
 }
 
 #bottom {
@@ -149,6 +153,7 @@
     opacity: 1;
     font-size: 6vw;
     left: 30%;
+    font-family: "DB_Heavent_Bd_It";
 }
 
 .container {
