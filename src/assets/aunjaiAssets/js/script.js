@@ -253,7 +253,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;">');
                       box1.animate({
-                        top: $(this).position().top + -18 + "vh"
+                        top: $(this).position().top + -20 + "vh"
                       });
                       if (ans == 1) {
                         flag = 1;
@@ -269,7 +269,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
-                        top: $(this).position().top - 18 + "vh"
+                        top: $(this).position().top - 20 + "vh"
                       });
                       if (ans == 2) {
                         flag = 1;
@@ -285,7 +285,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
-                        top: $(this).position().top + -18 + "vh"
+                        top: $(this).position().top + -20 + "vh"
                       });
                       if (ans == 3) {
                         flag = 1;
