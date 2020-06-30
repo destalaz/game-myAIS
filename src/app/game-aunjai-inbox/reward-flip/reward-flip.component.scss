@@ -8,14 +8,14 @@ h3 {
     position: fixed;
     box-shadow: #888 0px 0px 5px;
     background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
-    background-size: auto 100%;
+    background-size: 245% 100%;
     background-position-x: center;
 
     .img-logo-reward-flip {
         position: fixed;
-        width: 70%;
-        bottom: 56%;
-        left: 14%;
+        width: 90%;
+        bottom: 58%;
+        left: 4%;
 
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
@@ -31,38 +31,37 @@ h3 {
         }
     }
     .box-landing_1 {
-        padding: 1rem;
         position: fixed;
-        width: 94%;
-        height: 12%;
+        width: 92%;
+        height: 10%;
         border: 0px solid;
         border-radius: 76px;
-        bottom: 47%;
-        left: 3%;
+        bottom: 50%;
+        left: 4%;
         background-color: #f8f9fa96;
         box-shadow: 0px 3px 5px grey;
     }
     .box-landing_2 {
         padding: 1rem;
         position: fixed;
-        width: 94%;
-        height: 12%;
+        width: 92%;
+        height: 10%;
         border: 0px solid;
         border-radius: 76px;
-        bottom: 33%;
-        left: 3%;
+        bottom: 38%;
+        left: 4%;
         background-color: #f8f9fa96;
         box-shadow: 0px 3px 5px grey;
     }
     .box-landing_3 {
         padding: 1rem;
         position: fixed;
-        width: 94%;
-        height: 12%;
+        width: 92%;
+        height: 10%;
         border: 0px solid;
         border-radius: 76px;
-        bottom: 19%;
-        left: 3%;
+        bottom: 26%;
+        left: 4%;
         background-color: #f8f9fa96;
         box-shadow: 0px 3px 5px grey;
     }
@@ -85,17 +84,24 @@ h3 {
         left: 4%;
         z-index: 1;
 
+        @media screen and (min-device-width: 600px) {
+            position: fixed;
+            width: 16%;
+            bottom: 26%;
+            left: 4%;
+            z-index: 1;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
-            width: 17%;
-            bottom: 20%;
-            left: 5%;
+            width: 18%;
+            bottom: 26%;
+            left: 4%;
             z-index: 1;
 
             @media screen and (min-device-height: 810px) {
                 position: fixed;
                 width: 20%;
-                bottom: 20%;
+                bottom: 26%;
                 left: 4%;
                 z-index: 1;
             }
@@ -103,14 +109,14 @@ h3 {
         @media only screen and (max-device-width: 375px) {
             position: fixed;
             width: 22%;
-            bottom: 20%;
-            left: 5%;
+            bottom: 26%;
+            left: 4%;
             z-index: 1;
 
             @media screen and (max-device-height: 667px) {
                 position: fixed;
                 width: 18%;
-                bottom: 20%;
+                bottom: 26%;
                 left: 4%;
                 z-index: 1;
             }
@@ -125,7 +131,7 @@ h3 {
             @media screen and (max-device-height: 568px) {
                 position: fixed;
                 width: 18%;
-                bottom: 20%;
+                bottom: 26%;
                 left: 4%;
                 z-index: 1;
             }
@@ -147,17 +153,25 @@ h3 {
         left: 4%;
         z-index: 1;
 
+        @media screen and (min-device-width: 600px) {
+            position: fixed;
+            width: 16%;
+            bottom: 38%;
+            left: 4%;
+            z-index: 1;
+        }
+
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
-            width: 17%;
-            bottom: 34%;
+            width: 18%;
+            bottom: 38%;
             left: 4%;
             z-index: 1;
 
             @media screen and (min-device-height: 810px) {
                 position: fixed;
                 width: 20%;
-                bottom: 34%;
+                bottom: 38%;
                 left: 4%;
                 z-index: 1;
             }
@@ -165,14 +179,14 @@ h3 {
         @media only screen and (max-device-width: 375px) {
             position: fixed;
             width: 22%;
-            bottom: 34%;
-            left: 5%;
+            bottom: 38%;
+            left: 4%;
             z-index: 1;
 
             @media screen and (max-device-height: 667px) {
                 position: fixed;
                 width: 18%;
-                bottom: 34%;
+                bottom: 38%;
                 left: 4%;
                 z-index: 1;
             }
@@ -187,7 +201,7 @@ h3 {
             @media screen and (max-device-height: 568px) {
                 position: fixed;
                 width: 18%;
-                bottom: 34%;
+                bottom: 38%;
                 left: 4%;
                 z-index: 1;
             }
@@ -208,18 +222,24 @@ h3 {
         left: 4%;
         z-index: 1;
 
-
+        @media screen and (min-device-width: 600px) {
+            position: fixed;
+            width: 16%;
+            bottom: 50%;
+            left: 4%;
+            z-index: 1;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
-            width: 17%;
-            bottom: 48%;
+            width: 18%;
+            bottom: 50%;
             left: 4%;
             z-index: 1;
 
             @media screen and (min-device-height: 810px) {
                 position: fixed;
                 width: 20%;
-                bottom: 48%;
+                bottom: 50%;
                 left: 4%;
                 z-index: 1;
             }
@@ -227,14 +247,14 @@ h3 {
         @media only screen and (max-device-width: 375px) {
             position: fixed;
             width: 22%;
-            bottom: 48%;
+            bottom: 50%;
             left: 4%;
             z-index: 1;
 
             @media screen and (max-device-height: 667px) {
                 position: fixed;
                 width: 18%;
-                bottom: 48%;
+                bottom: 50%;
                 left: 4%;
                 z-index: 1;
             }
@@ -250,7 +270,7 @@ h3 {
             @media screen and (max-device-height: 568px) {
                 position: fixed;
                 width: 18%;
-                bottom: 48%;
+                bottom: 50%;
                 left: 4%;
                 z-index: 1;
             }
@@ -388,11 +408,11 @@ h3 {
         -webkit-font-smoothing: antialiased;
 
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            font-size: 22px;
+            font-size: 18px;
             text-align: center;
             position: fixed;
-            bottom: 48%;
-            left: 25%;
+            bottom: 51%;
+            left: 28%;
             font-style: italic;
             z-index: 1;
 
@@ -434,32 +454,39 @@ h3 {
         left: 85%;
         z-index: 1;
 
+        @media screen and (min-device-width: 600px) {
+            position: fixed;
+            width: 9%;
+            bottom: 28%;
+            left: 85%;
+            z-index: 1;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
-            width: 14%;
-            bottom: 21%;
-            left: 80%;
+            width: 11%;
+            bottom: 28%;
+            left: 83%;
             z-index: 1;
         }
         @media only screen and (max-device-width: 375px) {
             position: fixed;
-            width: 17%;
-            bottom: 21%;
+            width: 13%;
+            bottom: 28%;
             left: 80%;
             z-index: 1;
 
             @media screen and (max-device-height: 667px) {
                 position: fixed;
-                width: 14%;
-                bottom: 21%;
-                left: 80%;
+                width: 13%;
+                bottom: 27%;
+                left: 82%;
                 z-index: 1;
             }
         }
         @media only screen and (max-device-width: 320px) {
             position: fixed;
             width: 13%;
-            bottom: 21%;
+            bottom: 27%;
             left: 82%;
             z-index: 1;
         }
@@ -471,32 +498,40 @@ h3 {
         left: 85%;
         z-index: 1;
 
+        @media screen and (min-device-width: 600px) {
+            position: fixed;
+            width: 9%;
+            bottom: 40%;
+            left: 85%;
+            z-index: 1;
+        }
+
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
-            width: 14%;
-            bottom: 35%;
-            left: 80%;
+            width: 11%;
+            bottom: 40%;
+            left: 83%;
             z-index: 1;
         }
         @media only screen and (max-device-width: 375px) {
             position: fixed;
-            width: 17%;
-            bottom: 35%;
+            width: 13%;
+            bottom: 40%;
             left: 80%;
             z-index: 1;
 
             @media screen and (max-device-height: 667px) {
                 position: fixed;
-                width: 14%;
-                bottom: 35%;
-                left: 80%;
+                width: 13%;
+                bottom: 39%;
+                left: 82%;
                 z-index: 1;
             }
         }
         @media only screen and (max-device-width: 320px) {
             position: fixed;
             width: 13%;
-            bottom: 35%;
+            bottom: 39%;
             left: 82%;
             z-index: 1;
         }
@@ -508,32 +543,39 @@ h3 {
         left: 85%;
         z-index: 1;
 
+        @media screen and (min-device-width: 600px) {
+            position: fixed;
+            width: 9%;
+            bottom: 52%;
+            left: 85%;
+            z-index: 1;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             position: fixed;
-            width: 14%;
-            bottom: 49%;
-            left: 80%;
+            width: 11%;
+            bottom: 52%;
+            left: 83%;
             z-index: 1;
         }
         @media only screen and (max-device-width: 375px) {
             position: fixed;
-            width: 17%;
-            bottom: 49%;
+            width: 13%;
+            bottom: 52%;
             left: 80%;
             z-index: 1;
 
             @media screen and (max-device-height: 667px) {
                 position: fixed;
-                width: 14%;
-                bottom: 49%;
-                left: 80%;
+                width: 13%;
+                bottom: 51%;
+                left: 82%;
                 z-index: 1;
             }
         }
         @media only screen and (max-device-width: 320px) {
             position: fixed;
             width: 13%;
-            bottom: 49%;
+            bottom: 51%;
             left: 82%;
             z-index: 1;
         }
@@ -548,17 +590,30 @@ h3 {
         left: 33%;
 
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            width: 45%;
-            height: 7%;
-            bottom: 8%;
+            width: 39%;
+            height: 6%;
+            bottom: 17%;
             left: 30%;
+
+            @media screen and (min-device-height: 823px) {
+                width: 41%;
+                height: 6%;
+                bottom: 17%;
+                left: 30%;
+            }
         }
 
         @media only screen and (max-device-width: 375px) {
-            width: 49%;
-            height: 8%;
-            bottom: 8%;
-            left: 28%;
+            width: 39%;
+            height: 5%;
+            bottom: 16%;
+            left: 33%;
+        }
+        @media only screen and (max-device-width: 320px) {
+            width: 39%;
+            height: 6%;
+            bottom: 16%;
+            left: 33%;
         }
     }
     .how-to-play-ic {
@@ -568,20 +623,27 @@ h3 {
         left: 34%;
 
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            width: 12%;
-            bottom: 8%;
-            left: 31%;
+            width: 11%;
+            bottom: 17%;
+            left: 32%;
 
-            @media only screen and (max-device-height: 810px) {
-                width: 14%;
-                bottom: 8%;
+            @media screen and (min-device-height: 823px) {
+                width: 12%;
+                bottom: 17%;
                 left: 31%;
             }
         }
         @media only screen and (max-device-width: 375px) {
-            width: 15%;
-            bottom: 8%;
-            left: 28%;
+            width: 11%;
+            bottom: 16%;
+            left: 33%;
+
+            @media screen and (max-device-height: 667px) {
+                width: 9%;
+            }
+        }
+        @media only screen and (max-device-width: 320px) {
+            width: 11%;
         }
     }
     .text-how-to-play {
@@ -592,21 +654,27 @@ h3 {
         font-weight: bolder;
 
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            font-size: 20px;
-            bottom: 9%;
-            left: 43%;
+            font-size: 16px;
+            bottom: 18.5%;
+            left: 42%;
 
-            @media only screen and (max-device-height: 810px) {
-                font-size: 18px;
-                bottom: 10%;
-                left: 44%;
+            @media screen and (min-device-height: 823px) {
+                font-size: 17px;
+                bottom: 18.5%;
+                left: 43%;
             }
         }
 
         @media only screen and (max-device-width: 375px) {
-            font-size: 18px;
+            font-size: 16px;
             position: fixed;
-            bottom: 10%;
+            bottom: 17%;
+            left: 43%;
+        }
+        @media only screen and (max-device-width: 320px) {
+            font-size: 14px;
+            position: fixed;
+            bottom: 17%;
             left: 43%;
         }
     }
@@ -617,9 +685,9 @@ h3 {
         left: 35%;
 
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            font-size: 22px;
+            font-size: 16px;
             bottom: 2%;
-            left: 31%;
+            left: 34%;
         }
 
         @media only screen and (max-device-width: 375px) {
@@ -627,6 +695,71 @@ h3 {
             position: fixed;
             bottom: 2%;
             left: 32%;
+        }
+
+        @media only screen and (max-device-width: 320px) {
+            font-size: 14px;
+            position: fixed;
+            bottom: 2%;
+            left: 33%;
+        }
+    }
+
+    .test_1 {
+        position: fixed;
+        bottom: 51%;
+        left: 28%;
+        font-style: italic;
+        z-index: 1;
+
+        @media screen and (min-device-height: 823px) {
+            bottom: 50.5%;
+            width: 50% !important;
+        }
+        @media screen and (max-device-height: 667px) {
+            bottom: 50.5%;
+        }
+        @media screen and (max-device-width: 320px) {
+            width: 50% !important;
+            bottom: 50%;
+        }
+    }
+    .test_2 {
+        position: fixed;
+        bottom: 39%;
+        left: 28%;
+        font-style: italic;
+        z-index: 1;
+
+        @media screen and (min-device-height: 823px) {
+            bottom: 38.5%;
+            width: 50% !important;
+        }
+        @media screen and (max-device-height: 667px) {
+            bottom: 38.5%;
+        }
+        @media screen and (max-device-width: 320px) {
+            width: 50% !important;
+            bottom: 38%;
+        }
+    }
+    .test_3 {
+        position: fixed;
+        bottom: 27%;
+        left: 28%;
+        font-style: italic;
+        z-index: 1;
+
+        @media screen and (min-device-height: 823px) {
+            bottom: 26.5%;
+            width: 50% !important;
+        }
+        @media screen and (max-device-height: 667px) {
+            bottom: 26.5%;
+        }
+        @media screen and (max-device-width: 320px) {
+            width: 50% !important;
+            bottom: 26%;
         }
     }
 }
