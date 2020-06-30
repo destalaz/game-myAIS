@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameService } from '../../service/game.service';
+
 @Component({
   selector: 'app-reward-flip',
   templateUrl: './reward-flip.component.html',
@@ -7,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class RewardFlipComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private gameService: GameService
+  ) { }
 
 
   ngOnInit() {
@@ -18,6 +23,7 @@ export class RewardFlipComponent implements OnInit {
   }
 
   easy() {
+
     localStorage.setItem('totalRound', "3");
     localStorage.setItem('speed', "500");
     localStorage.setItem('shuffle', "25");
@@ -47,5 +53,15 @@ export class RewardFlipComponent implements OnInit {
     // localStorage.getItem('speed');
     this.router.navigateByUrl('/popupError');
   }
+
+  ServedPlayGame(level) {
+    this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
+      sessionStorage.setItem('playId',res["playData"].playId);
+
+      console.log("res playData => ",  res["playData"].playerDetall);
+      console.log("res playId => ",  res["playData"].playId);
+    });
+  }
+
 
 }

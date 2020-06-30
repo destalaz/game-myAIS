@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
 export class LoadingGameComponent implements OnInit {
   loading : boolean;
 
-  constructor(   private router: Router,) {
+  constructor( private router: Router,) {
     this.loading = false ; 
    }
 
@@ -34,6 +34,8 @@ export class LoadingGameComponent implements OnInit {
   
     if (!sessionStorage.getItem('mobileId') ) {
       this.router.navigateByUrl('/');
+      // this.router.navigateByUrl('/popupError');
+      return
     }
     setTimeout(() => {
       this.loading = true;
