@@ -9,65 +9,12 @@ import { GameService } from '../../service/game.service';
 })
 export class RewardFlipComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router) { }
-  // level: any;
   open: boolean = false;
   ngOnInit() {
     localStorage.setItem('countWin', "1");
     this.open = false;
-    // this.ServedPlayGame(3);
   }
   termUrl = "https://aisgame.wisdomcloud.net/term.html";
-  // goPlaces() {
-  //   this.router.navigateByUrl('/popupError');
-  // }
-
-
-  // chooseLevel(level) {
-  //  this.redeem_point = true;
-  //   // this.errorState = true;
-  // }
-  easy() {
-    this.open = true;
-    // localStorage.setItem('totalRound', "3");
-    // localStorage.setItem('speed', "500");
-    // localStorage.setItem('shuffle', "25");
-    // localStorage.setItem('aispoint', "1");
-    // localStorage.setItem('rewardpoint', "20");
-    // console.log("easy", this.open);
-
-    // this.router.navigateByUrl('/popupError');
-  }
-  normol() {
-    this.open = true;
-    // localStorage.setItem('totalRound', "4");
-    // localStorage.setItem('speed', "400");
-    // localStorage.setItem('shuffle', "20");
-    // localStorage.setItem('aispoint', "2");
-    // localStorage.setItem('rewardpoint', "50");
-    console.log("normal", this.open);
-    // this.ServedPlayGame(3);
-    // console.log("normal",  this.open);
-
-    // this.router.navigateByUrl('/popupError');
-
-  }
-
-  hard() {
-    this.open = true;
-    // localStorage.setItem('totalRound', "5");
-    // localStorage.setItem('speed', "300");
-    // localStorage.setItem('shuffle', "15");
-    // localStorage.setItem('aispoint', "3");
-    // localStorage.setItem('rewardpoint', "100");
-    // console.log("hard");
-
-    // localStorage.getItem('speed');
-    // this.router.navigateByUrl('/popupError');
-
-
-  }
-
-  
 
   termCondition() {
     window.location.href = this.termUrl;
@@ -78,19 +25,6 @@ export class RewardFlipComponent implements OnInit {
     localStorage.setItem('level', level);
   }
 
-  
-
-
 }
 
 
-      // //start
-      // localStorage.setItem('countWin', "1");
-      // //round totol***
-      // localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
-
-      // // console.log("total Round", localStorage.getItem('totalRound'));
-
-      // console.log(localStorage.getItem('config'));
-      // localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
-      // console.log("total Round", localStorage.getItem('totalRound'));
