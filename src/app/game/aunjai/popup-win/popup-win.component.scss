@@ -1,5 +1,5 @@
 ::ng-deep popup-win {
-    font-family: "DB Helvethaica" !important;
+    font-family: "DB Heavent";
 }
 
 .treatBox_20 {
@@ -46,12 +46,12 @@
     margin: auto;
     background-position: center;
     min-height: 40%;
-    min-width: 50%;
+    min-width: 100%;
     position: fixed;
-    background-size: 100% 100%;
+    background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
-    left: 28%;
+    left: 1vw;
 }
 
 .textSHow {
@@ -62,8 +62,8 @@
 
 .textBody {
     position: relative;
-    font-size: 4.4vw;
-    top: 11vh;
+    font-size: 5vw;
+    top: 13vh;
 }
 #body-popup-win {
     display: none;

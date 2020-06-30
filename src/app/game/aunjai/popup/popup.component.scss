@@ -1,5 +1,5 @@
 ::ng-deep popup-game {
-    font-family: "DB Helvethaica" !important;
+    font-family: "DB Heavent"!important;
 }
 .close {
     background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
@@ -23,12 +23,12 @@
     margin: auto;
     background-position: center;
     min-height: 40%;
-    min-width: 50%;
+    min-width: 100%;
     position: fixed;
-    background-size: 100% 100%;
+    background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
-    left: 28%;
+    left: 1vw;
 }
 
 .textSHow {
@@ -39,7 +39,7 @@
 
 .textBody {
     position: relative;
-    font-size: 4vh;
+    font-size: 5vw;
     top: 20vh;
 }
 

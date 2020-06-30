@@ -1,31 +1,19 @@
-::ng-deep popup-win {
-    font-family: "DB Helvethaica" !important;
+::ng-deep popup-error {
+    font-family: "DB Heavent"!important;
 }
 
-// .treatBox {
-//     background: transparent url(../../../../assets/aunjaiAssets/component/for_20_score_ic@2x.png);
-//     top: 44%;
-//     background-position: center;
-//     min-height: 26%;
-//     min-width: 50%;
-//     position: fixed;
-//     background-size: auto 100%;
-//     background-position-x: center;
-//     background-repeat: no-repeat;
-//     left: 28%;
-// }
 .aunjai-logo {
     background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_046@2x-min.png);
     top: 0px;
     margin: auto;
     background-position: center;
     min-height: 40%;
-    min-width: 50%;
+    min-width: 100%;
     position: fixed;
-    background-size: 100% 100%;
+    background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
-    left: 28%;
+    left: 1vw;
 }
 
 .textSHow {
@@ -36,7 +24,7 @@
 
 .textBody {
     position: relative;
-    font-size: 6vw;
+    font-size: 5vw;
     top: 18vh;
 }
 #body-popup-win {

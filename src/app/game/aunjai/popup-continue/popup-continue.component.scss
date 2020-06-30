@@ -1,5 +1,5 @@
 ::ng-deep popup-continue {
-    font-family: "DB Helvethaica" !important;
+    font-family: "DB Heavent"!important;
 }
 .close {
     background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
@@ -63,12 +63,12 @@
     margin: auto;
     background-position: center;
     min-height: 40%;
-    min-width: 50%;
+    min-width: 100%;
     position: fixed;
-    background-size: 100% 100%;
+    background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
-    left: 28%;
+    left: 1vw;
 }
 
 .textSHow {
@@ -85,7 +85,7 @@
 
 .textBottom {
     position: relative;
-    font-size: 3vh;
+    font-size: 3vw;
     top: 30vh;
 }
 
@@ -147,7 +147,7 @@
     background-repeat: no-repeat;
     outline: none;
     opacity: 1;
-    font-size: 2.6vh;
+    font-size: 6vw;
     left: 30%;
 }
 

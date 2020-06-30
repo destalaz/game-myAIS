@@ -1,11 +1,14 @@
 <div id="body-popup">
     <div style="text-align: center;" class="bodyThis">
+        <button class="close" id="btn_close1"></button>
+        <button class="close" id="btn_close"></button>
+        <button class="close" id="btn_close"></button>
         <button class="close" id="btn_close"></button>
         <div class="aunjai-logo">
 
         </div>
 
-        <span class="textBody"> <b> เย้.!!! </b></span><br>
+        <span class="textBody" style="font-size: 6vw;"> <b> เย้.!!! </b></span><br>
         <span class="textBody"> ยินดีด้วย ลุยต่อเลย</span>
 
         <button class="buttonResume" id="btn_resume1" (click)="resume1();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai1']">
@@ -23,7 +26,7 @@
         <button class="buttonResume" id="btn_resume4" (click)="resume4();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai4']">
             เล่นต่อ
         </button>
-        <button class="buttonResume" id="btn_resume5" (click)="resume5();">
+        <button class="buttonResume" id="btn_resume5" (click)="resume5();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai5']">
             เล่นต่อ
         </button>
     </div>
