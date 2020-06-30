@@ -36,13 +36,13 @@
 img {
     vertical-align: middle;
     border-style: none;
-    // width: 20%;
     float: left;
-    @media only screen and (max-device-width: 700px) {
-        vertical-align: middle;
-        border-style: none;
-        width: 56px;
-    }
+    width: 12vw;
+    // @media only screen and (max-device-width: 700px) {
+    //     vertical-align: middle;
+    //     border-style: none;
+    //     width: 56px;
+    // }
 }
 
 #img-Round-cup1,
@@ -54,7 +54,7 @@ img {
     display: inline;
 }
 
-#img-Round-cup4,
-#img-Round-cup5 {
-    display: none;
-}
+// #img-Round-cup4,
+// #img-Round-cup5 {
+//     display: none;
+// }
