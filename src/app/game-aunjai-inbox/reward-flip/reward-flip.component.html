@@ -4,41 +4,44 @@
             <img class="img-logo-reward-flip" src="../../../assets/aunjaiAssets/header/logo_ic@2x.png">
         </div>
         <div>
-            <div class="div_20">
-                <div class="text-detail_20">
+            <div>
+                <!-- <div class="text-detail_20">
                     <div>เอไอเอสพอยท์ 20 คะแนน</div>
                     <div>ใช้ 1 คะแนนเพื่อเล่น</div>
+                </div> -->
+                <div class="box-landing_3" (click)="easy();">
+                    <img class="test_3" src="../../../assets/aunjaiAssets/component/score20.png">
+                    <img class="btn_play_20" src="../../../assets/aunjaiAssets/component/play_ic.svg">
+                    <img class="point_20" src="../../../assets/aunjaiAssets/component/20_Points@2x.png">
                 </div>
-                <img class="btn_play_20" (click)="easy();"  src="../../../assets/aunjaiAssets/component/play_ic.svg">
-                <img class="point_20" src="../../../assets/aunjaiAssets/component/20_Points@2x.png">
-                <!-- <div class="box-landing_test"></div> -->
-                <div class="box-landing_1"></div>
             </div>
-            <!-- <div  [routerLinkActive]="['isActive']" [routerLink]="['/popupError']"> -->
-            <div class="div_50">
-                <div class="text-detail_50">
+            <div>
+                <!-- <div class="text-detail_50">
                     <div>เอไอเอสพอยท์ 50 คะแนน</div>
                     <div>ใช้ 2 คะแนนเพื่อเล่น</div>
+                </div> -->
+                <div class="box-landing_2" (click)="normol();">
+                    <img class="test_2" src="../../../assets/aunjaiAssets/component/score50.png">
+                    <img class="btn_play_50" src="../../../assets/aunjaiAssets/component/play_ic.svg">
+                    <img class="point_50" src="../../../assets/aunjaiAssets/component/50-Points@2x.png">
                 </div>
-                <img class="btn_play_50" (click)="normol();" src="../../../assets/aunjaiAssets/component/play_ic.svg">
-                <img class="point_50" src="../../../assets/aunjaiAssets/component/50-Points@2x.png">
-                <div class="box-landing_2"></div>
             </div>
-            <div class="div_100">
-                <div class="text-detail_100">
+            <div>
+                <!-- <div class="text-detail_100">
                     <div>เอไอเอสพอยท์ 100 คะแนน</div>
                     <div>ใช้ 3 คะแนนเพื่อเล่น</div>
+                </div> -->
+                <div class="box-landing_1" (click)="hard();">
+                    <img class="test_1" src="../../../assets/aunjaiAssets/component/score100.png">
+                    <img class="btn_play_100" src="../../../assets/aunjaiAssets/component/play_ic.svg">
+                    <img class="point_100" src="../../../assets/aunjaiAssets/component/100-Points@2x.png">
                 </div>
-                <img class="btn_play_100" (click)="hard();"  src="../../../assets/aunjaiAssets/component/play_ic.svg">
-                <img class="point_100" src="../../../assets/aunjaiAssets/component/100-Points@2x.png">
-                <div class="box-landing_3"></div>
             </div>
 
         </div>
-        <div class="how-to-play-border">
+        <div [routerLink]="['/tutorial']" routerLinkActive="router-link-active" class="how-to-play-border">
             <img class="how-to-play-ic" src="../../../assets/aunjaiAssets/component/how_to_play_ic@2x.png">
-            <div [routerLink]="['/tutorial']" routerLinkActive="router-link-active" class="text-how-to-play">How to Play
-            </div>
+            <div class="text-how-to-play">How to Play</div>
         </div>
         <div class="text-condition">Terms&Conditions</div>
     </div>
