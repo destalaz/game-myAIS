@@ -369,8 +369,18 @@ body {
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             left: 8.5%;
 
-            @media screen and (min-device-height: 810px) {
+            @media screen and (max-device-height: 960px) {
+                left: 5%;
+            }
+
+            @media screen and (max-device-height: 900px) {
+                left: 8%;
+            }
+            @media screen and (max-device-height: 823px) {
                 left: 3%;
+            }
+            @media screen and (max-device-height: 736px) {
+                left: 8%;
             }
         }
 
@@ -395,9 +405,14 @@ body {
             left: 75%;
             bottom: 76%;
 
-            @media screen and (max-device-height: 900px) {
+            @media screen and (max-device-height: 960px) {
                 left: 78%;
-                bottom: 76%;
+                bottom: 77%;
+            }
+
+            @media screen and (max-device-height: 900px) {
+                left: 82%;
+                bottom: 77%;
             }
 
             @media screen and (max-device-height: 810px) {
