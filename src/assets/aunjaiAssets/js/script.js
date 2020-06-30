@@ -34,7 +34,7 @@ $(document).ready(function () {
 
 
 
-    setMessage("Game " + localStorage.getItem('countWin') + "of " + localStorage.getItem('totalRound'));
+    setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
 
 
 
@@ -111,7 +111,6 @@ $(document).ready(function () {
       console.log("shuffleSpeed", shuffleSpeed);
 
       ready_game();
-      setMessage("Game " + localStorage.getItem('countWin') + "of " + localStorage.getItem('totalRound'));
 
       if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
         localStorage.setItem('countWin', 1);
@@ -253,7 +252,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;">');
                       box1.animate({
-                        top: $(this).position().top + -20 + "vh"
+                        top: $(this).position().top + -19 + "vh"
                       });
                       if (ans == 1) {
                         flag = 1;
@@ -269,7 +268,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
-                        top: $(this).position().top - 20 + "vh"
+                        top: $(this).position().top - 19 + "vh"
                       });
                       if (ans == 2) {
                         flag = 1;
@@ -285,7 +284,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
-                        top: $(this).position().top + -20 + "vh"
+                        top: $(this).position().top + -19 + "vh"
                       });
                       if (ans == 3) {
                         flag = 1;
@@ -312,10 +311,10 @@ $(document).ready(function () {
                         top: 'easeInQuint'
                       }
                     });
-                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw;">');
+                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
                     HeaderText.show();
                     HeaderText.animate({
-                      top: "4vh"
+                      top: "17vh"
                     }, {
                       duration: 400,
                       specialEasing: {
@@ -379,7 +378,7 @@ $(document).ready(function () {
                     // divBtn.show();
                     console.log("game Over");
                     // countWin = 1;
-                    setMessage("Game " + localStorage.getItem('countWin') + " of 3");
+                    setMessage("Game " + localStorage.getItem('countWin') + " of " + " " + localStorage.getItem('totalRound'));
 
                     setTimeout(() => {
                       localStorage.setItem('countWin', 1);
@@ -417,25 +416,25 @@ $(document).ready(function () {
     function ready_game() {
 
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw; font-style:italic;">3</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
         HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
+        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
         HeaderText.css({ display: 'none' });
       }, 1000);
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw; font-style:italic;">2</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
         HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
+        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
         HeaderText.css({ display: 'none' });
       }, 2400);
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw; font-style:italic;">1</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
         HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
+        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
-        HeaderText.css({ display: 'none' });
+        HeaderText.css({ display: 'none', zoom: '100%;' });
       }, 3600);
       setTimeout(function () {
         HeaderText.hide();

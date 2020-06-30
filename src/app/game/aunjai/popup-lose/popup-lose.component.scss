@@ -1,6 +1,6 @@
-// ::ng-deep popup-lose {
-//     font-family: "DB Helvethaica" !important;
-// }
+::ng-deep popup-lose {
+    font-family: "DB Helvethaica" !important;
+}
 .close {
     background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
     top: 17%;
@@ -19,10 +19,10 @@
 
 .aunjai-cry {
     background: transparent url(../../../../assets/aunjaiAssets/avatar/Aunjai_Cry@2x.png);
-    top: 0px;
+    top: 4vh;
     margin: auto;
     background-position: center;
-    min-height: 40%;
+    min-height: 30%;
     min-width: 50%;
     position: fixed;
     background-size: auto 100%;
@@ -41,6 +41,8 @@
     position: relative;
     font-size: 5vw;
     top: 20vh;
+    color: #49382f;
+    font-style: italic;
 }
 
 #body-popup-lose {
@@ -71,8 +73,6 @@
     padding: 2vh;
 }
 
-
-
 .buttonLose {
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
     border: none;
@@ -90,8 +90,6 @@
     font-size: 5.6vw;
     left: 30%;
 }
-
-
 
 .container {
     padding: 0px;
