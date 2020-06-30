@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./popup-error.component.scss']
 })
 export class PopupErrorComponent implements OnInit {
- @Input() redeem_point: boolean = false;
+ @Input() redeem_point: boolean;
   aispoint: any;
   constructor() { }
 
