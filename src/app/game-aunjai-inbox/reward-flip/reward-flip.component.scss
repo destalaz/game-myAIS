@@ -589,6 +589,12 @@ h3 {
         bottom: 8%;
         left: 33%;
 
+        @media only screen and (max-device-width: 600px) {
+            width: 30%;
+            height: 6%;
+            bottom: 16%;
+            left: 38%;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             width: 39%;
             height: 6%;
@@ -622,6 +628,12 @@ h3 {
         bottom: 8%;
         left: 34%;
 
+        @media only screen and (max-device-width: 600px) {
+            position: fixed;
+            width: 10%;
+            bottom: 16%;
+            left: 38%;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             width: 11%;
             bottom: 17%;
@@ -653,6 +665,12 @@ h3 {
         left: 44%;
         font-weight: bolder;
 
+        @media only screen and (max-device-width: 600px) {
+            font-size: 20px;
+            position: fixed;
+            bottom: 17.5%;
+            left: 47%;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             font-size: 16px;
             bottom: 18.5%;
@@ -684,6 +702,12 @@ h3 {
         bottom: 2%;
         left: 35%;
 
+        @media only screen and (max-device-width: 600px) {
+            font-size: 20px;
+            position: fixed;
+            bottom: 2%;
+            left: 40%;
+        }
         @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
             font-size: 16px;
             bottom: 2%;
@@ -715,6 +739,12 @@ h3 {
         @media screen and (min-device-height: 823px) {
             bottom: 50.5%;
             width: 50% !important;
+
+            @media screen and (max-device-width: 600px) {
+                width: 40% !important;
+                bottom: 51%;
+                left: 34%;
+            }
         }
         @media screen and (max-device-height: 667px) {
             bottom: 50.5%;
@@ -734,6 +764,12 @@ h3 {
         @media screen and (min-device-height: 823px) {
             bottom: 38.5%;
             width: 50% !important;
+
+            @media screen and (max-device-width: 600px) {
+                width: 40% !important;
+                bottom: 39%;
+                left: 33%;
+            }
         }
         @media screen and (max-device-height: 667px) {
             bottom: 38.5%;
@@ -753,6 +789,12 @@ h3 {
         @media screen and (min-device-height: 823px) {
             bottom: 26.5%;
             width: 50% !important;
+
+            @media screen and (max-device-width: 600px) {
+                width: 39% !important;
+                bottom: 27%;
+                left: 34%;
+            }
         }
         @media screen and (max-device-height: 667px) {
             bottom: 26.5%;
