@@ -62,7 +62,7 @@ $(document).ready(function () {
 
 
     if (localStorage.getItem('countWin') === "1") {
-      cup1.css('opacity', '1');
+      cup1.css('opacity', '0.2');
       cup2.css('opacity', '0.2');
       cup3.css('opacity', '0.2');
       cup4.css('opacity', '0.2');
@@ -70,7 +70,7 @@ $(document).ready(function () {
     } else if (localStorage.getItem('countWin') === "2") {
       console.log("cup win 2");
       cup1.css('opacity', '1');
-      cup2.css('opacity', '1');
+      cup2.css('opacity', '0.2');
       cup3.css('opacity', '0.2');
       cup4.css('opacity', '0.2');
       cup5.css('opacity', '0.2');
@@ -78,7 +78,7 @@ $(document).ready(function () {
       console.log("cup win 3");
       cup1.css('opacity', '1');
       cup2.css('opacity', '1');
-      cup3.css('opacity', '1');
+      cup3.css('opacity', '0.2');
       cup4.css('opacity', '0.2');
       cup5.css('opacity', '0.2');
     } else if (localStorage.getItem('countWin') === "4") {
@@ -86,7 +86,7 @@ $(document).ready(function () {
       cup1.css('opacity', '1');
       cup2.css('opacity', '1');
       cup3.css('opacity', '1');
-      cup4.css('opacity', '1');
+      cup4.css('opacity', '0.2');
       cup5.css('opacity', '0.2');
     }
     else if (localStorage.getItem('countWin') === "5") {
@@ -95,7 +95,7 @@ $(document).ready(function () {
       cup2.css('opacity', '1');
       cup3.css('opacity', '1');
       cup4.css('opacity', '1');
-      cup5.css('opacity', '1');
+      cup5.css('opacity', '0.2');
     }
     startButton.on("click", function startGame(event) {
 
@@ -176,17 +176,17 @@ $(document).ready(function () {
 
 
               // Close all the three boxes in a regular interval.
-              box1.delay(3000).queue(function (n) {
+              box1.delay(2000).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b"  style="width:30vw;">');
                 if (ans == 1) kick.hide();
                 n();
               });
-              box2.delay(4000).queue(function (n) {
+              box2.delay(2500).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" style="width:30vw;">');
                 if (ans == 2) kick.hide();
                 n();
               });
-              box3.delay(5000).queue(function (n) {
+              box3.delay(3000).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" style="width:30vw;">');
                 if (ans == 3) kick.hide();
 
@@ -408,88 +408,29 @@ $(document).ready(function () {
     function ready_game() {
 
       setTimeout(function () {
-
-        setTimeout(function () {
-
-          if (localStorage.getItem('countWin') === "1") {
-            cup1.css('opacity', '1');
-          } else if (localStorage.getItem('countWin') === "2") {
-            cup1.css('opacity', '1');
-            cup2.css('opacity', '1');
-
-          } else if (localStorage.getItem('countWin') === "3") {
-            console.log("cup win 3");
-            cup1.css('opacity', '1');
-            cup2.css('opacity', '1');
-            cup3.css('opacity', '1');
-          }  else if (localStorage.getItem('countWin') === "4") {
-            console.log("cup win 4");
-            cup1.css('opacity', '1');
-            cup2.css('opacity', '1');
-            cup3.css('opacity', '1');
-            cup4.css('opacity', '1');
-          }
-          else if (localStorage.getItem('countWin') === "5") {
-            console.log("cup win 5");
-            cup1.css('opacity', '1');
-            cup2.css('opacity', '1');
-            cup3.css('opacity', '1');
-            cup4.css('opacity', '4');
-            cup5.css('opacity', '5');
-          }
-           else {
-            cup1.css('opacity', '1');
-            cup2.css('opacity', '0.2');
-            cup3.css('opacity', '0.2');
-          }
-        }, 2000);
-
-
-
-        // setTimeout(function () {
-        //   HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">3</div>');
-        //   // HeaderText.fadeIn("easeOutBounce");
-        //   HeaderText.fadeOut("easeOutBounce");
-        // }, 3500);
-        // setTimeout(function () {
-        //   HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">2</div>');
-        //   // HeaderText.fadeIn("easeOutBounce");
-        //   HeaderText.fadeOut("easeOutBounce");
-        // }, 4500);
-        // setTimeout(function () {
-        //   HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">1</div>');
-        //   // HeaderText.fadeIn("easeOutBounce");
-        //   HeaderText.fadeOut("easeOutBounce");
-        // }, 5500);
-
-
-        setTimeout(function () {
-
-          HeaderText.show();
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">3</div>');
-          HeaderText.fadeIn(100);
-          HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
-          HeaderText.fadeOut(100);
-          HeaderText.css({ zoom: '100%' });
-        }, 3500);
-        setTimeout(function () {
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">2</div>');
-          HeaderText.fadeIn();
-          HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
-          HeaderText.fadeOut(100);
-          HeaderText.css({ zoom: '100%' });
-        }, 4000);
-        setTimeout(function () {
-          HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">1</div>');
-          HeaderText.fadeIn(100);
-          HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
-          HeaderText.fadeOut(100);
-          HeaderText.css({ zoom: '100%' });
-        }, 5000);
-        setTimeout(function () {
-          HeaderText.hide();
-        }, 6500);
+        // HeaderText.show();
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">3</div>');
+        HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
+        HeaderText.fadeOut(100);
+        HeaderText.css({ zoom: '100%' });
       }, 1000);
+      setTimeout(function () {
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">2</div>');
+        HeaderText.fadeIn();
+        HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
+        HeaderText.fadeOut(100);
+        HeaderText.css({ zoom: '100%' });
+      }, 2400);
+      setTimeout(function () {
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">1</div>');
+        HeaderText.fadeIn(100);
+        HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
+        HeaderText.fadeOut(100);
+        HeaderText.css({ zoom: '100%' });
+      }, 3600);
+      setTimeout(function () {
+        HeaderText.hide();
+      }, 5000);
     }
 
   })();
