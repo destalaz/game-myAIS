@@ -29,14 +29,8 @@ $(document).ready(function () {
       localStorage.setItem('countWin', "1");
     }
 
-    console.log(JSON.parse(localStorage.getItem('totalRound')));
-
-
-    // setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
-
-
-
-
+    var data = JSON.parse(localStorage.getItem('config'));
+    var index = parseInt(localStorage.getItem('countWin')) - 1;
 
     if (localStorage.getItem('totalRound') === "3") {
       cup1.css('display', 'inline');
@@ -98,11 +92,11 @@ $(document).ready(function () {
     startButton.on("click", function startGame(event) {
 
 
-
-      var nuberOfShuffels = localStorage.getItem('shuffle');
+      console.log(index);
+      var nuberOfShuffels = data[index].flipAmt;
       // var icreateSpeed = parseInt(shuffleSpeed - 100);
       // localStorage.setItem('speed', icreateSpeed);
-      var shuffleSpeed = localStorage.getItem('speed');
+      var shuffleSpeed = data[index].speed;
 
 
       console.log("nuberOfShuffels", nuberOfShuffels);

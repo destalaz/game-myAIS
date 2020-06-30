@@ -47,7 +47,7 @@ export class RewardFlipComponent implements OnInit {
     console.log("normal", this.open);
     this.ServedPlayGame(3);
     // this.router.navigateByUrl('/popupError');
-    
+
   }
 
   hard() {
@@ -83,12 +83,12 @@ export class RewardFlipComponent implements OnInit {
       //start
       localStorage.setItem('countWin', "1");
       //round totol***
-      localStorage.setItem('config', res["playData"].playerDetall);
+      localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
 
       // console.log("total Round", localStorage.getItem('totalRound'));
 
-
-      localStorage.setItem('totalRound', JSON.parse(localStorage.getItem("config")).length);
+      console.log(localStorage.getItem('config'));
+      localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
       console.log("total Round", localStorage.getItem('totalRound'));
     });
   }
