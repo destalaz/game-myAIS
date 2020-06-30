@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../../service/game.service';
 
@@ -9,7 +9,8 @@ import { GameService } from '../../service/game.service';
 })
 export class RewardFlipComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router) { }
-  open: boolean = false;
+  @Input() open: boolean= false;
+  @Output() changes = new EventEmitter();
   ngOnInit() {
     localStorage.setItem('countWin', "1");
     this.open = false;
@@ -22,6 +23,7 @@ export class RewardFlipComponent implements OnInit {
 
   setLevel(level) {
     this.open = true;
+    this.changes.emit(this.open);
     localStorage.setItem('level', level);
   }
 

@@ -2,7 +2,9 @@
 
 
     <div style="text-align: center;" class="bodyThis">
+       
         <div class="firstPage" *ngIf="!open">
+           
             <div class="aunjai_Social">
 
             </div>
@@ -14,8 +16,9 @@
                 เล่นต่อ
             </button>
         </div>
-        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="open" [routerLinkActive]="['isActive']"
-            [routerLink]="['/']">
+        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="open">
+            <button class="close"  [routerLinkActive]="['isActive']"
+            [routerLink]="['/reward_flip']"></button>
             <div class="aunjai_fly">
             </div>
             <span class="textBody"> เอไอเอสพอยท์ {{reward}} คะแนน </span><br>

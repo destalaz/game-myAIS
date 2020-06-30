@@ -89,13 +89,14 @@ $(document).ready(function () {
       cup4.css('opacity', '1');
       cup5.css('opacity', '0.2');
     }
+
+
+    setMessage("Game" +"&nbsp;"+ localStorage.getItem('countWin') +"&nbsp;" + "of" +"&nbsp;"+ localStorage.getItem('totalRound'));
     startButton.on("click", function startGame(event) {
 
 
       console.log(index);
       var nuberOfShuffels = data[index].flipAmt;
-      // var icreateSpeed = parseInt(shuffleSpeed - 100);
-      // localStorage.setItem('speed', icreateSpeed);
       var shuffleSpeed = data[index].speed;
 
 
@@ -121,8 +122,6 @@ $(document).ready(function () {
       var ans = Math.floor(Math.random() * 3) + 1;
       var kickInitialPosition = 0;
       reset_position();
-      console.log("this->script->recive parameter", localStorage.getItem('Mobile'));
-
       console.log("win is ", ans);
       divBtn.hide();
 
@@ -370,7 +369,7 @@ $(document).ready(function () {
                     // divBtn.show();
                     console.log("game Over");
                     // countWin = 1;
-                    setMessage("Game " + localStorage.getItem('countWin') + " of " + " " + localStorage.getItem('totalRound'));
+                  
 
                     setTimeout(() => {
                       localStorage.setItem('countWin', 1);

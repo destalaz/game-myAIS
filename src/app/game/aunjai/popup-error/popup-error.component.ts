@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PopupErrorComponent implements OnInit {
   @Input() redeem_point: boolean;
+  @Output() change = new EventEmitter();
   aispoint: any;
   statusLoad: boolean;
   constructor(private gameService: GameService, private router: Router) { }
@@ -16,6 +17,12 @@ export class PopupErrorComponent implements OnInit {
   ngOnInit() {
     this.aispoint = localStorage.getItem('aispoint');
     this.statusLoad = false;
+  }
+
+  close() {
+    this.redeem_point = false;
+    console.log("close");
+    this.change.emit(this.redeem_point);
   }
 
   ServedPlayGame() {
