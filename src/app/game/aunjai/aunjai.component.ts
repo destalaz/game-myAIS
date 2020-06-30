@@ -12,7 +12,7 @@ export class AunjaiComponent implements OnInit {
     this.loadScript();
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router ) { }
   public loadScript() {
     console.log('preparing to load...')
     let node = document.createElement('script');
@@ -27,4 +27,6 @@ export class AunjaiComponent implements OnInit {
     localStorage.removeItem('firstLoad');
     console.log('Service destroy')
   }
+
+
 }

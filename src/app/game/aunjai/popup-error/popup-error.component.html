@@ -1,18 +1,34 @@
 <div id="body-popup-win">
     <div style="text-align: center;" class="bodyThis">
-        <div class="redeem-point" id="redeem-point" *ngIf="redeem_point">
-            <div class="aunjai-logo">
-
+        
+        <div *ngIf="statusLoad">
+            <div class="spinner-border" role="status" style="margin-top: 35%;">
+                <span class="sr-only ">Loading...</span>
             </div>
-            <div class="treatBox" id="win-goto">
+            <p>Loading...</p>
+        </div>
 
-            </div>
-            <span class="textBody"> ใช้เอไอเอสพอยท์ 1 คะแนน </span><br>
-            <span class="textBody"> เพื่อเล่นเกม?</span>
-            <button class="buttonGetTreat" id="btn_get_treat" [routerLinkActive]="['isActive']"
-                [routerLink]="['/popupReady']">
+        <div *ngIf="!statusLoad">
+
+            <div class="redeem-point" id="redeem-point" *ngIf="redeem_point">
+
+                <div class="aunjai-logo">
+
+                </div>
+                <div class="treatBox" id="win-goto">
+
+                </div>
+
+                <span class="textBody"> ใช้เอไอเอสพอยท์ 1 คะแนน </span><br>
+                <span class="textBody"> เพื่อเล่นเกม?</span>
+                <!-- <button class="buttonGetTreat" id="btn_get_treat" [routerLinkActive]="['isActive']"
+                [routerLink]="['/popupReady']" (click)="ServedPlayGame()">
                 แลกคะแนน
-            </button>
+            </button> -->
+                <button class="buttonGetTreat" id="btn_get_treat" (click)="ServedPlayGame()">
+                    แลกคะแนน
+                </button>
+            </div>
         </div>
 
         <div class="redeem-point-failed" id="redeem-point-failed" *ngIf="false">
@@ -35,9 +51,9 @@
             <div class="aunjai-logo">
 
             </div>
-       
+
             <span class="textBody">เกมหยุดชั่วคราว</span>
-  
+
         </div>
 
     </div>
