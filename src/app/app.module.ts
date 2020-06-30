@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CmsConfigComponent } from './cms-config/cms-config.component';
-import { LoginComponent } from './login/login.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
@@ -24,13 +22,12 @@ import { PopupLoseComponent } from './game/aunjai/popup-lose/popup-lose.componen
 import { PopupContinueComponent } from './game/aunjai/popup-continue/popup-continue.component';
 import { PopupReadyComponent } from './game/aunjai/popup-ready/popup-ready.component';
 import { PopupErrorComponent } from './game/aunjai/popup-error/popup-error.component';
+import { CheckPermissionLoginComponent } from './check-permission-login/check-permission-login.component';
 
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'config', component: CmsConfigComponent },
-
-  { path: '', component: LoadingGameComponent },
+  { path: '', component: CheckPermissionLoginComponent },
+  { path: 'loadgame', component: LoadingGameComponent },
   { path: 'tutorial', component: TutorialPageComponent },
   { path: 'reward_flip', component: RewardFlipComponent },
 
@@ -52,8 +49,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    CmsConfigComponent,
     GameAunjaiInboxComponent,
     TutorialPageComponent,
     AunjaiComponent,
@@ -65,7 +60,8 @@ const appRoutes: Routes = [
     PopupLoseComponent,
     PopupContinueComponent,
     PopupReadyComponent,
-    PopupErrorComponent
+    PopupErrorComponent,
+    CheckPermissionLoginComponent
   ],
   imports: [
     DataTablesModule,

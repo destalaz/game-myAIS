@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'loading-game',
@@ -25,11 +26,15 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class LoadingGameComponent implements OnInit {
   loading : boolean;
 
-  constructor() {
+  constructor(   private router: Router,) {
     this.loading = false ; 
    }
 
   ngOnInit() {
+  
+    if (!sessionStorage.getItem('mobileId') ) {
+      this.router.navigateByUrl('/');
+    }
     setTimeout(() => {
       this.loading = true;
     }, 2000);
