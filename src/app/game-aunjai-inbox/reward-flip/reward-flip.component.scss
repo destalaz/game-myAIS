@@ -96,7 +96,29 @@ h3 {
             left: 4%;
             z-index: 1;
         }
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
+        @media screen and (max-device-width: 500px) {
+            position: fixed;
+            width: 20%;
+            bottom: 26%;
+            left: 4%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 823px) {
+                position: fixed;
+                width: 20%;
+                bottom: 26%;
+                left: 4%;
+                z-index: 1;
+            }
+            @media screen and (max-device-height: 736px) {
+                position: fixed;
+                width: 18%;
+                bottom: 26%;
+                left: 4%;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 410px) {
             position: fixed;
             width: 18%;
             bottom: 26%;
@@ -118,6 +140,21 @@ h3 {
             @media screen and (max-device-height: 736px) {
                 position: fixed;
                 width: 18%;
+                bottom: 26%;
+                left: 4%;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            position: fixed;
+            width: 22%;
+            bottom: 26%;
+            left: 4%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 900px) {
+                position: fixed;
+                width: 22%;
                 bottom: 26%;
                 left: 4%;
                 z-index: 1;
@@ -183,7 +220,29 @@ h3 {
             z-index: 1;
         }
 
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
+        @media screen and (max-device-width: 500px) {
+            position: fixed;
+            width: 20%;
+            bottom: 38%;
+            left: 4%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 823px) {
+                position: fixed;
+                width: 20%;
+                bottom: 38%;
+                left: 4%;
+                z-index: 1;
+            }
+            @media screen and (max-device-height: 736px) {
+                position: fixed;
+                width: 18%;
+                bottom: 38%;
+                left: 4%;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 410px) {
             position: fixed;
             width: 18%;
             bottom: 38%;
@@ -205,6 +264,21 @@ h3 {
             @media screen and (max-device-height: 736px) {
                 position: fixed;
                 width: 18%;
+                bottom: 38%;
+                left: 4%;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            position: fixed;
+            width: 22%;
+            bottom: 38%;
+            left: 4%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 900px) {
+                position: fixed;
+                width: 22%;
                 bottom: 38%;
                 left: 4%;
                 z-index: 1;
@@ -268,7 +342,29 @@ h3 {
             left: 4%;
             z-index: 1;
         }
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
+        @media screen and (max-device-width: 500px) {
+            position: fixed;
+            width: 18%;
+            bottom: 50%;
+            left: 4%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 823px) {
+                position: fixed;
+                width: 20%;
+                bottom: 50%;
+                left: 4%;
+                z-index: 1;
+            }
+            @media screen and (max-device-height: 736px) {
+                position: fixed;
+                width: 18%;
+                bottom: 50%;
+                left: 4%;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 410px) {
             position: fixed;
             width: 18%;
             bottom: 50%;
@@ -292,6 +388,21 @@ h3 {
             @media screen and (max-device-height: 736px) {
                 position: fixed;
                 width: 18%;
+                bottom: 50%;
+                left: 4%;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            position: fixed;
+            width: 22%;
+            bottom: 50%;
+            left: 4%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 900px) {
+                position: fixed;
+                width: 22%;
                 bottom: 50%;
                 left: 4%;
                 z-index: 1;
@@ -521,6 +632,21 @@ h3 {
             left: 83%;
             z-index: 1;
         }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            position: fixed;
+            width: 11%;
+            bottom: 28%;
+            left: 83%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 900px) {
+                position: fixed;
+                width: 11%;
+                bottom: 28%;
+                left: 83%;
+                z-index: 1;
+            }
+        }
         @media only screen and (max-device-width: 375px) {
             position: fixed;
             width: 13%;
@@ -566,6 +692,21 @@ h3 {
             left: 83%;
             z-index: 1;
         }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            position: fixed;
+            width: 11%;
+            bottom: 40%;
+            left: 83%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 900px) {
+                position: fixed;
+                width: 11%;
+                bottom: 40%;
+                left: 83%;
+                z-index: 1;
+            }
+        }
         @media only screen and (max-device-width: 375px) {
             position: fixed;
             width: 13%;
@@ -609,6 +750,21 @@ h3 {
             bottom: 52%;
             left: 83%;
             z-index: 1;
+        }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            position: fixed;
+            width: 11%;
+            bottom: 52%;
+            left: 83%;
+            z-index: 1;
+
+            @media screen and (max-device-height: 900px) {
+                position: fixed;
+                width: 11%;
+                bottom: 52%;
+                left: 83%;
+                z-index: 1;
+            }
         }
         @media only screen and (max-device-width: 375px) {
             position: fixed;
@@ -679,6 +835,19 @@ h3 {
                 left: 30%;
             }
         }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            width: 40%;
+            height: 6%;
+            bottom: 16%;
+            left: 32%;
+
+            @media screen and (max-device-height: 900px) {
+                width: 40%;
+                height: 6%;
+                bottom: 16%;
+                left: 32%;
+            }
+        }
 
         @media only screen and (max-device-width: 375px) {
             width: 39%;
@@ -736,6 +905,17 @@ h3 {
                 left: 31%;
             }
         }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            width: 13%;
+            bottom: 16%;
+            left: 32%;
+
+            @media screen and (max-device-height: 900px) {
+                width: 13%;
+                bottom: 16%;
+                left: 32%;
+            }
+        }
         @media only screen and (max-device-width: 375px) {
             width: 11%;
             bottom: 16%;
@@ -786,6 +966,19 @@ h3 {
                 font-size: 17px;
                 bottom: 18.5%;
                 left: 43%;
+            }
+        }
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            position: fixed;
+            font-size: 18px;
+            bottom: 17.5%;
+            left: 44%;
+
+            @media screen and (max-device-height: 900px) {
+                position: fixed;
+                font-size: 18px;
+                bottom: 17.5%;
+                left: 44%;
             }
         }
 
@@ -841,6 +1034,20 @@ h3 {
             }
         }
 
+        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
+            font-size: 20px;
+            position: fixed;
+            bottom: 2%;
+            left: 31%;
+
+            @media screen and (max-device-height: 900px) {
+                font-size: 20px;
+                position: fixed;
+                bottom: 2%;
+                left: 31%;
+            }
+        }
+
         @media only screen and (max-device-width: 375px) {
             font-size: 18px;
             position: fixed;
@@ -867,6 +1074,11 @@ h3 {
             bottom: 50.5%;
             width: 38% !important;
             left: 34%;
+        }
+        @media screen and (max-device-height: 900px) {
+            bottom: 51%;
+            width: 55% !important;
+            left: 27%;
         }
         @media screen and (max-device-height: 823px) {
             bottom: 50.5%;
@@ -913,6 +1125,11 @@ h3 {
             width: 38% !important;
             left: 34%;
         }
+        @media screen and (max-device-height: 900px) {
+            bottom: 39%;
+            width: 55% !important;
+            left: 26%;
+        }
         @media screen and (max-device-height: 823px) {
             bottom: 38.5%;
             width: 50% !important;
@@ -957,6 +1174,11 @@ h3 {
             bottom: 26.5%;
             width: 38% !important;
             left: 34%;
+        }
+        @media screen and (max-device-height: 900px) {
+            bottom: 27%;
+            width: 53% !important;
+            left: 27%;
         }
         @media screen and (max-device-height: 823px) {
             bottom: 26.5%;
