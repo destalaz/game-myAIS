@@ -14,6 +14,7 @@ export class RewardFlipComponent implements OnInit {
   ngOnInit() {
     localStorage.setItem('countWin', "1");
     this.open = false;
+    // this.ServedPlayGame(3);
   }
   termUrl = "https://aisgame.wisdomcloud.net/term.html";
   // goPlaces() {
@@ -45,11 +46,15 @@ export class RewardFlipComponent implements OnInit {
     // localStorage.setItem('rewardpoint', "50");
     // console.log("normal",  this.open);
 
+    console.log("normal", this.open);
+    // this.ServedPlayGame(3);
     // this.router.navigateByUrl('/popupError');
+    
   }
 
   hard() {
     this.open = true;
+    // this.open = true;
     // localStorage.setItem('totalRound', "5");
     // localStorage.setItem('speed', "300");
     // localStorage.setItem('shuffle', "15");
@@ -59,15 +64,37 @@ export class RewardFlipComponent implements OnInit {
 
     // localStorage.getItem('speed');
     // this.router.navigateByUrl('/popupError');
+
+
   }
 
   termCondition() {
-    window.location.href=this.termUrl;
+    window.location.href = this.termUrl;
   }
 
-  setLevel(level) {
-    this.open = true;
-    localStorage.setItem('level', level);
+  ServedPlayGame(level) {
+    this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
+      sessionStorage.setItem('playId', res["playData"].playId);
+      console.log("res playData => ", res["playData"].playerDetall);
+      console.log("res playId => ", res["playData"].playId);
+
+
+
+
+      // this.open = true;
+
+
+      //start
+      localStorage.setItem('countWin', "1");
+      //round totol***
+      localStorage.setItem('config', res["playData"].playerDetall);
+
+      // console.log("total Round", localStorage.getItem('totalRound'));
+
+
+      localStorage.setItem('totalRound', JSON.parse(localStorage.getItem("config")).length);
+      console.log("total Round", localStorage.getItem('totalRound'));
+    });
   }
 
   
