@@ -417,21 +417,21 @@ $(document).ready(function () {
     function ready_game() {
 
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">3</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw; font-style:italic;">3</div>');
         HeaderText.fadeOut(100);
         HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
         HeaderText.css({ display: 'none' });
       }, 1000);
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">2</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw; font-style:italic;">2</div>');
         HeaderText.fadeOut(100);
         HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
         HeaderText.css({ display: 'none' });
       }, 2400);
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw;">1</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:70vw;"><div style="position: absolute;font-size:24vw; font-style:italic;">1</div>');
         HeaderText.fadeOut(100);
         HeaderText.animate({ zoom: '120%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);

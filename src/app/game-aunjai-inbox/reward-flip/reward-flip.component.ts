@@ -18,8 +18,8 @@ export class RewardFlipComponent implements OnInit {
   }
 
   easy() {
-    localStorage.setItem('totalRound', "5");
-    localStorage.setItem('speed', "600");
+    localStorage.setItem('totalRound', "3");
+    localStorage.setItem('speed', "500");
     localStorage.setItem('shuffle', "25");
     localStorage.setItem('aispoint', "1");
     localStorage.setItem('rewardpoint', "20");
@@ -29,7 +29,7 @@ export class RewardFlipComponent implements OnInit {
   }
   normol() {
     localStorage.setItem('totalRound', "4");
-    localStorage.setItem('speed', "500");
+    localStorage.setItem('speed', "400");
     localStorage.setItem('shuffle', "20");
     localStorage.setItem('aispoint', "2");
     localStorage.setItem('rewardpoint', "50");
@@ -38,8 +38,8 @@ export class RewardFlipComponent implements OnInit {
   }
 
   hard() {
-    localStorage.setItem('totalRound', "3");
-    localStorage.setItem('speed', "400");
+    localStorage.setItem('totalRound', "5");
+    localStorage.setItem('speed', "300");
     localStorage.setItem('shuffle', "15");
     localStorage.setItem('aispoint', "3");
     localStorage.setItem('rewardpoint', "100");
