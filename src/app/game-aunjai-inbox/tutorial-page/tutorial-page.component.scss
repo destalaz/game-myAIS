@@ -420,6 +420,10 @@ body {
                 bottom: 77%;
             }
         }
+        @media screen and (max-device-width: 500px) {
+            left: 84%;
+            bottom: 77%;
+        }
         @media only screen and (max-device-width: 425px) {
             left: 82%;
             bottom: 77%;
