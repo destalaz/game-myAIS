@@ -9,8 +9,6 @@ $(document).ready(function () {
       startButton = $("#start_game"),
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1500,
-      // shuffleSpeed = 600,
-      // nuberOfShuffels = 15,
       btnResume = $("#btn_resume"),
       btnClose = $("#btn_close"),
       bodyPopup = $("#body-popup"),
@@ -26,15 +24,15 @@ $(document).ready(function () {
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
       bodyLose = $("#body-popup-lose");
-    // localStorage.setItem('amountWin', '3');
 
     if (localStorage.getItem('countWin') === null) {
       localStorage.setItem('countWin', "1");
     }
 
+    console.log(JSON.parse(localStorage.getItem('totalRound')));
 
 
-    setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
+    // setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
 
 
 
