@@ -42,16 +42,16 @@
 }
 .aunjai-logo {
     background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2061@2x.png);
-    top: 0px;
+    top: 4vh;
     margin: auto;
     background-position: center;
-    min-height: 40%;
-    min-width: 100%;
+    min-height: 30%;
+    min-width: 50%;
     position: fixed;
     background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
-    left: 1vw;
+    left: 28%;
 }
 
 .textSHow {
@@ -91,6 +91,8 @@
     background-color: white;
     border-radius: 4vh;
     padding: 2vh;
+    color: #49382f;
+    font-style: italic;
 }
 
 #divBtn {
@@ -119,10 +121,11 @@
     background-position-x: center;
     background-repeat: no-repeat;
     outline: none;
-    font-size: 5vw;
     left: 30%;
     opacity: 0.92;
+    font-size: 6vw;
     font-family: "DB_Heavent_Bd_It";
+    color: #49382F;
 }
 
 .container {
