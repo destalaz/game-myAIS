@@ -401,6 +401,9 @@ $(document).ready(function () {
 
 
                   function gameOver() {
+                    localStorage.setItem('gameOver', true);
+                    var checkGameOver = $("#checkOverGame")
+                    checkGameOver.click();
                     localStorage.setItem('countWin', '1');
 
                     localStorage.setItem('gameOver', "true");

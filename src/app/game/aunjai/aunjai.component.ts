@@ -8,7 +8,7 @@ import { GameService } from 'src/app/service/game.service';
 })
 export class AunjaiComponent implements OnInit {
   url = '../../../assets/aunjaiAssets/js/script.js';
- 
+
   ngOnInit() {
     this.loadScript();
   }
@@ -18,7 +18,7 @@ export class AunjaiComponent implements OnInit {
   winnerStatus: boolean
   load: boolean;
 
-  constructor(private router: Router ,  private gameService: GameService ) { 
+  constructor(private router: Router, private gameService: GameService) {
     this.load = false;
   }
   public loadScript() {
@@ -31,14 +31,9 @@ export class AunjaiComponent implements OnInit {
     document.getElementsByTagName('head')[0].appendChild(node);
   }
 
-  ngOnDestroy() {
-    localStorage.removeItem('firstLoad');
-    console.log('Service destroy')
-  }
 
   checkOverGame() {
-    if( localStorage.getItem("gameOver") === "true"){
-      localStorage.removeItem("gameOver");
+    if (localStorage.getItem("gameOver") === "true") {
       this.load = true;
       this.mobileId = sessionStorage.getItem('mobileId');
       this.playId = sessionStorage.getItem('playId');
@@ -47,11 +42,12 @@ export class AunjaiComponent implements OnInit {
     }
 
   }
-  
+
   servedPlayResult(mobileId, playId, winnerStatus) {
     this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
         sessionStorage.removeItem("playId");
+        localStorage.removeItem("gameOver");
         this.load = false;
       }
     });
