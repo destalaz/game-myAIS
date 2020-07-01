@@ -4,13 +4,16 @@
     font-family: "DB Helvethaica"!important;
 }
 .tablet-loading-body {
-    width: 100%;
+    background-position: center;
     min-height: 100%;
-    position: fixed;
-    box-shadow: #888 0px 0px 5px;
+    min-width: 100%;
+    position: absolute;
+    z-index: 999;
     background: transparent url(../../../../assets/aunjaiAssets/bg/min/bg_AIS_Game_1024x768-min.png);
+    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
     background-size: auto 100%;
     background-position-x: center;
+    background-repeat: no-repeat;
 }
 
 .loading-Bar {
