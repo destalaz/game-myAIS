@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Howl, Howler } from 'howler';
+import { Howl} from 'howler';
 
 @Component({
   selector: 'app-root',
@@ -8,27 +8,27 @@ import { Howl, Howler } from 'howler';
 })
 export class AppComponent {
 
-  sound = new Howl({
-    src: ['../../../assets/aunjaiAssets/sound/MSTR_-_MSTR_-_Choro_bavario_Loop.ogg.mp3'],
-    autoplay: true,
-    loop: true,
-    volume: 0.5,
-  });
+  // soundGame = new Howl({
+  //   src: ['../../../assets/aunjaiAssets/sound/MSTR_-_MSTR_-_Choro_bavario_Loop.ogg.mp3'],
+  //   autoplay: true,
+  //   loop: true,
+  //   volume: 0.3,
+  // });
 
 
   ngOnInit() {
-    this.loadSound();
+    
   }
 
 
 
-  public loadSound() {
-    this.sound.play();
-    console.log("loadsound play")
-  }
+  // public loadSound() {
+  //   this.soundGame.play();
+  //   console.log("loadsound play")
+  // }
 
-  ngOnDestroy() {
-    this.sound.stop();
-    console.log('Sound Stop')
-  }
+  // ngOnDestroy() {
+  //   this.soundGame.stop();
+  //   console.log('Sound Stop')
+  // }
 }

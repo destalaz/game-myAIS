@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   (function () {
     var box1 = $("#box1"),
@@ -90,10 +91,32 @@ $(document).ready(function () {
       cup5.css('opacity', '0.2');
     }
 
+    var soundGame = new Howl({
+      src: ['../../../assets/aunjaiAssets/sound/MSTR_-_MSTR_-_Choro_bavario_Loop.ogg.mp3'],
+      loop: true,
+      volume: 0.3,
+    });
 
-    setMessage("Game" +"&nbsp;"+ localStorage.getItem('countWin') +"&nbsp;" + "of" +"&nbsp;"+ localStorage.getItem('totalRound'));
+    var soundFlip = new Howl({
+      src: ['../../../assets/aunjaiAssets/sound/LONGTUNE.mp3'],
+      loop: true,
+      volume: 0.5,
+    });
+    var soundLose = new Howl({
+      src: ['../../../assets/aunjaiAssets/sound/HORNNOTS.mp3'],
+      volume: 0.5,
+    });
+    var soundWin = new Howl({
+      src: ['../../../assets/aunjaiAssets/sound/XYLO0.mp3'],
+      volume: 0.5,
+    });
+
+    soundGame.play();
+
+
+
+    setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
     startButton.on("click", function startGame(event) {
-
 
       console.log(index);
       var nuberOfShuffels = data[index].flipAmt;
@@ -178,6 +201,7 @@ $(document).ready(function () {
               });
               box3.delay(3000).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" style="width:30vw;">');
+                sound_pause();
                 if (ans == 3) kick.hide();
 
 
@@ -237,7 +261,13 @@ $(document).ready(function () {
                 setTimeout(function () {
                   clearInterval(interval);
                   var flag = 0;
-                  // setMessage("Click on the box, that you think Aunjai is hidden >> :p")
+
+
+                  setTimeout(() => {
+                    soundFlip.stop();
+                    soundGame.play();
+                  }, 1500);
+
 
                   box1.click(function () {
                     if (flag == 0) {
@@ -248,8 +278,10 @@ $(document).ready(function () {
                       if (ans == 1) {
                         flag = 1;
                         ans_position_left = box1.position().left;
+                        soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
+                        soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
                     }
@@ -264,8 +296,10 @@ $(document).ready(function () {
                       if (ans == 2) {
                         flag = 1;
                         ans_position_left = box2.position().left;
+                        soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
+                        soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
                     }
@@ -279,10 +313,11 @@ $(document).ready(function () {
                       });
                       if (ans == 3) {
                         flag = 1;
-                        // ans_position_left = box3.position().left;
                         ans_position_left = box3.position().left;
+                        soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
+                        soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
                     }
@@ -315,7 +350,7 @@ $(document).ready(function () {
                     setTimeout(() => {
                       win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
                       localStorage.setItem('countWin', win_now);
-
+                      soundGame.stop();
 
 
                       if (localStorage.getItem('countWin') === "1") {
@@ -344,6 +379,8 @@ $(document).ready(function () {
                       else if (localStorage.getItem('countWin') === "5") {
                         if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
                           localStorage.setItem('countWin', 1);
+
+
                           bodyWin.show();
                         } else {
                           btnResume5.show();
@@ -369,9 +406,10 @@ $(document).ready(function () {
                     // divBtn.show();
                     console.log("game Over");
                     // countWin = 1;
-                  
+
 
                     setTimeout(() => {
+                      soundGame.stop();
                       localStorage.setItem('countWin', 1);
                       bodyLose.show();
                     }, 2000);
@@ -402,6 +440,15 @@ $(document).ready(function () {
       box1.css({ left: '0vw', top: '0px', position: 'absolute' });
       box2.css({ left: '33vw', top: '0px', position: 'absolute' });
       box3.css({ left: '66vw', top: '0px', position: 'absolute' });
+
+    }
+
+    function sound_pause() {
+
+      setTimeout(() => {
+        soundGame.pause();
+        soundFlip.play();
+      }, 1000);
 
     }
     function ready_game() {
@@ -436,3 +483,4 @@ $(document).ready(function () {
 
 
 });
+
