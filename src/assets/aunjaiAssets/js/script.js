@@ -60,12 +60,12 @@ $(document).ready(function () {
     });
 
     
-    soundGame.play();
+  
     change_cup();
 
     text_round();
     startButton.on("click", function startGame(event) {
-
+      soundGame.play();
       $('.baground_forest').mouseover(function () {
         if(!soundGame.play()){
           soundGame.play();
