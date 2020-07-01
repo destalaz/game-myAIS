@@ -29,6 +29,6 @@ export class AppComponent {
 
   ngOnDestroy() {
     this.sound.stop();
-    console.log('Sound Stop')
+    console.log('Sound Stop');
   }
 }
