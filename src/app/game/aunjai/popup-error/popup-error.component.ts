@@ -37,7 +37,6 @@ export class PopupErrorComponent implements OnInit {
       console.log("res playData => ", res["playData"].playerDetall);
       console.log("res playId => ", res["playData"].playId);
 
-
       localStorage.setItem('countWin', "1");
       localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
       localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);

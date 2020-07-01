@@ -33,62 +33,66 @@ $(document).ready(function () {
     var data = JSON.parse(localStorage.getItem('config'));
     var index = parseInt(localStorage.getItem('countWin')) - 1;
 
+ 
+
     if (localStorage.getItem('totalRound') === "3") {
-      cup1.css('display', 'inline');
-      cup2.css('display', 'inline');
-      cup3.css('display', 'inline');
+      cup1.css('display', 'inline-block');
+      cup2.css('display', 'inline-block');
+      cup3.css('display', 'inline-block');
       cup4.css('display', 'none');
       cup5.css('display', 'none');
     } else if (localStorage.getItem('totalRound') === "4") {
-      cup1.css('display', 'inline');
-      cup2.css('display', 'inline');
-      cup3.css('display', 'inline');
-      cup4.css('display', 'inline');
+      cup1.css('display', 'inline-block');
+      cup2.css('display', 'inline-block');
+      cup3.css('display', 'inline-block');
+      cup4.css('display', 'inline-block');
       cup5.css('display', 'none');
     } else if (localStorage.getItem('totalRound') === "5") {
-      cup1.css('display', 'inline');
-      cup2.css('display', 'inline');
-      cup3.css('display', 'inline');
-      cup4.css('display', 'inline');
-      cup5.css('display', 'inline');
+      cup1.css('display', 'inline-block');
+      cup2.css('display', 'inline-block');
+      cup3.css('display', 'inline-block');
+      cup4.css('display', 'inline-block');
+      cup5.css('display', 'inline-block');
     }
+
+
 
 
     if (localStorage.getItem('countWin') === "1") {
-      cup1.css('opacity', '0.2');
-      cup2.css('opacity', '0.2');
-      cup3.css('opacity', '0.2');
-      cup4.css('opacity', '0.2');
-      cup5.css('opacity', '0.2');
+      cup1.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup2.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup3.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
     } else if (localStorage.getItem('countWin') === "2") {
       console.log("cup win 2");
-      cup1.css('opacity', '1');
-      cup2.css('opacity', '0.2');
-      cup3.css('opacity', '0.2');
-      cup4.css('opacity', '0.2');
-      cup5.css('opacity', '0.2');
+      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup2.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup3.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
     } else if (localStorage.getItem('countWin') === "3") {
       console.log("cup win 3");
-      cup1.css('opacity', '1');
-      cup2.css('opacity', '1');
-      cup3.css('opacity', '0.2');
-      cup4.css('opacity', '0.2');
-      cup5.css('opacity', '0.2');
+      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup2.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup3.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
     } else if (localStorage.getItem('countWin') === "4") {
       console.log("cup win 4");
-      cup1.css('opacity', '1');
-      cup2.css('opacity', '1');
-      cup3.css('opacity', '1');
-      cup4.css('opacity', '0.2');
-      cup5.css('opacity', '0.2');
+      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup2.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup3.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
+      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
     }
     else if (localStorage.getItem('countWin') === "5") {
       console.log("cup win 5");
-      cup1.css('opacity', '1');
-      cup2.css('opacity', '1');
-      cup3.css('opacity', '1');
-      cup4.css('opacity', '1');
-      cup5.css('opacity', '0.2');
+      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup2.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup3.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup4.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
+      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
     }
 
     var soundGame = new Howl({

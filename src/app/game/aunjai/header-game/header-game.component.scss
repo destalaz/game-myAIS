@@ -50,11 +50,10 @@ img {
 #img-Round-cup3,
 #img-Round-cup4,
 #img-Round-cup5 {
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=20);
+	-moz-opacity:0.2;
+	-khtml-opacity: 0.2;
     opacity: 0.2;
-    display: inline;
+    display: inline-block;
 }
-
-// #img-Round-cup4,
-// #img-Round-cup5 {
-//     display: none;
-// }
