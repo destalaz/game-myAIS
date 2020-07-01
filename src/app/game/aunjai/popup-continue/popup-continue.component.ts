@@ -8,18 +8,36 @@ import { GameService } from 'src/app/service/game.service';
 export class PopupContinueComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  constructor(private gameService: GameService) { }
+  load: boolean;
+  mobileId: string;
+  playId: string
+  winnerStatus: boolean
+
+  constructor(private gameService: GameService) {
+    this.load = false;
+    this.reward = localStorage.getItem('rewardpoint');
+    this.mobileId = sessionStorage.getItem('mobileId');
+    this.playId = sessionStorage.getItem('playId');
+    this.winnerStatus = true;
+  }
 
 
   ngOnInit() {
-    this.reward = localStorage.getItem('rewardpoint');
-    console.log(this.reward);
-    this.gameService.getPlayResult(sessionStorage.getItem('mobileId'), localStorage.getItem('playId'), true).subscribe(res => {
-      console.log("res winner  => ", res);
-    });
+    this.load = true;
+    this.servedPlayResult(this.mobileId, this.playId, this.winnerStatus);
+
   }
   openPage() {
     this.open = true;
+  }
+
+  servedPlayResult(mobileId, playId, winnerStatus) {
+    this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
+      if (res["resultCode"] === "20000" && res["status"] === true) { 
+        sessionStorage.removeItem("playId");
+        this.load = false;
+      }
+    });
   }
 
 }
