@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popup-lose.component.scss']
 })
 export class PopupLoseComponent implements OnInit {
-
+  open: boolean = false;
+  reward: any;
+  
   constructor() { }
 
   ngOnInit() {
+    this.reward = localStorage.getItem('rewardpoint');
   }
 
 }

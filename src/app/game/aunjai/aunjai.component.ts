@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameService } from 'src/app/service/game.service';
 @Component({
   selector: 'game-aunjai',
   templateUrl: './aunjai.component.html',
@@ -12,7 +13,14 @@ export class AunjaiComponent implements OnInit {
     this.loadScript();
   }
 
-  constructor(private router: Router ) { }
+  mobileId: string;
+  playId: string
+  winnerStatus: boolean
+  load: boolean;
+
+  constructor(private router: Router ,  private gameService: GameService ) { 
+    this.load = false;
+  }
   public loadScript() {
     console.log('preparing to load...')
     let node = document.createElement('script');
@@ -26,6 +34,27 @@ export class AunjaiComponent implements OnInit {
   ngOnDestroy() {
     localStorage.removeItem('firstLoad');
     console.log('Service destroy')
+  }
+
+  checkOverGame() {
+    if( localStorage.getItem("gameOver") === "true"){
+      localStorage.removeItem("gameOver");
+      this.load = true;
+      this.mobileId = sessionStorage.getItem('mobileId');
+      this.playId = sessionStorage.getItem('playId');
+      this.winnerStatus = false;
+      this.servedPlayResult(this.mobileId, this.playId, this.winnerStatus);
+    }
+
+  }
+  
+  servedPlayResult(mobileId, playId, winnerStatus) {
+    this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
+      if (res["resultCode"] === "20000" && res["status"] === true) {
+        sessionStorage.removeItem("playId");
+        this.load = false;
+      }
+    });
   }
 
 

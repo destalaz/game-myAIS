@@ -1,3 +1,16 @@
+<!-- checkOverGame -->
+<button id="checkOverGame" name="checkOverGame" style="display:none;"></button>
+
+<div *ngIf="load" class="bg-load">
+    <div class=container4>
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="baground_forest">
         <header-game></header-game>
@@ -28,5 +41,7 @@
     </div>
 </div>
 <popup-game></popup-game>
-<popup-win></popup-win>
+<popup-win></popup-win
+    
+    >
 <popup-lose></popup-lose>
