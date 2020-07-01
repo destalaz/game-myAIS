@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from 'src/app/service/game.service';
 
 @Component({
   selector: 'popup-lose',
@@ -9,12 +8,11 @@ import { GameService } from 'src/app/service/game.service';
 export class PopupLoseComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  load: boolean;
-  constructor() { 
-  }
+  
+  constructor() { }
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
-    
   }
+
 }

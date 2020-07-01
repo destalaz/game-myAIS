@@ -365,6 +365,11 @@ $(document).ready(function () {
 
                   function gameOver() {
                     localStorage.setItem('countWin', '1');
+
+                    localStorage.setItem('gameOver', "true");
+                    // ตรงนี้ใส่ฟังชันกดใช้ปุ่ม id="checkOverGame"
+
+
                     win = false;
                     // divBtn.show();
                     console.log("game Over");
