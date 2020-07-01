@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./loading-game.component.scss'],
   animations: [
     trigger('FadeOutAnimation', [
-      state('in', style({ opacity: 0.92, display: 'none' })),
+      state('in', style({ opacity: 0.97, display: 'none' })),
       transition(':enter', [
         style({ opacity: 1 }),
         animate(4000)
