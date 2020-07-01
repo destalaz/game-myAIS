@@ -16,7 +16,7 @@ export class RewardFlipComponent implements OnInit {
     localStorage.setItem('countWin', "1");
     this.open = false;
   }
-  termUrl = "https://aisgame.wisdomcloud.net/term.html";
+  termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
 
   termCondition() {
     window.location.href = this.termUrl;
