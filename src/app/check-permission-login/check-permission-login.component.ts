@@ -11,6 +11,7 @@ export class CheckPermissionLoginComponent implements OnInit {
 
   loadPage = false;
   msg = "Loading...";
+  
 
   constructor(
     private router: Router,
