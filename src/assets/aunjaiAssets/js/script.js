@@ -59,14 +59,28 @@ $(document).ready(function () {
       volume: 0.5,
     });
 
+    
     soundGame.play();
-
     change_cup();
 
     text_round();
     startButton.on("click", function startGame(event) {
 
+      $('.baground_forest').mouseover(function () {
+        if(!soundGame.play()){
+          soundGame.play();
+        }
+      
+      });
+
+      $('.baground_forest').mouseout(function () {
+        soundGame.stop();
+        
+      });
+
       console.log(index);
+
+      console.log("exit ???");
       var nuberOfShuffels = data[index].flipAmt;
       var shuffleSpeed = data[index].speed;
 
@@ -153,10 +167,7 @@ $(document).ready(function () {
                 if (ans == 3) kick.hide();
 
 
-                var box1_left = box1.position().left,
-                  box2_left = box2.position().left,
-                  box3_left = box3.position().left,
-                  box_top = box3.position().top;
+                var box_top = box3.position().top;
 
                 box1.css({
                   position: "absolute",
@@ -186,7 +197,7 @@ $(document).ready(function () {
                   //console.log("move "+array[0]+ " to "+array[1]);
   
                   $("#box" + array[0]).animate({ 
-                    top: ($("#box" + array[2]).position().top)-50 + "px"
+                    top: ($("#box" + array[2]).position().top)+4 + "vh"
                   }, {
                     duration: shuffleSpeed / 4,
                     specialEasing: {
@@ -203,7 +214,7 @@ $(document).ready(function () {
                     }
                   });
                   $("#box" + array[0]).animate({ 
-                    top: ($("#box" + array[2]).position().top)+ "px"
+                    top: ($("#box" + array[2]).position().top)+ "vh"
                   }, {
                     duration: shuffleSpeed / 4,
                     specialEasing: {
@@ -213,7 +224,7 @@ $(document).ready(function () {
   
   
                   $("#box" + array[1]).animate({ 
-                    top: ($("#box" + array[2]).position().top)+50 + "px"
+                    top: ($("#box" + array[2]).position().top)-12 + "vh"
                   }, {
                     duration: shuffleSpeed / 4,
                     specialEasing: {
@@ -231,7 +242,7 @@ $(document).ready(function () {
                   });
   
                   $("#box" + array[1]).animate({ 
-                    top: ($("#box" + array[2]).position().top) + "px"
+                    top: ($("#box" + array[2]).position().top) + "vh"
                   }, {
                     duration: shuffleSpeed / 4,
                     specialEasing: {
