@@ -181,7 +181,7 @@ $(document).ready(function () {
           top: 'easeOutBounce'
         },
         complete: function () {
-          kick.html("<img src='../../../assets/aunjaiAssets/avatar/Cloth_Point_02@2x.png' style='width:28vw;' />");
+          kick.html("<img src='../../../assets/aunjaiAssets/avatar/min/Cloth_Point_02@2x-min.png' style='width:28vw;' />");
           kick.animate({
             top: "52%"
           }, {
@@ -285,6 +285,7 @@ $(document).ready(function () {
                         soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
+                        flag =1;
                         soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
@@ -303,6 +304,7 @@ $(document).ready(function () {
                         soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
+                        flag =1;
                         soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
@@ -321,6 +323,7 @@ $(document).ready(function () {
                         soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
+                        flag =1;
                         soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
