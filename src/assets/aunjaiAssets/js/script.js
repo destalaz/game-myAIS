@@ -183,26 +183,63 @@ $(document).ready(function () {
 
                 var interval = setInterval(function () {
                   var array = shuffle([1, 2, 3]);
-
+                  //console.log("move "+array[0]+ " to "+array[1]);
+  
+                  $("#box" + array[0]).animate({ 
+                    top: ($("#box" + array[2]).position().top)-50 + "px"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'easeInQuint', 
+                    }
+                  });
+  
                   $("#box" + array[0]).animate({
-                    left: $("#box" + array[1]).position().left + "px"
+                    left: $("#box" + array[1]).position().left + "px", 
                   }, {
-                    duration: shuffleSpeed / 2,
+                    duration: shuffleSpeed / 4,
                     specialEasing: {
-                      left: 'easeInQuint'
+                      top: 'swing', 
                     }
                   });
-
+                  $("#box" + array[0]).animate({ 
+                    top: ($("#box" + array[2]).position().top)+ "px"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'swing', 
+                    }
+                  });
+  
+  
+                  $("#box" + array[1]).animate({ 
+                    top: ($("#box" + array[2]).position().top)+50 + "px"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'easeInQuint'
+                    }
+                  });
+  
                   $("#box" + array[1]).animate({
-                    left: $("#box" + array[0]).position().left + "px"
+                    left: $("#box" + array[0]).position().left + "px", 
                   }, {
-                    duration: shuffleSpeed / 2,
-                    specialEasing: {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: { 
                       left: 'easeInQuint'
                     }
                   });
-
-
+  
+                  $("#box" + array[1]).animate({ 
+                    top: ($("#box" + array[2]).position().top) + "px"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'swing', 
+                    }
+                  });
+  
+  
                 }, shuffleSpeed);
 
 
