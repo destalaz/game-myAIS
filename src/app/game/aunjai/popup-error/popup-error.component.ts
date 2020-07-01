@@ -17,12 +17,14 @@ export class PopupErrorComponent implements OnInit {
   ngOnInit() {
     this.aispoint = localStorage.getItem('aispoint');
     this.statusLoad = false;
+    console.log(this.redeem_point);
   }
 
   close() {
     this.redeem_point = false;
-    console.log("close");
+    //console.log("close");
     this.change.emit(this.redeem_point);
+    console.log(this.redeem_point);
   }
 
   ServedPlayGame() {

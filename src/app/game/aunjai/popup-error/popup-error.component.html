@@ -1,4 +1,4 @@
-<div id="body-popup-win" *ngIf="redeem_point">
+<div id="body-popup-win" *ngIf="redeem_point === true">
     <div style="text-align: center;" class="bodyThis">
         
         <div *ngIf="statusLoad">
@@ -11,7 +11,7 @@
         <div *ngIf="!statusLoad">
 
             <div class="redeem-point" id="redeem-point" *ngIf="true">
-                <button class="close" (click)="close();" [routerLink]="['/reward_flip']" routerLinkActive="router-link-active"></button>
+                <button class="close" (click)="close()"></button>
                 <div class="aunjai-logo">
 
                 </div>
@@ -31,7 +31,9 @@
             </div>
         </div>
 
-        <div class="redeem-point-failed" id="redeem-point-failed" *ngIf="false">
+        <app-reward-flip></app-reward-flip>
+
+        <!-- <div class="redeem-point-failed" id="redeem-point-failed" *ngIf="false">
             <div class="aunjai-logo">
 
             </div>
@@ -44,17 +46,19 @@
                 [routerLink]="['/popupContinue']">
                 กลับไปหน้าแรก
             </button>
-        </div>
+        </div> -->
 
 
-        <div class="game-paused" id="game-paused" *ngIf="false">
+        <!-- <div class="game-paused" id="game-paused" *ngIf="false">
             <div class="aunjai-logo">
 
             </div>
 
             <span class="textBody">เกมหยุดชั่วคราว</span>
 
-        </div>
+        </div> -->
 
     </div>
 </div>
+
+<app-reward-flip *ngIf="redeem_point === false"></app-reward-flip>
