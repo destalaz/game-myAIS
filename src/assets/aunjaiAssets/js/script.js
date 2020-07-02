@@ -24,6 +24,7 @@ $(document).ready(function () {
       btnResume4 = $("#btn_resume4"),
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
+      counNumnOfShuffels = 0,
       bodyLose = $("#body-popup-lose");
 
     if (localStorage.getItem('countWin') === null) {
@@ -59,28 +60,94 @@ $(document).ready(function () {
       volume: 0.5,
     });
 
-    
-  
+
     change_cup();
 
     text_round();
     startButton.on("click", function startGame(event) {
-      soundGame.play();
-      $('.baground_forest').mouseover(function () {
-        if(!soundGame.play()){
-          soundGame.play();
+
+      function gamepPlay() {
+        {
+          counNumnOfShuffels++;
+          var array = shuffle([1, 2, 3]);
+          //console.log("move "+array[0]+ " to "+array[1]);
+
+          $("#box" + array[0]).animate({
+            top: ($("#box" + array[2]).position().top) - 10 + "vh"
+          }, {
+            duration: shuffleSpeed / 4,
+            specialEasing: {
+              top: 'easeInQuint',
+            }
+          });
+
+          $("#box" + array[0]).animate({
+            left: $("#box" + array[1]).position().left + "px",
+          }, {
+            duration: shuffleSpeed / 4,
+            specialEasing: {
+              top: 'swing',
+            }
+          });
+          $("#box" + array[0]).animate({
+            top: ($("#box" + array[2]).position().top) + "vh"
+          }, {
+            duration: shuffleSpeed / 4,
+            specialEasing: {
+              top: 'swing',
+            }
+          });
+
+
+          $("#box" + array[1]).animate({
+            top: ($("#box" + array[2]).position().top) + 5 + "vh"
+          }, {
+            duration: shuffleSpeed / 4,
+            specialEasing: {
+              top: 'easeInQuint'
+            }
+          });
+
+          $("#box" + array[1]).animate({
+            left: $("#box" + array[0]).position().left + "px",
+          }, {
+            duration: shuffleSpeed / 4,
+            specialEasing: {
+              left: 'easeInQuint'
+            }
+          });
+
+          $("#box" + array[1]).animate({
+            top: ($("#box" + array[2]).position().top) + "vh"
+          }, {
+            duration: shuffleSpeed / 4,
+            specialEasing: {
+              top: 'swing',
+            }, complete: function () {
+              console.log("counNumberShuffle", counNumnOfShuffels);
+              console.log("NumbofShuffle", nuberOfShuffels);
+              if (counNumnOfShuffels < nuberOfShuffels) {
+                interval = setTimeout(gamepPlay, shuffleSpeed);
+              }
+            }
+          })
+
         }
-      
+      }
+
+      $('.baground_forest').mouseover(function () {
+        soundGame.play();
+        console.log("mouse over");
+
       });
 
       $('.baground_forest').mouseout(function () {
         soundGame.stop();
-        
+        console.log("mouseout");
       });
 
-      console.log(index);
 
-      console.log("exit ???");
+      console.log(index);
       var nuberOfShuffels = data[index].flipAmt;
       var shuffleSpeed = data[index].speed;
 
@@ -191,71 +258,14 @@ $(document).ready(function () {
                   for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
                   return o;
                 };
+                var interval;
+                var shufflerStar;
 
-                var interval = setInterval(function () {
-                  var array = shuffle([1, 2, 3]);
-                  //console.log("move "+array[0]+ " to "+array[1]);
-  
-                  $("#box" + array[0]).animate({ 
-                    top: ($("#box" + array[2]).position().top)+4 + "vh"
-                  }, {
-                    duration: shuffleSpeed / 4,
-                    specialEasing: {
-                      top: 'easeInQuint', 
-                    }
-                  });
-  
-                  $("#box" + array[0]).animate({
-                    left: $("#box" + array[1]).position().left + "px", 
-                  }, {
-                    duration: shuffleSpeed / 4,
-                    specialEasing: {
-                      top: 'swing', 
-                    }
-                  });
-                  $("#box" + array[0]).animate({ 
-                    top: ($("#box" + array[2]).position().top)+ "vh"
-                  }, {
-                    duration: shuffleSpeed / 4,
-                    specialEasing: {
-                      top: 'swing', 
-                    }
-                  });
-  
-  
-                  $("#box" + array[1]).animate({ 
-                    top: ($("#box" + array[2]).position().top)-12 + "vh"
-                  }, {
-                    duration: shuffleSpeed / 4,
-                    specialEasing: {
-                      top: 'easeInQuint'
-                    }
-                  });
-  
-                  $("#box" + array[1]).animate({
-                    left: $("#box" + array[0]).position().left + "px", 
-                  }, {
-                    duration: shuffleSpeed / 4,
-                    specialEasing: { 
-                      left: 'easeInQuint'
-                    }
-                  });
-  
-                  $("#box" + array[1]).animate({ 
-                    top: ($("#box" + array[2]).position().top) + "vh"
-                  }, {
-                    duration: shuffleSpeed / 4,
-                    specialEasing: {
-                      top: 'swing', 
-                    }
-                  });
-  
-  
-                }, shuffleSpeed);
+                interval = setTimeout(gamepPlay, shuffleSpeed);
 
 
                 setTimeout(function () {
-                  clearInterval(interval);
+                  // clearInterval(interval);
                   var flag = 0;
 
 
@@ -495,7 +505,16 @@ $(document).ready(function () {
         cup4.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       }
+      else if (localStorage.getItem('countWin') === "6") {
+        console.log("cup win 5");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup4.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup5.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+      }
     }
+
 
 
 
