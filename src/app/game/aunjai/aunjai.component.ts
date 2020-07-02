@@ -49,7 +49,7 @@ export class AunjaiComponent implements OnInit {
     this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
         sessionStorage.removeItem("playId");
-        localStorage.removeItem("gameOver");
+        // localStorage.removeItem("gameOver");
         this.load = false;
       }
     });

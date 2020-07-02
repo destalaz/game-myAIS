@@ -1,6 +1,6 @@
 <div id="body-popup-win" *ngIf="redeem_point === true">
     <div style="text-align: center;" class="bodyThis">
-        
+
         <div *ngIf="statusLoad">
             <div class="spinner-border" role="status" style="margin-top: 35%;">
                 <span class="sr-only ">Loading...</span>
@@ -10,7 +10,7 @@
 
         <div *ngIf="!statusLoad">
 
-            <div class="redeem-point" id="redeem-point" *ngIf="true">
+            <div class="redeem-point" id="redeem-point" *ngIf="!insufficientPoint">
                 <button class="close" (click)="close()"></button>
                 <div class="aunjai-logo">
 
@@ -21,33 +21,28 @@
 
                 <span class="textBody"> ใช้เอไอเอสพอยท์ {{aispoint}} คะแนน </span><br>
                 <span class="textBody"> เพื่อเล่นเกม?</span>
-                <!-- <button class="buttonGetTreat" id="btn_get_treat" [routerLinkActive]="['isActive']"
-                [routerLink]="['/popupReady']" (click)="ServedPlayGame()">
-                แลกคะแนน
-            </button> -->
                 <button class="buttonGetTreat" id="btn_get_treat" (click)="ServedPlayGame()">
                     แลกคะแนน
                 </button>
             </div>
-        </div>
 
-        <!-- <div class="redeem-point-failed" id="redeem-point-failed" *ngIf="false">
-            <div class="aunjai-logo">
 
+            <div class="redeem-point-failed" id="redeem-point-failed" *ngIf="insufficientPoint">
+                <div class="aunjai-logo">
+
+                </div>
+                <div class="treatBox" id="win-goto">
+
+                </div>
+                <span class="textBody"> คุณมีเอไอเอสพอยท์ไม่พอ </span><br>
+                <span class="textBody"> เพื่อเล่นเกม </span>
+                <button class="buttonGetTreat" id="btn_get_treat" (click)="close()"  >
+                    กลับไปหน้าแรก
+                </button>
             </div>
-            <div class="treatBox" id="win-goto">
-
-            </div>
-            <span class="textBody"> คุณมีเอไอเอสพอยท์ไม่พอ </span><br>
-            <span class="textBody"> เพื่อเล่นเกม </span>
-            <button class="buttonGetTreat" id="btn_get_treat" [routerLinkActive]="['isActive']"
-                [routerLink]="['/popupContinue']">
-                กลับไปหน้าแรก
-            </button>
-        </div> -->
 
 
-        <!-- <div class="game-paused" id="game-paused" *ngIf="false">
+            <!-- <div class="game-paused" id="game-paused" *ngIf="false">
             <div class="aunjai-logo">
 
             </div>
@@ -55,7 +50,7 @@
             <span class="textBody">เกมหยุดชั่วคราว</span>
 
         </div> -->
-
+        </div>
     </div>
 </div>
 

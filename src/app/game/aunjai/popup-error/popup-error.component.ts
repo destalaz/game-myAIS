@@ -16,7 +16,7 @@ export class PopupErrorComponent implements OnInit {
 
   constructor(private gameService: GameService, private router: Router) {
     this.insufficientPoint = false;
-   }
+  }
 
   ngOnInit() {
     this.aispoint = localStorage.getItem('aispoint');
@@ -37,11 +37,8 @@ export class PopupErrorComponent implements OnInit {
     const level = localStorage.getItem("level");
     if (!level) { return }
 
-
-
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
-
-      if (res["status"].toString() === "true") {
+      if (res["status"].toString() !== "true") {
         this.insufficientPoint = true;
         this.statusLoad = false;
         return
@@ -52,10 +49,16 @@ export class PopupErrorComponent implements OnInit {
       localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
       localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
       this.router.navigateByUrl('/popupReady');
-      
+      this.statusLoad = false;
+
+
     });
 
     // localStorage.removeItem("level")
   }
+
+  refresh(): void {
+    window.location.reload();
+}
 
 }

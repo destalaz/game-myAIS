@@ -171,6 +171,8 @@ $(document).ready(function () {
         } else if (localStorage.getItem('countWin') === "3") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
+            var resultGameWin = $("#resultGameWin")
+            resultGameWin.click();
           } else {
             btnResume3.show();
             bodyPopup.show();
@@ -178,6 +180,8 @@ $(document).ready(function () {
         } else if (localStorage.getItem('countWin') === "4") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
+            var resultGameWin = $("#resultGameWin")
+            resultGameWin.click();
           } else {
             btnResume4.show();
             bodyPopup.show();
@@ -186,6 +190,8 @@ $(document).ready(function () {
         else if (localStorage.getItem('countWin') === "5") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
+            var resultGameWin = $("#resultGameWin")
+            resultGameWin.click();
           } else {
             btnResume5.show();
             bodyPopup.show();
@@ -194,6 +200,8 @@ $(document).ready(function () {
         else if (localStorage.getItem('countWin') === "6") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
+            var resultGameWin = $("#resultGameWin")
+            resultGameWin.click();
           } else {
             btnResume5.show();
             bodyPopup.show();
