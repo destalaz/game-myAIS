@@ -11,15 +11,18 @@ export class AunjaiComponent implements OnInit {
 
   ngOnInit() {
     this.loadScript();
+    localStorage.setItem("gameOver", "false")
   }
 
   mobileId: string;
   playId: string
-  winnerStatus: boolean
+
   load: boolean;
 
   constructor(private router: Router, private gameService: GameService) {
     this.load = false;
+    this.mobileId = sessionStorage.getItem('mobileId');
+    this.playId = sessionStorage.getItem('playId');
   }
   public loadScript() {
     console.log('preparing to load...')
@@ -35,10 +38,9 @@ export class AunjaiComponent implements OnInit {
   checkOverGame() {
     if (localStorage.getItem("gameOver") === "true") {
       this.load = true;
-      this.mobileId = sessionStorage.getItem('mobileId');
-      this.playId = sessionStorage.getItem('playId');
-      this.winnerStatus = false;
-      this.servedPlayResult(this.mobileId, this.playId, this.winnerStatus);
+      var winnerStatus = false;
+
+      this.servedPlayResult(this.mobileId, this.playId, winnerStatus);
     }
 
   }
@@ -47,7 +49,17 @@ export class AunjaiComponent implements OnInit {
     this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
         sessionStorage.removeItem("playId");
-        localStorage.removeItem("gameOver");
+        // localStorage.removeItem("gameOver");
+        this.load = false;
+      }
+    });
+  }
+
+  resultGameWin() {
+    this.load = true;
+    var winnerStatus = true;
+    this.gameService.getPlayResult(this.mobileId, this.playId, winnerStatus).subscribe(res => {
+      if (res["resultCode"] === "20000" && res["status"] === true) {
         this.load = false;
       }
     });

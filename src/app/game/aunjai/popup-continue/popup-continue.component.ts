@@ -18,26 +18,27 @@ export class PopupContinueComponent implements OnInit {
     this.reward = localStorage.getItem('rewardpoint');
     this.mobileId = sessionStorage.getItem('mobileId');
     this.playId = sessionStorage.getItem('playId');
-    this.winnerStatus = true;
   }
 
 
   ngOnInit() {
     this.load = true;
-    this.servedPlayResult(this.mobileId, this.playId, this.winnerStatus);
+    this.servedPlayReward(this.mobileId, this.playId);
 
   }
   openPage() {
     this.open = true;
   }
 
-  servedPlayResult(mobileId, playId, winnerStatus) {
-    this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
-      if (res["resultCode"] === "20000" && res["status"] === true) { 
+  servedPlayReward(mobileId, playId) {
+    this.gameService.getReward(mobileId, playId).subscribe(res => {
+      if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
         sessionStorage.removeItem("playId");
         this.load = false;
       }
     });
+
+
   }
 
 }
