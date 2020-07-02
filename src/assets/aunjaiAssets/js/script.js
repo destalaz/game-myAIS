@@ -1,5 +1,12 @@
+function gamePause() {
+  console.log("pause ..... ???");
+}
 
+
+
+var soundGame, soundFlip;
 $(document).ready(function () {
+
   (function () {
     var box1 = $("#box1"),
       divBtn = $("#divBtn"),
@@ -40,24 +47,24 @@ $(document).ready(function () {
 
 
 
-    var soundGame = new Howl({
+    soundGame = new Howl({
       src: ['../../../assets/aunjaiAssets/sound/MSTR_-_MSTR_-_Choro_bavario_Loop.ogg.mp3'],
       loop: true,
-      volume: 0.3,
+      volume: 0.05,
     });
 
     var soundFlip = new Howl({
       src: ['../../../assets/aunjaiAssets/sound/LONGTUNE.mp3'],
       loop: true,
-      volume: 0.5,
+      volume: 0.2,
     });
     var soundLose = new Howl({
       src: ['../../../assets/aunjaiAssets/sound/HORNNOTS.mp3'],
-      volume: 0.5,
+      volume: 0.2,
     });
     var soundWin = new Howl({
       src: ['../../../assets/aunjaiAssets/sound/XYLO0.mp3'],
-      volume: 0.5,
+      volume: 0.2,
     });
 
 
@@ -159,7 +166,6 @@ $(document).ready(function () {
         win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
         localStorage.setItem('countWin', win_now);
         change_cup();
-        soundGame.stop();
 
 
         if (localStorage.getItem('countWin') === "1") {
@@ -222,12 +228,11 @@ $(document).ready(function () {
 
       win = false;
       // divBtn.show();
-      console.log("game Over",localStorage.getItem('resumeGame'));
+      console.log("game Over", localStorage.getItem('resumeGame'));
       // countWin = 1;
 
 
       setTimeout(() => {
-        soundGame.stop();
         localStorage.setItem('countWin', 1);
         bodyLose.show();
       }, 2000);
@@ -257,14 +262,12 @@ $(document).ready(function () {
 
     }
 
-    function sound_pause() {
-
-      setTimeout(() => {
-        soundGame.pause();
-        soundFlip.play();
-      }, 1000);
-
-    }
+    // function sound_pause() {
+    //   setTimeout(() => {
+    //     soundGame.pause();
+    //     soundFlip.play();
+    //   }, 500);
+    // }
 
 
     function ready_game() {
@@ -299,21 +302,35 @@ $(document).ready(function () {
 
 
     change_cup();
-    soundGame.play();
     text_round();
     startButton.on("click", function startGame(event) {
+      Howler.stop();
+      soundGame.stop();
+      soundGame.play();
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+          Howler.mute(true);
+          console.log("stop");
+        } else {
+          Howler.mute(false);
+          console.log("start");
+        }
+      }, false);
 
       function gamepPlay() {
         {
+
+
+
           counNumnOfShuffels++;
           var array = shuffle([1, 2, 3]);
           //console.log("move "+array[0]+ " to "+array[1]);
-          $("#box" + array[0]).css("z-index","100");
-          $("#box" + array[1]).css("z-index","300");
-          $("#box" + array[2]).css("z-index","200");
+          $("#box" + array[0]).css("z-index", "100");
+          $("#box" + array[1]).css("z-index", "300");
+          $("#box" + array[2]).css("z-index", "200");
 
           $("#box" + array[0]).animate({
-            top: ($("#box" + array[2]).position().top) - 20 + "px"
+            top: ($("#box" + array[2]).position().top) - 40 + "px"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
@@ -340,7 +357,7 @@ $(document).ready(function () {
 
 
           $("#box" + array[1]).animate({
-            top: ($("#box" + array[2]).position().top) + 20 + "px"
+            top: ($("#box" + array[2]).position().top) + 40 + "px"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
@@ -364,19 +381,17 @@ $(document).ready(function () {
             specialEasing: {
               top: 'swing',
             }, complete: function () {
-              $("#box" + array[0]).css("z-index","0");
-              $("#box" + array[1]).css("z-index","0");
-              $("#box" + array[2]).css("z-index","0");
+              $("#box" + array[0]).css("z-index", "0");
+              $("#box" + array[1]).css("z-index", "0");
+              $("#box" + array[2]).css("z-index", "0");
               console.log("counNumberShuffle", counNumnOfShuffels);
               console.log("NumbofShuffle", nuberOfShuffels);
               if (counNumnOfShuffels < nuberOfShuffels) {
-                // gamepPlay();
-              interval = setTimeout(gamepPlay, 300);
-
+                gamepPlay();
               } else {
                 setTimeout(() => {
                   soundFlip.stop();
-                  soundGame.play();
+                  
                   var flag = 0;
 
 
@@ -384,7 +399,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
                       box1.animate({
-                        top: $(this).position().top + -19 + "vh"
+                        top: $(this).position().top + -20 + "vh"
                       });
                       if (ans == 1) {
                         flag = 1;
@@ -403,7 +418,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
-                        top: $(this).position().top - 19 + "vh"
+                        top: $(this).position().top - 20 + "vh"
                       });
                       if (ans == 2) {
                         flag = 1;
@@ -423,7 +438,7 @@ $(document).ready(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
-                        top: $(this).position().top + -19 + "vh"
+                        top: $(this).position().top + -20 + "vh"
                       });
                       if (ans == 3) {
                         change_cup();
@@ -449,20 +464,6 @@ $(document).ready(function () {
       }
 
 
-
-      // $('.baground_forest').mouseover(function () {
-      //   soundGame.play();
-      //   console.log("mouse over");
-
-      // });
-
-      // $('.baground_forest').mouseout(function () {
-      //   soundGame.stop();
-      //   console.log("mouseout");
-      // });
-
-
-      console.log(index);
       var nuberOfShuffels = data[index].flipAmt;
       var shuffleSpeed = data[index].speed;
 
@@ -479,10 +480,6 @@ $(document).ready(function () {
       btnResume.click(function () {
         bodyPopup.hide();
       });
-
-      // btnClose.click(function () {
-      //   bodyPopup.hide();
-      // });
 
       divBtn.hide();
       HeaderText.show();
@@ -543,9 +540,8 @@ $(document).ready(function () {
               });
               box3.delay(3000).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b" style="width:30vw;">');
-                sound_pause();
                 if (ans == 3) kick.hide();
-
+                soundFlip.play();
 
                 var box_top = box3.position().top;
 
