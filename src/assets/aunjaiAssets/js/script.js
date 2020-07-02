@@ -62,7 +62,7 @@ $(document).ready(function () {
 
 
     change_cup();
-
+    soundGame.play();
     text_round();
     startButton.on("click", function startGame(event) {
 
@@ -128,6 +128,12 @@ $(document).ready(function () {
               console.log("NumbofShuffle", nuberOfShuffels);
               if (counNumnOfShuffels < nuberOfShuffels) {
                 interval = setTimeout(gamepPlay, shuffleSpeed);
+
+              } else {
+                setTimeout(() => {
+                  soundFlip.stop();
+                  soundGame.play();
+                }, 1500);
               }
             }
           })
@@ -135,16 +141,16 @@ $(document).ready(function () {
         }
       }
 
-      $('.baground_forest').mouseover(function () {
-        soundGame.play();
-        console.log("mouse over");
+      // $('.baground_forest').mouseover(function () {
+      //   soundGame.play();
+      //   console.log("mouse over");
 
-      });
+      // });
 
-      $('.baground_forest').mouseout(function () {
-        soundGame.stop();
-        console.log("mouseout");
-      });
+      // $('.baground_forest').mouseout(function () {
+      //   soundGame.stop();
+      //   console.log("mouseout");
+      // });
 
 
       console.log(index);
@@ -268,11 +274,6 @@ $(document).ready(function () {
                   // clearInterval(interval);
                   var flag = 0;
 
-
-                  setTimeout(() => {
-                    soundFlip.stop();
-                    soundGame.play();
-                  }, 1500);
 
 
                   box1.click(function () {
