@@ -73,7 +73,7 @@ $(document).ready(function () {
           //console.log("move "+array[0]+ " to "+array[1]);
 
           $("#box" + array[0]).animate({
-            top: ($("#box" + array[2]).position().top) - 10 + "vh"
+            top: ($("#box" + array[2]).position().top) - 4 + "vh"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
@@ -100,7 +100,7 @@ $(document).ready(function () {
 
 
           $("#box" + array[1]).animate({
-            top: ($("#box" + array[2]).position().top) + 5 + "vh"
+            top: ($("#box" + array[2]).position().top) + 2 + "vh"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
