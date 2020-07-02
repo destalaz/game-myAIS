@@ -12,9 +12,13 @@ export class RewardFlipComponent implements OnInit {
   @Input() open: boolean = false;
   @Output() changes = new EventEmitter();
   ngOnInit() {
-    localStorage.clear();
     localStorage.setItem('countWin', "1");
     this.open = false;
+
+    if (localStorage.getItem('resumeGame')) {
+      this.open = true;
+    }
+    // localStorage.clear();
   }
   termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
 

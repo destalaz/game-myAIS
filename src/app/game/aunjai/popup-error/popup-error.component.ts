@@ -24,6 +24,7 @@ export class PopupErrorComponent implements OnInit {
     this.redeem_point = false;
     //console.log("close");
     this.change.emit(this.redeem_point);
+    localStorage.removeItem('resumeGame');
     console.log(this.redeem_point);
   }
 
