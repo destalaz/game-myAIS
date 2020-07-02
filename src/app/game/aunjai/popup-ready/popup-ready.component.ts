@@ -12,9 +12,8 @@ export class PopupReadyComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.totalRound = parseInt(localStorage.getItem('totalRound'));
     setTimeout(() => {
-      console.log(localStorage.getItem('totalRound'))
-      this.totalRound = parseInt(localStorage.getItem('totalRound'));
       this.router.navigateByUrl('/aunjai1');
     }, 2000);
   }
