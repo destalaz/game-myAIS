@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'popup-ready',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class PopupReadyComponent implements OnInit {
 
   totalRound: number;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.totalRound = parseInt(localStorage.getItem('totalRound'));
+    setTimeout(() => {
+      console.log(localStorage.getItem('totalRound'))
+      this.totalRound = parseInt(localStorage.getItem('totalRound'));
+      this.router.navigateByUrl('/aunjai1');
+    }, 2000);
   }
 
 }

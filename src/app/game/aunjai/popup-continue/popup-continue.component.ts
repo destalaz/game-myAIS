@@ -10,8 +10,9 @@ export class PopupContinueComponent implements OnInit {
   reward: any;
   load: boolean;
   mobileId: string;
-  playId: string
-  winnerStatus: boolean
+  playId: string;
+  winnerStatus: boolean;
+  playComplete:boolean;
 
   constructor(private gameService: GameService) {
     this.load = false;

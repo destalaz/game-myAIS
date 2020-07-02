@@ -270,21 +270,21 @@ $(document).ready(function () {
     function ready_game() {
 
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
         HeaderText.fadeOut(100);
         HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
         HeaderText.css({ display: 'none' });
       }, 1000);
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
         HeaderText.fadeOut(100);
         HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
         HeaderText.css({ display: 'none' });
       }, 2400);
       setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
         HeaderText.fadeOut(100);
         HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
         HeaderText.fadeIn(100);
@@ -313,7 +313,7 @@ $(document).ready(function () {
           $("#box" + array[2]).css("z-index","200");
 
           $("#box" + array[0]).animate({
-            top: ($("#box" + array[2]).position().top) - 4 + "vh"
+            top: ($("#box" + array[2]).position().top) - 20 + "px"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
@@ -330,7 +330,7 @@ $(document).ready(function () {
             }
           });
           $("#box" + array[0]).animate({
-            top: ($("#box" + array[2]).position().top) + "vh"
+            top: ($("#box" + array[2]).position().top) + "px"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
@@ -340,7 +340,7 @@ $(document).ready(function () {
 
 
           $("#box" + array[1]).animate({
-            top: ($("#box" + array[2]).position().top) + 2 + "vh"
+            top: ($("#box" + array[2]).position().top) + 20 + "px"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
@@ -358,7 +358,7 @@ $(document).ready(function () {
           });
 
           $("#box" + array[1]).animate({
-            top: ($("#box" + array[2]).position().top) + "vh"
+            top: ($("#box" + array[2]).position().top) + "px"
           }, {
             duration: shuffleSpeed / 4,
             specialEasing: {
@@ -370,14 +370,14 @@ $(document).ready(function () {
               console.log("counNumberShuffle", counNumnOfShuffels);
               console.log("NumbofShuffle", nuberOfShuffels);
               if (counNumnOfShuffels < nuberOfShuffels) {
-                interval = setTimeout(gamepPlay, shuffleSpeed);
+                // gamepPlay();
+              interval = setTimeout(gamepPlay, 300);
 
               } else {
                 setTimeout(() => {
                   soundFlip.stop();
                   soundGame.play();
                   var flag = 0;
-
 
 
                   box1.click(function () {
