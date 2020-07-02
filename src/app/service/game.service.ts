@@ -39,5 +39,12 @@ export class GameService {
         return this.http.post(this.baseUrl + urlApi, body);
     }
 
+    getReward(_mobileId: string, _playId: string) {
+        let urlApi = "/api/cms/game/getReward";
+        const body =
+            { mobileId: _mobileId, playId: _playId }
+        return this.http.post(this.baseUrl + urlApi, body);
+    }
+
 
 }
