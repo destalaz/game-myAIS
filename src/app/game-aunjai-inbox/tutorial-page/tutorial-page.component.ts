@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { GameService } from 'src/app/service/game.service';
 })
 export class TutorialPageComponent implements OnInit {
 
+  @Input() goTutorialPage: boolean;
+
   pageNo: number = 0;
   
 
@@ -16,6 +18,11 @@ export class TutorialPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  checkStatusRead() {
+    this.goTutorialPage = false;
+    console.log('checkStatusRead => ',this.goTutorialPage);
   }
 
   backPage() {

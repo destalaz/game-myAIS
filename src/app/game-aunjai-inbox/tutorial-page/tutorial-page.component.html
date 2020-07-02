@@ -1,4 +1,4 @@
-<body>
+<body *ngIf="goTutorialPage !== false">
     <div class="bg-img-style">
     </div>
 
@@ -30,7 +30,7 @@
                     <div class="last-tutorial" *ngIf="pageNo === 4">
                         <img class="how-to-play5"
                             src="../../../assets/aunjaiAssets/component/how_to_play5.png">
-                        <img class="close-ic" [routerLink]="['/reward_flip']" routerLinkActive="router-link-active"
+                        <img class="close-ic" (click)="checkStatusRead()"
                             src="../../../assets/aunjaiAssets/component/close_ic.svg">
                     </div>
 
@@ -39,3 +39,5 @@
         </div>
     </div>
 </body>
+
+<app-reward-flip *ngIf="goTutorialPage === false"></app-reward-flip>
