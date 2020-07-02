@@ -12,1045 +12,142 @@ h3 {
     background-position-x: center;
 
     .img-logo-reward-flip {
-        position: fixed;
+        position: inherit;
         width: 90%;
-        bottom: 58%;
-        left: 4%;
+        margin-top: 12vh;
 
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            position: fixed;
-            width: 90%;
-            bottom: 60%;
-            left: 1%;
+        @media screen and (min-device-height: 960px) {
+            margin-top: 6vh;
         }
-        @media only screen and (max-device-width: 375px) {
-            position: fixed;
-            width: 90%;
-            bottom: 60%;
-            left: 3%;
+
+        @media screen and (min-device-width: 641px) {
+            margin-top: 0vh;
         }
     }
     .box-landing_1 {
-        position: fixed;
-        width: 92%;
-        height: 10%;
-        border: 0px solid;
+        position: relative;
         border-radius: 76px;
-        bottom: 50%;
-        left: 4%;
-        background-color: #f8f9fa96;
+        background: #f8f9fa96;
+        height: 10vh;
         box-shadow: 0px 3px 5px grey;
+        margin: 2%;
+        text-align: center;
     }
     .box-landing_2 {
-        padding: 1rem;
-        position: fixed;
-        width: 92%;
-        height: 10%;
-        border: 0px solid;
+        position: relative;
         border-radius: 76px;
-        bottom: 38%;
-        left: 4%;
-        background-color: #f8f9fa96;
+        background: #f8f9fa96;
+        height: 10vh;
         box-shadow: 0px 3px 5px grey;
+        margin: 2%;
+        text-align: center;
     }
     .box-landing_3 {
-        padding: 1rem;
-        position: fixed;
-        width: 92%;
-        height: 10%;
-        border: 0px solid;
+        position: relative;
         border-radius: 76px;
-        bottom: 26%;
-        left: 4%;
-        background-color: #f8f9fa96;
+        background: #f8f9fa96;
+        height: 10vh;
         box-shadow: 0px 3px 5px grey;
-    }
-    .box-landing_test {
-        padding: 1rem;
-        position: fixed;
-        width: 94%;
-        height: 12%;
-        border: 0px solid;
-        border-radius: 76px;
-        bottom: 19%;
-        left: 3%;
-        background-color: #f8f9fa96;
-        box-shadow: 0px 3px 5px grey;
+        margin: 2%;
+        text-align: center;
     }
     .point_20 {
-        position: fixed;
-        width: 16%;
-        bottom: 19%;
-        left: 4%;
+        position: absolute;
+        width: 9vh;
+        top: 0.6vh;
+        left: 0.5vh;
         z-index: 1;
-
-        @media screen and (max-device-width: 1024px) {
-            width: 13%;
-            bottom: 26%;
-            left: 5%;
-        }
-        @media screen and (max-device-width: 600px) {
-            position: fixed;
-            width: 16%;
-            bottom: 26%;
-            left: 4%;
-            z-index: 1;
-        }
-        @media screen and (max-device-width: 500px) {
-            position: fixed;
-            width: 18%;
-            bottom: 26%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 823px) {
-                position: fixed;
-                width: 20%;
-                bottom: 26%;
-                left: 4%;
-                z-index: 1;
-            }
-            @media screen and (max-device-height: 736px) {
-                position: fixed;
-                width: 18%;
-                bottom: 26%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 410px) {
-            position: fixed;
-            width: 18%;
-            bottom: 26%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                width: 18%;
-                bottom: 26%;
-                left: 4%;
-            }
-            @media screen and (max-device-height: 823px) {
-                position: fixed;
-                width: 20%;
-                bottom: 26%;
-                left: 4%;
-                z-index: 1;
-            }
-            @media screen and (max-device-height: 736px) {
-                position: fixed;
-                width: 18%;
-                bottom: 26%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
-            position: fixed;
-            width: 22%;
-            bottom: 26%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                position: fixed;
-                width: 22%;
-                bottom: 26%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            position: fixed;
-            width: 22%;
-            bottom: 26%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                position: fixed;
-                width: 18%;
-                bottom: 26%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media screen and (max-device-width: 320px) {
-            position: fixed;
-            width: 15%;
-            bottom: 20%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 568px) {
-                position: fixed;
-                width: 18%;
-                bottom: 26%;
-                left: 4%;
-                z-index: 1;
-            }
-
-            @media screen and (max-device-height: 480px) {
-                position: fixed;
-                width: 18%;
-                bottom: 19%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
     }
 
     .point_50 {
-        position: fixed;
-        width: 16%;
-        bottom: 33%;
-        left: 4%;
+        position: absolute;
+        width: 9vh;
+        top: 0.6vh;
+        left: 0.5vh;
         z-index: 1;
-
-        @media screen and (max-device-width: 1024px) {
-            width: 13%;
-            bottom: 38%;
-            left: 5%;
-        }
-        @media screen and (max-device-width: 600px) {
-            position: fixed;
-            width: 16%;
-            bottom: 38%;
-            left: 4%;
-            z-index: 1;
-        }
-
-        @media screen and (max-device-width: 500px) {
-            position: fixed;
-            width: 18%;
-            bottom: 38%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 823px) {
-                position: fixed;
-                width: 20%;
-                bottom: 38%;
-                left: 4%;
-                z-index: 1;
-            }
-            @media screen and (max-device-height: 736px) {
-                position: fixed;
-                width: 18%;
-                bottom: 38%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 410px) {
-            position: fixed;
-            width: 18%;
-            bottom: 38%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                width: 18%;
-                bottom: 38%;
-                left: 4%;
-            }
-            @media screen and (max-device-height: 823px) {
-                position: fixed;
-                width: 20%;
-                bottom: 38%;
-                left: 4%;
-                z-index: 1;
-            }
-            @media screen and (max-device-height: 736px) {
-                position: fixed;
-                width: 18%;
-                bottom: 38%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
-            position: fixed;
-            width: 22%;
-            bottom: 38%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                position: fixed;
-                width: 22%;
-                bottom: 38%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            position: fixed;
-            width: 22%;
-            bottom: 38%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                position: fixed;
-                width: 18%;
-                bottom: 38%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media screen and (max-device-width: 320px) {
-            position: fixed;
-            width: 15%;
-            bottom: 34%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 568px) {
-                position: fixed;
-                width: 18%;
-                bottom: 38%;
-                left: 4%;
-                z-index: 1;
-            }
-            @media screen and (max-device-height: 480px) {
-                position: fixed;
-                width: 18%;
-                bottom: 33%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
     }
 
     .point_100 {
-        position: fixed;
-        width: 16%;
-        bottom: 47%;
-        left: 4%;
+        position: absolute;
+        width: 9vh;
+        top: 0.6vh;
+        left: 0.5vh;
         z-index: 1;
-
-        @media screen and (max-device-width: 1024px) {
-            width: 13%;
-            bottom: 50%;
-            left: 5%;
-        }
-        @media screen and (max-device-width: 600px) {
-            position: fixed;
-            width: 16%;
-            bottom: 50%;
-            left: 4%;
-            z-index: 1;
-        }
-        @media screen and (max-device-width: 500px) {
-            position: fixed;
-            width: 18%;
-            bottom: 50%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 823px) {
-                position: fixed;
-                width: 20%;
-                bottom: 50%;
-                left: 4%;
-                z-index: 1;
-            }
-            @media screen and (max-device-height: 736px) {
-                position: fixed;
-                width: 18%;
-                bottom: 50%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 410px) {
-            position: fixed;
-            width: 18%;
-            bottom: 50%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                width: 18%;
-                bottom: 50%;
-                left: 4%;
-            }
-
-            @media screen and (max-device-height: 823px) {
-                position: fixed;
-                width: 20%;
-                bottom: 50%;
-                left: 4%;
-                z-index: 1;
-            }
-
-            @media screen and (max-device-height: 736px) {
-                position: fixed;
-                width: 18%;
-                bottom: 50%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
-            position: fixed;
-            width: 22%;
-            bottom: 50%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                position: fixed;
-                width: 22%;
-                bottom: 50%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            position: fixed;
-            width: 22%;
-            bottom: 50%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                position: fixed;
-                width: 18%;
-                bottom: 50%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-
-        @media screen and (max-device-width: 320px) {
-            position: fixed;
-            width: 15%;
-            bottom: 48%;
-            left: 4%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 568px) {
-                position: fixed;
-                width: 18%;
-                bottom: 50%;
-                left: 4%;
-                z-index: 1;
-            }
-
-            @media screen and (max-device-height: 480px) {
-                position: fixed;
-                width: 18%;
-                bottom: 47%;
-                left: 4%;
-                z-index: 1;
-            }
-        }
-    }
-
-    .text-detail_20 {
-        font-family: "DB Heavent";
-        font-size: 32px;
-        text-align: center;
-        position: fixed;
-        bottom: 20%;
-        left: 31%;
-        font-style: italic;
-        z-index: 1;
-        color: white;
-        -webkit-text-stroke: 0.5px black;
-        text-shadow: 2px 2px 4px #000000;
-        -webkit-font-smoothing: antialiased;
-
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            font-size: 22px;
-            text-align: center;
-            position: fixed;
-            bottom: 21%;
-            left: 25%;
-            font-style: italic;
-            z-index: 1;
-
-            @media screen and (min-device-height: 823px) {
-                font-size: 22px;
-                bottom: 21%;
-                left: 28%;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            font-size: 18px;
-            text-align: center;
-            position: fixed;
-            bottom: 21%;
-            left: 29%;
-            font-style: italic;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                font-size: 20px;
-                text-align: center;
-                position: fixed;
-                bottom: 20%;
-                left: 28%;
-                font-style: italic;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            font-size: 16px;
-            left: 28%;
-        }
-    }
-
-    .text-detail_50 {
-        font-family: "DB Heavent";
-        font-size: 32px;
-        text-align: center;
-        position: fixed;
-        bottom: 34%;
-        left: 31%;
-        font-style: italic;
-        z-index: 1;
-        color: white;
-        -webkit-text-stroke: 0.5px black;
-        text-shadow: 2px 2px 4px #000000;
-        -webkit-font-smoothing: antialiased;
-
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            font-size: 22px;
-            text-align: center;
-            position: fixed;
-            bottom: 34%;
-            left: 25%;
-            font-style: italic;
-            z-index: 1;
-
-            @media screen and (min-device-height: 823px) {
-                font-size: 22px;
-                bottom: 34%;
-                left: 28%;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            font-size: 18px;
-            text-align: center;
-            position: fixed;
-            bottom: 36%;
-            left: 28%;
-            font-style: italic;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                font-size: 20px;
-                text-align: center;
-                position: fixed;
-                bottom: 35%;
-                left: 28%;
-                font-style: italic;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            font-size: 16px;
-            left: 29%;
-        }
-    }
-
-    .text-detail_100 {
-        font-family: "DB Heavent";
-        font-size: 32px;
-        text-align: center;
-        position: fixed;
-        bottom: 48%;
-        left: 31%;
-        font-style: italic;
-        z-index: 1;
-        color: white;
-        -webkit-text-stroke: 0.5px black;
-        text-shadow: 2px 2px 4px #000000;
-        -webkit-font-smoothing: antialiased;
-
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            font-size: 18px;
-            text-align: center;
-            position: fixed;
-            bottom: 51%;
-            left: 28%;
-            font-style: italic;
-            z-index: 1;
-
-            @media screen and (min-device-height: 823px) {
-                font-size: 22px;
-                bottom: 48%;
-                left: 26%;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            font-size: 18px;
-            text-align: center;
-            position: fixed;
-            bottom: 49%;
-            left: 28%;
-            font-style: italic;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                font-size: 20px;
-                text-align: center;
-                position: fixed;
-                bottom: 48%;
-                left: 27%;
-                font-style: italic;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            font-size: 16px;
-            left: 27%;
-        }
     }
 
     .btn_play_20 {
-        position: fixed;
+        position: absolute;
         width: 11%;
-        bottom: 21%;
-        left: 85%;
+        top: 2.5vh;
+        right: 1vh;
         z-index: 1;
 
-        @media screen and (min-device-width: 600px) {
-            position: fixed;
-            width: 9%;
-            bottom: 28%;
-            left: 85%;
-            z-index: 1;
-        }
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            position: fixed;
-            width: 11%;
-            bottom: 28%;
-            left: 83%;
-            z-index: 1;
-        }
-        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
-            position: fixed;
-            width: 11%;
-            bottom: 28%;
-            left: 83%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                position: fixed;
-                width: 11%;
-                bottom: 28%;
-                left: 83%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            position: fixed;
-            width: 13%;
-            bottom: 28%;
-            left: 80%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                position: fixed;
-                width: 13%;
-                bottom: 27%;
-                left: 82%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            position: fixed;
-            width: 13%;
-            bottom: 27%;
-            left: 82%;
-            z-index: 1;
+        @media screen and (min-device-width: 641px) {
+            top: 1vh;
         }
     }
     .btn_play_50 {
-        position: fixed;
+        position: absolute;
         width: 11%;
-        bottom: 35%;
-        left: 85%;
+        top: 2.5vh;
+        right: 1vh;
         z-index: 1;
 
-        @media screen and (min-device-width: 600px) {
-            position: fixed;
-            width: 9%;
-            bottom: 40%;
-            left: 85%;
-            z-index: 1;
-        }
-
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            position: fixed;
-            width: 11%;
-            bottom: 40%;
-            left: 83%;
-            z-index: 1;
-        }
-        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
-            position: fixed;
-            width: 11%;
-            bottom: 40%;
-            left: 83%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                position: fixed;
-                width: 11%;
-                bottom: 40%;
-                left: 83%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            position: fixed;
-            width: 13%;
-            bottom: 40%;
-            left: 80%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                position: fixed;
-                width: 13%;
-                bottom: 39%;
-                left: 82%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            position: fixed;
-            width: 13%;
-            bottom: 39%;
-            left: 82%;
-            z-index: 1;
+        @media screen and (min-device-width: 641px) {
+            top: 1vh;
         }
     }
     .btn_play_100 {
-        position: fixed;
+        position: absolute;
         width: 11%;
-        bottom: 49%;
-        left: 85%;
+        top: 2.5vh;
+        right: 1vh;
         z-index: 1;
 
-        @media screen and (min-device-width: 600px) {
-            position: fixed;
-            width: 9%;
-            bottom: 52%;
-            left: 85%;
-            z-index: 1;
-        }
-        @media only screen and (min-device-width: 410px) and (max-device-width: 500px) {
-            position: fixed;
-            width: 11%;
-            bottom: 52%;
-            left: 83%;
-            z-index: 1;
-        }
-        @media only screen and (max-device-width: 400px) and (min-device-height: 374px) {
-            position: fixed;
-            width: 11%;
-            bottom: 52%;
-            left: 83%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 900px) {
-                position: fixed;
-                width: 11%;
-                bottom: 52%;
-                left: 83%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            position: fixed;
-            width: 13%;
-            bottom: 52%;
-            left: 80%;
-            z-index: 1;
-
-            @media screen and (max-device-height: 667px) {
-                position: fixed;
-                width: 13%;
-                bottom: 51%;
-                left: 82%;
-                z-index: 1;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            position: fixed;
-            width: 13%;
-            bottom: 51%;
-            left: 82%;
-            z-index: 1;
-        }
-    }
-    .how-to-play-border {
-        position: fixed;
-        left: 37%;
-        bottom: 15%;
-        width: 30%;
-
-        @media only screen and (max-device-width: 500px) {
-            @media only screen and (max-device-height: 960px) {
-                position: fixed;
-                left: 35%;
-                bottom: 15%;
-                width: 35%;
-            }
-            @media only screen and (max-device-height: 900px) {
-                position: fixed;
-                left: 35%;
-                bottom: 15%;
-                width: 35%;
-            }
-        }
-        @media only screen and (max-device-width: 414px) {
-            left: 33%;
-            bottom: 16%;
-            width: 35%;
-        }
-
-        @media only screen and (max-device-width: 375px) {
-            left: 33%;
-            bottom: 16%;
-            width: 35%;
-
-            @media only screen and (max-device-height: 812px) {
-                left: 30%;
-                bottom: 16%;
-                width: 40%;
-            }
-            @media only screen and (max-device-height: 667px) {
-                left: 34%;
-                bottom: 16%;
-                width: 34%;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            left: 33%;
-            bottom: 16%;
-            width: 38%;
-        }
-    }
-    .text-condition {
-        font-size: 28px;
-        position: fixed;
-        bottom: 2%;
-        left: 38%;
-
-        @media only screen and (max-device-width: 600px) {
-            font-size: 22px;
-            bottom: 2%;
-            left: 37%;
-        }
-
-        @media only screen and (max-device-width: 500px) {
-            @media only screen and (max-device-height: 960px) {
-                font-size: 18px;
-                bottom: 2%;
-                left: 37%;
-            }
-            @media only screen and (max-device-height: 900px) {
-                font-size: 18px;
-                bottom: 2%;
-                left: 37%;
-            }
-        }
-        @media only screen and (max-device-width: 414px) {
-            font-size: 18px;
-            left: 32%;
-        }
-
-        @media only screen and (max-device-width: 375px) {
-            font-size: 16px;
-            left: 32%;
-
-            @media only screen and (max-device-height: 812px) {
-                font-size: 18px;
-                left: 30%;
-            }
-            @media only screen and (max-device-height: 667px) {
-                font-size: 14px;
-                left: 35%;
-            }
-        }
-        @media only screen and (max-device-width: 320px) {
-            font-size: 14px;
-            left: 33%;
+        @media screen and (min-device-width: 641px) {
+            top: 1vh;
         }
     }
 
     .test_1 {
-        position: fixed;
-        bottom: 51%;
-        left: 28%;
-        font-style: italic;
-        z-index: 1;
+        margin-top: 1vh;
+        width: 26vh;
 
-        @media screen and (max-device-width: 1024px) {
-            bottom: 50.5%;
-            width: 38% !important;
-            left: 34%;
-        }
-        @media screen and (max-device-height: 900px) {
-            bottom: 51%;
-            width: 55% !important;
-            left: 27%;
-
-            @media screen and (max-device-width: 500px) {
-                bottom: 50.5%;
-                width: 50% !important;
-                left: 29%;
-            }
-        }
-        @media screen and (max-device-height: 823px) {
-            bottom: 50.5%;
-            width: 50% !important;
-
-            @media screen and (max-device-width: 600px) {
-                width: 40% !important;
-                bottom: 51%;
-                left: 34%;
-            }
-            @media screen and (max-device-width: 411px) {
-                width: 50% !important;
-                bottom: 51%;
-                left: 28%;
-            }
-            @media screen and (max-device-width: 375px) {
-                width: 50% !important;
-                bottom: 51%;
-                left: 28%;
-            }
-        }
-        @media screen and (max-device-height: 736px) {
-            width: 46% !important;
-            bottom: 51%;
-            left: 30%;
-        }
-        @media screen and (max-device-height: 667px) {
-            bottom: 50.5%;
-        }
-        @media screen and (max-device-width: 320px) {
-            width: 50% !important;
-            bottom: 50%;
+        @media screen and (min-device-width: 641px) {
+            width: 28vh;
         }
     }
     .test_2 {
-        position: fixed;
-        bottom: 39%;
-        left: 28%;
-        font-style: italic;
-        z-index: 1;
+        margin-top: 1vh;
+        width: 26vh;
 
-        @media screen and (max-device-width: 1024px) {
-            bottom: 38.5%;
-            width: 38% !important;
-            left: 34%;
-        }
-        @media screen and (max-device-height: 900px) {
-            bottom: 39%;
-            width: 55% !important;
-            left: 26%;
-
-            @media screen and (max-device-width: 500px) {
-                bottom: 38.5%;
-                width: 50% !important;
-                left: 29%;
-            }
-        }
-        @media screen and (max-device-height: 823px) {
-            bottom: 38.5%;
-            width: 50% !important;
-
-            @media screen and (max-device-width: 600px) {
-                width: 40% !important;
-                bottom: 39%;
-                left: 33%;
-            }
-            @media screen and (max-device-width: 411px) {
-                width: 50% !important;
-                bottom: 39%;
-                left: 28%;
-            }
-            @media screen and (max-device-width: 375px) {
-                width: 50% !important;
-                bottom: 39%;
-                left: 28%;
-            }
-        }
-        @media screen and (max-device-height: 736px) {
-            width: 46% !important;
-            bottom: 39%;
-            left: 29%;
-        }
-        @media screen and (max-device-height: 667px) {
-            bottom: 38.5%;
-        }
-        @media screen and (max-device-width: 320px) {
-            width: 50% !important;
-            bottom: 38%;
+        @media screen and (min-device-width: 641px) {
+            width: 28vh;
         }
     }
     .test_3 {
-        position: fixed;
-        bottom: 27%;
-        left: 28%;
-        font-style: italic;
-        z-index: 1;
+        margin-top: 1vh;
+        width: 26vh;
 
-        @media screen and (max-device-width: 1024px) {
-            bottom: 26.5%;
-            width: 38% !important;
-            left: 34%;
+        @media screen and (min-device-width: 641px) {
+            top: 1vh;
         }
-        @media screen and (max-device-height: 900px) {
-            bottom: 27%;
-            width: 53% !important;
-            left: 27%;
+    }
 
-            @media screen and (max-device-width: 500px) {
-                bottom: 26.5%;
-                width: 48% !important;
-                left: 30%;
-            }
-        }
-        @media screen and (max-device-height: 823px) {
-            bottom: 26.5%;
-            width: 50% !important;
+    .footer {
+        position: relative;
+        margin: 2vh;
+        text-align: center;
 
-            @media screen and (max-device-width: 600px) {
-                width: 39% !important;
-                bottom: 27%;
-                left: 34%;
-            }
-            @media screen and (max-device-width: 411px) {
-                width: 48% !important;
-                bottom: 27%;
-                left: 29%;
-            }
-            @media screen and (max-device-width: 375px) {
-                width: 48% !important;
-                bottom: 27%;
-                left: 28%;
-            }
+        .how-to-play-border {
+            position: inherit;
+            width: 23vh;
         }
-        @media screen and (max-device-height: 736px) {
-            width: 45% !important;
-            bottom: 27%;
-            left: 29%;
-        }
-        @media screen and (max-device-height: 667px) {
-            bottom: 26.5%;
-        }
-        @media screen and (max-device-width: 320px) {
-            width: 50% !important;
-            bottom: 26%;
+        .text-condition {
+            position: inherit;
+            width: 23vh;
+            margin-top: 8vh;
+
         }
     }
 }
