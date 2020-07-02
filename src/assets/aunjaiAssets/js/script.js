@@ -61,6 +61,235 @@ $(document).ready(function () {
     });
 
 
+    function change_cup() {
+      if (localStorage.getItem('totalRound') === "3") {
+        cup1.css('display', 'inline-block');
+        cup2.css('display', 'inline-block');
+        cup3.css('display', 'inline-block');
+        cup4.css('display', 'none');
+        cup5.css('display', 'none');
+      } else if (localStorage.getItem('totalRound') === "4") {
+        cup1.css('display', 'inline-block');
+        cup2.css('display', 'inline-block');
+        cup3.css('display', 'inline-block');
+        cup4.css('display', 'inline-block');
+        cup5.css('display', 'none');
+      } else if (localStorage.getItem('totalRound') === "5") {
+        cup1.css('display', 'inline-block');
+        cup2.css('display', 'inline-block');
+        cup3.css('display', 'inline-block');
+        cup4.css('display', 'inline-block');
+        cup5.css('display', 'inline-block');
+      }
+
+
+
+
+      if (localStorage.getItem('countWin') === "1") {
+        cup1.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      } else if (localStorage.getItem('countWin') === "2") {
+        console.log("cup win 2");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      } else if (localStorage.getItem('countWin') === "3") {
+        console.log("cup win 3");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      } else if (localStorage.getItem('countWin') === "4") {
+        console.log("cup win 4");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      }
+      else if (localStorage.getItem('countWin') === "5") {
+        console.log("cup win 5");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup4.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      }
+      else if (localStorage.getItem('countWin') === "6") {
+        console.log("cup win 5");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup4.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup5.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+      }
+    }
+
+    function slide_out() {
+      kick.css({ left: ans_position_left });
+      win = false;
+      kick.show();
+      kick.animate({
+        top: "56%",
+        left: ans_position_left
+      }, {
+        duration: 400,
+        specialEasing: {
+          top: 'easeInQuint'
+        }
+      });
+      HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
+      HeaderText.show();
+      HeaderText.animate({
+        top: "17vh"
+      }, {
+        duration: 400,
+        specialEasing: {
+          top: 'easeInQuint'
+        }
+      });
+      setTimeout(() => {
+
+        win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
+        localStorage.setItem('countWin', win_now);
+        change_cup();
+        soundGame.stop();
+
+
+        if (localStorage.getItem('countWin') === "1") {
+          btnResume1.show();
+          bodyPopup.show();
+        } else if (localStorage.getItem('countWin') === "2") {
+          btnResume2.show();
+          bodyPopup.show();
+        } else if (localStorage.getItem('countWin') === "3") {
+          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
+            bodyWin.show();
+          } else {
+            btnResume3.show();
+            bodyPopup.show();
+          }
+        } else if (localStorage.getItem('countWin') === "4") {
+          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
+            bodyWin.show();
+          } else {
+            btnResume4.show();
+            bodyPopup.show();
+          }
+        }
+        else if (localStorage.getItem('countWin') === "5") {
+          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
+            bodyWin.show();
+          } else {
+            btnResume5.show();
+            bodyPopup.show();
+          }
+        }
+        else if (localStorage.getItem('countWin') === "6") {
+          if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
+            bodyWin.show();
+          } else {
+            btnResume5.show();
+            bodyPopup.show();
+          }
+        }
+      }, 3000);
+    }
+
+    function gameOver() {
+      localStorage.setItem('gameOver', true);
+      var checkGameOver = $("#checkOverGame")
+      checkGameOver.click();
+      localStorage.setItem('countWin', '1');
+
+      localStorage.setItem('gameOver', "true");
+      // ตรงนี้ใส่ฟังชันกดใช้ปุ่ม id="checkOverGame"
+
+
+      win = false;
+      // divBtn.show();
+      console.log("game Over");
+      // countWin = 1;
+
+
+      setTimeout(() => {
+        soundGame.stop();
+        localStorage.setItem('countWin', 1);
+        bodyLose.show();
+      }, 2000);
+    }
+
+
+    function text_round() {
+      setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
+    }
+
+
+
+
+    function setMessage(message) {
+      messageRound.html(message);
+    }
+
+    function reset_position() {
+
+      box1.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      box2.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      box3.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      kick.css({ top: '0px', left: '0px' });
+      box1.css({ left: '0vw', top: '0px', position: 'absolute' });
+      box2.css({ left: '33vw', top: '0px', position: 'absolute' });
+      box3.css({ left: '66vw', top: '0px', position: 'absolute' });
+
+    }
+
+    function sound_pause() {
+
+      setTimeout(() => {
+        soundGame.pause();
+        soundFlip.play();
+      }, 1000);
+
+    }
+
+
+    function ready_game() {
+
+      setTimeout(function () {
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
+        HeaderText.fadeOut(100);
+        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
+        HeaderText.fadeIn(100);
+        HeaderText.css({ display: 'none' });
+      }, 1000);
+      setTimeout(function () {
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
+        HeaderText.fadeOut(100);
+        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
+        HeaderText.fadeIn(100);
+        HeaderText.css({ display: 'none' });
+      }, 2400);
+      setTimeout(function () {
+        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
+        HeaderText.fadeOut(100);
+        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
+        HeaderText.fadeIn(100);
+        HeaderText.css({ display: 'none', zoom: '100%;' });
+      }, 3600);
+      setTimeout(function () {
+        HeaderText.hide();
+      }, 5000);
+    }
+
+
+
+
     change_cup();
     soundGame.play();
     text_round();
@@ -71,6 +300,9 @@ $(document).ready(function () {
           counNumnOfShuffels++;
           var array = shuffle([1, 2, 3]);
           //console.log("move "+array[0]+ " to "+array[1]);
+          $("#box" + array[0]).css("z-index","100");
+          $("#box" + array[1]).css("z-index","300");
+          $("#box" + array[2]).css("z-index","200");
 
           $("#box" + array[0]).animate({
             top: ($("#box" + array[2]).position().top) - 4 + "vh"
@@ -124,6 +356,9 @@ $(document).ready(function () {
             specialEasing: {
               top: 'swing',
             }, complete: function () {
+              $("#box" + array[0]).css("z-index","0");
+              $("#box" + array[1]).css("z-index","0");
+              $("#box" + array[2]).css("z-index","0");
               console.log("counNumberShuffle", counNumnOfShuffels);
               console.log("NumbofShuffle", nuberOfShuffels);
               if (counNumnOfShuffels < nuberOfShuffels) {
@@ -133,13 +368,79 @@ $(document).ready(function () {
                 setTimeout(() => {
                   soundFlip.stop();
                   soundGame.play();
+                  var flag = 0;
+
+
+
+                  box1.click(function () {
+                    if (flag == 0) {
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;">');
+                      box1.animate({
+                        top: $(this).position().top + -19 + "vh"
+                      });
+                      if (ans == 1) {
+                        flag = 1;
+                        ans_position_left = box1.position().left;
+                        soundWin.fade(1, 0, 1500, soundWin.play());
+                        slide_out();
+                      } else {
+                        flag = 1;
+                        soundLose.fade(1, 0, 1500, soundLose.play());
+                        gameOver();
+                      }
+                    }
+                  });
+
+                  box2.click(function () {
+                    if (flag == 0) {
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;" >');
+                      box2.animate({
+                        top: $(this).position().top - 19 + "vh"
+                      });
+                      if (ans == 2) {
+                        flag = 1;
+                        change_cup();
+                        ans_position_left = box2.position().left;
+                        soundWin.fade(1, 0, 1500, soundWin.play());
+                        slide_out();
+                      } else {
+                        flag = 1;
+                        soundLose.fade(1, 0, 1500, soundLose.play());
+                        gameOver();
+                      }
+                    }
+                  });
+
+                  $("#box3").click(function () {
+                    if (flag == 0) {
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t"  style="width:30vw;">');
+                      box3.animate({
+                        top: $(this).position().top + -19 + "vh"
+                      });
+                      if (ans == 3) {
+                        change_cup();
+                        flag = 1;
+                        ans_position_left = box3.position().left;
+                        soundWin.fade(1, 0, 1500, soundWin.play());
+                        slide_out();
+                      } else {
+                        flag = 1;
+                        soundLose.fade(1, 0, 1500, soundLose.play());
+                        gameOver();
+                      }
+                    }
+                  });
                 }, 1500);
               }
-            }
+            },
+
+
           })
 
         }
       }
+
+
 
       // $('.baground_forest').mouseover(function () {
       //   soundGame.play();
@@ -221,8 +522,6 @@ $(document).ready(function () {
               top: 'easeOutBounce'
             },
             complete: function () {
-
-
               // Close all the three boxes in a regular interval.
               box1.delay(2000).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b"  style="width:30vw;">');
@@ -271,166 +570,6 @@ $(document).ready(function () {
 
 
                 setTimeout(function () {
-                  // clearInterval(interval);
-                  var flag = 0;
-
-
-
-                  box1.click(function () {
-                    if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;">');
-                      box1.animate({
-                        top: $(this).position().top + -19 + "vh"
-                      });
-                      if (ans == 1) {
-                        flag = 1;
-                        ans_position_left = box1.position().left;
-                        soundWin.fade(1, 0, 1500, soundWin.play());
-                        slide_out();
-                      } else {
-                        flag = 1;
-                        soundLose.fade(1, 0, 1500, soundLose.play());
-                        gameOver();
-                      }
-                    }
-                  });
-
-                  box2.click(function () {
-                    if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;" >');
-                      box2.animate({
-                        top: $(this).position().top - 19 + "vh"
-                      });
-                      if (ans == 2) {
-                        flag = 1;
-                        change_cup();
-                        ans_position_left = box2.position().left;
-                        soundWin.fade(1, 0, 1500, soundWin.play());
-                        slide_out();
-                      } else {
-                        flag = 1;
-                        soundLose.fade(1, 0, 1500, soundLose.play());
-                        gameOver();
-                      }
-                    }
-                  });
-
-                  $("#box3").click(function () {
-                    if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t"  style="width:30vw;">');
-                      box3.animate({
-                        top: $(this).position().top + -19 + "vh"
-                      });
-                      if (ans == 3) {
-                        change_cup();
-                        flag = 1;
-                        ans_position_left = box3.position().left;
-                        soundWin.fade(1, 0, 1500, soundWin.play());
-                        slide_out();
-                      } else {
-                        flag = 1;
-                        soundLose.fade(1, 0, 1500, soundLose.play());
-                        gameOver();
-                      }
-                    }
-                  });
-
-
-                  function slide_out() {
-                    kick.css({ left: ans_position_left });
-                    win = false;
-                    kick.show();
-                    kick.animate({
-                      top: "56%",
-                      left: ans_position_left
-                    }, {
-                      duration: 400,
-                      specialEasing: {
-                        top: 'easeInQuint'
-                      }
-                    });
-                    HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
-                    HeaderText.show();
-                    HeaderText.animate({
-                      top: "17vh"
-                    }, {
-                      duration: 400,
-                      specialEasing: {
-                        top: 'easeInQuint'
-                      }
-                    });
-                    setTimeout(() => {
-
-                      win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
-                      localStorage.setItem('countWin', win_now);
-                      change_cup();
-                      soundGame.stop();
-
-
-                      if (localStorage.getItem('countWin') === "1") {
-                        btnResume1.show();
-                        bodyPopup.show();
-                      } else if (localStorage.getItem('countWin') === "2") {
-                        btnResume2.show();
-                        bodyPopup.show();
-                      } else if (localStorage.getItem('countWin') === "3") {
-                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          bodyWin.show();
-                        } else {
-                          btnResume3.show();
-                          bodyPopup.show();
-                        }
-                      } else if (localStorage.getItem('countWin') === "4") {
-                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          bodyWin.show();
-                        } else {
-                          btnResume4.show();
-                          bodyPopup.show();
-                        }
-                      }
-                      else if (localStorage.getItem('countWin') === "5") {
-                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          bodyWin.show();
-                        } else {
-                          btnResume5.show();
-                          bodyPopup.show();
-                        }
-                      }
-                      else if (localStorage.getItem('countWin') === "6") {
-                        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          bodyWin.show();
-                        } else {
-                          btnResume5.show();
-                          bodyPopup.show();
-                        }
-                      }
-                    }, 3000);
-                  }
-
-
-                  function gameOver() {
-                    localStorage.setItem('gameOver', true);
-                    var checkGameOver = $("#checkOverGame")
-                    checkGameOver.click();
-                    localStorage.setItem('countWin', '1');
-
-                    localStorage.setItem('gameOver', "true");
-                    // ตรงนี้ใส่ฟังชันกดใช้ปุ่ม id="checkOverGame"
-
-
-                    win = false;
-                    // divBtn.show();
-                    console.log("game Over");
-                    // countWin = 1;
-
-
-                    setTimeout(() => {
-                      soundGame.stop();
-                      localStorage.setItem('countWin', 1);
-                      bodyLose.show();
-                    }, 2000);
-                  }
-
 
                 }, nuberOfShuffels * shuffleSpeed);
                 n();
@@ -443,135 +582,7 @@ $(document).ready(function () {
       });
     });
 
-    function text_round() {
-      setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
-    }
-    function change_cup() {
-      if (localStorage.getItem('totalRound') === "3") {
-        cup1.css('display', 'inline-block');
-        cup2.css('display', 'inline-block');
-        cup3.css('display', 'inline-block');
-        cup4.css('display', 'none');
-        cup5.css('display', 'none');
-      } else if (localStorage.getItem('totalRound') === "4") {
-        cup1.css('display', 'inline-block');
-        cup2.css('display', 'inline-block');
-        cup3.css('display', 'inline-block');
-        cup4.css('display', 'inline-block');
-        cup5.css('display', 'none');
-      } else if (localStorage.getItem('totalRound') === "5") {
-        cup1.css('display', 'inline-block');
-        cup2.css('display', 'inline-block');
-        cup3.css('display', 'inline-block');
-        cup4.css('display', 'inline-block');
-        cup5.css('display', 'inline-block');
-      }
 
-
-
-
-      if (localStorage.getItem('countWin') === "1") {
-        cup1.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-      } else if (localStorage.getItem('countWin') === "2") {
-        console.log("cup win 2");
-        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-      } else if (localStorage.getItem('countWin') === "3") {
-        console.log("cup win 3");
-        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-      } else if (localStorage.getItem('countWin') === "4") {
-        console.log("cup win 4");
-        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-      }
-      else if (localStorage.getItem('countWin') === "5") {
-        console.log("cup win 5");
-        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup4.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
-      }
-      else if (localStorage.getItem('countWin') === "6") {
-        console.log("cup win 5");
-        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup4.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-        cup5.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
-      }
-    }
-
-
-
-
-    function setMessage(message) {
-      messageRound.html(message);
-    }
-
-    function reset_position() {
-
-      box1.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
-      box2.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
-      box3.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
-      kick.css({ top: '0px', left: '0px' });
-      box1.css({ left: '0vw', top: '0px', position: 'absolute' });
-      box2.css({ left: '33vw', top: '0px', position: 'absolute' });
-      box3.css({ left: '66vw', top: '0px', position: 'absolute' });
-
-    }
-
-    function sound_pause() {
-
-      setTimeout(() => {
-        soundGame.pause();
-        soundFlip.play();
-      }, 1000);
-
-    }
-
-
-    function ready_game() {
-
-      setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
-        HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
-        HeaderText.fadeIn(100);
-        HeaderText.css({ display: 'none' });
-      }, 1000);
-      setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
-        HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
-        HeaderText.fadeIn(100);
-        HeaderText.css({ display: 'none' });
-      }, 2400);
-      setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg.svg" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
-        HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
-        HeaderText.fadeIn(100);
-        HeaderText.css({ display: 'none', zoom: '100%;' });
-      }, 3600);
-      setTimeout(function () {
-        HeaderText.hide();
-      }, 5000);
-    }
 
 
 
