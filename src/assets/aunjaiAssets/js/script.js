@@ -295,7 +295,7 @@ $(document).ready(function () {
       }, 3600);
       setTimeout(function () {
         HeaderText.hide();
-      }, 5000);
+      }, 5000)
     }
 
 
@@ -316,11 +316,9 @@ $(document).ready(function () {
           console.log("start");
         }
       }, false);
-
+      //start shuffle
       function gamepPlay() {
         {
-
-
 
           counNumnOfShuffels++;
           var array = shuffle([1, 2, 3]);
@@ -391,10 +389,7 @@ $(document).ready(function () {
               } else {
                 setTimeout(() => {
                   soundFlip.stop();
-                  
                   var flag = 0;
-
-
                   box1.click(function () {
                     if (flag == 0) {
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
@@ -453,7 +448,7 @@ $(document).ready(function () {
                       }
                     }
                   });
-                }, 1500);
+                }, 10);
               }
             },
 
@@ -567,8 +562,6 @@ $(document).ready(function () {
                   for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
                   return o;
                 };
-                var interval;
-                var shufflerStar;
 
                 interval = setTimeout(gamepPlay, shuffleSpeed);
 
