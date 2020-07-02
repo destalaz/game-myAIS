@@ -1,0 +1,82 @@
+body {
+    font-family: "DB Heavent";
+}
+.bg-img-style {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    box-shadow: #888 0px 0px 5px;
+    background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
+    // background-size: auto 100%;
+    background-size: 245% 100%;
+    background-position-x: center;
+}
+
+.container_bg {
+    .bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1005;
+        background-color: rgba(85, 100, 47, 0.9); //สีตาม design แปลง rgba
+    }
+    .card-tutorial {
+        width: 100vw;
+        height: 100vh;
+        vertical-align: middle;
+        display: table-cell;
+
+        .tutorial-card {
+            width: 90%;
+            margin-left: 5%;
+            position: relative;
+
+            @media screen and (min-device-width: 641px) {
+                width: 70%;
+                margin-left: 15%;
+            }
+
+            .h-t-p-1 {
+                width: 100%;
+            }
+            .h-t-p-2 {
+                width: 100%;
+            }
+            .h-t-p-3 {
+                width: 100%;
+            }
+            .h-t-p-4 {
+                width: 100%;
+            }
+            .last-tutorial {
+                position: relative;
+
+                .how-to-play5 {
+                    width: 100%;
+                }
+                .close-ic {
+                    position: absolute;
+                    right: 0px;
+                }
+            }
+        }
+
+        .tab-next {
+            position: absolute;
+            bottom: 0;
+            width: 98%;
+            padding: 8px;
+            height: 60px;
+
+            .ic-next {
+                position: absolute;
+                right: 0px;
+            }
+            .ic-back {
+            }
+        }
+    }
+}
