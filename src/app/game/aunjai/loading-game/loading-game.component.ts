@@ -22,7 +22,11 @@ export class LoadingGameComponent implements OnInit {
     setTimeout(() => {
       this.loading = true;
       setTimeout(() => {
-        this.router.navigateByUrl('/tutorial');
+        if (sessionStorage.getItem('firstPlay') !== "true") {
+          this.router.navigateByUrl('/reward_flip');
+        } else {
+          this.router.navigateByUrl('/tutorial');
+        }
       }, 2000);
     }, 2000);
 
