@@ -30,70 +30,14 @@ $(document).ready(function () {
       localStorage.setItem('countWin', "1");
     }
 
+
+
     var data = JSON.parse(localStorage.getItem('config'));
     var index = parseInt(localStorage.getItem('countWin')) - 1;
 
- 
-
-    if (localStorage.getItem('totalRound') === "3") {
-      cup1.css('display', 'inline-block');
-      cup2.css('display', 'inline-block');
-      cup3.css('display', 'inline-block');
-      cup4.css('display', 'none');
-      cup5.css('display', 'none');
-    } else if (localStorage.getItem('totalRound') === "4") {
-      cup1.css('display', 'inline-block');
-      cup2.css('display', 'inline-block');
-      cup3.css('display', 'inline-block');
-      cup4.css('display', 'inline-block');
-      cup5.css('display', 'none');
-    } else if (localStorage.getItem('totalRound') === "5") {
-      cup1.css('display', 'inline-block');
-      cup2.css('display', 'inline-block');
-      cup3.css('display', 'inline-block');
-      cup4.css('display', 'inline-block');
-      cup5.css('display', 'inline-block');
-    }
 
 
 
-
-    if (localStorage.getItem('countWin') === "1") {
-      cup1.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup2.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup3.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-    } else if (localStorage.getItem('countWin') === "2") {
-      console.log("cup win 2");
-      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup2.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup3.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-    } else if (localStorage.getItem('countWin') === "3") {
-      console.log("cup win 3");
-      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup2.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup3.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-    } else if (localStorage.getItem('countWin') === "4") {
-      console.log("cup win 4");
-      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup2.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup3.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup4.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-    }
-    else if (localStorage.getItem('countWin') === "5") {
-      console.log("cup win 5");
-      cup1.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup2.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup3.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup4.css({'opacity':'1'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'},{'-moz-opacity':'1'},{'-khtml-opacity':'1'});
-      cup5.css({'opacity':'0.2'},{'-ms-filter':'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)'},{'-moz-opacity':'0.2'},{'-khtml-opacity':'0.2'});
-    }
 
     var soundGame = new Howl({
       src: ['../../../assets/aunjaiAssets/sound/MSTR_-_MSTR_-_Choro_bavario_Loop.ogg.mp3'],
@@ -115,14 +59,28 @@ $(document).ready(function () {
       volume: 0.5,
     });
 
-    soundGame.play();
+    
+  
+    change_cup();
 
-
-
-    setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
+    text_round();
     startButton.on("click", function startGame(event) {
+      soundGame.play();
+      $('.baground_forest').mouseover(function () {
+        if(!soundGame.play()){
+          soundGame.play();
+        }
+      
+      });
+
+      $('.baground_forest').mouseout(function () {
+        soundGame.stop();
+        
+      });
 
       console.log(index);
+
+      console.log("exit ???");
       var nuberOfShuffels = data[index].flipAmt;
       var shuffleSpeed = data[index].speed;
 
@@ -209,10 +167,7 @@ $(document).ready(function () {
                 if (ans == 3) kick.hide();
 
 
-                var box1_left = box1.position().left,
-                  box2_left = box2.position().left,
-                  box3_left = box3.position().left,
-                  box_top = box3.position().top;
+                var box_top = box3.position().top;
 
                 box1.css({
                   position: "absolute",
@@ -239,26 +194,63 @@ $(document).ready(function () {
 
                 var interval = setInterval(function () {
                   var array = shuffle([1, 2, 3]);
-
+                  //console.log("move "+array[0]+ " to "+array[1]);
+  
+                  $("#box" + array[0]).animate({ 
+                    top: ($("#box" + array[2]).position().top)+4 + "vh"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'easeInQuint', 
+                    }
+                  });
+  
                   $("#box" + array[0]).animate({
-                    left: $("#box" + array[1]).position().left + "px"
+                    left: $("#box" + array[1]).position().left + "px", 
                   }, {
-                    duration: shuffleSpeed / 2,
+                    duration: shuffleSpeed / 4,
                     specialEasing: {
-                      left: 'easeInQuint'
+                      top: 'swing', 
                     }
                   });
-
+                  $("#box" + array[0]).animate({ 
+                    top: ($("#box" + array[2]).position().top)+ "vh"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'swing', 
+                    }
+                  });
+  
+  
+                  $("#box" + array[1]).animate({ 
+                    top: ($("#box" + array[2]).position().top)-12 + "vh"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'easeInQuint'
+                    }
+                  });
+  
                   $("#box" + array[1]).animate({
-                    left: $("#box" + array[0]).position().left + "px"
+                    left: $("#box" + array[0]).position().left + "px", 
                   }, {
-                    duration: shuffleSpeed / 2,
-                    specialEasing: {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: { 
                       left: 'easeInQuint'
                     }
                   });
-
-
+  
+                  $("#box" + array[1]).animate({ 
+                    top: ($("#box" + array[2]).position().top) + "vh"
+                  }, {
+                    duration: shuffleSpeed / 4,
+                    specialEasing: {
+                      top: 'swing', 
+                    }
+                  });
+  
+  
                 }, shuffleSpeed);
 
 
@@ -285,7 +277,7 @@ $(document).ready(function () {
                         soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
-                        flag =1;
+                        flag = 1;
                         soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
@@ -300,11 +292,12 @@ $(document).ready(function () {
                       });
                       if (ans == 2) {
                         flag = 1;
+                        change_cup();
                         ans_position_left = box2.position().left;
                         soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
-                        flag =1;
+                        flag = 1;
                         soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
@@ -318,12 +311,13 @@ $(document).ready(function () {
                         top: $(this).position().top + -19 + "vh"
                       });
                       if (ans == 3) {
+                        change_cup();
                         flag = 1;
                         ans_position_left = box3.position().left;
                         soundWin.fade(1, 0, 1500, soundWin.play());
                         slide_out();
                       } else {
-                        flag =1;
+                        flag = 1;
                         soundLose.fade(1, 0, 1500, soundLose.play());
                         gameOver();
                       }
@@ -355,8 +349,10 @@ $(document).ready(function () {
                       }
                     });
                     setTimeout(() => {
+
                       win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
                       localStorage.setItem('countWin', win_now);
+                      change_cup();
                       soundGame.stop();
 
 
@@ -368,7 +364,6 @@ $(document).ready(function () {
                         bodyPopup.show();
                       } else if (localStorage.getItem('countWin') === "3") {
                         if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          localStorage.setItem('countWin', 1);
                           bodyWin.show();
                         } else {
                           btnResume3.show();
@@ -376,7 +371,6 @@ $(document).ready(function () {
                         }
                       } else if (localStorage.getItem('countWin') === "4") {
                         if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          localStorage.setItem('countWin', 1);
                           bodyWin.show();
                         } else {
                           btnResume4.show();
@@ -385,9 +379,6 @@ $(document).ready(function () {
                       }
                       else if (localStorage.getItem('countWin') === "5") {
                         if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          localStorage.setItem('countWin', 1);
-
-
                           bodyWin.show();
                         } else {
                           btnResume5.show();
@@ -396,7 +387,6 @@ $(document).ready(function () {
                       }
                       else if (localStorage.getItem('countWin') === "6") {
                         if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                          localStorage.setItem('countWin', 1);
                           bodyWin.show();
                         } else {
                           btnResume5.show();
@@ -442,6 +432,73 @@ $(document).ready(function () {
       });
     });
 
+    function text_round() {
+      setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
+    }
+    function change_cup() {
+      if (localStorage.getItem('totalRound') === "3") {
+        cup1.css('display', 'inline-block');
+        cup2.css('display', 'inline-block');
+        cup3.css('display', 'inline-block');
+        cup4.css('display', 'none');
+        cup5.css('display', 'none');
+      } else if (localStorage.getItem('totalRound') === "4") {
+        cup1.css('display', 'inline-block');
+        cup2.css('display', 'inline-block');
+        cup3.css('display', 'inline-block');
+        cup4.css('display', 'inline-block');
+        cup5.css('display', 'none');
+      } else if (localStorage.getItem('totalRound') === "5") {
+        cup1.css('display', 'inline-block');
+        cup2.css('display', 'inline-block');
+        cup3.css('display', 'inline-block');
+        cup4.css('display', 'inline-block');
+        cup5.css('display', 'inline-block');
+      }
+
+
+
+
+      if (localStorage.getItem('countWin') === "1") {
+        cup1.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      } else if (localStorage.getItem('countWin') === "2") {
+        console.log("cup win 2");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      } else if (localStorage.getItem('countWin') === "3") {
+        console.log("cup win 3");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      } else if (localStorage.getItem('countWin') === "4") {
+        console.log("cup win 4");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      }
+      else if (localStorage.getItem('countWin') === "5") {
+        console.log("cup win 5");
+        cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup4.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
+        cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
+      }
+    }
+
+
+
     function setMessage(message) {
       messageRound.html(message);
     }
@@ -466,6 +523,8 @@ $(document).ready(function () {
       }, 1000);
 
     }
+
+
     function ready_game() {
 
       setTimeout(function () {
@@ -493,6 +552,9 @@ $(document).ready(function () {
         HeaderText.hide();
       }, 5000);
     }
+
+
+
 
   })();
 
