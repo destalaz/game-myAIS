@@ -35,10 +35,13 @@ export class PopupErrorComponent implements OnInit {
 
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
-      sessionStorage.setItem('playId', res["playData"].playId);
-      console.log("res playData => ", res["playData"].playerDetall);
-      console.log("res playId => ", res["playData"].playId);
 
+      if (res["status"].toString() !== "true") {
+        localStorage.setItem('insufficientPoint', "true");
+        return
+      }
+      localStorage.setItem('insufficientPoint', "false");
+      sessionStorage.setItem('playId', res["playData"].playId);
       localStorage.setItem('countWin', "1");
       localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
       localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
