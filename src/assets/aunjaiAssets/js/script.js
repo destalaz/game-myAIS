@@ -84,7 +84,7 @@ $(document).ready(function () {
           $("#box" + array[0]).animate({
             left: $("#box" + array[1]).position().left + "px",
           }, {
-            duration: shuffleSpeed / 4,
+            duration: shuffleSpeed / 2,
             specialEasing: {
               top: 'swing',
             }
@@ -111,7 +111,7 @@ $(document).ready(function () {
           $("#box" + array[1]).animate({
             left: $("#box" + array[0]).position().left + "px",
           }, {
-            duration: shuffleSpeed / 4,
+            duration: shuffleSpeed / 2,
             specialEasing: {
               left: 'easeInQuint'
             }
