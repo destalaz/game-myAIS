@@ -203,7 +203,7 @@ $(document).ready(function () {
     }
 
     function gameOver() {
-      localStorage.setItem('gameOver', true);
+      localStorage.setItem('resumeGame', true);
       var checkGameOver = $("#checkOverGame")
       checkGameOver.click();
       localStorage.setItem('countWin', '1');
@@ -214,7 +214,7 @@ $(document).ready(function () {
 
       win = false;
       // divBtn.show();
-      console.log("game Over");
+      console.log("game Over",localStorage.getItem('resumeGame'));
       // countWin = 1;
 
 
@@ -374,7 +374,7 @@ $(document).ready(function () {
 
                   box1.click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;">');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
                       box1.animate({
                         top: $(this).position().top + -19 + "vh"
                       });
@@ -393,7 +393,7 @@ $(document).ready(function () {
 
                   box2.click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t" style="width:30vw;" >');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
                         top: $(this).position().top - 19 + "vh"
                       });
@@ -413,7 +413,7 @@ $(document).ready(function () {
 
                   $("#box3").click(function () {
                     if (flag == 0) {
-                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070.svg" id="box_o_t"  style="width:30vw;">');
+                      $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
                         top: $(this).position().top + -19 + "vh"
                       });
@@ -524,17 +524,17 @@ $(document).ready(function () {
             complete: function () {
               // Close all the three boxes in a regular interval.
               box1.delay(2000).queue(function (n) {
-                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b"  style="width:30vw;">');
+                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b"  style="width:30vw;">');
                 if (ans == 1) kick.hide();
                 n();
               });
               box2.delay(2500).queue(function (n) {
-                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" style="width:30vw;">');
+                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b" style="width:30vw;">');
                 if (ans == 2) kick.hide();
                 n();
               });
               box3.delay(3000).queue(function (n) {
-                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b" style="width:30vw;">');
+                $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b" style="width:30vw;">');
                 sound_pause();
                 if (ans == 3) kick.hide();
 
