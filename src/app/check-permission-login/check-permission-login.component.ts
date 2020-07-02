@@ -28,6 +28,7 @@ export class CheckPermissionLoginComponent implements OnInit {
         if (res) {
           if (res["resultCode"] === "20000" || res["status"] === true) {
             sessionStorage.setItem('mobileId', res["mobileId"]) 
+            sessionStorage.setItem('firstPlay', res["firstPlay"]) 
             this.router.navigateByUrl('/loadgame');
             this.loadPage = true;
           }

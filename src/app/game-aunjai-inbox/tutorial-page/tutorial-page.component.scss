@@ -24,306 +24,58 @@ body {
         background-color: rgba(85, 100, 47, 0.9); //สีตาม design แปลง rgba
     }
     .card-tutorial {
-        .h-t-p-1 {
-            margin: 2rem;
-            width: 80%;
-            position: fixed;
-            left: 6%;
-            top: 2%;
+        width: 100vw;
+        height: 100vh;
+        vertical-align: middle;
+        display: table-cell;
 
-            @media screen and (max-device-width: 500px) {
-                @media screen and (max-device-height: 960px) {
-                    margin: 2rem;
-                    width: 80%;
-                    position: fixed;
-                    left: 4%;
-                    top: 14%;
-                }
-                @media screen and (max-device-height: 900px) {
-                    margin: 2rem;
-                    width: 80%;
-                    position: fixed;
-                    left: 4%;
-                    top: 14%;
-                }
-            }
-            @media only screen and (max-device-width: 414px) {
-                margin: 1rem;
-                width: 90%;
-                position: fixed;
-                left: 1%;
-                top: 8%;
-            }
-        }
-        .h-t-p-2 {
-            margin: 2rem;
-            width: 80%;
-            position: fixed;
-            left: 6%;
-            top: 2%;
+        .tutorial-card {
+            width: 90%;
+            margin-left: 5%;
+            position: relative;
 
-            @media screen and (max-device-width: 500px) {
-                @media screen and (max-device-height: 960px) {
-                    margin: 2rem;
-                    width: 80%;
-                    position: fixed;
-                    left: 4%;
-                    top: 14%;
-                }
-                @media screen and (max-device-height: 900px) {
-                    margin: 2rem;
-                    width: 80%;
-                    left: 4%;
-                    top: 14%;
-                }
+            @media screen and (min-device-width: 641px) {
+                width: 70%;
+                margin-left: 15%;
             }
-            @media only screen and (max-device-width: 414px) {
-                margin: 1rem;
-                width: 90%;
-                position: fixed;
-                left: 1%;
-                top: 8%;
-            }
-        }
-        .h-t-p-3 {
-            margin: 2rem;
-            width: 80%;
-            position: fixed;
-            left: 6%;
-            top: 2%;
 
-            @media screen and (max-device-width: 500px) {
-                @media screen and (max-device-height: 960px) {
-                    margin: 2rem;
-                    width: 80%;
-                    position: fixed;
-                    left: 4%;
-                    top: 14%;
-                }
-                @media screen and (max-device-height: 900px) {
-                    margin: 2rem;
-                    width: 80%;
-                    position: fixed;
-                    left: 4%;
-                    top: 14%;
-                }
+            .h-t-p-1 {
+                width: 100%;
             }
-            @media only screen and (max-device-width: 414px) {
-                margin: 1rem;
-                width: 90%;
-                position: fixed;
-                left: 1%;
-                top: 8%;
+            .h-t-p-2 {
+                width: 100%;
             }
-        }
-        .h-t-p-4 {
-            margin: 2rem;
-            width: 80%;
-            position: fixed;
-            left: 6%;
-            top: 2%;
+            .h-t-p-3 {
+                width: 100%;
+            }
+            .h-t-p-4 {
+                width: 100%;
+            }
+            .last-tutorial {
+                position: relative;
 
-            @media screen and (max-device-width: 500px) {
-                @media screen and (max-device-height: 960px) {
-                    margin: 2rem;
-                    width: 80%;
-                    position: fixed;
-                    left: 4%;
-                    top: 14%;
+                .how-to-play5 {
+                    width: 100%;
                 }
-                @media screen and (max-device-height: 900px) {
-                    margin: 2rem;
-                    width: 80%;
-                    position: fixed;
-                    left: 4%;
-                    top: 14%;
+                .close-ic {
+                    position: absolute;
+                    right: 0px;
                 }
-            }
-            @media only screen and (max-device-width: 414px) {
-                margin: 1rem;
-                width: 90%;
-                position: fixed;
-                left: 1%;
-                top: 8%;
             }
         }
 
         .tab-next {
+            position: absolute;
+            bottom: 0;
+            width: 98%;
+            padding: 8px;
+            height: 60px;
+
             .ic-next {
-                width: 11%;
-                left: 77%;
-                bottom: 7%;
-                position: fixed;
-
-                @media only screen and (max-device-width: 600px) {
-                    width: 11%;
-                    left: 77%;
-                    bottom: 22%;
-
-                    @media only screen and (max-device-height: 900px) {
-                        width: 11%;
-                        left: 77%;
-                        bottom: 17%;
-                    }
-                }
-                @media only screen and (max-device-width: 414px) {
-                    width: 10%;
-                    left: 83%;
-                    bottom: 16%;
-
-                    @media only screen and (max-device-height: 823px) {
-                        width: 12%;
-                        left: 80%;
-                        bottom: 24%;
-                    }
-
-                    @media only screen and (max-device-height: 736px) {
-                        width: 10%;
-                        left: 83%;
-                        bottom: 16%;
-                    }
-                }
-
-                @media only screen and (max-device-width: 375px) {
-                    width: 12%;
-                    left: 81%;
-                    bottom: 29%;
-
-                    @media only screen and (max-device-height: 667px) {
-                        width: 12%;
-                        left: 80%;
-                        bottom: 16%;
-                    }
-                }
+                position: absolute;
+                right: 0px;
             }
             .ic-back {
-                width: 11%;
-                left: 13%;
-                bottom: 7%;
-                position: fixed;
-
-                @media only screen and (max-device-width: 600px) {
-                    width: 11%;
-                    left: 14%;
-                    bottom: 22%;
-
-                    @media only screen and (max-device-height: 900px) {
-                        width: 11%;
-                        left: 14%;
-                        bottom: 17%;
-                    }
-                }
-                @media only screen and (max-device-width: 414px) {
-                    width: 10%;
-                    left: 7%;
-                    bottom: 16%;
-
-                    @media only screen and (max-device-height: 823px) {
-                        width: 12%;
-                        left: 8%;
-                        bottom: 24%;
-                    }
-                    @media only screen and (max-device-height: 736px) {
-                        width: 10%;
-                        left: 7%;
-                        bottom: 16%;
-                    }
-                }
-
-                @media only screen and (max-device-width: 375px) {
-                    width: 12%;
-                    left: 8%;
-                    bottom: 29%;
-
-                    @media only screen and (max-device-height: 667px) {
-                        width: 12%;
-                        left: 9%;
-                        bottom: 16%;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.card-content-final {
-    .how-to-play5 {
-        margin: 2rem;
-        width: 80%;
-        position: fixed;
-        left: 6%;
-        top: 2%;
-
-        @media screen and (max-device-width: 500px) {
-            @media screen and (max-device-height: 960px) {
-                margin: 2rem;
-                width: 80%;
-                position: fixed;
-                left: 4%;
-                top: 14%;
-            }
-            @media screen and (max-device-height: 900px) {
-                margin: 2rem;
-                width: 80%;
-                position: fixed;
-                left: 4%;
-                top: 14%;
-            }
-        }
-        @media only screen and (max-device-width: 414px) {
-            margin: 1rem;
-            width: 90%;
-            position: fixed;
-            left: 1%;
-            top: 8%;
-        }
-    }
-    .close-ic {
-        width: 14%;
-        left: 77%;
-        bottom: 85%;
-        position: fixed;
-
-        @media screen and (max-device-width: 500px) {
-            
-            @media screen and (max-device-height: 960px) {
-                width: 14%;
-                left: 77%;
-                bottom: 75%;
-                position: fixed;
-            }
-            @media screen and (max-device-height: 900px) {
-                width: 14%;
-                left: 77%;
-                bottom: 75%;
-                position: fixed;
-            }
-        }
-        @media only screen and (max-device-width: 414px) {
-            width: 14%;
-            left: 82%;
-            bottom: 82%;
-
-            @media only screen and (max-device-height: 823px) {
-                width: 14%;
-                left: 81%;
-                bottom: 83%;
-            }
-            @media only screen and (max-device-height: 736px) {
-                width: 14%;
-                left: 82%;
-                bottom: 82%;
-            }
-        }
-        @media only screen and (max-device-width: 375px) {
-            width: 14%;
-            left: 82%;
-            bottom: 84%;
-
-            @media only screen and (max-device-height: 667px) {
-                width: 14%;
-                left: 82%;
-                bottom: 82%;
             }
         }
     }

@@ -7,37 +7,41 @@
         <div class="bg">
 
             <div class="card-tutorial">
-                <div>
-                    <div id="page_one" *ngIf="pageNo === 0">
-                       <img class="h-t-p-1" src="../../../assets/aunjaiAssets/component/how_to_play1.png">
-                    </div>
+                <div class="tutorial-card">
 
-                    <div id="page_two" *ngIf="pageNo === 1">
-                        <img class="h-t-p-2" src="../../../assets/aunjaiAssets/component/how_to_play2.png">
-                    </div>
+                    <img class="h-t-p-1" *ngIf="pageNo === 0"
+                        src="../../../assets/aunjaiAssets/component/how_to_play1.png">
+                    <img class="h-t-p-2" *ngIf="pageNo === 1"
+                        src="../../../assets/aunjaiAssets/component/how_to_play2.png">
+                    <img class="h-t-p-3" *ngIf="pageNo === 2"
+                        src="../../../assets/aunjaiAssets/component/how_to_play3.png">
+                    <img class="h-t-p-4" *ngIf="pageNo === 3"
+                        src="../../../assets/aunjaiAssets/component/how_to_play4.png">
 
-                    <div id="page_three" *ngIf="pageNo === 2">
-                        <img class="h-t-p-3" src="../../../assets/aunjaiAssets/component/how_to_play3.png">
-                    </div>
-
-                    <div id="page_four" *ngIf="pageNo === 3">
-                        <img class="h-t-p-4" src="../../../assets/aunjaiAssets/component/how_to_play4.png">
-                    </div>
 
                     <div class="tab-next" *ngIf="pageNo !== 4">
                         <img class="ic-next" src="../../../assets/aunjaiAssets/component/arrow_next_ic.svg"
                             (click)="nextPage()">
                         <img *ngIf="pageNo !== 0" class="ic-back"
                             src="../../../assets/aunjaiAssets/component/Group_2078.svg" (click)="backPage()">
+
                     </div>
+
+                    <div class="last-tutorial" *ngIf="pageNo === 4">
+                        <img class="how-to-play5"
+                            src="../../../assets/aunjaiAssets/component/how_to_play5.png">
+                        <img class="close-ic" [routerLink]="['/reward_flip']" routerLinkActive="router-link-active"
+                            src="../../../assets/aunjaiAssets/component/close_ic.svg">
+                    </div>
+
                 </div>
             </div>
 
-            <div class="card-content-final" id="page_five" *ngIf="pageNo === 4">
+            <!-- <div class="card-content-final" id="page_five" *ngIf="pageNo === 4">
                 <img class="how-to-play5" src="../../../assets/aunjaiAssets/component/how_to_play5.png">
                 <img class="close-ic" [routerLink]="['/reward_flip']" routerLinkActive="router-link-active"
                     src="../../../assets/aunjaiAssets/component/close_ic.svg">
-            </div>
+            </div> -->
         </div>
     </div>
 </body>

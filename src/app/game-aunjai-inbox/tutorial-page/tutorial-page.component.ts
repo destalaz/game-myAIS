@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/service/game.service';
 
 @Component({
   selector: 'app-tutorial-page',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class TutorialPageComponent implements OnInit {
 
   pageNo: number = 0;
+  
 
-  constructor() { }
+  constructor(
+    private gameService: GameService
+  ) { }
 
   ngOnInit() {
   }
