@@ -11,6 +11,7 @@ export class AunjaiComponent implements OnInit {
 
   ngOnInit() {
     this.loadScript();
+    localStorage.setItem("gameOver","false")
   }
 
   mobileId: string;
