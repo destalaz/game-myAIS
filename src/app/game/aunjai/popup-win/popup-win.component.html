@@ -1,9 +1,7 @@
-
-
 <div id="body-popup-win">
     <div class="baground_forest">
     </div>
-    <div style="text-align: center;" class="bodyThis">
+    <div style="text-align: center;" class="bodyThis" *ngIf="langauge === 'TH'">
         <div class="aunjai-logo">
 
         </div>
@@ -15,8 +13,28 @@
         </div>
         <span class="textBody" style="font-size: 6vw;"> <b> เย้.!!! </b></span><br>
         <span class="textBody"> คุณได้รับของ รางวัล</span>
-        <button class="buttonGetTreat" id="btn_get_treat"  [routerLinkActive]="['isActive']" [routerLink]="['/popupContinue']">
+        <button class="buttonGetTreat" id="btn_get_treat" [routerLinkActive]="['isActive']"
+            [routerLink]="['/popupContinue']">
             รับของรางวัล
+        </button>
+    </div>
+
+
+    <div style="text-align: center;" class="bodyThis" *ngIf="langauge === 'ENG'">
+        <div class="aunjai-logo">
+
+        </div>
+        <div class="treatBox_20_en" id="win-goto" *ngIf="reward === '20'">
+        </div>
+        <div class="treatBox_50_en" id="win-goto" *ngIf="reward === '50'">
+        </div>
+        <div class="treatBox_100_en" id="win-goto" *ngIf="reward === '100'">
+        </div>
+        <span class="textBody" style="font-size: 6vw;"> <b>Congratulations,</b></span><br>
+        <span class="textBody">You’ve earned</span>
+        <button class="buttonGetTreat" id="btn_get_treat" [routerLinkActive]="['isActive']"
+            [routerLink]="['/popupContinue']">
+            COLLECT
         </button>
     </div>
 </div>

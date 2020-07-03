@@ -8,7 +8,7 @@ import { GameService } from 'src/app/service/game.service';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
-
+eng
   constructor(private gameService: GameService) {
 
     this.reward = localStorage.getItem('rewardpoint');
