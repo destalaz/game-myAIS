@@ -26,7 +26,8 @@ export class PopupErrorComponent implements OnInit {
     this.statusLoad = false;
     console.log('langauge => ', this.langauge);
 
-    this.langaugeNow = this.langauge;
+    // this.langaugeNow = this.langauge;
+    this.langaugeNow = "noeLanguage";
     console.log('langaugeNow => ', this.langaugeNow);
     console.log(this.redeem_point);
   }
@@ -49,6 +50,7 @@ export class PopupErrorComponent implements OnInit {
     }
   }
 
+  
   ServedPlayGame() {
     this.statusLoad = true;
     localStorage.removeItem('resumeGame');
