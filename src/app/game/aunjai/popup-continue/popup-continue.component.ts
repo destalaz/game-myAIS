@@ -25,7 +25,9 @@ export class PopupContinueComponent implements OnInit {
 
   ngOnInit() {
     this.load = true;
-    this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
+    this.playerComplete = false
+    if (sessionStorage.getItem('playerComplete') === "true" ) { this.playerComplete = true }
+    // this.playerComplete = sessionStorage.getItem('playerComplete');
     this.reward = localStorage.getItem('rewardpoint');
     this.checkPlayerComplete();
     

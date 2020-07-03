@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  load : boolean;
-  constructor(private gameService: GameService ,  private router: Router) {
+  load: boolean;
+  constructor(private gameService: GameService, private router: Router) {
     this.load = false;
     this.reward = localStorage.getItem('rewardpoint');
   }
@@ -33,8 +33,11 @@ export class PopupWinComponent implements OnInit {
     this.gameService.getReward(mobileId, playId).subscribe(res => {
       if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
         sessionStorage.removeItem("playId");
-        if (res["playerComplete"] === true) { sessionStorage.setItem('playerComplete','true') }
-        else { sessionStorage.setItem('playerComplete','false') }
+        if (res["playerComplete"] === true) {
+          sessionStorage.setItem('playerComplete', 'true')
+        }
+        else { 
+        sessionStorage.setItem('playerComplete', 'false') }
         this.load = false;
         this.router.navigateByUrl('/popupContinue');
       }
