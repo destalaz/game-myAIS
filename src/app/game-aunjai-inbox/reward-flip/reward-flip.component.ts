@@ -8,22 +8,38 @@ import { GameService } from '../../service/game.service';
   styleUrls: ['./reward-flip.component.scss']
 })
 export class RewardFlipComponent implements OnInit {
-  constructor(private gameService: GameService, private router: Router) { }
+
+  termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
+  goTutorialPage: boolean = false;
+  langauge: string = 'TH';
+
   @Input() open: boolean = false;
   @Output() changes = new EventEmitter();
+
+  constructor(private gameService: GameService, private router: Router) { }
+
   ngOnInit() {
-
-    console.log("resum storage",localStorage.getItem('resumeGame'));
-    localStorage.setItem('countWin', "1");
-    console.log("resume",localStorage.getItem('resumeGame'))
     this.open = false;
-
     if (localStorage.getItem('resumeGame')) {
       this.open = true;
     }
-    // localStorage.clear();
+    this.langauge = 'TH';
+    this.goTutorialPage = false;
+    localStorage.setItem('countWin', "1");
+    console.log('langauge => ', this.langauge);
   }
-  termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
+
+  // chcekLangauge() {
+  //   if (this.langauge === 'TH') {
+  //     this.langauge = 'ENG';
+  //     console.log(this.langauge);
+  //   }
+  // }
+
+  goTutorial() {
+    this.goTutorialPage = true;
+    console.log(this.goTutorialPage);
+  }
 
   termCondition() {
     window.location.href = this.termUrl;
