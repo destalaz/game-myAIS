@@ -9,7 +9,7 @@ import { GameService } from '../../service/game.service';
 })
 export class RewardFlipComponent implements OnInit {
 
-  termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
+  termUrl = "myais://gamesterm?lang=th&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip";
   goTutorialPage: boolean = false;
   langauge: string = 'TH';
 
