@@ -1,0 +1,48 @@
+<body>
+    <div class="bg-img-style" *ngIf="goTutorialPage === false">
+
+        <div class="reward-flip" *ngIf="true">
+
+            <img class="language" [routerLink]="['/reward_flip']" routerLinkActive="router-link-active" 
+                src="../../../assets/aunjaiAssets/component/untitled folder/eng_btn-min.png">
+
+            <img class="img-logo-reward-flip" src="../../../assets/aunjaiAssets/header/logo_ic@2x.png">
+
+            <div class="box-landing_1" (click)="setLevel(3);">
+                <img class="text_detail_1_eng"
+                    src="../../../assets/aunjaiAssets/component/untitled folder/score100_eng-min.png">
+                <img class="btn_play_100" src="../../../assets/aunjaiAssets/component/play_ic.svg">
+                <img class="point_100" src="../../../assets/aunjaiAssets/component/100-Points@2x.png">
+            </div>
+
+            <div class="box-landing_2" (click)="setLevel(2);">
+                <img class="text_detail_2_eng"
+                    src="../../../assets/aunjaiAssets/component/untitled folder/score50_eng-min.png">
+                <img class="btn_play_50" src="../../../assets/aunjaiAssets/component/play_ic.svg">
+                <img class="point_50" src="../../../assets/aunjaiAssets/component/50-Points@2x.png">
+            </div>
+
+            <div class="box-landing_3" (click)="setLevel(1);">
+                <img class="text_detail_3_eng"
+                    src="../../../assets/aunjaiAssets/component/untitled folder/score20_eng-min.png">
+                <img class="btn_play_20" src="../../../assets/aunjaiAssets/component/play_ic.svg">
+                <img class="point_20" src="../../../assets/aunjaiAssets/component/20_Points@2x.png">
+            </div>
+
+            <div class="footer">
+                    <div>
+                        <img class="how-to-play-border" (click)="goTutorial()"
+                            src="../../../assets/aunjaiAssets/component/untitled folder/how_to_play_btn-min.png">
+                    </div>
+                    <div>
+                        <img class="text-condition" (click)="termCondition();"
+                            src="../../../assets/aunjaiAssets/component/untitled folder/terms_btn-min.png">
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <app-tutorial-page-eng *ngIf="goTutorialPage === true" [goTutorialPage]="goTutorialPage"></app-tutorial-page-eng>
+    <!-- <popup-error *ngIf="open" [redeem_point]="open"></popup-error> -->
+
+</body>

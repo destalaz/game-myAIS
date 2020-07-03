@@ -23,6 +23,8 @@ import { PopupContinueComponent } from './game/aunjai/popup-continue/popup-conti
 import { PopupReadyComponent } from './game/aunjai/popup-ready/popup-ready.component';
 import { PopupErrorComponent } from './game/aunjai/popup-error/popup-error.component';
 import { CheckPermissionLoginComponent } from './check-permission-login/check-permission-login.component';
+import { RewardFlipEngComponent } from './game-aunjai-inbox/reward-flip-eng/reward-flip-eng.component';
+import { TutorialPageEngComponent } from './game-aunjai-inbox/tutorial-page-eng/tutorial-page-eng.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'loadgame', component: LoadingGameComponent },
   { path: 'tutorial', component: TutorialPageComponent },
   { path: 'reward_flip', component: RewardFlipComponent },
+  { path: 'reward_flip_eng', component: RewardFlipEngComponent},
 
   { path: 'aunjai', component: AunjaiComponent },
   { path: 'aunjai1', component: AunjaiComponent },
@@ -61,7 +64,9 @@ const appRoutes: Routes = [
     PopupContinueComponent,
     PopupReadyComponent,
     PopupErrorComponent,
-    CheckPermissionLoginComponent
+    CheckPermissionLoginComponent,
+    RewardFlipEngComponent,
+    TutorialPageEngComponent
   ],
   imports: [
     DataTablesModule,
