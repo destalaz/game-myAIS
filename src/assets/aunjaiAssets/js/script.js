@@ -32,7 +32,10 @@ $(document).ready(function () {
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
       counNumnOfShuffels = 0,
-      bodyLose = $("#body-popup-lose");
+      myTimeout,
+      shuffleSpeedLeft, shuffleSpeedTop;
+
+    bodyLose = $("#body-popup-lose");
 
     if (localStorage.getItem('countWin') === null) {
       localStorage.setItem('countWin', "1");
@@ -238,6 +241,10 @@ $(document).ready(function () {
       }, 2000);
     }
 
+    function myFnTimeout() {
+      myTimeout = setTimeout(function () { gamepPlay(); }, 999999);
+    }
+
 
     function text_round() {
       setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
@@ -262,12 +269,6 @@ $(document).ready(function () {
 
     }
 
-    // function sound_pause() {
-    //   setTimeout(() => {
-    //     soundGame.pause();
-    //     soundFlip.play();
-    //   }, 500);
-    // }
 
 
     function ready_game() {
@@ -307,6 +308,11 @@ $(document).ready(function () {
       Howler.stop();
       soundGame.stop();
       soundGame.play();
+
+
+
+
+
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
           Howler.mute(true);
@@ -316,10 +322,12 @@ $(document).ready(function () {
           console.log("start");
         }
       }, false);
+
+
       //start shuffle
       function gamepPlay() {
         {
-
+          var myTimeout;
           counNumnOfShuffels++;
           var array = shuffle([1, 2, 3]);
           //console.log("move "+array[0]+ " to "+array[1]);
@@ -330,7 +338,7 @@ $(document).ready(function () {
           $("#box" + array[0]).animate({
             top: ($("#box" + array[2]).position().top) - 40 + "px"
           }, {
-            duration: shuffleSpeed / 4,
+            duration: shuffleSpeedTop,
             specialEasing: {
               top: 'easeInQuint',
             }
@@ -339,7 +347,7 @@ $(document).ready(function () {
           $("#box" + array[0]).animate({
             left: $("#box" + array[1]).position().left + "px",
           }, {
-            duration: shuffleSpeed / 2,
+            duration: shuffleSpeedLeft,
             specialEasing: {
               top: 'swing',
             }
@@ -347,7 +355,7 @@ $(document).ready(function () {
           $("#box" + array[0]).animate({
             top: ($("#box" + array[2]).position().top) + "px"
           }, {
-            duration: shuffleSpeed / 4,
+            duration: shuffleSpeedTop,
             specialEasing: {
               top: 'swing',
             }
@@ -357,7 +365,7 @@ $(document).ready(function () {
           $("#box" + array[1]).animate({
             top: ($("#box" + array[2]).position().top) + 40 + "px"
           }, {
-            duration: shuffleSpeed / 4,
+            duration: shuffleSpeedLeft,
             specialEasing: {
               top: 'easeInQuint'
             }
@@ -366,7 +374,7 @@ $(document).ready(function () {
           $("#box" + array[1]).animate({
             left: $("#box" + array[0]).position().left + "px",
           }, {
-            duration: shuffleSpeed / 2,
+            duration: shuffleSpeedLeft,
             specialEasing: {
               left: 'easeInQuint'
             }
@@ -375,7 +383,7 @@ $(document).ready(function () {
           $("#box" + array[1]).animate({
             top: ($("#box" + array[2]).position().top) + "px"
           }, {
-            duration: shuffleSpeed / 4,
+            duration: shuffleSpeedTop,
             specialEasing: {
               top: 'swing',
             }, complete: function () {
@@ -384,8 +392,20 @@ $(document).ready(function () {
               $("#box" + array[2]).css("z-index", "0");
               console.log("counNumberShuffle", counNumnOfShuffels);
               console.log("NumbofShuffle", nuberOfShuffels);
+
               if (counNumnOfShuffels < nuberOfShuffels) {
                 gamepPlay();
+                document.addEventListener('visibilitychange', function () {
+                  if (document.hidden) {
+                  
+                  } else {
+                    $("#body-popup-puse").show();
+                    setTimeout(() => {
+                      $("#body-popup-puse").hide();
+                    }, 800);
+                  }
+                }, false);
+
               } else {
                 setTimeout(() => {
                   soundFlip.stop();
@@ -564,11 +584,6 @@ $(document).ready(function () {
                 };
 
                 interval = setTimeout(gamepPlay, shuffleSpeed);
-
-
-                setTimeout(function () {
-
-                }, nuberOfShuffels * shuffleSpeed);
                 n();
               });
 
