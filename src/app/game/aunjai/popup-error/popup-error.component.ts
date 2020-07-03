@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class PopupErrorComponent implements OnInit {
   @Input() redeem_point: boolean;
+  @Input() langauge;
   @Output() change = new EventEmitter();
+
+  langaugeNow: string;
   aispoint: any;
   statusLoad: boolean;
   insufficientPoint: boolean
@@ -21,17 +24,33 @@ export class PopupErrorComponent implements OnInit {
   ngOnInit() {
     this.aispoint = localStorage.getItem('aispoint');
     this.statusLoad = false;
+    console.log('langauge => ', this.langauge);
+
+    // this.langaugeNow = this.langauge;
+    this.langaugeNow = "noeLanguage";
+    console.log('langaugeNow => ', this.langaugeNow);
     console.log(this.redeem_point);
   }
 
   close() {
-    this.redeem_point = false;
-    //console.log("close");
-    this.change.emit(this.redeem_point);
-    localStorage.removeItem('resumeGame');
-    console.log(this.redeem_point);
+    if (this.langaugeNow === 'TH') {
+      this.langauge = 'TH';
+      console.log('langauge NOW => ',this.langauge);
+      this.redeem_point = false;
+      //console.log("close");
+      this.change.emit(this.redeem_point);
+      console.log(this.redeem_point);
+    } else {
+      this.langauge = 'ENG';
+      console.log('langauge NOW => ',this.langauge);
+      this.redeem_point = false;
+      //console.log("close");
+      this.change.emit(this.redeem_point);
+      console.log(this.redeem_point);
+    }
   }
 
+  
   ServedPlayGame() {
     this.statusLoad = true;
     localStorage.removeItem('resumeGame');

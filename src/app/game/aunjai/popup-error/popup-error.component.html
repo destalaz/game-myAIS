@@ -54,4 +54,5 @@
     </div>
 </div>
 
-<app-reward-flip *ngIf="redeem_point === false"></app-reward-flip>
+<app-reward-flip *ngIf="redeem_point === false && langauge === 'TH'"></app-reward-flip>
+<app-reward-flip-eng *ngIf="redeem_point === false && langauge === 'ENG'"></app-reward-flip-eng>

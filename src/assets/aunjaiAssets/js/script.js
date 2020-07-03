@@ -329,6 +329,7 @@ $(document).ready(function () {
         {
           var myTimeout;
           counNumnOfShuffels++;
+ 
           var array = shuffle([1, 2, 3]);
           //console.log("move "+array[0]+ " to "+array[1]);
           $("#box" + array[0]).css("z-index", "100");
@@ -481,7 +482,9 @@ $(document).ready(function () {
 
       var nuberOfShuffels = data[index].flipAmt;
       var shuffleSpeed = data[index].speed;
-
+      shuffleSpeed = shuffleSpeed/2;
+      shuffleSpeedTop = shuffleSpeed/5;
+      shuffleSpeedLeft= shuffleSpeed/2;
 
       console.log("nuberOfShuffels", nuberOfShuffels);
       console.log("shuffleSpeed", shuffleSpeed);

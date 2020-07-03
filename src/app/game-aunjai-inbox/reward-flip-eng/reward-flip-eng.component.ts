@@ -1,37 +1,39 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
-import { GameService } from '../../service/game.service';
+
 
 @Component({
-  selector: 'app-reward-flip',
-  templateUrl: './reward-flip.component.html',
-  styleUrls: ['./reward-flip.component.scss']
+  selector: 'app-reward-flip-eng',
+  templateUrl: './reward-flip-eng.component.html',
+  styleUrls: ['./reward-flip-eng.component.scss']
 })
-export class RewardFlipComponent implements OnInit {
+export class RewardFlipEngComponent implements OnInit {
 
-  termUrl = "myais://gamesterm?lang=th&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip";
-  goTutorialPage: boolean = false;
-  langauge: string = 'TH';
-  open: boolean = false;
-  
   @Output() changes = new EventEmitter();
 
-  constructor(private gameService: GameService, private router: Router) { }
+  open: boolean = false;
+  termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
+  goTutorialPage: boolean = false;
+  langauge: string = 'ENG';
+
+  constructor(
+    private gameService: GameService, 
+    private router: Router
+    ) { }
 
   ngOnInit() {
-    this.open = false;
-    if (localStorage.getItem('resumeGame')) {
-      this.open = true;
-    }
-    this.langauge = 'TH';
+    this.langauge = 'ENG';
     this.goTutorialPage = false;
+    localStorage.clear();
     localStorage.setItem('countWin', "1");
+    this.open = false;
     console.log('langauge => ', this.langauge);
   }
 
   // chcekLangauge() {
-  //   if (this.langauge === 'TH') {
-  //     this.langauge = 'ENG';
+  //   if (this.langauge === 'ENG') {
+  //     this.langauge = 'TH';
   //     console.log(this.langauge);
   //   }
   // }
@@ -62,5 +64,3 @@ export class RewardFlipComponent implements OnInit {
   }
 
 }
-
-
