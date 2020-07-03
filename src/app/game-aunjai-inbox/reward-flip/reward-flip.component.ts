@@ -12,8 +12,8 @@ export class RewardFlipComponent implements OnInit {
   termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
   goTutorialPage: boolean = false;
   langauge: string = 'TH';
-
-  @Input() open: boolean = false;
+  open: boolean = false;
+  
   @Output() changes = new EventEmitter();
 
   constructor(private gameService: GameService, private router: Router) { }
