@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-reward-flip-eng',
   templateUrl: './reward-flip-eng.component.html',
