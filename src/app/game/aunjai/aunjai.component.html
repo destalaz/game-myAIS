@@ -1,6 +1,6 @@
 <!-- checkOverGame -->
-<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="checkOverGame()" ></button>
-<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGameWin()" ></button>
+<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="resultGame('false')" ></button>
+<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGame('true')" ></button>
 
 
 <div *ngIf="load" class="bg-load">

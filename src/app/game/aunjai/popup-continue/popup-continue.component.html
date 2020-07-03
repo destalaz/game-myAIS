@@ -2,17 +2,16 @@
     <div class=container4>
         <div class="text-center">
             <div class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
+                <span class="sr-only">Loading...</span>
             </div>
-          </div>
+        </div>
     </div>
 </div>
 
-<div id="body-popup-win">
+<div id="body-popup-win" >
     <div style="text-align: center;" class="bodyThis">
-       
-        <div class="firstPage" *ngIf="!open">
-           
+
+        <div class="firstPage" *ngIf="!playerComplete">
             <div class="aunjai_Social">
 
             </div>
@@ -24,23 +23,21 @@
                 เล่นต่อ
             </button>
         </div>
-        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="open">
-            <button class="close"  [routerLinkActive]="['isActive']"
-            [routerLink]="['/reward_flip']"></button>
-            <div class="aunjai_fly">
+
+
+        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playerComplete">
+            <!-- <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip']"></button> -->
+            <div class="aunjai_fly"></div>
+            <div *ngIf="reward !== '' " >
+                <span class="textBody"> เอไอเอสพอยท์ {{reward}} คะแนน </span><br>
+                <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
             </div>
-            <span class="textBody"> เอไอเอสพอยท์ {{reward}} คะแนน </span><br>
-            <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
-
-
-
             <div id="heading-Text">
-                
                 <span class="text" id="bottom"> คุณได้รับรางวัลครบแล้ว </span><br><br>
                 <span class="text" id="bottom"> มาร่วมสนุกใหม่เกมหน้า</span>
-            
+
             </div>
-               
+
         </div>
     </div>
 </div>
