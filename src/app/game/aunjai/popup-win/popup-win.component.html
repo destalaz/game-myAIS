@@ -1,4 +1,12 @@
-
+<div *ngIf="load" class="bg-load">
+    <div class=container4>
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="body-popup-win">
     <div class="baground_forest">
@@ -15,8 +23,7 @@
         </div>
         <span class="textBody" style="font-size: 6vw;"> <b> เย้.!!! </b></span><br>
         <span class="textBody"> คุณได้รับของ รางวัล</span>
-        <button class="buttonGetTreat" id="btn_get_treat"  [routerLinkActive]="['isActive']" [routerLink]="['/popupContinue']">
-            รับของรางวัล
+        <button class="buttonGetTreat" id="btn_get_treat" (click)="servedPlayReward()">รับของรางวัล
         </button>
     </div>
 </div>

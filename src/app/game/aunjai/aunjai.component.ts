@@ -35,35 +35,42 @@ export class AunjaiComponent implements OnInit {
   }
 
 
-  checkOverGame() {
-    if (localStorage.getItem("gameOver") === "true") {
-      this.load = true;
-      var winnerStatus = false;
+  // checkOverGame() {
+  //   if (localStorage.getItem("gameOver") === "true") {
+  //     this.load = true;
+  //     var winnerStatus = false;
+  //     this.servedPlayResult(this.mobileId, this.playId, winnerStatus);
+  //   }
 
-      this.servedPlayResult(this.mobileId, this.playId, winnerStatus);
-    }
-
-  }
+  // }
 
   servedPlayResult(mobileId, playId, winnerStatus) {
     this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
-        sessionStorage.removeItem("playId");
-        // localStorage.removeItem("gameOver");
+        if ( winnerStatus.toString() === "false" ) { 
+          sessionStorage.removeItem('playId')
+        }
         this.load = false;
       }
     });
   }
 
-  resultGameWin() {
+  // resultGameWin() {
+  //   this.load = true;
+  //   var winnerStatus = true;
+  //   this.gameService.getPlayResult(this.mobileId, this.playId, winnerStatus).subscribe(res => {
+  //     if (res["resultCode"] === "20000" && res["status"] === true) {
+  //       this.load = false;
+  //     }
+  //   });
+  // }
+
+  resultGame(statusGame) {
     this.load = true;
-    var winnerStatus = true;
-    this.gameService.getPlayResult(this.mobileId, this.playId, winnerStatus).subscribe(res => {
-      if (res["resultCode"] === "20000" && res["status"] === true) {
-        this.load = false;
-      }
-    });
+    console.log("Boolean(statusGame) => " , statusGame)
+    this.servedPlayResult(this.mobileId, this.playId, statusGame);
   }
-
 
 }
+
+
