@@ -26,7 +26,6 @@ export class CheckPermissionLoginComponent implements OnInit {
       let token = params.token
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe(res => {
-        console.log(res)
         if (res) {
 
           sessionStorage.setItem('playerComplete', res["playerComplete"]);
