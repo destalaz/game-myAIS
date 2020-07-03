@@ -13,9 +13,7 @@ export class RewardFlipComponent implements OnInit {
   @Output() changes = new EventEmitter();
   ngOnInit() {
 
-    console.log("resum storage",localStorage.getItem('resumeGame'));
     localStorage.setItem('countWin', "1");
-    console.log("resume",localStorage.getItem('resumeGame'))
     this.open = false;
 
     if (localStorage.getItem('resumeGame')) {
