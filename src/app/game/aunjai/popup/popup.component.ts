@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'popup-game',
@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
-  language:any;
+  @Input() langauge:any;
   constructor() { }
 
   ngOnInit() {
-    this.language = localStorage.getItem('language');
   }
   resume1() {
     console.log("resume1");

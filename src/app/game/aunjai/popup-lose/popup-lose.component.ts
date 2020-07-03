@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'popup-lose',
@@ -8,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class PopupLoseComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  
+  @Input() langauge: any;
   constructor() { }
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
+  }
+  playAgain() {
+    localStorage.setItem('langauge', this.langauge);
   }
 
 }

@@ -11,9 +11,9 @@ export class RewardFlipComponent implements OnInit {
 
   termUrl = "myais://gamesterm?lang=th&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip";
   goTutorialPage: boolean = false;
-  langauge: string = 'TH';
+  langauge: string;
   open: boolean = false;
-  
+
   @Output() changes = new EventEmitter();
 
   constructor(private gameService: GameService, private router: Router) { }
@@ -23,19 +23,17 @@ export class RewardFlipComponent implements OnInit {
     if (localStorage.getItem('resumeGame')) {
       this.open = true;
     }
-    this.langauge = 'TH';
+    if (localStorage.getItem('language')) {
+      this.langauge = localStorage.getItem('language');
+    }else{
+     this.langauge = 'TH';
+    }
     this.goTutorialPage = false;
     localStorage.setItem('countWin', "1");
-    localStorage.setItem('language', "TH");
+
     console.log('langauge => ', this.langauge);
   }
 
-  // chcekLangauge() {
-  //   if (this.langauge === 'TH') {
-  //     this.langauge = 'ENG';
-  //     console.log(this.langauge);
-  //   }
-  // }
 
   goTutorial() {
     this.goTutorialPage = true;

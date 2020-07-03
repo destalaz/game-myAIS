@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  language: any;
+  @Input() langauge:any;
   load: boolean;
   constructor(private gameService: GameService, private router: Router) {
     this.load = false;
@@ -20,7 +20,6 @@ export class PopupWinComponent implements OnInit {
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
-    this.language =  localStorage.getItem('language');
   }
   openPage() {
     this.open = true;

@@ -15,7 +15,7 @@ export class PopupContinueComponent implements OnInit {
   winnerStatus: boolean
   playerComplete: boolean;
   playComplete:boolean;
-  language:any;
+  langauge:any;
   constructor(private gameService: GameService ,   private router: Router) {
     this.load = false;
     this.reward = ""
@@ -24,9 +24,10 @@ export class PopupContinueComponent implements OnInit {
 
 
   ngOnInit() {
-    this.language = localStorage.getItem('language');
+    this.langauge = localStorage.getItem('language');
     this.load = true;
     this.playerComplete = false
+    console.log(this.langauge);
     if (sessionStorage.getItem('playerComplete') === "true" ) { this.playerComplete = true }
     // this.playerComplete = sessionStorage.getItem('playerComplete');
     this.reward = localStorage.getItem('rewardpoint');

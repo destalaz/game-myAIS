@@ -8,12 +8,13 @@ import { GameService } from 'src/app/service/game.service';
 })
 export class AunjaiComponent implements OnInit {
   url = '../../../assets/aunjaiAssets/js/script.js';
-  language: any;
+  langauge: any;
   ngOnInit() {
     this.loadScript();
 
     localStorage.setItem("gameOver", "false");
-    this.language = localStorage.getItem('language');
+    this.langauge = localStorage.getItem('language');
+    console.log("language",this.langauge);
   }
 
   mobileId: string;
