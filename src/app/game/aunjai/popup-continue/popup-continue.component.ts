@@ -14,6 +14,7 @@ export class PopupContinueComponent implements OnInit {
   playId: string
   winnerStatus: boolean
   playerComplete: boolean;
+  playComplete:boolean;
 
   constructor(private gameService: GameService ,   private router: Router) {
     this.load = false;
