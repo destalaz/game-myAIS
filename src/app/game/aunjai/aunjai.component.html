@@ -1,15 +1,15 @@
 <!-- checkOverGame -->
-<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="checkOverGame()" ></button>
-<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGameWin()" ></button>
+<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="checkOverGame()"></button>
+<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGameWin()"></button>
 
 
 <div *ngIf="load" class="bg-load">
     <div class=container4>
         <div class="text-center">
             <div class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
+                <span class="sr-only">Loading...</span>
             </div>
-          </div>
+        </div>
     </div>
 </div>
 
@@ -42,8 +42,20 @@
         </div>
     </div>
 </div>
+<div id="body-popup-puse" *ngIf="true">
+    <div style="text-align: center;" class="bodyThis">
+        <div class="redeem-point" id="redeem-point" *ngIf="true">
+            <button class="close" (click)="close()"></button>
+            <div class="aunjai-logo">
+
+            </div>
+
+            <span class="textBody" id="btnResumeGame"> เกมหยุดชั่วคราว </span>
+
+        </div>
+    </div>
+</div>
+
 <popup-game></popup-game>
-<popup-win></popup-win
-    
-    >
+<popup-win></popup-win>
 <popup-lose></popup-lose>

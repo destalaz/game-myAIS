@@ -34,6 +34,7 @@ export class PopupErrorComponent implements OnInit {
 
   ServedPlayGame() {
     this.statusLoad = true;
+    localStorage.removeItem('resumeGame');
     const level = localStorage.getItem("level");
     if (!level) { return }
 
