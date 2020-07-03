@@ -482,7 +482,7 @@ $(document).ready(function () {
 
       var nuberOfShuffels = data[index].flipAmt;
       var shuffleSpeed = data[index].speed;
-      shuffleSpeed = shuffleSpeed/2;
+      shuffleSpeed = 40+(shuffleSpeed/2);
       shuffleSpeedTop = shuffleSpeed/5;
       shuffleSpeedLeft= shuffleSpeed/2;
 
