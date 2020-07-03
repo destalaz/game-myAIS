@@ -10,8 +10,9 @@ export class PopupReadyComponent implements OnInit {
 
   totalRound: number;
   constructor(private router: Router) { }
-
+  language: any;
   ngOnInit() {
+    this.language = localStorage.getItem('language');
     this.totalRound = parseInt(localStorage.getItem('totalRound'));
     setTimeout(() => {
       this.router.navigateByUrl('/aunjai1');

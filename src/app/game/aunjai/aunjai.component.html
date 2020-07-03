@@ -1,6 +1,6 @@
 <!-- checkOverGame -->
-<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="resultGame('false')" ></button>
-<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGame('true')" ></button>
+<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="resultGame('false')"></button>
+<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGame('true')"></button>
 
 
 <div *ngIf="load" class="bg-load">
@@ -51,6 +51,23 @@
             </div>
 
             <span class="textBody" id="btnResumeGame"> เกมหยุดชั่วคราว </span>
+
+        </div>
+    </div>
+
+    <div style="text-align: center;" class="bodyThis">
+        <div class="redeem-point" id="redeem-point" *ngIf="true">
+            <div *ngIf="langauge === 'TH'">
+                <div class="aunjai-logo">
+                </div>
+                <span class="textBody" id="btnResumeGame"> เกมหยุดชั่วคราว </span>
+            </div>
+            <div *ngIf="langauge === 'ENG'">
+                <div class="aunjai-logo">
+                </div>
+                <span class="textBody" id="btnResumeGame"> Paused </span>
+            </div>
+
 
         </div>
     </div>

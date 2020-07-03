@@ -1,5 +1,5 @@
 <div id="body-popup">
-    <div style="text-align: center;" class="bodyThis">
+    <div style="text-align: center;" class="bodyThis" *ngIf="langauge === 'TH'">
         <!-- <button class="close" id="btn_close1"></button>
         <button class="close" id="btn_close"></button>
         <button class="close" id="btn_close"></button>
@@ -28,6 +28,34 @@
         </button>
         <button class="buttonResume" id="btn_resume5" (click)="resume5();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai5']">
             เล่นต่อ
+        </button>
+    </div>
+
+
+    <div style="text-align: center;" class="bodyThis" *ngIf="langauge === 'ENG'">
+        <div class="aunjai-logo-ENG">
+        </div>
+
+        <span class="textBody" style="font-size: 6vw;"> <b> Congratulations!!! </b></span><br>
+        <span class="textBody"> Move on to next game</span>
+
+        <button class="buttonResume" id="btn_resume1" (click)="resume1();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai1']">
+            CONTINUE
+        </button>
+
+        <button class="buttonResume" id="btn_resume2" (click)="resume2();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai2']">
+            CONTINUE
+        </button>
+
+        <button class="buttonResume" id="btn_resume3" (click)="resume3();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai3']">
+            CONTINUE
+        </button>
+
+        <button class="buttonResume" id="btn_resume4" (click)="resume4();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai4']">
+            CONTINUE
+        </button>
+        <button class="buttonResume" id="btn_resume5" (click)="resume5();" [routerLinkActive]="['isActive']" [routerLink]="['/aunjai5']">
+            CONTINUE
         </button>
     </div>
 </div>

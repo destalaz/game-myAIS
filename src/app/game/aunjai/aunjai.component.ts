@@ -8,10 +8,12 @@ import { GameService } from 'src/app/service/game.service';
 })
 export class AunjaiComponent implements OnInit {
   url = '../../../assets/aunjaiAssets/js/script.js';
-
+  language: any;
   ngOnInit() {
     this.loadScript();
-    localStorage.setItem("gameOver", "false")
+
+    localStorage.setItem("gameOver", "false");
+    this.language = localStorage.getItem('language');
   }
 
   mobileId: string;
@@ -47,7 +49,7 @@ export class AunjaiComponent implements OnInit {
   servedPlayResult(mobileId, playId, winnerStatus) {
     this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
-        if ( winnerStatus.toString() === "false" ) { 
+        if (winnerStatus.toString() === "false") {
           sessionStorage.removeItem('playId')
         }
         this.load = false;
@@ -67,7 +69,7 @@ export class AunjaiComponent implements OnInit {
 
   resultGame(statusGame) {
     this.load = true;
-    console.log("Boolean(statusGame) => " , statusGame)
+    console.log("Boolean(statusGame) => ", statusGame)
     this.servedPlayResult(this.mobileId, this.playId, statusGame);
   }
 

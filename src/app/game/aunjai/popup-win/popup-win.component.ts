@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
+  language: any;
   load: boolean;
   constructor(private gameService: GameService, private router: Router) {
     this.load = false;
@@ -19,6 +20,7 @@ export class PopupWinComponent implements OnInit {
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
+    this.language =  localStorage.getItem('language');
   }
   openPage() {
     this.open = true;

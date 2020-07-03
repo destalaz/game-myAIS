@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
-
+  language:any;
   constructor() { }
 
   ngOnInit() {
+    this.language = localStorage.getItem('language');
   }
   resume1() {
     console.log("resume1");

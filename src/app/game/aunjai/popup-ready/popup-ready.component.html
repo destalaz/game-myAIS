@@ -1,20 +1,23 @@
 <div class="container">
     <div class="baground_forest">
         <header-game></header-game>
-        <div id="heading-Text">
+        <div id="heading-Text" *ngIf="langauge === 'TH'">
             <img src="../../../../assets/aunjaiAssets/component/textbox@2x.png" id="textHeader" style="width: 48vh;">
             <div class="text-clound">คุณต้องชนะ {{totalRound}} เกมติดกัน</div>
         </div>
-        <!-- <img src="../../../../assets/aunjaiAssets/component/text_box.svg" id="box_o_t" style="width:70vw;"> -->
+        <div id="heading-Text" *ngIf="langauge === 'ENG'">
+            <img src="../../../../assets/aunjaiAssets/component/textbox@2x.png" id="textHeader" style="width: 48vh;">
+            <div class="text-clound">You must win {{totalRound}} games consecutively</div>
+        </div>
         <div id="board">
             <div id="box1" style="left: 0vw;">
-                <img src="../../../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b">
+                <img src="../../../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b">
             </div>
             <div id="box2" style="left: 33vw;">
-                <img src="../../../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b">
+                <img src="../../../../assets/aunjaiAssets/componentGroup_2069@2x-min.png" id="box_o_b">
             </div>
             <div id="box3" style="left: 66vw;">
-                <img src="../../../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b">
+                <img src="../../../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b">
             </div>
         </div>
     </div>

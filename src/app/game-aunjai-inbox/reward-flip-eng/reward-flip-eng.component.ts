@@ -27,6 +27,7 @@ export class RewardFlipEngComponent implements OnInit {
     localStorage.clear();
     localStorage.setItem('countWin', "1");
     this.open = false;
+    localStorage.setItem('language', "ENG");
     console.log('langauge => ', this.langauge);
   }
 
