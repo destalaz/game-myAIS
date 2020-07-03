@@ -20,6 +20,7 @@ export class CmsConfigComponent implements OnInit {
   diffTb: any;
   title = 'Game-myAIS';
 
+
   constructor(
     private formBuilder: FormBuilder,
     private cmsService: CmsService,
@@ -54,7 +55,7 @@ export class CmsConfigComponent implements OnInit {
     if (this.configForm.controls.amountWin.value != this.diffDetail.length) {
       this.diffDetail = [];
       for (let i = 1; i <= this.configForm.controls.amountWin.value; i++) {
-        const diffArr = { "flip":  + i, "speed": 1, "flipAmt": 1 };
+        const diffArr = { "flip":  + i, "speed": 200, "flipAmt": 1 };
         this.diffDetail.push(diffArr);
       }
     }
@@ -100,7 +101,7 @@ export class CmsConfigComponent implements OnInit {
           level: this.configData[i].level,
         });
         this.diffDetail = this.configData[i].difficulty;
-        this.difficulty = this.configData[i].levelName;
+        this.difficulty = this.configData[i].level;
         return;
       }
     }
@@ -111,7 +112,8 @@ export class CmsConfigComponent implements OnInit {
     this.alertLoading(true);
     this.cmsService.getConfig().subscribe((res: any) => {
       if (res.resultCode === "20000") {
-        this.configData = res.data;
+        this.configData = res.data;        
+
         // this.levelOnChange();
       }
       // Err
@@ -166,13 +168,16 @@ export class CmsConfigComponent implements OnInit {
 
     // Err
 
-
-
   }
 
   logout() {
     sessionStorage.clear();
     this.router.navigate(['/login']);
+  }
+
+  getDetail(level) {
+    // console.log(this.configData)
+    console.log("level => " ,level)
   }
 
 }

@@ -10,7 +10,8 @@
 
 <body class="container">
 
-    <div style="margin: 1rem; margin-top: 7% ; margin-bottom: 10%; ">
+    <!-- detail -->
+    <div style="margin: 1rem; margin-top: 7% ;  ">
         <h2 class="text-center">CMS Config</h2>
         <div class="row">
             <div class="col-12">
@@ -22,7 +23,7 @@
                         <thead class="table-active">
                             <tr>
                                 <th>Level</th>
-                                <th>Point of pay</th>
+                                <th>Point for pay</th>
                                 <th>Reward</th>
                                 <th>Amount of win</th>
                                 <!-- <th>Play Amt</th>
@@ -52,6 +53,7 @@
         </div>
 
     </div>
+    <!-- / detail -->
 
     <!-- modal loadling -->
     <input type="button" id="modalLoading" name="modalLoading"
@@ -66,7 +68,7 @@
             </div>
         </div>
     </div>
-    <!-- modal loadling -->
+    <!-- / modal loadling -->
 
 
     <!-- modal Edit Set -->
@@ -116,9 +118,9 @@
                                         </div>
                                         <select class="custom-select" formControlName="pointIdx"
                                             [ngClass]="{ 'is-invalid': submitted && f.pointIdx.errors }" required>
-                                            <option value="1">20</option>
-                                            <option value="2">50</option>
-                                            <option value="3">100</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
                                         </select>
 
 
@@ -225,7 +227,7 @@
                                 <thead class="table-active">
                                     <tr>
                                         <th>Flip</th>
-                                        <th>Speed(0-10)</th>
+                                        <th>Speed(1-10)</th>
                                         <th>fip Amount</th>
                                     </tr>
                                 </thead>
@@ -236,9 +238,16 @@
                                         <td class=" text-nowrap">
                                             <select class="custom-select" value={{loopdata.speed}}
                                                 [(ngModel)]="diffDetail[i].speed" (change)="diffConvert()">
-                                                <option type="number" value={{number}}
-                                                    *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10]">{{number}}
-                                                </option>
+                                                <option value="1100">1</option>
+                                                <option value="1000">2</option>
+                                                <option value="900">3</option>
+                                                <option value="800">4</option>
+                                                <option value="700">5</option>
+                                                <option value="600">6</option>
+                                                <option value="500">7</option>
+                                                <option value="400">8</option>
+                                                <option value="300">9</option>
+                                                <option value="200">10</option>
                                             </select>
                                         </td>
                                         <td class=" text-nowrap">

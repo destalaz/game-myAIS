@@ -16,7 +16,8 @@ import { DataTablesModule } from 'angular-datatables';  // npm i @types/datatabl
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'config', component: CmsConfigComponent },
-  { path: '',
+  {
+    path: '',
     redirectTo: '/login',
     pathMatch: 'full'
   },
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only set true
     )
     // other imports here
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
