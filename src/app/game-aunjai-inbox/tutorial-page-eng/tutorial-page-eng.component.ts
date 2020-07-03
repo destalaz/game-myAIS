@@ -2,16 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 
 @Component({
-  selector: 'app-tutorial-page',
-  templateUrl: './tutorial-page.component.html',
-  styleUrls: ['./tutorial-page.component.scss']
+  selector: 'app-tutorial-page-eng',
+  templateUrl: './tutorial-page-eng.component.html',
+  styleUrls: ['./tutorial-page-eng.component.scss']
 })
-export class TutorialPageComponent implements OnInit {
+export class TutorialPageEngComponent implements OnInit {
 
   @Input() goTutorialPage: boolean;
-
   pageNo: number = 0;
-  
 
   constructor(
     private gameService: GameService
@@ -32,4 +30,5 @@ export class TutorialPageComponent implements OnInit {
   nextPage() {
     this.pageNo = this.pageNo + 1;
   }
+
 }
