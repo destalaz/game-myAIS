@@ -32,7 +32,7 @@ $(document).ready(function () {
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
       counNumnOfShuffels = 0,
-      click=false,
+      click = false,
       shuffleSpeedLeft, shuffleSpeedTop;
     var messagesRoundStart = [
       "3",
@@ -246,8 +246,8 @@ $(document).ready(function () {
       }, 2000);
     }
 
-    function chk_Choose_click(){
-      if(!click){
+    function chk_Choose_click() {
+      if (!click) {
         gameOver();
       }
     }
@@ -280,9 +280,9 @@ $(document).ready(function () {
 
     function ready_game() {
       $('#heading-Text').html('');
-      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(0).delay(1000).fadeOut(500,round2);
+      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(0).delay(1000).fadeOut(500, round2);
       function round2() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500,round3);
+        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500, round3);
       }
       function round3() {
         $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(500);
@@ -290,18 +290,45 @@ $(document).ready(function () {
     }
 
     function end_game() {
-      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">5</div>').fadeIn(0).delay(1000).fadeOut(500,round4);
+      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">5</div>').fadeIn(0).delay(1000).fadeOut(500, round4);
       function round4() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">4</div>').fadeIn(500).delay(1000).fadeOut(500,round3);
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">4</div>').fadeIn(500).delay(1000).fadeOut(500, round3);
+        }
+
       }
       function round3() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(500).delay(1000).fadeOut(500,round2);
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(500).delay(1000).fadeOut(500, round2);
+        }
+
       }
       function round2() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500,round1);
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500, round1);
+        }
+
       }
       function round1() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(800,chk_Choose_click);
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(800, chk_Choose_click);
+        }
       }
     }
 
