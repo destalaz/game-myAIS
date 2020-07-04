@@ -3,3 +3,9 @@ export class User {
     username: string;
     token: string;
 }
+
+export interface Option {
+    language: string;
+    stDate: string;
+    enDate: string;
+}

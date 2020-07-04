@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from 'src/app/service/game.service';
 @Component({
@@ -8,12 +8,11 @@ import { GameService } from 'src/app/service/game.service';
 })
 export class AunjaiComponent implements OnInit {
   url = '../../../assets/aunjaiAssets/js/script.js';
-  langauge: any;
+  @Input() langauge;
   ngOnInit() {
     this.loadScript();
 
     localStorage.setItem("gameOver", "false");
-    this.langauge = localStorage.getItem('language');
     console.log("language",this.langauge);
   }
 

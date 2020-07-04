@@ -1,4 +1,4 @@
-<div id="body-popup-win" *ngIf="redeem_point === true">
+<div id="body-popup-win" *ngIf="redeem_point === true && !openPopupReady">
     <div style="text-align: center;" class="bodyThis">
 
         <div *ngIf="statusLoad">
@@ -66,3 +66,5 @@
 
 <app-reward-flip *ngIf="redeem_point === false && langauge === 'TH'"></app-reward-flip>
 <app-reward-flip-eng *ngIf="redeem_point === false && langauge === 'ENG'"></app-reward-flip-eng>
+
+<popup-ready *ngIf="openPopupReady" [langauge]="langauge"></popup-ready>

@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" *ngIf="!openGame">
     <div class="baground_forest">
         <header-game></header-game>
-        <div id="heading-Text" *ngIf="language === 'TH'">
+        <div id="heading-Text" *ngIf="langauge === 'TH'">
             <img src="../../../../assets/aunjaiAssets/component/textbox@2x.png" id="textHeader" style="width: 48vh;">
             <div class="text-clound">คุณต้องชนะ {{totalRound}} เกมติดกัน</div>
         </div>
-        <div id="heading-Text" *ngIf="language === 'ENG'">
+        <div id="heading-Text" *ngIf="langauge === 'ENG'">
             <img src="../../../../assets/aunjaiAssets/component/textbox@2x.png" id="textHeader" style="width: 48vh;">
             <div class="text-clound">You must win {{totalRound}} games<br> consecutively</div>
         </div>
@@ -23,3 +23,6 @@
     </div>
 
 </div>
+
+
+<game-aunjai *ngIf="openGame" [langauge]="langauge"></game-aunjai>

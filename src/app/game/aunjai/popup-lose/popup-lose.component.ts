@@ -14,8 +14,6 @@ export class PopupLoseComponent implements OnInit {
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
   }
-  playAgain() {
-    localStorage.setItem('langauge', this.langauge);
-  }
+
 
 }
