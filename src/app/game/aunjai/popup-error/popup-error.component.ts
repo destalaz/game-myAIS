@@ -26,8 +26,7 @@ export class PopupErrorComponent implements OnInit {
     this.statusLoad = false;
     console.log('langauge => ', this.langauge);
 
-    // this.langaugeNow = this.langauge;
-    this.langaugeNow = "noeLanguage";
+    this.langaugeNow = this.langauge;
     console.log('langaugeNow => ', this.langaugeNow);
     console.log(this.redeem_point);
   }
