@@ -32,6 +32,7 @@ $(document).ready(function () {
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
       counNumnOfShuffels = 0,
+      click=false,
       shuffleSpeedLeft, shuffleSpeedTop;
     var messagesRoundStart = [
       "3",
@@ -245,6 +246,12 @@ $(document).ready(function () {
       }, 2000);
     }
 
+    function chk_Choose_click(){
+      if(!click){
+        gameOver();
+      }
+    }
+
 
     function text_round() {
       setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
@@ -272,6 +279,7 @@ $(document).ready(function () {
 
 
     function ready_game() {
+      $('#heading-Text').html('');
       $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(0).delay(1000).fadeOut(500,round2);
       function round2() {
         $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500,round3);
@@ -293,7 +301,7 @@ $(document).ready(function () {
         $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500,round1);
       }
       function round1() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(800,gameOver);
+        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(800,chk_Choose_click);
       }
     }
 
@@ -329,6 +337,8 @@ $(document).ready(function () {
           console.log("start");
         }
       }, false);
+
+
 
 
       //start shuffle
@@ -421,6 +431,7 @@ $(document).ready(function () {
                   end_game();
                   box1.click(function () {
                     if (flag == 0) {
+                      click = true;
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
                       box1.animate({
                         top: $(this).position().top + -20 + "vh"
@@ -440,6 +451,7 @@ $(document).ready(function () {
 
                   box2.click(function () {
                     if (flag == 0) {
+                      click = true;
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
                         top: $(this).position().top - 20 + "vh"
@@ -460,6 +472,7 @@ $(document).ready(function () {
 
                   $("#box3").click(function () {
                     if (flag == 0) {
+                      click = true;
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
                         top: $(this).position().top + -20 + "vh"
