@@ -46,6 +46,7 @@ export class PopupContinueComponent implements OnInit {
         this.dataParams = params;
         this.langauge = this.dataParams.langauge;
       }))
+      console.log(this.dataParams);
     console.log(this.langauge);
   }
 

@@ -20,14 +20,17 @@ export class PopupWinComponent implements OnInit {
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
+    
   }
   openPage() {
     this.open = true;
   }
+  
   // this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
 
   servedPlayReward() {
-    this.load = true;;
+    console.log(this.langauge);
+    this.load = true;
     var mobileId = sessionStorage.getItem('mobileId');
     var playId = sessionStorage.getItem('playId');
 
