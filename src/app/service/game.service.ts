@@ -7,7 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     providedIn: 'root'
 })
 export class GameService {
-    private baseUrl = 'https://gameapistg.wisdomcloud.net'
+    private baseUrl = 'https://gameapistg.wisdomcloud.net';
+    // private baseUrl = 'http://localhost:3000';
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -36,6 +37,13 @@ export class GameService {
         let urlApi = "/api/cms/game/result";
         const body =
             { mobileId: _mobileId, winnerStatus: _resultStatus, playId: _playId }
+        return this.http.post(this.baseUrl + urlApi, body);
+    }
+
+    getReward(_mobileId: string, _playId: string) {
+        let urlApi = "/api/cms/game/getReward";
+        const body =
+            { mobileId: _mobileId, playId: _playId }
         return this.http.post(this.baseUrl + urlApi, body);
     }
 

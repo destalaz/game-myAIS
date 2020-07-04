@@ -1,5 +1,5 @@
 ::ng-deep header-game {
-    font-family: "DB Helvethaica" !important;
+    font-family: "DB_Heavent_Bd_It" !important;
 }
 
 .tablet-Header {
@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 2vw;
+    font-size: 4.5vw;
     min-height: 100%;
     min-width: 100%;
     background-size: auto 100%;
@@ -24,7 +24,6 @@
     -webkit-transform: translateX(-42%);
     -moz-transform: translateX(-42%);
     @media only screen and (max-device-width: 500px) {
-        font-size: 14px;
         -webkit-transform: translateX(-38%);
         -moz-transform: translateX(-38%);
     }
@@ -50,10 +49,10 @@ img {
 #img-Round-cup3,
 #img-Round-cup4,
 #img-Round-cup5 {
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-	filter: alpha(opacity=20);
-	-moz-opacity:0.2;
-	-khtml-opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=20);
+    -moz-opacity: 0.2;
+    -khtml-opacity: 0.2;
     opacity: 0.2;
     display: inline-block;
 }

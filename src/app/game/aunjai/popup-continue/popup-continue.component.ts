@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'popup-continue',
   templateUrl: './popup-continue.component.html',
@@ -12,29 +15,61 @@ export class PopupContinueComponent implements OnInit {
   mobileId: string;
   playId: string
   winnerStatus: boolean
-
-  constructor(private gameService: GameService) {
+  playerComplete: boolean;
+  dataParams:any;
+  langauge:string;
+  private optionGame = this.router.queryParams;
+  private subscriptions = new Subscription();
+  playComplete:boolean;
+  constructor(private gameService: GameService ,   private router: ActivatedRoute,private route:Router) {
     this.load = false;
-    this.reward = localStorage.getItem('rewardpoint');
-    this.mobileId = sessionStorage.getItem('mobileId');
-    this.playId = sessionStorage.getItem('playId');
-    this.winnerStatus = true;
+    this.reward = ""
+
   }
 
 
   ngOnInit() {
     this.load = true;
-    this.servedPlayResult(this.mobileId, this.playId, this.winnerStatus);
-
+    this.playerComplete = false;
+    this.loadOptionGame();
+    if (sessionStorage.getItem('playerComplete') === "true" ) { this.playerComplete = true }
+    // this.playerComplete = sessionStorage.getItem('playerComplete');
+    this.reward = localStorage.getItem('rewardpoint');
+    console.log(this.reward);
+    this.checkPlayerComplete();
+    
   }
+
+  public loadOptionGame() {
+    this.subscriptions.add(this.optionGame
+      .subscribe(params => {
+        this.dataParams = params;
+        this.langauge = this.dataParams.langauge;
+      }))
+      console.log(this.dataParams);
+    console.log(this.langauge);
+  }
+
+
   openPage() {
-    this.open = true;
+    this.route.navigateByUrl('/reward_flip');
   }
 
-  servedPlayResult(mobileId, playId, winnerStatus) {
-    this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
-      if (res["resultCode"] === "20000" && res["status"] === true) { 
-        sessionStorage.removeItem("playId");
+  checkPlayerComplete() {
+    if (this.playerComplete !== true) {
+      this.reward = localStorage.getItem('rewardpoint');
+      this.mobileId = sessionStorage.getItem('mobileId');
+      this.playId = sessionStorage.getItem('playId');
+      // this.servedPlayReward(this.mobileId, this.playId);
+    }else{
+      this.reward ='';
+    }
+  }
+
+  servedPlayReward(mobileId, playId) {
+    this.gameService.getReward(mobileId, playId).subscribe(res => {
+      if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
+        // sessionStorage.removeItem("playId");
         this.load = false;
       }
     });

@@ -17,16 +17,25 @@ export class RewardFlipEngComponent implements OnInit {
   langauge: string = 'ENG';
 
   constructor(
-    private gameService: GameService, 
+    private gameService: GameService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.langauge = 'ENG';
     this.goTutorialPage = false;
-    localStorage.clear();
-    localStorage.setItem('countWin', "1");
     this.open = false;
+    ////next popup fix success close and open
+    if (!this.langauge) {
+      this.langauge = 'ENG';
+    }
+    if (localStorage.getItem('resumeGame')) {
+      this.open = true;
+    }
+    ////next popup fix success close and open
+
+    localStorage.setItem('countWin', "1");
+    localStorage.setItem('language', "ENG");
     console.log('langauge => ', this.langauge);
   }
 

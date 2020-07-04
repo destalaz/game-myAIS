@@ -1,13 +1,15 @@
 <!-- checkOverGame -->
-<button id="checkOverGame" name="checkOverGame" style="display:none;"></button>
+<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="resultGame('false')"></button>
+<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGame('true')"></button>
+
 
 <div *ngIf="load" class="bg-load">
     <div class=container4>
         <div class="text-center">
             <div class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
+                <span class="sr-only">Loading...</span>
             </div>
-          </div>
+        </div>
     </div>
 </div>
 
@@ -16,7 +18,8 @@
         <header-game></header-game>
         <div id="divBtn">
             <button class="buttonStart" id="start_game">
-                เล่นเลย
+                <span *ngIf="langauge === 'TH'"> เล่นเลย </span>
+                <span *ngIf="langauge === 'ENG'"> PLAY </span>
             </button>
         </div>
 
@@ -29,19 +32,36 @@
         </div>
         <div id="board">
             <div id="box1" style="left: 0vw;">
-                <img src="../../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b">
+                <img src="../../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b">
             </div>
             <div id="box2" style="left: 33vw;">
-                <img src="../../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b">
+                <img src="../../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b">
             </div>
             <div id="box3" style="left: 66vw;">
-                <img src="../../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_b">
+                <img src="../../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b">
             </div>
         </div>
     </div>
 </div>
-<popup-game></popup-game>
-<popup-win></popup-win
-    
-    >
-<popup-lose></popup-lose>
+<div id="body-popup-puse" *ngIf="true">
+    <div style="text-align: center;" class="bodyThis">
+        <div class="redeem-point" id="redeem-point" *ngIf="true">
+            <div *ngIf="langauge === 'TH'">
+                <div class="aunjai-logo">
+                </div>
+                <span class="textBody" id="btnResumeGame"> เกมหยุดชั่วคราว </span>
+            </div>
+            <div *ngIf="langauge === 'ENG'">
+                <div class="aunjai-logo">
+                </div>
+                <span class="textBody" id="btnResumeGame"> Paused </span>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<popup-game [langauge]="langauge"></popup-game>
+<popup-win [langauge]="langauge"></popup-win>
+<popup-lose [langauge]="langauge"></popup-lose>

@@ -11,7 +11,7 @@ export class CheckPermissionLoginComponent implements OnInit {
 
   loadPage = false;
   msg = "Loading...";
-  
+
 
   constructor(
     private router: Router,
@@ -20,15 +20,23 @@ export class CheckPermissionLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     sessionStorage.clear();
     this.activatedRoute.queryParams.subscribe((params) => {
       let token = params.token
-      if (!token) { return } 
+      if (!token) { return }
       this.gameService.getMobileId(token).subscribe(res => {
         if (res) {
+
+          sessionStorage.setItem('playerComplete', res["playerComplete"]);
+          if (res["playerComplete"] === true) { 
+            this.router.navigateByUrl('/popupContinue');
+            return;
+          }
+
           if (res["resultCode"] === "20000" || res["status"] === true) {
-            sessionStorage.setItem('mobileId', res["mobileId"]) 
-            sessionStorage.setItem('firstPlay', res["firstPlay"]) 
+            sessionStorage.setItem('mobileId', res["mobileId"]);
+            sessionStorage.setItem('firstPlay', res["firstPlay"])
             this.router.navigateByUrl('/loadgame');
             this.loadPage = true;
           }
@@ -37,5 +45,8 @@ export class CheckPermissionLoginComponent implements OnInit {
     });
 
   }
+
+
+
 
 }

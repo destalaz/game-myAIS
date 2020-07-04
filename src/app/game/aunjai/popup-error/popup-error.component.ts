@@ -9,13 +9,17 @@ import { Router } from '@angular/router';
 })
 export class PopupErrorComponent implements OnInit {
   @Input() redeem_point: boolean;
-  @Input() langauge;
+  @Input() langauge: string;
   @Output() change = new EventEmitter();
-
+  openPopupReady: boolean = false;
   langaugeNow: string;
   aispoint: any;
   statusLoad: boolean;
-  constructor(private gameService: GameService, private router: Router) { }
+  insufficientPoint: boolean
+
+  constructor(private gameService: GameService, private router: Router) {
+    this.insufficientPoint = false;
+  }
 
   ngOnInit() {
     this.aispoint = localStorage.getItem('aispoint');
@@ -28,16 +32,17 @@ export class PopupErrorComponent implements OnInit {
   }
 
   close() {
+    localStorage.removeItem('resumeGame');
     if (this.langaugeNow === 'TH') {
       this.langauge = 'TH';
-      console.log('langauge NOW => ',this.langauge);
+      console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
       //console.log("close");
       this.change.emit(this.redeem_point);
       console.log(this.redeem_point);
     } else {
       this.langauge = 'ENG';
-      console.log('langauge NOW => ',this.langauge);
+      console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
       //console.log("close");
       this.change.emit(this.redeem_point);
@@ -45,26 +50,33 @@ export class PopupErrorComponent implements OnInit {
     }
   }
 
+
   ServedPlayGame() {
     this.statusLoad = true;
+    localStorage.removeItem('resumeGame');
     const level = localStorage.getItem("level");
     if (!level) { return }
 
-
-
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
+      if (res["status"].toString() !== "true") {
+        this.insufficientPoint = true;
+        this.statusLoad = false;
+        return
+      }
+      this.insufficientPoint = false;
       sessionStorage.setItem('playId', res["playData"].playId);
-      console.log("res playData => ", res["playData"].playerDetall);
-      console.log("res playId => ", res["playData"].playId);
-
       localStorage.setItem('countWin', "1");
       localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
       localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
-
-      this.router.navigateByUrl('/popupReady');
+      this.openPopupReady = true;
+      this.statusLoad = false;
     });
 
     // localStorage.removeItem("level")
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }

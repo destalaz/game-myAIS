@@ -9,30 +9,33 @@ import { GameService } from '../../service/game.service';
 })
 export class RewardFlipComponent implements OnInit {
 
-  termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
+  termUrl = "myais://gamesterm?lang=th&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip";
   goTutorialPage: boolean = false;
-  langauge: string = 'TH';
+  langauge: string;
   open: boolean = false;
-  
+
   @Output() changes = new EventEmitter();
 
   constructor(private gameService: GameService, private router: Router) { }
 
   ngOnInit() {
-    this.langauge = 'TH';
-    this.goTutorialPage = false;
-    localStorage.clear();
-    localStorage.setItem('countWin', "1");
+    ////next popup fix success close and open
     this.open = false;
+    if (!this.langauge) {
+      this.langauge = 'TH';
+    }
+    if (localStorage.getItem('resumeGame')) {
+      this.open = true;
+    }
+    ////next popup fix success close and open
+    
+  
+    this.goTutorialPage = false;
+    localStorage.setItem('countWin', "1");
+
     console.log('langauge => ', this.langauge);
   }
 
-  // chcekLangauge() {
-  //   if (this.langauge === 'TH') {
-  //     this.langauge = 'ENG';
-  //     console.log(this.langauge);
-  //   }
-  // }
 
   goTutorial() {
     this.goTutorialPage = true;
