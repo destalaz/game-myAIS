@@ -39,8 +39,7 @@
         </div>
         <span class="textBody" style="font-size: 6vw;"> <b>Congratulations,</b></span><br>
         <span class="textBody">You’ve earned</span>
-        <button class="buttonGetTreat" id="btn_get_treat" [routerLinkActive]="['isActive']"
-            [routerLink]="['/popupContinue']">
+        <button class="buttonGetTreat" id="btn_get_treat" (click)="servedPlayReward()">
             COLLECT
         </button>
     </div>

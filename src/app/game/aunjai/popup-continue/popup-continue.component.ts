@@ -35,6 +35,7 @@ export class PopupContinueComponent implements OnInit {
     if (sessionStorage.getItem('playerComplete') === "true" ) { this.playerComplete = true }
     // this.playerComplete = sessionStorage.getItem('playerComplete');
     this.reward = localStorage.getItem('rewardpoint');
+    console.log(this.reward);
     this.checkPlayerComplete();
     
   }

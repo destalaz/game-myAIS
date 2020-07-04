@@ -33,7 +33,9 @@
 
 
         <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playerComplete">
-            <!-- <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip']"></button> -->
+             <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip']"></button>
+             <div *ngIf="langauge === 'TH'"> <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip']"></button></div>
+             <div *ngIf="!langauge === 'TH'"> <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip_eng']"></button></div>
             <div class="aunjai_fly"></div>
 
             <div *ngIf="langauge === 'TH'">
