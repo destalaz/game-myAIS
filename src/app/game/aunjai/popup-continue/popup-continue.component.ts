@@ -61,6 +61,8 @@ export class PopupContinueComponent implements OnInit {
       this.mobileId = sessionStorage.getItem('mobileId');
       this.playId = sessionStorage.getItem('playId');
       // this.servedPlayReward(this.mobileId, this.playId);
+    }else{
+      this.reward ='';
     }
   }
 
