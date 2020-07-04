@@ -20,6 +20,9 @@ export class RewardFlipComponent implements OnInit {
 
   ngOnInit() {
     this.open = false;
+    if (localStorage.getItem('resumeGame')) {
+      this.open = true;
+    }
     localStorage.getItem('resumeGame')
     
     if (!this.langauge) {

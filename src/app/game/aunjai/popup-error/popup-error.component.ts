@@ -32,6 +32,7 @@ export class PopupErrorComponent implements OnInit {
   }
 
   close() {
+          localStorage.removeItem('resumeGame');
     if (this.langaugeNow === 'TH') {
       this.langauge = 'TH';
       console.log('langauge NOW => ', this.langauge);

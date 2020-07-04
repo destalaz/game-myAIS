@@ -24,9 +24,11 @@ export class RewardFlipEngComponent implements OnInit {
   ngOnInit() {
     this.langauge = 'ENG';
     this.goTutorialPage = false;
-    localStorage.clear();
-    localStorage.setItem('countWin', "1");
     this.open = false;
+    if (localStorage.getItem('resumeGame')) {
+      this.open = true;
+    }
+    localStorage.setItem('countWin', "1");
     localStorage.setItem('language', "ENG");
     console.log('langauge => ', this.langauge);
   }
