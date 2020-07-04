@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'popup-continue',
   templateUrl: './popup-continue.component.html',
@@ -14,9 +16,12 @@ export class PopupContinueComponent implements OnInit {
   playId: string
   winnerStatus: boolean
   playerComplete: boolean;
+  dataParams:any;
+  langauge:string;
+  private optionGame = this.router.queryParams;
+  private subscriptions = new Subscription();
   playComplete:boolean;
-  langauge:any;
-  constructor(private gameService: GameService ,   private router: Router) {
+  constructor(private gameService: GameService ,   private router: ActivatedRoute,private route:Router) {
     this.load = false;
     this.reward = ""
 
@@ -24,10 +29,9 @@ export class PopupContinueComponent implements OnInit {
 
 
   ngOnInit() {
-    this.langauge = localStorage.getItem('language');
     this.load = true;
-    this.playerComplete = false
-    console.log(this.langauge);
+    this.playerComplete = false;
+    this.loadOptionGame();
     if (sessionStorage.getItem('playerComplete') === "true" ) { this.playerComplete = true }
     // this.playerComplete = sessionStorage.getItem('playerComplete');
     this.reward = localStorage.getItem('rewardpoint');
@@ -35,9 +39,18 @@ export class PopupContinueComponent implements OnInit {
     
   }
 
+  public loadOptionGame() {
+    this.subscriptions.add(this.optionGame
+      .subscribe(params => {
+        this.dataParams = params;
+        this.langauge = this.dataParams.langauge;
+      }))
+    console.log(this.langauge);
+  }
+
+
   openPage() {
-    this.open = true;
-    this.router.navigateByUrl('/reward_flip');
+    this.route.navigateByUrl('/reward_flip');
   }
 
   checkPlayerComplete() {

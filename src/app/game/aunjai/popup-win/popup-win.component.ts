@@ -40,7 +40,7 @@ export class PopupWinComponent implements OnInit {
         else { 
         sessionStorage.setItem('playerComplete', 'false') }
         this.load = false;
-        this.router.navigateByUrl('/popupContinue');
+        this.router.navigate(["popupContinue"], { queryParams: { langauge:  this.langauge }});
       }
     });
   }
