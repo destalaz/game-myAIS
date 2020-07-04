@@ -19,15 +19,17 @@ export class RewardFlipComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router) { }
 
   ngOnInit() {
+    ////next popup fix success close and open
     this.open = false;
-    if (localStorage.getItem('resumeGame')) {
-      this.open = true;
-    }
-    localStorage.getItem('resumeGame')
-    
     if (!this.langauge) {
       this.langauge = 'TH';
     }
+    if (localStorage.getItem('resumeGame')) {
+      this.open = true;
+    }
+    ////next popup fix success close and open
+    
+  
     this.goTutorialPage = false;
     localStorage.setItem('countWin', "1");
 

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PopupErrorComponent implements OnInit {
   @Input() redeem_point: boolean;
-  @Input() langauge:string;
+  @Input() langauge: string;
   @Output() change = new EventEmitter();
   openPopupReady: boolean = false;
   langaugeNow: string;
@@ -32,7 +32,7 @@ export class PopupErrorComponent implements OnInit {
   }
 
   close() {
-          localStorage.removeItem('resumeGame');
+    localStorage.removeItem('resumeGame');
     if (this.langaugeNow === 'TH') {
       this.langauge = 'TH';
       console.log('langauge NOW => ', this.langauge);
