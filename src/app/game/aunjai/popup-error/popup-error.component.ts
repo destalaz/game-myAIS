@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class PopupErrorComponent implements OnInit {
   @Input() redeem_point: boolean;
-  @Input() langauge;
+  @Input() langauge: string;
   @Output() change = new EventEmitter();
-
+  openPopupReady: boolean = false;
   langaugeNow: string;
   aispoint: any;
   statusLoad: boolean;
@@ -32,16 +32,17 @@ export class PopupErrorComponent implements OnInit {
   }
 
   close() {
+    localStorage.removeItem('resumeGame');
     if (this.langaugeNow === 'TH') {
       this.langauge = 'TH';
-      console.log('langauge NOW => ',this.langauge);
+      console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
       //console.log("close");
       this.change.emit(this.redeem_point);
       console.log(this.redeem_point);
     } else {
       this.langauge = 'ENG';
-      console.log('langauge NOW => ',this.langauge);
+      console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
       //console.log("close");
       this.change.emit(this.redeem_point);
@@ -49,7 +50,7 @@ export class PopupErrorComponent implements OnInit {
     }
   }
 
-  
+
   ServedPlayGame() {
     this.statusLoad = true;
     localStorage.removeItem('resumeGame');
@@ -67,10 +68,8 @@ export class PopupErrorComponent implements OnInit {
       localStorage.setItem('countWin', "1");
       localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
       localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
-      this.router.navigateByUrl('/popupReady');
+      this.openPopupReady = true;
       this.statusLoad = false;
-
-
     });
 
     // localStorage.removeItem("level")
@@ -78,6 +77,6 @@ export class PopupErrorComponent implements OnInit {
 
   refresh(): void {
     window.location.reload();
-}
+  }
 
 }

@@ -1,7 +1,6 @@
 ::ng-deep popup-win {
     font-family: "DB Heavent";
 }
-
 .treatBox_20 {
     background: transparent url(../../../../assets/aunjaiAssets/component/for_20_score_ic@2x.png);
     top: 44%;
@@ -14,9 +13,20 @@
     background-repeat: no-repeat;
     left: 28%;
 }
-
 .treatBox_50 {
-    background: transparent url(../../../../assets/aunjaiAssets/component/for_50_score_ic@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/component/for_50_score_ic.png);
+    top: 44%;
+    background-position: center;
+    min-height: 26%;
+    min-width: 50%;
+    position: fixed;
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    left: 28%;
+}
+.treatBox_100 {
+    background: transparent url(../../../../assets/aunjaiAssets/component/for_200_score_ic.png);
     top: 44%;
     background-position: center;
     min-height: 26%;
@@ -28,8 +38,34 @@
     left: 28%;
 }
 
-.treatBox_100 {
-    background: transparent url(../../../../assets/aunjaiAssets/component/for_200_score_ic@2x.png);
+.treatBox_20_ENG {
+    background: transparent url(../../../../assets/aunjaiAssets/component/for_20_score_ic@2x_ENG.png);
+    top: 44%;
+    background-position: center;
+    min-height: 26%;
+    min-width: 50%;
+    position: fixed;
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    left: 28%;
+}
+
+.treatBox_50_ENG {
+    background: transparent url(../../../../assets/aunjaiAssets/component/for_50_score_ic@2x_ENG.png);
+    top: 44%;
+    background-position: center;
+    min-height: 26%;
+    min-width: 50%;
+    position: fixed;
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    left: 28%;
+}
+
+.treatBox_100_ENG {
+    background: transparent url(../../../../assets/aunjaiAssets/component/for_200_score_ic@2x_ENG.png);
     top: 44%;
     background-position: center;
     min-height: 26%;

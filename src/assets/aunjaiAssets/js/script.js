@@ -32,8 +32,13 @@ $(document).ready(function () {
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
       counNumnOfShuffels = 0,
-      myTimeout,
+      click = false,
       shuffleSpeedLeft, shuffleSpeedTop;
+    var messagesRoundStart = [
+      "3",
+      "2",
+      "1",
+    ].reverse();
 
     bodyLose = $("#body-popup-lose");
 
@@ -241,8 +246,10 @@ $(document).ready(function () {
       }, 2000);
     }
 
-    function myFnTimeout() {
-      myTimeout = setTimeout(function () { gamepPlay(); }, 999999);
+    function chk_Choose_click() {
+      if (!click) {
+        gameOver();
+      }
     }
 
 
@@ -272,47 +279,82 @@ $(document).ready(function () {
 
 
     function ready_game() {
-
-      setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
-        HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
-        HeaderText.fadeIn(100);
-        HeaderText.css({ display: 'none' });
-      }, 1000);
-      setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
-        HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
-        HeaderText.fadeIn(100);
-        HeaderText.css({ display: 'none' });
-      }, 2400);
-      setTimeout(function () {
-        HeaderText.html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
-        HeaderText.fadeOut(100);
-        HeaderText.animate({ zoom: '110%' }, 500, "easeOutBounce");
-        HeaderText.fadeIn(100);
-        HeaderText.css({ display: 'none', zoom: '100%;' });
-      }, 3600);
-      setTimeout(function () {
-        HeaderText.hide();
-      }, 5000)
+      $('#heading-Text').html('');
+      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(0).delay(1000).fadeOut(500, round2);
+      function round2() {
+        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500, round3);
+      }
+      function round3() {
+        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(500);
+      }
     }
+
+    function end_game() {
+      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">5</div>').fadeIn(0).delay(1000).fadeOut(500, round4);
+      function round4() {
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">4</div>').fadeIn(500).delay(1000).fadeOut(500, round3);
+        }
+
+      }
+      function round3() {
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(500).delay(1000).fadeOut(500, round2);
+        }
+
+      }
+      function round2() {
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500, round1);
+        }
+
+      }
+      function round1() {
+        if (click) {
+          $('#heading-Text').stop();
+          $('#heading-Text').hide();
+          chk_Choose_click();
+        } else {
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(800, chk_Choose_click);
+        }
+      }
+    }
+
+
+
+    function check_round_img() {
+      if (localStorage.getItem('countWin') === "2") {
+        HeaderText.html('<img src="../../assets/aunjaiAssets/header/game2_ic@2x.png" id="box_o_t"  style="width:60vw;">');
+      } else if (localStorage.getItem('countWin') === "3") {
+        HeaderText.html('<img src="../../assets/aunjaiAssets/header/game3_ic@2x.png" id="box_o_t"  style="width:60vw;">');
+      }
+
+    }
+
+
 
 
 
 
     change_cup();
     text_round();
+    check_round_img();
     startButton.on("click", function startGame(event) {
       Howler.stop();
       soundGame.stop();
       soundGame.play();
-
-
-
-
-
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
           Howler.mute(true);
@@ -324,12 +366,14 @@ $(document).ready(function () {
       }, false);
 
 
+
+
       //start shuffle
       function gamepPlay() {
         {
           var myTimeout;
           counNumnOfShuffels++;
- 
+
           var array = shuffle([1, 2, 3]);
           //console.log("move "+array[0]+ " to "+array[1]);
           $("#box" + array[0]).css("z-index", "100");
@@ -398,7 +442,7 @@ $(document).ready(function () {
                 gamepPlay();
                 document.addEventListener('visibilitychange', function () {
                   if (document.hidden) {
-                  
+
                   } else {
                     $("#body-popup-puse").show();
                     setTimeout(() => {
@@ -411,8 +455,10 @@ $(document).ready(function () {
                 setTimeout(() => {
                   soundFlip.stop();
                   var flag = 0;
+                  end_game();
                   box1.click(function () {
                     if (flag == 0) {
+                      click = true;
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
                       box1.animate({
                         top: $(this).position().top + -20 + "vh"
@@ -432,6 +478,7 @@ $(document).ready(function () {
 
                   box2.click(function () {
                     if (flag == 0) {
+                      click = true;
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
                       box2.animate({
                         top: $(this).position().top - 20 + "vh"
@@ -452,6 +499,7 @@ $(document).ready(function () {
 
                   $("#box3").click(function () {
                     if (flag == 0) {
+                      click = true;
                       $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
                       box3.animate({
                         top: $(this).position().top + -20 + "vh"
@@ -482,9 +530,9 @@ $(document).ready(function () {
 
       var nuberOfShuffels = data[index].flipAmt;
       var shuffleSpeed = data[index].speed;
-      shuffleSpeed = 40+(shuffleSpeed/2);
-      shuffleSpeedTop = shuffleSpeed/5;
-      shuffleSpeedLeft= shuffleSpeed/2;
+      shuffleSpeed = 40 + (shuffleSpeed / 2);
+      shuffleSpeedTop = shuffleSpeed / 5;
+      shuffleSpeedLeft = shuffleSpeed / 2;
 
       console.log("nuberOfShuffels", nuberOfShuffels);
       console.log("shuffleSpeed", shuffleSpeed);

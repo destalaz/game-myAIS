@@ -1,6 +1,6 @@
 <!-- checkOverGame -->
-<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="resultGame('false')" ></button>
-<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGame('true')" ></button>
+<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="resultGame('false')"></button>
+<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGame('true')"></button>
 
 
 <div *ngIf="load" class="bg-load">
@@ -18,7 +18,8 @@
         <header-game></header-game>
         <div id="divBtn">
             <button class="buttonStart" id="start_game">
-                เล่นเลย
+                <span *ngIf="langauge === 'TH'"> เล่นเลย </span>
+                <span *ngIf="langauge === 'ENG'"> PLAY </span>
             </button>
         </div>
 
@@ -45,17 +46,22 @@
 <div id="body-popup-puse" *ngIf="true">
     <div style="text-align: center;" class="bodyThis">
         <div class="redeem-point" id="redeem-point" *ngIf="true">
-            <button class="close"></button>
-            <div class="aunjai-logo">
-
+            <div *ngIf="langauge === 'TH'">
+                <div class="aunjai-logo">
+                </div>
+                <span class="textBody" id="btnResumeGame"> เกมหยุดชั่วคราว </span>
+            </div>
+            <div *ngIf="langauge === 'ENG'">
+                <div class="aunjai-logo">
+                </div>
+                <span class="textBody" id="btnResumeGame"> Paused </span>
             </div>
 
-            <span class="textBody" id="btnResumeGame"> เกมหยุดชั่วคราว </span>
 
         </div>
     </div>
 </div>
 
-<popup-game></popup-game>
-<popup-win></popup-win>
-<popup-lose></popup-lose>
+<popup-game [langauge]="langauge"></popup-game>
+<popup-win [langauge]="langauge"></popup-win>
+<popup-lose [langauge]="langauge"></popup-lose>

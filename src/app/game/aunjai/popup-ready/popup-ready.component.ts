@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,14 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./popup-ready.component.scss']
 })
 export class PopupReadyComponent implements OnInit {
-
+  @Input() langauge;
   totalRound: number;
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.totalRound = parseInt(localStorage.getItem('totalRound'));
     setTimeout(() => {
-      this.router.navigateByUrl('/aunjai1');
+      this.router.navigate(["aunjai1"], { queryParams: { langauge:  this.langauge }});
     }, 2000);
   }
 

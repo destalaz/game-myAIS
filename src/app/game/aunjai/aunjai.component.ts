@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
+import { DetailService } from '../../service/detail.service';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'game-aunjai',
   templateUrl: './aunjai.component.html',
@@ -8,10 +10,17 @@ import { GameService } from 'src/app/service/game.service';
 })
 export class AunjaiComponent implements OnInit {
   url = '../../../assets/aunjaiAssets/js/script.js';
-
+  private subscriptions = new Subscription();
+  private optionGame = this.router.queryParams;
+  dataParams: any;
+  langauge: string;
   ngOnInit() {
     this.loadScript();
-    localStorage.setItem("gameOver", "false")
+    console.log(this.detailService.fnGetlanguge());
+    localStorage.setItem("gameOver", "false");
+    console.log("language", this.langauge);
+    this.loadOptionGame();
+
   }
 
   mobileId: string;
@@ -19,10 +28,19 @@ export class AunjaiComponent implements OnInit {
 
   load: boolean;
 
-  constructor(private router: Router, private gameService: GameService) {
+  constructor(private router: ActivatedRoute, private gameService: GameService, private detailService: DetailService) {
     this.load = false;
     this.mobileId = sessionStorage.getItem('mobileId');
     this.playId = sessionStorage.getItem('playId');
+  }
+
+  public loadOptionGame() {
+    this.subscriptions.add(this.optionGame
+      .subscribe(params => {
+        this.dataParams = params;
+        this.langauge = this.dataParams.langauge;
+      }))
+    console.log(this.langauge);
   }
   public loadScript() {
     console.log('preparing to load...')
@@ -47,7 +65,7 @@ export class AunjaiComponent implements OnInit {
   servedPlayResult(mobileId, playId, winnerStatus) {
     this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
-        if ( winnerStatus.toString() === "false" ) { 
+        if (winnerStatus.toString() === "false") {
           sessionStorage.removeItem('playId')
         }
         this.load = false;
@@ -67,9 +85,13 @@ export class AunjaiComponent implements OnInit {
 
   resultGame(statusGame) {
     this.load = true;
-    console.log("Boolean(statusGame) => " , statusGame)
+    console.log("Boolean(statusGame) => ", statusGame)
     this.servedPlayResult(this.mobileId, this.playId, statusGame);
   }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+}
 
 }
 

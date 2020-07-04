@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
+  @Input() langauge:any;
   load: boolean;
   constructor(private gameService: GameService, private router: Router) {
     this.load = false;
@@ -19,14 +20,17 @@ export class PopupWinComponent implements OnInit {
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
+    
   }
   openPage() {
     this.open = true;
   }
+  
   // this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
 
   servedPlayReward() {
-    this.load = true;;
+    console.log(this.langauge);
+    this.load = true;
     var mobileId = sessionStorage.getItem('mobileId');
     var playId = sessionStorage.getItem('playId');
 
@@ -39,7 +43,7 @@ export class PopupWinComponent implements OnInit {
         else { 
         sessionStorage.setItem('playerComplete', 'false') }
         this.load = false;
-        this.router.navigateByUrl('/popupContinue');
+        this.router.navigate(["popupContinue"], { queryParams: { langauge:  this.langauge }});
       }
     });
   }
