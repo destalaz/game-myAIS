@@ -2,9 +2,11 @@ function gamePause() {
   console.log("pause ..... ???");
 }
 
+console.log($('#btnResumeGame').text());
+// alert();
 
 
-var soundGame, soundFlip;
+var soundGame, soundFlip,testValue;
 $(document).ready(function () {
 
   (function () {
@@ -147,6 +149,7 @@ $(document).ready(function () {
     }
 
     function slide_out() {
+      console.log("value html",testValue);
       kick.css({ left: ans_position_left });
       win = false;
       kick.show();
@@ -159,6 +162,7 @@ $(document).ready(function () {
           top: 'easeInQuint'
         }
       });
+      HeaderText.show();
       HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
       HeaderText.show();
       HeaderText.animate({
@@ -290,14 +294,14 @@ $(document).ready(function () {
     }
 
     function end_game() {
-      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">5</div>').fadeIn(0).delay(1000).fadeOut(500, round4);
+      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">').fadeIn(0).delay(1000).fadeOut(500, round4);
       function round4() {
         if (click) {
           $('#heading-Text').stop();
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">4</div>').fadeIn(500).delay(1000).fadeOut(500, round3);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:36vw;">').fadeIn(500).delay(1000).fadeOut(500, round3);
         }
 
       }
@@ -307,7 +311,7 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(500).delay(1000).fadeOut(500, round2);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:36vw;"><').fadeIn(500).delay(1000).fadeOut(500, round2);
         }
 
       }
@@ -317,7 +321,7 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500, round1);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">').fadeIn(500).delay(1000).fadeOut(500, round1);
         }
 
       }
@@ -327,7 +331,7 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(800, chk_Choose_click);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:60vw;">').fadeIn(500).delay(1000).fadeOut(800, chk_Choose_click);
         }
       }
     }
@@ -352,6 +356,7 @@ $(document).ready(function () {
     text_round();
     check_round_img();
     startButton.on("click", function startGame(event) {
+      console.log("value html",testValue);
       Howler.stop();
       soundGame.stop();
       soundGame.play();
