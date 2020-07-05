@@ -37,14 +37,12 @@ export class PopupErrorComponent implements OnInit {
       this.langauge = 'TH';
       console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
-      //console.log("close");
       this.change.emit(this.redeem_point);
       console.log(this.redeem_point);
     } else {
       this.langauge = 'ENG';
       console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
-      //console.log("close");
       this.change.emit(this.redeem_point);
       console.log(this.redeem_point);
     }
@@ -72,7 +70,6 @@ export class PopupErrorComponent implements OnInit {
       this.statusLoad = false;
     });
 
-    // localStorage.removeItem("level")
   }
 
   refresh(): void {

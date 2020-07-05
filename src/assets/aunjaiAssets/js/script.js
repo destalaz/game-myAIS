@@ -2,15 +2,15 @@ function gamePause() {
   console.log("pause ..... ???");
 }
 
-console.log($('#btnResumeGame').text());
-// alert();
 
 
-var soundGame, soundFlip,testValue;
+var soundGame, soundFlip, testValue;
 $(document).ready(function () {
 
   (function () {
     var box1 = $("#box1"),
+      // playId = sessionStorage.getItem('playId'),
+      playId = '5f01740563870b98f9059d9029257bxn',
       divBtn = $("#divBtn"),
       box2 = $("#box2"),
       box3 = $("#box3"),
@@ -34,22 +34,21 @@ $(document).ready(function () {
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
       counNumnOfShuffels = 0,
+      cclick, secure, ans,
+      characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
       click = false,
       shuffleSpeedLeft, shuffleSpeedTop;
-    var messagesRoundStart = [
-      "3",
-      "2",
-      "1",
-    ].reverse();
-
+    console.log("clickFirst", localStorage.getItem('sumcclick'));
     bodyLose = $("#body-popup-lose");
-
     if (localStorage.getItem('countWin') === null) {
       localStorage.setItem('countWin', "1");
     }
+    console.log(localStorage.getItem('sumcclick'));
 
-
-
+    if (localStorage.getItem('sumcclick') === null) {
+      localStorage.setItem('sumcclick', "");
+      console.log(localStorage.getItem('sumcclick'));
+    }
     var data = JSON.parse(localStorage.getItem('config'));
     var index = parseInt(localStorage.getItem('countWin')) - 1;
 
@@ -109,21 +108,18 @@ $(document).ready(function () {
         cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       } else if (localStorage.getItem('countWin') === "2") {
-        console.log("cup win 2");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       } else if (localStorage.getItem('countWin') === "3") {
-        console.log("cup win 3");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       } else if (localStorage.getItem('countWin') === "4") {
-        console.log("cup win 4");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
@@ -131,7 +127,6 @@ $(document).ready(function () {
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       }
       else if (localStorage.getItem('countWin') === "5") {
-        console.log("cup win 5");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
@@ -139,7 +134,6 @@ $(document).ready(function () {
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       }
       else if (localStorage.getItem('countWin') === "6") {
-        console.log("cup win 5");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
@@ -149,9 +143,7 @@ $(document).ready(function () {
     }
 
     function slide_out() {
-      console.log("value html",testValue);
-      kick.css({ left: ans_position_left });
-      win = false;
+      kick.css({ left: ans_position_left + "px" });
       kick.show();
       kick.animate({
         top: "56%",
@@ -230,20 +222,10 @@ $(document).ready(function () {
 
     function gameOver() {
       localStorage.setItem('resumeGame', true);
-      var checkGameOver = $("#checkOverGame")
+      var checkGameOver = $("#checkOverGame");
       checkGameOver.click();
       localStorage.setItem('countWin', '1');
-
       localStorage.setItem('gameOver', "true");
-      // ตรงนี้ใส่ฟังชันกดใช้ปุ่ม id="checkOverGame"
-
-
-      win = false;
-      // divBtn.show();
-      console.log("game Over", localStorage.getItem('resumeGame'));
-      // countWin = 1;
-
-
       setTimeout(() => {
         localStorage.setItem('countWin', 1);
         bodyLose.show();
@@ -283,25 +265,24 @@ $(document).ready(function () {
 
 
     function ready_game() {
-      $('#heading-Text').html('');
-      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(0).delay(1000).fadeOut(500, round2);
+      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(200).delay(600).fadeOut(200, round2);
       function round2() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(500).delay(1000).fadeOut(500, round3);
+        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(200).delay(600).fadeOut(200, round3);
       }
       function round3() {
-        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:60vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(500).delay(1000).fadeOut(500);
+        $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(200).delay(600).fadeOut(200);
       }
     }
 
     function end_game() {
-      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">').fadeIn(0).delay(1000).fadeOut(500, round4);
+      $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round4);
       function round4() {
         if (click) {
           $('#heading-Text').stop();
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:36vw;">').fadeIn(500).delay(1000).fadeOut(500, round3);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round3);
         }
 
       }
@@ -311,7 +292,7 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:36vw;"><').fadeIn(500).delay(1000).fadeOut(500, round2);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round2);
         }
 
       }
@@ -321,7 +302,7 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">').fadeIn(500).delay(1000).fadeOut(500, round1);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round1);
         }
 
       }
@@ -331,7 +312,7 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:60vw;">').fadeIn(500).delay(1000).fadeOut(800, chk_Choose_click);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(100, chk_Choose_click);
         }
       }
     }
@@ -356,7 +337,8 @@ $(document).ready(function () {
     text_round();
     check_round_img();
     startButton.on("click", function startGame(event) {
-      console.log("value html",testValue);
+      $('#heading-Text').html('');
+      $('#heading-Text').hide();
       Howler.stop();
       soundGame.stop();
       soundGame.play();
@@ -376,11 +358,9 @@ $(document).ready(function () {
       //start shuffle
       function gamepPlay() {
         {
-          var myTimeout;
           counNumnOfShuffels++;
 
           var array = shuffle([1, 2, 3]);
-          //console.log("move "+array[0]+ " to "+array[1]);
           $("#box" + array[0]).css("z-index", "100");
           $("#box" + array[1]).css("z-index", "300");
           $("#box" + array[2]).css("z-index", "200");
@@ -440,9 +420,6 @@ $(document).ready(function () {
               $("#box" + array[0]).css("z-index", "0");
               $("#box" + array[1]).css("z-index", "0");
               $("#box" + array[2]).css("z-index", "0");
-              console.log("counNumberShuffle", counNumnOfShuffels);
-              console.log("NumbofShuffle", nuberOfShuffels);
-
               if (counNumnOfShuffels < nuberOfShuffels) {
                 gamepPlay();
                 document.addEventListener('visibilitychange', function () {
@@ -469,9 +446,19 @@ $(document).ready(function () {
                         top: $(this).position().top + -20 + "vh"
                       });
                       if (ans == 1) {
+                        change_cup();
                         flag = 1;
-                        ans_position_left = box1.position().left;
+                        ans_position_left = box3.position().left;
                         soundWin.fade(1, 0, 1500, soundWin.play());
+                        cclick = '';
+                        cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                        cclick += String.fromCharCode(64 + ans);
+                        var cclickDf = localStorage.getItem('sumcclick');
+                        console.log(cclick);
+                        var totolclick = cclickDf + cclick;
+                        console.log(totolclick);
+                        localStorage.setItem('sumcclick', totolclick);
+                        console.log("sumcclick*****", localStorage.getItem('sumcclick'));
                         slide_out();
                       } else {
                         flag = 1;
@@ -489,10 +476,19 @@ $(document).ready(function () {
                         top: $(this).position().top - 20 + "vh"
                       });
                       if (ans == 2) {
-                        flag = 1;
                         change_cup();
-                        ans_position_left = box2.position().left;
+                        flag = 1;
+                        ans_position_left = box3.position().left;
                         soundWin.fade(1, 0, 1500, soundWin.play());
+                        cclick = '';
+                        cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                        cclick += String.fromCharCode(64 + ans);
+                        var cclickDf = localStorage.getItem('sumcclick');
+                        console.log(cclick);
+                        var totolclick = cclickDf + cclick;
+                        console.log(totolclick);
+                        localStorage.setItem('sumcclick', totolclick);
+                        console.log("sumcclick*****", localStorage.getItem('sumcclick'));
                         slide_out();
                       } else {
                         flag = 1;
@@ -514,6 +510,15 @@ $(document).ready(function () {
                         flag = 1;
                         ans_position_left = box3.position().left;
                         soundWin.fade(1, 0, 1500, soundWin.play());
+                        cclick = '';
+                        cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                        cclick += String.fromCharCode(64 + ans);
+                        var cclickDf = localStorage.getItem('sumcclick');
+                        console.log(cclick);
+                        var totolclick = cclickDf + cclick;
+                        console.log(totolclick);
+                        localStorage.setItem('sumcclick', totolclick);
+                        console.log("sumcclick*****", localStorage.getItem('sumcclick'));
                         slide_out();
                       } else {
                         flag = 1;
@@ -551,10 +556,18 @@ $(document).ready(function () {
       btnResume.click(function () {
         bodyPopup.hide();
       });
-
+      console.log("playID", playId);
       divBtn.hide();
       HeaderText.show();
-      var ans = Math.floor(Math.random() * 3) + 1;
+      secure = playId.substr(playId.length - 8);
+      countwin = parseInt(localStorage.getItem('countWin') - 1);
+      console.log("playID", playId);
+      console.log("secure", secure);
+      console.log("Math.random() * characters.length", parseInt(Math.floor(Math.random() * characters.length)));
+      // console.log("cclick ran", characters.charAt(Math.floor(Math.random() * characters.length)));
+      console.log(secure.charAt(countwin));
+      ans = (parseInt(secure.charAt(countwin)) % 3) + 1;
+
       var kickInitialPosition = 0;
       reset_position();
       console.log("win is ", ans);
@@ -565,8 +578,8 @@ $(document).ready(function () {
 
 
       // Update the initial position based on the answer
-      kickInitialPosition = 30 + ((ans - 1) * 230);
-      30 + ((ans - 1) * 240);
+      kickInitialPosition = 30 + ((ans) * 240);
+      console.log(kickInitialPosition);
       if (ans === 1) {
         kickInitialPosition = box1.position().left;
       } else if (ans === 2) {
@@ -574,7 +587,7 @@ $(document).ready(function () {
       } else {
         kickInitialPosition = box3.position().left;
       }
-      console.log("kick init ", kickInitialPosition);
+      console.log(kickInitialPosition);
       // Move kick Under the relative box based on answer
       kick.css({
         left: kickInitialPosition + "px"
