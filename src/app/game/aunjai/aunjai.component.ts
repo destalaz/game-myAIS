@@ -52,16 +52,6 @@ export class AunjaiComponent implements OnInit {
     document.getElementsByTagName('head')[0].appendChild(node);
   }
 
-
-  // checkOverGame() {
-  //   if (localStorage.getItem("gameOver") === "true") {
-  //     this.load = true;
-  //     var winnerStatus = false;
-  //     this.servedPlayResult(this.mobileId, this.playId, winnerStatus);
-  //   }
-
-  // }
-
   servedPlayResult(mobileId, playId, winnerStatus) {
     this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
@@ -73,15 +63,6 @@ export class AunjaiComponent implements OnInit {
     });
   }
 
-  // resultGameWin() {
-  //   this.load = true;
-  //   var winnerStatus = true;
-  //   this.gameService.getPlayResult(this.mobileId, this.playId, winnerStatus).subscribe(res => {
-  //     if (res["resultCode"] === "20000" && res["status"] === true) {
-  //       this.load = false;
-  //     }
-  //   });
-  // }
 
   resultGame(statusGame) {
     this.load = true;
