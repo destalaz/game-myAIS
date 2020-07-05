@@ -399,7 +399,7 @@ $(document).ready(function () {
           }, {
             duration: shuffleSpeedLeft,
             specialEasing: {
-              top: 'swing',
+              top: 'linear',
             }
           });
           $("#box" + array[0]).animate({
@@ -407,7 +407,7 @@ $(document).ready(function () {
           }, {
             duration: shuffleSpeedTop,
             specialEasing: {
-              top: 'swing',
+              top: 'linear',
             }
           });
 
@@ -435,7 +435,7 @@ $(document).ready(function () {
           }, {
             duration: shuffleSpeedTop,
             specialEasing: {
-              top: 'swing',
+              top: 'linear',
             }, complete: function () {
               $("#box" + array[0]).css("z-index", "0");
               $("#box" + array[1]).css("z-index", "0");
