@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GameService {
     private baseUrl = 'https://gameapistg.wisdomcloud.net';
+    // private baseUrl = 'https://gameapi.wisdomcloud.net';
     // private baseUrl = 'http://localhost:3000';
 
     httpOptions = {

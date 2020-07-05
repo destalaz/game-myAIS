@@ -1,22 +1,26 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../../service/game.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AnyTxtRecord } from 'dns';
 @Component({
   selector: 'app-reward-flip',
   templateUrl: './reward-flip.component.html',
   styleUrls: ['./reward-flip.component.scss']
 })
 export class RewardFlipComponent implements OnInit {
-
+  private subscriptions = new Subscription();
   termUrl = "myais://gamesterm?lang=th&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip";
   goTutorialPage: boolean = false;
   langauge: string;
   open: boolean = false;
-
+  dataParams: any;
+  optionGame: any;
+  openPageRoute: any;
   @Output() changes = new EventEmitter();
 
-  constructor(private gameService: GameService, private router: Router) { }
+  constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     ////next popup fix success close and open
@@ -28,12 +32,21 @@ export class RewardFlipComponent implements OnInit {
       this.open = true;
     }
     ////next popup fix success close and open
-    
-  
+
+
     this.goTutorialPage = false;
     localStorage.setItem('countWin', "1");
 
     console.log('langauge => ', this.langauge);
+
+    if(this.route.queryParams['langauge']){
+      console.log("hahah",this.route.queryParams['langauge']);
+      this.langauge = this.dataParams.langauge;
+      this.open = this.dataParams.openPage;
+    }
+
+
+
   }
 
 

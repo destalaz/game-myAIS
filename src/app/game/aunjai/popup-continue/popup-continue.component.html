@@ -33,9 +33,10 @@
 
 
         <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playerComplete">
-             <!-- <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip']"></button> -->
-             <div *ngIf="langauge === 'TH'"> <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip']"></button></div>
-             <div *ngIf="langauge === 'ENG'"> <button class="close"  [routerLinkActive]="['isActive']"  [routerLink]="['/reward_flip_eng']"></button></div>
+            <div *ngIf="langauge === 'TH'"> <button class="close" [routerLinkActive]="['isActive']"
+                    [routerLink]="['/reward_flip']"></button></div>
+            <div *ngIf="langauge === 'ENG'"> <button class="close" [routerLinkActive]="['isActive']"
+                    [routerLink]="['/reward_flip_eng']"></button></div>
             <div class="aunjai_fly"></div>
 
             <div *ngIf="langauge === 'TH' || langauge !== 'ENG'">
@@ -51,7 +52,7 @@
             </div>
             <div *ngIf="langauge === 'ENG'">
                 <div *ngIf="reward !== '' ">
-                    <span class="textBody"> 20 {{reward}} AIS Points have been added </span><br>
+                    <span class="textBody"> {{reward}} AIS Points have been added </span><br>
                     <span class="textBody"> to your number </span>
                 </div>
                 <div id="heading-Text">

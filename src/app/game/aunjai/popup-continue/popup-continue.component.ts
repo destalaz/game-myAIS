@@ -16,12 +16,12 @@ export class PopupContinueComponent implements OnInit {
   playId: string
   winnerStatus: boolean
   playerComplete: boolean;
-  dataParams:any;
-  langauge:string;
+  dataParams: any;
+  langauge: string;
   private optionGame = this.router.queryParams;
   private subscriptions = new Subscription();
-  playComplete:boolean;
-  constructor(private gameService: GameService ,   private router: ActivatedRoute,private route:Router) {
+  playComplete: boolean;
+  constructor(private gameService: GameService, private router: ActivatedRoute, private route: Router) {
     this.load = false;
     this.reward = ""
 
@@ -32,12 +32,12 @@ export class PopupContinueComponent implements OnInit {
     this.load = true;
     this.playerComplete = false;
     this.loadOptionGame();
-    if (sessionStorage.getItem('playerComplete') === "true" ) { this.playerComplete = true }
+    if (sessionStorage.getItem('playerComplete') === "true") { this.playerComplete = true }
     // this.playerComplete = sessionStorage.getItem('playerComplete');
     this.reward = localStorage.getItem('rewardpoint');
     console.log(this.reward);
     this.checkPlayerComplete();
-    
+
   }
 
   public loadOptionGame() {
@@ -46,30 +46,38 @@ export class PopupContinueComponent implements OnInit {
         this.dataParams = params;
         this.langauge = this.dataParams.langauge;
       }))
-      console.log(this.dataParams);
+    console.log(this.dataParams);
     console.log(this.langauge);
   }
 
 
-  openPage() {
-    this.route.navigateByUrl('/reward_flip');
+  goTh() {
+    this.route.navigate(["reward_flip"], { queryParams: { langauge: this.langauge } });
+
   }
 
+  goEng() {
+
+
+  }
   checkPlayerComplete() {
     if (this.playerComplete !== true) {
       this.reward = localStorage.getItem('rewardpoint');
       this.mobileId = sessionStorage.getItem('mobileId');
       this.playId = sessionStorage.getItem('playId');
-      // this.servedPlayReward(this.mobileId, this.playId);
-    }else{
-      this.reward ='';
+      if (this.langauge == 'TH') {
+        this.route.navigate(["reward_flip_eng"], { queryParams: { langauge: this.langauge, openPage: true } });
+      } else {
+        this.route.navigate(["reward_flip_th"], { queryParams: { langauge: this.langauge, openPage: true } });
+      }
+    } else {
+      this.reward = '';
     }
   }
 
   servedPlayReward(mobileId, playId) {
     this.gameService.getReward(mobileId, playId).subscribe(res => {
       if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
-        // sessionStorage.removeItem("playId");
         this.load = false;
       }
     });
