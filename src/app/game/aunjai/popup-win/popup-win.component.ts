@@ -35,7 +35,6 @@ export class PopupWinComponent implements OnInit {
       if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
         sessionStorage.removeItem("playId");
         if (res["playerComplete"] === true) {
-          console.log("iflast");
           sessionStorage.setItem('playerComplete', 'true');
         }
         else {
