@@ -1,15 +1,15 @@
 function gamePause() {
 }
 
-// window.addEventListener("storage", function (e) {
-//   console.log("clear storage");
-//   localStorage.clear();
-//   if (e.storageArea === sessionStorage) {
-//     sessionStorage.clear();
-//     console.log("clear storage session");
-//   }
+window.addEventListener("storage", function (e) {
+  console.log("clear storage");
+  localStorage.clear();
+  if (e.storageArea === sessionStorage) {
+    sessionStorage.clear();
+    console.log("clear storage session");
+  }
 
-// }, true);
+}, true);
 
 
 
