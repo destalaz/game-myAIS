@@ -187,7 +187,7 @@ $(document).ready(function () {
         } else if (localStorage.getItem('countWin') === "3") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
-            var resultGameWin = $("#resultGameWin")
+            var resultGameWin = $("#resultGameWin");
             resultGameWin.click();
           } else {
             btnResume3.show();
@@ -196,7 +196,7 @@ $(document).ready(function () {
         } else if (localStorage.getItem('countWin') === "4") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
-            var resultGameWin = $("#resultGameWin")
+            var resultGameWin = $("#resultGameWin");
             resultGameWin.click();
           } else {
             btnResume4.show();
@@ -206,7 +206,7 @@ $(document).ready(function () {
         else if (localStorage.getItem('countWin') === "5") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
-            var resultGameWin = $("#resultGameWin")
+            var resultGameWin = $("#resultGameWin");
             resultGameWin.click();
           } else {
             btnResume5.show();
@@ -216,7 +216,7 @@ $(document).ready(function () {
         else if (localStorage.getItem('countWin') === "6") {
           if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
             bodyWin.show();
-            var resultGameWin = $("#resultGameWin")
+            var resultGameWin = $("#resultGameWin");
             resultGameWin.click();
           } else {
             btnResume5.show();
@@ -228,7 +228,7 @@ $(document).ready(function () {
 
     function gameOver() {
       localStorage.setItem('resumeGame', true);
-      var checkGameOver = $("#checkOverGame")
+      var checkGameOver = $("#checkOverGame");
       checkGameOver.click();
       localStorage.setItem('countWin', '1');
 

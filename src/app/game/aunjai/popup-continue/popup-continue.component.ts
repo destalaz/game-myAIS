@@ -46,27 +46,24 @@ export class PopupContinueComponent implements OnInit {
         this.langauge = this.dataParams.langauge;
       }))
   }
+
+  openPage() {
+    if (this.langauge == 'TH') {
+      this.route.navigate(["reward_flip_eng"], { queryParams: { langauge: this.langauge, openPage: true } });
+    } else {
+      this.route.navigate(["reward_flip_th"], { queryParams: { langauge: this.langauge, openPage: true } });
+    }
+  }
+
+
+
   checkPlayerComplete() {
     if (this.playerComplete !== true) {
       this.reward = localStorage.getItem('rewardpoint');
       this.mobileId = sessionStorage.getItem('mobileId');
       this.playId = sessionStorage.getItem('playId');
-      if (this.langauge == 'TH') {
-        this.route.navigate(["reward_flip_eng"], { queryParams: { langauge: this.langauge, openPage: true } });
-      } else {
-        this.route.navigate(["reward_flip_th"], { queryParams: { langauge: this.langauge, openPage: true } });
-      }
     } else {
       this.reward = '';
     }
   }
-
-  servedPlayReward() {
-    this.gameService.getReward(sessionStorage.getItem('mobileId')).subscribe(res => {
-      if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
-        this.load = false;
-      }
-    });
-  }
-
 }

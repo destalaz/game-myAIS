@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  @Input() langauge:any;
+  @Input() langauge: any;
   load: boolean;
   constructor(private gameService: GameService, private router: Router) {
     this.load = false;
@@ -20,28 +20,34 @@ export class PopupWinComponent implements OnInit {
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
-    
+
   }
   openPage() {
     this.open = true;
   }
-  
+
   // this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
 
   servedPlayReward() {
     this.load = true;
-    var playId = sessionStorage.getItem('playId');
 
-    this.gameService.getReward(playId).subscribe(res => {
+    this.gameService.getReward(sessionStorage.getItem('playId')).subscribe(res => {
+      console.log(sessionStorage.getItem('playId'));
+      console.log("if1");
       if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
+        console.log("iffirstt");
         sessionStorage.removeItem("playId");
         if (res["playerComplete"] === true) {
-          sessionStorage.setItem('playerComplete', 'true')
+          console.log("iflast");
+          sessionStorage.setItem('playerComplete', 'true');
         }
-        else { 
-        sessionStorage.setItem('playerComplete', 'false') }
+        else {
+          console.log("else");
+          sessionStorage.setItem('playerComplete', 'false');
+        }
+        console.log("dflast");
         this.load = false;
-        this.router.navigate(["popupContinue"], { queryParams: { langauge:  this.langauge }});
+        this.router.navigate(["popupContinue"], { queryParams: { langauge: this.langauge } });
       }
     });
   }
