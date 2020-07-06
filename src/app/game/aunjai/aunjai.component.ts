@@ -15,14 +15,21 @@ export class AunjaiComponent implements OnInit {
   dataParams: any;
   langauge: string;
   ansVal: any;
+
+
+
   ngOnInit() {
-   
     this.loadScript();
 
     localStorage.setItem("gameOver", "false");
     this.loadOptionGame();
 
   }
+
+  addChar(val) {
+    val =  val.toString().substring(0, 10) + 'EUIRUTOOPD';
+    return val.toString().substring(0, 10);
+  };
   playId: string
   cclick = localStorage.getItem('sumcclick');
   load: boolean;
@@ -60,8 +67,7 @@ export class AunjaiComponent implements OnInit {
   resultGame(statusGame) {
     this.load = true;
     this.ansVal = localStorage.getItem('sumcclick');
-    this.ansVal = this.ansVal + this.ansVal;
-    this.ansVal = this.ansVal.substr(0, 10);
+    this.addChar(this.ansVal);
     this.servedPlayResult(this.playId, this.ansVal);
   }
 
