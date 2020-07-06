@@ -24,27 +24,20 @@ export class PopupErrorComponent implements OnInit {
   ngOnInit() {
     this.aispoint = localStorage.getItem('aispoint');
     this.statusLoad = false;
-    console.log('langauge => ', this.langauge);
 
     this.langaugeNow = this.langauge;
-    console.log('langaugeNow => ', this.langaugeNow);
-    console.log(this.redeem_point);
   }
 
   close() {
     localStorage.removeItem('resumeGame');
     if (this.langaugeNow === 'TH') {
       this.langauge = 'TH';
-      console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
       this.change.emit(this.redeem_point);
-      console.log(this.redeem_point);
     } else {
       this.langauge = 'ENG';
-      console.log('langauge NOW => ', this.langauge);
       this.redeem_point = false;
       this.change.emit(this.redeem_point);
-      console.log(this.redeem_point);
     }
   }
 
@@ -56,9 +49,12 @@ export class PopupErrorComponent implements OnInit {
     if (!level) { return }
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
+      console.log(sessionStorage.getItem('mobileId'));
+      console.log(level);
       if (res["status"].toString() !== "true") {
         this.insufficientPoint = true;
         this.statusLoad = false;
+        console.log(res["status"].toString());
         return
       }
       this.insufficientPoint = false;

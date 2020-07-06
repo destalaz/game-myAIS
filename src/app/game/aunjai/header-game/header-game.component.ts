@@ -13,6 +13,5 @@ export class HeaderGameComponent implements OnInit {
 
   ngOnInit() {
     this.totalRound = parseInt(localStorage.getItem('totalRound'));
-    console.log("total",this.totalRound)
   }
 }

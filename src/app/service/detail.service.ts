@@ -7,8 +7,4 @@ export class DetailService {
 public language:string;
 
   constructor() { }
-
-  fnGetlanguge(){
-    console.log("this->language Service",this.language);
-  }
 }

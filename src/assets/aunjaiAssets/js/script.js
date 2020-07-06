@@ -1,12 +1,28 @@
 function gamePause() {
-  console.log("pause ..... ???");
+
 }
+var MYLIBRARY = MYLIBRARY || (function(){
+  var _args = {}; // private
 
+  return {
+      init : function(Args) {
+          _args = Args;
+          // some other initialising
+      },
+      helloWorld : function() {
+          alert('Hello World! -' + _args[0]);
+      }
+  };
+}());
 
+var params = document.body.getElementsByTagName('script');
+query = params[0].classList;
+var param_a = query[0];
+var param_b = query[1];
+var param_c = query[2];
 
-var soundGame, soundFlip;
+var soundGame, soundFlip,obj1;
 $(document).ready(function () {
-
   (function () {
     var box1 = $("#box1"),
       divBtn = $("#divBtn"),
@@ -34,16 +50,14 @@ $(document).ready(function () {
       counNumnOfShuffels = 0,
       cclick, secure, ans,
       characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
-      playId = '5f01740563870b98f9059d9029257bxn',
+      playId = sessionStorage.getItem('playId'),
       click = false,
       bodyLose = $("#body-popup-lose"),
       shuffleSpeedLeft, shuffleSpeedTop;
+      
     if (localStorage.getItem('sumcclick') === null) {
       localStorage.setItem('sumcclick', "");
-      console.log(localStorage.getItem('sumcclick'));
     }
-
-    ;
 
     if (localStorage.getItem('countWin') === null) {
       localStorage.setItem('countWin', "1");
@@ -110,21 +124,18 @@ $(document).ready(function () {
         cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       } else if (localStorage.getItem('countWin') === "2") {
-        console.log("cup win 2");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       } else if (localStorage.getItem('countWin') === "3") {
-        console.log("cup win 3");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup4.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       } else if (localStorage.getItem('countWin') === "4") {
-        console.log("cup win 4");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
@@ -132,7 +143,6 @@ $(document).ready(function () {
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       }
       else if (localStorage.getItem('countWin') === "5") {
-        console.log("cup win 5");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
@@ -140,7 +150,6 @@ $(document).ready(function () {
         cup5.css({ 'opacity': '0.2' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)' }, { '-moz-opacity': '0.2' }, { '-khtml-opacity': '0.2' });
       }
       else if (localStorage.getItem('countWin') === "6") {
-        console.log("cup win 5");
         cup1.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup2.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
         cup3.css({ 'opacity': '1' }, { '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)' }, { '-moz-opacity': '1' }, { '-khtml-opacity': '1' });
@@ -240,7 +249,6 @@ $(document).ready(function () {
 
       win = false;
       // divBtn.show();
-      console.log("game Over", localStorage.getItem('resumeGame'));
       // countWin = 1;
 
 
@@ -251,6 +259,8 @@ $(document).ready(function () {
     }
 
     function chk_Choose_click() {
+      $('#heading-Text').stop();
+      $('#heading-Text').hide();
       if (!click) {
         gameOver();
       }
@@ -330,7 +340,7 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(100, chk_Choose_click);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(500).fadeOut(600, chk_Choose_click);
         }
       }
     }
@@ -363,10 +373,8 @@ $(document).ready(function () {
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
           Howler.mute(true);
-          console.log("stop");
         } else {
           Howler.mute(false);
-          console.log("start");
         }
       }, false);
 
@@ -380,7 +388,6 @@ $(document).ready(function () {
           counNumnOfShuffels++;
 
           var array = shuffle([1, 2, 3]);
-          //console.log("move "+array[0]+ " to "+array[1]);
           $("#box" + array[0]).css("z-index", "100");
           $("#box" + array[1]).css("z-index", "300");
           $("#box" + array[2]).css("z-index", "200");
@@ -440,8 +447,6 @@ $(document).ready(function () {
               $("#box" + array[0]).css("z-index", "0");
               $("#box" + array[1]).css("z-index", "0");
               $("#box" + array[2]).css("z-index", "0");
-              console.log("counNumberShuffle", counNumnOfShuffels);
-              console.log("NumbofShuffle", nuberOfShuffels);
 
               if (counNumnOfShuffels < nuberOfShuffels) {
                 gamepPlay();
@@ -478,11 +483,8 @@ $(document).ready(function () {
                         cclick += characters.charAt(Math.floor(Math.random() * characters.length));
                         cclick += String.fromCharCode(64 + ans);
                         var cclickDf = localStorage.getItem('sumcclick');
-                        console.log(cclick);
                         var totolclick = cclickDf + cclick;
-                        console.log(totolclick);
                         localStorage.setItem('sumcclick', totolclick);
-                        console.log("sumcclick*****", localStorage.getItem('sumcclick'));
                         slide_out();
                       } else {
                         flag = 1;
@@ -508,11 +510,8 @@ $(document).ready(function () {
                         cclick += characters.charAt(Math.floor(Math.random() * characters.length));
                         cclick += String.fromCharCode(64 + ans);
                         var cclickDf = localStorage.getItem('sumcclick');
-                        console.log(cclick);
                         var totolclick = cclickDf + cclick;
-                        console.log(totolclick);
                         localStorage.setItem('sumcclick', totolclick);
-                        console.log("sumcclick*****", localStorage.getItem('sumcclick'));
                         slide_out();
                       } else {
                         flag = 1;
@@ -538,11 +537,8 @@ $(document).ready(function () {
                         cclick += characters.charAt(Math.floor(Math.random() * characters.length));
                         cclick += String.fromCharCode(64 + ans);
                         var cclickDf = localStorage.getItem('sumcclick');
-                        console.log(cclick);
                         var totolclick = cclickDf + cclick;
-                        console.log(totolclick);
                         localStorage.setItem('sumcclick', totolclick);
-                        console.log("sumcclick*****", localStorage.getItem('sumcclick'));
                         slide_out();
                       } else {
                         flag = 1;
@@ -568,9 +564,6 @@ $(document).ready(function () {
       shuffleSpeedTop = shuffleSpeed / 5;
       shuffleSpeedLeft = shuffleSpeed / 2;
 
-      console.log("nuberOfShuffels", nuberOfShuffels);
-      console.log("shuffleSpeed", shuffleSpeed);
-
       ready_game();
 
       if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
@@ -583,20 +576,13 @@ $(document).ready(function () {
 
       divBtn.hide();
       HeaderText.show();
-      console.log("playID", playId);
       divBtn.hide();
       HeaderText.show();
       secure = playId.substr(playId.length - 8);
       countwin = parseInt(localStorage.getItem('countWin') - 1);
-      console.log("playID", playId);
-      console.log("secure", secure);
-      console.log("Math.random() * characters.length", parseInt(Math.floor(Math.random() * characters.length)));
-      // console.log("cclick ran", characters.charAt(Math.floor(Math.random() * characters.length)));
-      console.log(secure.charAt(countwin));
       ans = (parseInt(secure.charAt(countwin)) % 3) + 1;
       var kickInitialPosition = 0;
       reset_position();
-      console.log("win is ", ans);
       divBtn.hide();
 
       kick.show();

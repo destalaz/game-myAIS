@@ -16,21 +16,16 @@ export class AunjaiComponent implements OnInit {
   langauge: string;
   ngOnInit() {
     this.loadScript();
-    console.log(this.detailService.fnGetlanguge());
     localStorage.setItem("gameOver", "false");
-    console.log("language", this.langauge);
     this.loadOptionGame();
 
   }
-
-  mobileId: string;
   playId: string
-
+  cclick = localStorage.getItem('sumcclick');
   load: boolean;
 
   constructor(private router: ActivatedRoute, private gameService: GameService, private detailService: DetailService) {
     this.load = false;
-    this.mobileId = sessionStorage.getItem('mobileId');
     this.playId = sessionStorage.getItem('playId');
   }
 
@@ -40,10 +35,8 @@ export class AunjaiComponent implements OnInit {
         this.dataParams = params;
         this.langauge = this.dataParams.langauge;
       }))
-    console.log(this.langauge);
   }
   public loadScript() {
-    console.log('preparing to load...')
     let node = document.createElement('script');
     node.src = this.url;
     node.type = 'text/javascript';
@@ -52,13 +45,12 @@ export class AunjaiComponent implements OnInit {
     document.getElementsByTagName('head')[0].appendChild(node);
   }
 
-  servedPlayResult(mobileId, playId, winnerStatus) {
-    this.gameService.getPlayResult(mobileId, playId, winnerStatus).subscribe(res => {
+  servedPlayResult(playId, cclick, winnerStatus) {
+    this.gameService.getPlayResult(playId, cclick, winnerStatus).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
-        if (winnerStatus.toString() === "false") {
-          sessionStorage.removeItem('playId')
+        if (!winnerStatus.toString()) {
+          this.load = false;
         }
-        this.load = false;
       }
     });
   }
@@ -66,14 +58,14 @@ export class AunjaiComponent implements OnInit {
 
   resultGame(statusGame) {
     this.load = true;
-    console.log("Boolean(statusGame) => ", statusGame)
-    this.servedPlayResult(this.mobileId, this.playId, statusGame);
+    this.servedPlayResult(this.playId, this.cclick, statusGame);
   }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
-}
+  }
 
 }
+
 
 

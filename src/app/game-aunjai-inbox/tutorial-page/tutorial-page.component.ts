@@ -22,7 +22,6 @@ export class TutorialPageComponent implements OnInit {
 
   checkStatusRead() {
     this.goTutorialPage = false;
-    console.log('checkStatusRead => ',this.goTutorialPage);
   }
 
   backPage() {

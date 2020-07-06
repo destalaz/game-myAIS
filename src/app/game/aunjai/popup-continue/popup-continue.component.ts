@@ -35,7 +35,6 @@ export class PopupContinueComponent implements OnInit {
     if (sessionStorage.getItem('playerComplete') === "true") { this.playerComplete = true }
     // this.playerComplete = sessionStorage.getItem('playerComplete');
     this.reward = localStorage.getItem('rewardpoint');
-    console.log(this.reward);
     this.checkPlayerComplete();
 
   }
@@ -46,19 +45,6 @@ export class PopupContinueComponent implements OnInit {
         this.dataParams = params;
         this.langauge = this.dataParams.langauge;
       }))
-    console.log(this.dataParams);
-    console.log(this.langauge);
-  }
-
-
-  goTh() {
-    this.route.navigate(["reward_flip"], { queryParams: { langauge: this.langauge } });
-
-  }
-
-  goEng() {
-
-
   }
   checkPlayerComplete() {
     if (this.playerComplete !== true) {
@@ -75,8 +61,8 @@ export class PopupContinueComponent implements OnInit {
     }
   }
 
-  servedPlayReward(mobileId, playId) {
-    this.gameService.getReward(mobileId, playId).subscribe(res => {
+  servedPlayReward(playId) {
+    this.gameService.getReward(playId).subscribe(res => {
       if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
         this.load = false;
       }

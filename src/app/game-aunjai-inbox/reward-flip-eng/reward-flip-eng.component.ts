@@ -22,6 +22,7 @@ export class RewardFlipEngComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    localStorage.removeItem('sumcclick');
     this.langauge = 'ENG';
     this.goTutorialPage = false;
     this.open = false;
@@ -36,19 +37,11 @@ export class RewardFlipEngComponent implements OnInit {
 
     localStorage.setItem('countWin', "1");
     localStorage.setItem('language', "ENG");
-    console.log('langauge => ', this.langauge);
   }
 
-  // chcekLangauge() {
-  //   if (this.langauge === 'ENG') {
-  //     this.langauge = 'TH';
-  //     console.log(this.langauge);
-  //   }
-  // }
 
   goTutorial() {
     this.goTutorialPage = true;
-    console.log(this.goTutorialPage);
   }
 
   termCondition() {

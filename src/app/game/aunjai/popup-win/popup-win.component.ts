@@ -29,12 +29,10 @@ export class PopupWinComponent implements OnInit {
   // this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
 
   servedPlayReward() {
-    console.log(this.langauge);
     this.load = true;
-    var mobileId = sessionStorage.getItem('mobileId');
     var playId = sessionStorage.getItem('playId');
 
-    this.gameService.getReward(mobileId, playId).subscribe(res => {
+    this.gameService.getReward(playId).subscribe(res => {
       if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
         sessionStorage.removeItem("playId");
         if (res["playerComplete"] === true) {

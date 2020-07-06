@@ -23,6 +23,7 @@ export class RewardFlipComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    localStorage.removeItem('sumcclick');
     ////next popup fix success close and open
     this.open = false;
     if (!this.langauge) {
@@ -37,10 +38,8 @@ export class RewardFlipComponent implements OnInit {
     this.goTutorialPage = false;
     localStorage.setItem('countWin', "1");
 
-    console.log('langauge => ', this.langauge);
 
     if(this.route.queryParams['langauge']){
-      console.log("hahah",this.route.queryParams['langauge']);
       this.langauge = this.dataParams.langauge;
       this.open = this.dataParams.openPage;
     }
@@ -52,7 +51,6 @@ export class RewardFlipComponent implements OnInit {
 
   goTutorial() {
     this.goTutorialPage = true;
-    console.log(this.goTutorialPage);
   }
 
   termCondition() {
