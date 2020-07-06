@@ -45,20 +45,18 @@ export class AunjaiComponent implements OnInit {
     document.getElementsByTagName('head')[0].appendChild(node);
   }
 
-  servedPlayResult(playId, cclick, winnerStatus) {
-    this.gameService.getPlayResult(playId, cclick, winnerStatus).subscribe(res => {
+  servedPlayResult(playId, cclick) {
+    this.gameService.getPlayResult(playId, cclick).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
-        if (!winnerStatus.toString()) {
-          this.load = false;
-        }
+        this.resultGame();
       }
     });
   }
 
 
-  resultGame(statusGame) {
+  resultGame() {
     this.load = true;
-    this.servedPlayResult(this.playId, this.cclick, statusGame);
+    this.servedPlayResult(this.playId, this.cclick);
   }
 
   ngOnDestroy() {

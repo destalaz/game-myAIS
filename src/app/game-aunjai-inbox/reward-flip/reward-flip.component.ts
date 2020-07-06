@@ -36,7 +36,6 @@ export class RewardFlipComponent implements OnInit {
 
 
     this.goTutorialPage = false;
-    localStorage.setItem('countWin', "1");
 
 
     if(this.route.queryParams['langauge']){
@@ -58,19 +57,27 @@ export class RewardFlipComponent implements OnInit {
   }
 
   setLevel(level) {
+    console.log(level);
     if (level == 1) {
+      console.log(level);
       localStorage.setItem('aispoint', "1");
       localStorage.setItem('rewardpoint', "20");
+      localStorage.setItem('level',"1");
     } else if (level == 2) {
+      console.log(level);
       localStorage.setItem('aispoint', "2");
       localStorage.setItem('rewardpoint', "50");
+      localStorage.setItem('level',"2");
     } else {
+      console.log(level);
       localStorage.setItem('aispoint', "3");
       localStorage.setItem('rewardpoint', "100");
+      localStorage.setItem('level',"3");
     }
     this.open = true;
     this.changes.emit(this.open);
     localStorage.setItem('level', level);
+    console.log(localStorage.getItem('level'));
   }
 
 }

@@ -1,19 +1,7 @@
 function gamePause() {
 
 }
-var MYLIBRARY = MYLIBRARY || (function(){
-  var _args = {}; // private
 
-  return {
-      init : function(Args) {
-          _args = Args;
-          // some other initialising
-      },
-      helloWorld : function() {
-          alert('Hello World! -' + _args[0]);
-      }
-  };
-}());
 
 var params = document.body.getElementsByTagName('script');
 query = params[0].classList;
@@ -159,6 +147,7 @@ $(document).ready(function () {
     }
 
     function slide_out() {
+      console.log(localStorage.getItem('sumcclick'));
       kick.css({ left: ans_position_left });
       win = false;
       kick.show();
@@ -581,6 +570,7 @@ $(document).ready(function () {
       secure = playId.substr(playId.length - 8);
       countwin = parseInt(localStorage.getItem('countWin') - 1);
       ans = (parseInt(secure.charAt(countwin)) % 3) + 1;
+      console.log("this ans",ans);
       var kickInitialPosition = 0;
       reset_position();
       divBtn.hide();

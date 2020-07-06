@@ -24,7 +24,6 @@ export class PopupErrorComponent implements OnInit {
   ngOnInit() {
     this.aispoint = localStorage.getItem('aispoint');
     this.statusLoad = false;
-
     this.langaugeNow = this.langauge;
   }
 
@@ -45,12 +44,12 @@ export class PopupErrorComponent implements OnInit {
   ServedPlayGame() {
     this.statusLoad = true;
     localStorage.removeItem('resumeGame');
-    const level = localStorage.getItem("level");
+    const level = localStorage.getItem('level');
+    console.log(sessionStorage.getItem('mobileId'));
+    console.log(localStorage.getItem('level'));
     if (!level) { return }
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
-      console.log(sessionStorage.getItem('mobileId'));
-      console.log(level);
       if (res["status"].toString() !== "true") {
         this.insufficientPoint = true;
         this.statusLoad = false;

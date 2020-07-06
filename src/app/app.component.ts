@@ -15,7 +15,6 @@ export class AppComponent {
 
   }
   ngOnInit() {
-
     window.addEventListener("storage", function (e) {
       localStorage.clear();
       if(e.storageArea===sessionStorage){

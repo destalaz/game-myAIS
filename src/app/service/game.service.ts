@@ -34,17 +34,17 @@ export class GameService {
         return this.http.post(this.baseUrl + urlApi, body);
     }
 
-    getPlayResult(_playId: string, cclick: string, _resultStatus: boolean) {
+    getPlayResult(_playId: string, cclick: string) {
         let urlApi = "/api/cms/game/result";
         const body =
-            { playId: _playId, resultStatus: _resultStatus, winnerStatus: _resultStatus, }
+            { playId: _playId, cclick:cclick}
         return this.http.post(this.baseUrl + urlApi, body);
     }
 
-    getReward(_playId: string) {
+    getReward(_playId: string,_mobileId:string) {
         let urlApi = "/api/cms/game/getReward";
         const body =
-            { playId: _playId }
+            { playId: _playId,mobileId:_mobileId }
         return this.http.post(this.baseUrl + urlApi, body);
     }
 

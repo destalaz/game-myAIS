@@ -62,7 +62,7 @@ export class PopupContinueComponent implements OnInit {
   }
 
   servedPlayReward(playId) {
-    this.gameService.getReward(playId).subscribe(res => {
+    this.gameService.getReward(playId,sessionStorage.getItem('mobileId')).subscribe(res => {
       if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
         this.load = false;
       }
