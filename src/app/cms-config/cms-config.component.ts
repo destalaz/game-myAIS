@@ -20,6 +20,7 @@ export class CmsConfigComponent implements OnInit {
   diffTb: any;
   title = 'Game-myAIS';
 
+  btnRewardLimit: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,7 +56,7 @@ export class CmsConfigComponent implements OnInit {
     if (this.configForm.controls.amountWin.value != this.diffDetail.length) {
       this.diffDetail = [];
       for (let i = 1; i <= this.configForm.controls.amountWin.value; i++) {
-        const diffArr = { "flip":  + i, "speed": 200, "flipAmt": 1 };
+        const diffArr = { "flip": + i, "speed": 200, "flipAmt": 1 };
         this.diffDetail.push(diffArr);
       }
     }
@@ -112,13 +113,22 @@ export class CmsConfigComponent implements OnInit {
     this.alertLoading(true);
     this.cmsService.getConfig().subscribe((res: any) => {
       if (res.resultCode === "20000") {
-        this.configData = res.data;        
-
+        this.configData = res.data;
+        if (res.rewardLimit === 0) {
+          this.btnRewardLimit = true;
+        } else {
+          this.btnRewardLimit = false;
+        }
         // this.levelOnChange();
       }
       // Err
-      this.alertLoading(false);
+      setTimeout(() => {
+        this.alertLoading(false);
+      }, 1000);
+
     });
+
+
   }
 
   alertLoading(val: boolean): void {
@@ -175,9 +185,21 @@ export class CmsConfigComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  getDetail(level) {
-    // console.log(this.configData)
-    console.log("level => " ,level)
+
+  changeRewardLimite() {
+    this.alertLoading(true);
+    var _data = 0
+    if (this.btnRewardLimit === true) { _data = 3; this.btnRewardLimit = false } 
+    else { this.btnRewardLimit = true  }
+    this.cmsService.rewardLimit(_data).subscribe(
+      (res: any) => {
+        if (res.resultCode === "20000") {
+          setTimeout(() => {
+            this.alertLoading(false)
+          }, 1000);
+        }
+      });
+
   }
 
 }

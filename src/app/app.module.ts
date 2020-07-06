@@ -10,12 +10,15 @@ import { CmsConfigComponent } from './cms-config/cms-config.component';
 import { LoginComponent } from './login/login.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { DataTablesModule } from 'angular-datatables';  // npm i @types/datatables.net --save-dev
+import { DataTablesModule } from 'angular-datatables';
+import { ReportChartsComponent } from './report-charts/report-charts.component'; 
+ // npm i @types/datatables.net --save-dev
 
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'config', component: CmsConfigComponent },
+  { path: 'report', component: ReportChartsComponent },
   {
     path: '',
     redirectTo: '/login',
@@ -28,7 +31,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    CmsConfigComponent
+    CmsConfigComponent,
+    ReportChartsComponent
   ],
   imports: [
     DataTablesModule,

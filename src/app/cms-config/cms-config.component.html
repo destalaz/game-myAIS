@@ -278,4 +278,21 @@
 
 
 
+    <!-- btnRewardstaus -->
+    <div class="" style="padding-top: 24px; margin: 12px; ">
+        <p style="color: red;">* Temporary use for developer mode</p>
+        <button type="button" (click)="changeRewardLimite()" class="btn btn-success "
+            *ngIf="!btnRewardLimit">Click to open! (Use of reward limits)</button>
+        <button type="button" (click)="changeRewardLimite()" class="btn btn-danger "
+            *ngIf="btnRewardLimit">Click to close! (Use of reward limits)</button>
+    </div>
+
+
+    <div  class="card" style="margin-top: 100px; margin-bottom: 20% ;  margin: 24px;">
+        <app-report-charts></app-report-charts>
+    </div>
+
+    <div style="margin-bottom: 20%;"></div>
+
+
 </body>

@@ -15,13 +15,15 @@ export class CmsService {
     reportName = new Array();
     reloadData;
     private baseUrl = 'https://gameapistg.wisdomcloud.net/api/cms';
+    // private baseUrl = 'https://gameapi.wisdomcloud.net/api/cms';
     // private baseUrl = 'http://localhost:3000/api/cms';
 
     httpOptions = {
         headers: new HttpHeaders({
             "Content-Type": "application/json",
             "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT",
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Request-Headers": "*"
         })
     };
 
@@ -30,18 +32,23 @@ export class CmsService {
 
     getConfig() {
         let urlApi = "/config";
-        return this.http.get(this.baseUrl + urlApi);
+        return this.http.get(this.baseUrl + urlApi );
     }
 
     login(username: string, password: string) {
         let urlApi = "/config/login";
-        return this.http.post(this.baseUrl + urlApi, { username: username, password: password });
+        return this.http.post(this.baseUrl + urlApi, { username: username, password: password } );
     }
 
     createLevel(body: any) {
         let urlApi = "/config/create/level";
-        return this.http.post(this.baseUrl + urlApi, body);
+        return this.http.post(this.baseUrl + urlApi, body );
     }
 
+    rewardLimit(_rewardLimit: any) {
+        let urlApi = "/config/rewardlimit";
+        var _data = { rewardLimit: _rewardLimit }
+        return this.http.post(this.baseUrl + urlApi, _data  );
+    }
 
 }
