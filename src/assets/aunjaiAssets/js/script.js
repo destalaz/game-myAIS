@@ -1,15 +1,31 @@
 function gamePause() {
-
 }
 
+window.addEventListener("storage", function (e) {
+  console.log("clear storage");
+  localStorage.clear();
+  if (e.storageArea === sessionStorage) {
+    sessionStorage.clear();
+    console.log("clear storage session");
+  }
 
-var params = document.body.getElementsByTagName('script');
-query = params[0].classList;
-var param_a = query[0];
-var param_b = query[1];
-var param_c = query[2];
+}, true);
 
-var soundGame, soundFlip, obj1;
+
+
+// function detectDevTool(allow) {
+//   console.log("watch");
+//   if(isNaN(+allow)) allow = 100;
+//   var start = +new Date();
+//   debugger;
+//   var end = +new Date();
+//   if(isNaN(start) || isNaN(end) || end - start > allow) {
+//     alert('debug detected. all operations will be terminated.');
+//     document.write('debug detected.');
+//   }
+// }
+// var wathch=setInterval(function(){detectDevTool()},1000);
+
 $(document).ready(function () {
   (function () {
     var box1 = $("#box1"),

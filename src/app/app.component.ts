@@ -11,21 +11,8 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
 
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router) {}
   ngOnInit() {
-    window.addEventListener("storage", function (e) {
-      localStorage.clear();
-      if(e.storageArea===sessionStorage){
-        sessionStorage.clear();
-      } 
-
-    }, true);
-
-  }
-  fnRedirect() {
-    this.router.navigateByUrl('/loadgame');
   }
 
 }
