@@ -282,9 +282,9 @@ $(document).ready(function () {
 
     function reset_position() {
 
-      box1.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
-      box2.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
-      box3.html('<img src="../../assets/aunjaiAssets/component/Group_2069.svg" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      box1.html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      box2.html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
+      box3.html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_t" style="transform: rotate(180deg); width:30vw;">');
       kick.css({ top: '0px', left: '0px' });
       box1.css({ left: '0vw', top: '0px', position: 'absolute' });
       box2.css({ left: '33vw', top: '0px', position: 'absolute' });
