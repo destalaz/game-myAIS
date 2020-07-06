@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,19 +15,15 @@ export class RewardFlipEngComponent implements OnInit {
   open: boolean = false;
   termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
   goTutorialPage: boolean = false;
-  langauge: string = 'ENG';
+  langauge: string;
 
-  constructor(
-    private gameService: GameService,
-    private router: Router
-  ) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     localStorage.removeItem('sumcclick');
-    this.langauge = 'ENG';
     this.goTutorialPage = false;
     this.open = false;
-    ////next popup fix success close and open
+
     if (!this.langauge) {
       this.langauge = 'ENG';
     }
@@ -37,6 +34,8 @@ export class RewardFlipEngComponent implements OnInit {
 
     localStorage.setItem('countWin', "1");
     localStorage.setItem('language', "ENG");
+
+
   }
 
 

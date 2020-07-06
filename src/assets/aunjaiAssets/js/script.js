@@ -9,7 +9,7 @@ var param_a = query[0];
 var param_b = query[1];
 var param_c = query[2];
 
-var soundGame, soundFlip,obj1;
+var soundGame, soundFlip, obj1;
 $(document).ready(function () {
   (function () {
     var box1 = $("#box1"),
@@ -42,7 +42,7 @@ $(document).ready(function () {
       click = false,
       bodyLose = $("#body-popup-lose"),
       shuffleSpeedLeft, shuffleSpeedTop;
-      
+
     if (localStorage.getItem('sumcclick') === null) {
       localStorage.setItem('sumcclick', "");
     }
@@ -385,26 +385,17 @@ $(document).ready(function () {
             top: ($("#box" + array[2]).position().top) - 40 + "px"
           }, {
             duration: shuffleSpeedTop,
-            specialEasing: {
-              top: 'easeInQuint',
-            }
           });
 
           $("#box" + array[0]).animate({
             left: $("#box" + array[1]).position().left + "px",
           }, {
             duration: shuffleSpeedLeft,
-            specialEasing: {
-              top: 'linear',
-            }
           });
           $("#box" + array[0]).animate({
             top: ($("#box" + array[2]).position().top) + "px"
           }, {
             duration: shuffleSpeedTop,
-            specialEasing: {
-              top: 'linear',
-            }
           });
 
 
@@ -412,27 +403,19 @@ $(document).ready(function () {
             top: ($("#box" + array[2]).position().top) + 40 + "px"
           }, {
             duration: shuffleSpeedLeft,
-            specialEasing: {
-              top: 'easeInQuint'
-            }
           });
 
           $("#box" + array[1]).animate({
             left: $("#box" + array[0]).position().left + "px",
           }, {
             duration: shuffleSpeedLeft,
-            specialEasing: {
-              left: 'easeInQuint'
-            }
           });
 
           $("#box" + array[1]).animate({
             top: ($("#box" + array[2]).position().top) + "px"
           }, {
-            duration: shuffleSpeedTop,
-            specialEasing: {
-              top: 'linear',
-            }, complete: function () {
+            duration: shuffleSpeedTop
+            , complete: function () {
               $("#box" + array[0]).css("z-index", "0");
               $("#box" + array[1]).css("z-index", "0");
               $("#box" + array[2]).css("z-index", "0");
@@ -570,7 +553,7 @@ $(document).ready(function () {
       secure = playId.substr(playId.length - 8);
       countwin = parseInt(localStorage.getItem('countWin') - 1);
       ans = (parseInt(secure.charAt(countwin)) % 3) + 1;
-      console.log("this ans",ans);
+      console.log("this ans", ans);
       var kickInitialPosition = 0;
       reset_position();
       divBtn.hide();

@@ -48,10 +48,10 @@ export class PopupContinueComponent implements OnInit {
   }
 
   openPage() {
-    if (this.langauge == 'TH') {
-      this.route.navigate(["reward_flip_eng"], { queryParams: { langauge: this.langauge, openPage: true } });
+    if (this.langauge === 'TH') {
+      this.route.navigate(["reward_flip"], { queryParams: { langauge: "TH", openPage: true } });
     } else {
-      this.route.navigate(["reward_flip_th"], { queryParams: { langauge: this.langauge, openPage: true } });
+      this.route.navigate(["reward_flip_eng"], { queryParams: { langauge:"ENG", openPage: true } });
     }
   }
 
@@ -62,6 +62,7 @@ export class PopupContinueComponent implements OnInit {
       this.reward = localStorage.getItem('rewardpoint');
       this.mobileId = sessionStorage.getItem('mobileId');
       this.playId = sessionStorage.getItem('playId');
+      localStorage.setItem('resumeGame', 'true');
     } else {
       this.reward = '';
     }

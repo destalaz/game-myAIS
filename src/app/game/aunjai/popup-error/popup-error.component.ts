@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class PopupErrorComponent implements OnInit {
   @Input() redeem_point: boolean;
   @Input() langauge: string;
+  @Input() open: boolean;
   @Output() change = new EventEmitter();
   openPopupReady: boolean = false;
   langaugeNow: string;
@@ -33,10 +34,12 @@ export class PopupErrorComponent implements OnInit {
       this.langauge = 'TH';
       this.redeem_point = false;
       this.change.emit(this.redeem_point);
+      console.log(this.redeem_point);
     } else {
       this.langauge = 'ENG';
       this.redeem_point = false;
       this.change.emit(this.redeem_point);
+      console.log(this.redeem_point);
     }
   }
 
@@ -46,7 +49,7 @@ export class PopupErrorComponent implements OnInit {
     localStorage.removeItem('resumeGame');
     const level = localStorage.getItem('level');
     console.log(sessionStorage.getItem('mobileId'));
-    console.log(localStorage.getItem('level'));
+    console.log("level",level);
     if (!level) { return }
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {

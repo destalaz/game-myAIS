@@ -14,8 +14,11 @@ export class AunjaiComponent implements OnInit {
   private optionGame = this.router.queryParams;
   dataParams: any;
   langauge: string;
+  ansVal: any;
   ngOnInit() {
+   
     this.loadScript();
+
     localStorage.setItem("gameOver", "false");
     this.loadOptionGame();
 
@@ -46,7 +49,7 @@ export class AunjaiComponent implements OnInit {
   }
 
   servedPlayResult(playId, cclick) {
-    console.log("call result");
+    this.load = true;
     this.gameService.getPlayResult(playId, cclick).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
         this.load = false;
@@ -56,7 +59,10 @@ export class AunjaiComponent implements OnInit {
 
   resultGame(statusGame) {
     this.load = true;
-    this.servedPlayResult(this.playId, localStorage.getItem('sumcclick'));
+    this.ansVal = localStorage.getItem('sumcclick');
+    this.ansVal = this.ansVal + this.ansVal;
+    this.ansVal = this.ansVal.substr(0, 10);
+    this.servedPlayResult(this.playId, this.ansVal);
   }
 
   ngOnDestroy() {
