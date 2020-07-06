@@ -41,10 +41,10 @@ export class GameService {
         return this.http.post(this.baseUrl + urlApi, body);
     }
 
-    getReward(_playId: string,_mobileId:string) {
+    getReward(_playId: string) {
         let urlApi = "/api/cms/game/getReward";
         const body =
-            { playId: _playId,mobileId:_mobileId }
+            { playId: _playId}
         return this.http.post(this.baseUrl + urlApi, body);
     }
 
