@@ -1,15 +1,15 @@
 function gamePause() {
 }
 
-window.addEventListener("storage", function (e) {
-  console.log("clear storage");
-  localStorage.clear();
-  if (e.storageArea === sessionStorage) {
-    sessionStorage.clear();
-    console.log("clear storage session");
-  }
+// window.addEventListener("storage", function (e) {
+//   console.log("clear storage");
+//   localStorage.clear();
+//   if (e.storageArea === sessionStorage) {
+//     sessionStorage.clear();
+//     console.log("clear storage session");
+//   }
 
-}, true);
+// }, true);
 
 
 
@@ -182,10 +182,7 @@ $(document).ready(function () {
       HeaderText.animate({
         top: "17vh"
       }, {
-        duration: 400,
-        specialEasing: {
-          top: 'easeInQuint'
-        }
+        duration: 800
       });
       setTimeout(() => {
 
@@ -345,7 +342,9 @@ $(document).ready(function () {
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(500).fadeOut(600, chk_Choose_click);
+          flag = 1;
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(500).fadeOut(600,  gameOver);
+         
         }
       }
     }
