@@ -18,6 +18,8 @@ export class TutorialPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.pageNo = 0;
+    console.log(this.pageNo);
   }
 
   checkStatusRead() {
@@ -27,9 +29,11 @@ export class TutorialPageComponent implements OnInit {
 
   backPage() {
     this.pageNo = this.pageNo - 1;
+    console.log(this.pageNo);
   }
 
   nextPage() {
     this.pageNo = this.pageNo + 1;
+    console.log(this.pageNo);
   }
 }

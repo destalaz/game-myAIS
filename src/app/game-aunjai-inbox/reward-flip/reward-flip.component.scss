@@ -197,12 +197,12 @@ h3 {
 
         .how-to-play-border {
             position: inherit;
-            width: 23vh;
+            width: 20vh;
             margin-top: 0vh;
 
             @media screen and (min-device-height: 960px) {
-                width: 21vh;
-                margin-top: 3vh;
+                width: 20vh;
+                margin-top: 0vh;
             }
 
             @media screen and (max-device-width: 414px) {
@@ -229,8 +229,13 @@ h3 {
         }
         .text-condition {
             position: inherit;
-            width: 23vh;
+            width: 20vh;
             margin-top: 8vh;
+
+            @media screen and (min-device-height: 960px) {
+                width: 20vh;
+                margin-top: 7vh;
+            }
         }
     }
 }
