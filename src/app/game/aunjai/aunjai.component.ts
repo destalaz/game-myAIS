@@ -67,6 +67,7 @@ export class AunjaiComponent implements OnInit {
   resultGame(statusGame) {
     this.load = true;
     this.ansVal = localStorage.getItem('sumcclick');
+    console.log(this.addChar(this.ansVal));
     this.servedPlayResult(this.playId, this.addChar(this.ansVal));
   }
 

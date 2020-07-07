@@ -1,13 +1,15 @@
 function gamePause() {
 }
 
-window.addEventListener("storage", function (e) {
-  localStorage.clear();
-  if (e.storageArea === sessionStorage) {
-    sessionStorage.clear();
-  }
+// window.addEventListener("storage", function (e) {
+//   console.log("clear storage");
+//   localStorage.clear();
+//   if (e.storageArea === sessionStorage) {
+//     sessionStorage.clear();
+//     console.log("clear storage session");
+//   }
 
-}, true);
+// }, true);
 
 
 
@@ -161,6 +163,7 @@ $(document).ready(function () {
     }
 
     function slide_out() {
+      console.log(localStorage.getItem('sumcclick'));
       kick.css({ left: ans_position_left });
       win = false;
       kick.show();
@@ -337,9 +340,11 @@ $(document).ready(function () {
         if (click) {
           $('#heading-Text').stop();
           $('#heading-Text').hide();
-          chk_Choose_click()
+          chk_Choose_click();
         } else {
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(400).fadeOut(300,  chk_Choose_click);
+          flag = 1;
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(500).fadeOut(600,  gameOver);
+         
         }
       }
     }
@@ -563,6 +568,7 @@ $(document).ready(function () {
       secure = playId.substr(playId.length - 8);
       countwin = parseInt(localStorage.getItem('countWin') - 1);
       ans = (parseInt(secure.charAt(countwin)) % 3) + 1;
+      console.log("this ans", ans);
       var kickInitialPosition = 0;
       reset_position();
       divBtn.hide();
