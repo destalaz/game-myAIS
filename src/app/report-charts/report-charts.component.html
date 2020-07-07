@@ -1,18 +1,4 @@
-<!-- <div class=container4>
-        <div class="text-center" style="background-color: rgb(255, 255, 255); padding: 14px; " >
-            <svg width="120px" viewBox="0 0 16 16" class="bi bi-wrench" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019L13 11l-.471.242-.529.026-.287.445-.445.287-.026.529L11 13l.242.471.026.529.445.287.287.445.529.026L13 15l.471-.242.529-.026.287-.445.445-.287.026-.529L15 13l-.242-.471-.026-.529-.445-.287-.287-.445-.529-.026z"/>
-              </svg>
-            <h3> Coming soon...</h3>
-        </div>
-    </div>
--->
 
-<!-- modal loadling -->
-<!-- <input type="button" id="modalLoading" name="modalLoading"
-  onclick="document.getElementById('modalLoad').style.display='block'" hidden>
-<input type="button" id="closeModalLoading" name="closeModalLoading"
-  onclick="document.getElementById('modalLoad').style.display='none'" hidden> -->
 
 <div id="modalLoad" class="w3-modal" style=" z-index: 999;" *ngIf="loadStatus">
     <div class="text-center" style="margin-top:15% ;">
@@ -26,17 +12,17 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-<!-- / modal loadling -->
+
 
 <div *ngIf="!loadStatus">
     <div style="margin-top: 48px;">
         <p><b>Dashboard
 
-                <button *ngIf="titieDate === '' " type="button" class="btn btn-secondary btn-sm float-right "
+                <button *ngIf="titieDate === '' " type="button" class="btn color-ais btn-sm float-right "
                     style="width: 140px;" (click)="ChooseDate()">Choose Date
                 </button>
 
-                <button *ngIf="titieDate !== ''" type="button" class="btn btn-secondary btn-sm float-right "
+                <button *ngIf="titieDate !== ''" type="button" class="btn color-ais btn-sm float-right "
                     style="width: 80px;" (click)="getReport()">Reface
                 </button> </b></p>
     </div>
@@ -44,85 +30,70 @@
 
 
 
+    <div style="margin-bottom: 24px;">
+        <div class="card" style="padding: 24px; ">
 
-    <div class="card" style="padding: 24px;  ">
-
-        <div *ngIf=" titieDate!== '' " style=" text-align: center; margin-bottom: 24px;">
-            <span style="color: rgb(37, 37, 37);"><b>Report Date: </b> {{ titieDate }}</span>
-        </div>
-        <div id="chartDiv" class="row" style="padding: 24px;">
-            <div class="col-6">
-                <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+            <div *ngIf=" titieDate!== '' " style=" text-align: center; margin-bottom: 24px;">
+                <span style="color: rgb(37, 37, 37);"><b>Report Date: </b> {{ titieDate }}</span>
             </div>
-            <div class="col-6">
-                <div id="chartContainer2" style="height: 370px; width: 100%; margin:auto;"></div>
-            </div>
-        </div>
-
-        <div id="chartDiv" class="row" style="padding: 24px;">
-            <div class="col-12">
-                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
-            </div>
-
-        </div>
-
-        <table class=" text-center table  table-sm table-bordered text-center" style="margin-top: 24px;">
-            <thead class="table-active thead-dark">
-                <tr>
-                    <th>GameLevel</th>
-                    <th>Visits</th>
-                    <th>Visitors</th>
-                    <th>Game_won</th>
-                    <th>%win</th>
-                    <th>Game_Lost</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-nowrap ">Easy</td>
-                    <td class=" text-nowrap">{{ reportData.leve1.visits }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve1.visitors }}</td>
-                    <td class="text-nowrap ">{{ reportData.leve1.game_won }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve1.win_Percent }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve1.game_Lost }}</td>
-                </tr>
-                <tr>
-                    <td class="text-nowrap ">Medium</td>
-                    <td class=" text-nowrap">{{ reportData.leve2.visits }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve2.visitors }}</td>
-                    <td class="text-nowrap ">{{ reportData.leve2.game_won }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve2.win_Percent }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve2.game_Lost }}</td>
-                </tr>
-                <tr>
-                    <td class="text-nowrap ">Hard</td>
-                    <td class=" text-nowrap">{{ reportData.leve3.visits }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve3.visitors }}</td>
-                    <td class="text-nowrap ">{{ reportData.leve3.game_won }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve3.win_Percent }}</td>
-                    <td class=" text-nowrap">{{ reportData.leve3.game_Lost }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-
-    <!-- <div class="row">
-        <div class="col-9"></div>
-        <div class="col-3">
-            <div class="form-group row">
-                <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                <div class="col-10">
-                    <div style="display: inline ;  clear: none;">
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                        
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+            <div id="chartDiv" class="row" style="padding: 24px;">
+                <div class="col-6">
+                    <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;">
                     </div>
                 </div>
+                <div class="col-6">
+                    <div id="chartContainer2" style="height: 370px; width: 100%; margin:auto;"></div>
+                </div>
             </div>
+
+            <div id="chartDiv" class="row" style="padding: 24px;">
+                <div class="col-12">
+                    <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+                </div>
+
+            </div>
+
+            <table class=" text-center table  table-sm table-bordered text-center" style="margin-top: 24px;">
+                <thead class="table-active color-ais ">
+                    <tr>
+                        <th>GameLevel</th>
+                        <th>Visits</th>
+                        <th>Visitors</th>
+                        <th>Game_won</th>
+                        <th>%win</th>
+                        <th>Game_Lost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-nowrap ">Easy</td>
+                        <td class=" text-nowrap">{{ reportData.leve1.visits }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve1.visitors }}</td>
+                        <td class="text-nowrap ">{{ reportData.leve1.game_won }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve1.win_Percent }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve1.game_Lost }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-nowrap ">Medium</td>
+                        <td class=" text-nowrap">{{ reportData.leve2.visits }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve2.visitors }}</td>
+                        <td class="text-nowrap ">{{ reportData.leve2.game_won }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve2.win_Percent }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve2.game_Lost }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-nowrap ">Hard</td>
+                        <td class=" text-nowrap">{{ reportData.leve3.visits }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve3.visitors }}</td>
+                        <td class="text-nowrap ">{{ reportData.leve3.game_won }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve3.win_Percent }}</td>
+                        <td class=" text-nowrap">{{ reportData.leve3.game_Lost }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div> -->
+    </div>
+
 
 
     <!-- modal Edit Set -->

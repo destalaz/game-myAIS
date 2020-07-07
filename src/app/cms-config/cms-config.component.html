@@ -8,11 +8,13 @@
 </nav>
 
 
-<body class="container">
+<body class="container" style=" border-radius: 25px; margin-bottom: 7%;"  >
 
     <!-- detail -->
-    <div style="margin: 1rem; margin-top: 7% ;  ">
+    <div style="margin: 1rem; margin-top: 7% ; padding-top: 7%; ">
+        
         <h2 class="text-center">CMS Config</h2>
+       
         <div class="row">
             <div class="col-12">
                 <div style="margin-top: 48px;">
@@ -20,7 +22,7 @@
                 </div>
                 <div class="card" style="padding: 24px;  ">
                     <table class=" text-center table table-sm table-bordered text-center">
-                        <thead class="table-active">
+                        <thead class="color-ais ">
                             <tr>
                                 <th>Level</th>
                                 <th>Point for pay</th>
@@ -36,9 +38,9 @@
                                 <td class=" text-nowrap">{{ loopdata.reward }}</td>
                                 <td class=" text-nowrap">{{ loopdata.amountWin }}</td>
                                 <td class=" text-nowrap">
-                                    <button type="button" class="color-ais block2"
+                                    <button type="button" class="btn btn-secondary  block2 " 
                                         (click)="levelOnChange(loopdata.levelIdx,'set')">Edit</button>
-                                    <button type="button" class="color-ais  block2"
+                                    <button type="button" class="btn  btn-info block2 " 
                                         (click)="levelOnChange(loopdata.levelIdx,'diff')">Edit Difficulty</button>
                                 </td>
                             </tr>
