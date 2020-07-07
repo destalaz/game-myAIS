@@ -35,7 +35,6 @@ $(document).ready(function () {
       messageRound = $("#msg_bd"),
       kickDropDownAnimationDelay = 1200,
       btnResume = $("#btn_resume"),
-      btnClose = $("#btn_close"),
       bodyPopup = $("#body-popup"),
       cup1 = $("#img-Round-cup1"),
       cup2 = $("#img-Round-cup2"),
@@ -48,8 +47,6 @@ $(document).ready(function () {
       btnResume4 = $("#btn_resume4"),
       btnResume5 = $("#btn_resume5"),
       bodyWin = $("#body-popup-win"),
-      resume_game = $("#resume_game"),
-      paused_game = $("#pause_game"),
       counNumnOfShuffels = 0,
       resumBtn = $("#btnResumeGame"),
       pauseStatus = false,
@@ -113,6 +110,7 @@ $(document).ready(function () {
       $('#heading-Text').dequeue();
       $("#body-popup-puse").hide();
       pauseStatus = false;
+      soundFlip.play();
     });
 
 
@@ -402,15 +400,25 @@ $(document).ready(function () {
       Howler.stop();
       soundGame.stop();
       soundGame.play();
+
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
           Howler.mute(true);
         } else {
           Howler.mute(false);
+          if (pauseStatus === false) {
+            soundFlip.stop();
+            pauseStatus = true;
+            $("#body-popup-puse").show();
+            console.log("pause fn");
+            pause_fn();
+          }
+
+          // setTimeout(() => {
+          //   $("#body-popup-puse").hide();
+          // }, 800);
         }
       }, false);
-
-
 
 
 
@@ -467,23 +475,6 @@ $(document).ready(function () {
 
               if (counNumnOfShuffels < nuberOfShuffels) {
                 gamepPlay();
-                document.addEventListener('visibilitychange', function () {
-                  if (document.hidden) {
-
-                  } else {
-                    if (pauseStatus === false) {
-                      pauseStatus = true;
-                      $("#body-popup-puse").show();
-                      console.log("pause fn");
-                      pause_fn();
-                    }
-
-                    // setTimeout(() => {
-                    //   $("#body-popup-puse").hide();
-                    // }, 800);
-                  }
-                }, false);
-
               } else {
                 setTimeout(() => {
                   soundFlip.stop();
