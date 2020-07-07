@@ -36,7 +36,7 @@ export class RewardFlipEngComponent implements OnInit {
 
     localStorage.setItem('countWin', "1");
     localStorage.setItem('language', "ENG");
-    console.log('langauge => ', this.langauge);
+    //console.log('langauge => ', this.langauge);
   }
 
   // chcekLangauge() {
@@ -48,7 +48,7 @@ export class RewardFlipEngComponent implements OnInit {
 
   goTutorial() {
     this.goTutorialPage = true;
-    console.log(this.goTutorialPage);
+    //console.log(this.goTutorialPage);
   }
 
   termCondition() {

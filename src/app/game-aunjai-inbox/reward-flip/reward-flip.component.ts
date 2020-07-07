@@ -33,13 +33,13 @@ export class RewardFlipComponent implements OnInit {
     this.goTutorialPage = false;
     localStorage.setItem('countWin', "1");
 
-    console.log('langauge => ', this.langauge);
+    //console.log('langauge => ', this.langauge);
   }
 
 
   goTutorial() {
     this.goTutorialPage = true;
-    console.log(this.goTutorialPage);
+    //console.log(this.goTutorialPage);
   }
 
   termCondition() {

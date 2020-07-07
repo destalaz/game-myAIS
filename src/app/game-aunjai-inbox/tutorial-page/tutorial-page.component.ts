@@ -19,21 +19,21 @@ export class TutorialPageComponent implements OnInit {
 
   ngOnInit() {
     this.pageNo = 0;
-    console.log(this.pageNo);
+    // console.log(this.pageNo);
   }
 
   checkStatusRead() {
     this.goTutorialPage = false;
-    console.log('checkStatusRead => ',this.goTutorialPage);
+    //console.log('checkStatusRead => ',this.goTutorialPage);
   }
 
   backPage() {
     this.pageNo = this.pageNo - 1;
-    console.log(this.pageNo);
+    //console.log(this.pageNo);
   }
 
   nextPage() {
     this.pageNo = this.pageNo + 1;
-    console.log(this.pageNo);
+    //console.log(this.pageNo);
   }
 }
