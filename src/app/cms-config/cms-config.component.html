@@ -26,8 +26,6 @@
                                 <th>Point for pay</th>
                                 <th>Reward</th>
                                 <th>Amount of win</th>
-                                <!-- <th>Play Amt</th>
-                            <th>Winner Amt</th> -->
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,8 +35,6 @@
                                 <td class=" text-nowrap">{{ loopdata.point }}</td>
                                 <td class=" text-nowrap">{{ loopdata.reward }}</td>
                                 <td class=" text-nowrap">{{ loopdata.amountWin }}</td>
-                                <!-- <td class=" text-nowrap">{{ loopdata.playerAmt }}</td>
-                            <td class=" text-nowrap">{{ loopdata.winnerAmt }}</td> -->
                                 <td class=" text-nowrap">
                                     <button type="button" class="color-ais block2"
                                         (click)="levelOnChange(loopdata.levelIdx,'set')">Edit</button>
@@ -95,23 +91,6 @@
                             <div class="form-group form-config ">
                                 <form [formGroup]="configForm" (ngSubmit)="save()">
 
-                                    <!-- <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val" >Level</span>
-                            </div>
-                            <select class="custom-select" formControlName="levelIdx"
-                                [ngClass]="{ 'is-invalid': submitted && f.levelIdx.errors }" (change)="levelOnChange()"
-                                required>
-                                
-                                <option value="1">Easy</option>
-                                <option value="2">Medium</option>
-                                <option value="3">Hard</option>
-                            </select>
-                            <div *ngIf="submitted && f.levelIdx.errors" class="invalid-feedback">
-                                <div *ngIf="f.levelIdx.errors.required">levelIdx is required</div>
-                            </div>
-                        </div> -->
-
                                     <div class="input-group input-frm">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text text-val">Point for play</span>
@@ -151,7 +130,6 @@
                                         <select class="custom-select" formControlName="amountWin"
                                             [ngClass]="{ 'is-invalid': submitted && f.amountWin.errors }"
                                             (change)="amountWinOnChange()" required>
-                                            <!-- <option value="">Open this select Amount of Win</option> -->
                                             <option value={{number}} *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]">
                                                 {{number}}
                                             </option>
@@ -160,30 +138,6 @@
                                             <div *ngIf="f.amountWin.errors.required">Amount of Win is required</div>
                                         </div>
                                     </div>
-
-                                    <!-- <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val">Player Amt</span>
-                            </div>
-                            <input type="number" class="form-control" formControlName="playerAmt"
-                                [ngClass]="{ 'is-invalid': submitted && f.playerAmt.errors }"
-                                placeholder="Enter Player Amt" />
-                            <div *ngIf="submitted && f.playerAmt.errors" class="invalid-feedback">
-                                <div *ngIf="f.playerAmt.errors.required">Player Amt is required</div>
-                            </div>
-                        </div>
-
-                        <div class="input-group input-frm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text text-val">Winner Amt</span>
-                            </div>
-                            <input type="number" class="form-control" formControlName="winnerAmt"
-                                [ngClass]="{ 'is-invalid': submitted && f.winnerAmt.errors }"
-                                placeholder="Winner Amt" />
-                            <div *ngIf="submitted && f.winnerAmt.errors" class="invalid-feedback">
-                                <div *ngIf="f.winnerAmt.errors.required">Winner Amt is required</div>
-                            </div>
-                        </div> -->
 
                                     <div>
                                         <button type="submit" class="color-ais block butsubmit">Save</button>
@@ -227,7 +181,7 @@
                                 <thead class="table-active">
                                     <tr>
                                         <th>Flip</th>
-                                        <th>Speed(1-10)</th>
+                                        <th>Speed(1-14)</th>
                                         <th>fip Amount</th>
                                     </tr>
                                 </thead>
@@ -248,6 +202,10 @@
                                                 <option value="400">8</option>
                                                 <option value="300">9</option>
                                                 <option value="200">10</option>
+                                                <option value="160">11</option>
+                                                <option value="120">12</option>
+                                                <option value="80">13</option>
+                                                <option value="40">14</option>
                                             </select>
                                         </td>
                                         <td class=" text-nowrap">
@@ -279,16 +237,19 @@
 
 
     <!-- btnRewardstaus -->
-    <div class="" style="padding-top: 24px; margin: 12px; ">
+    <!-- <div class="" style="padding-top: 24px; margin: 12px; ">
         <p style="color: red;">* Temporary use for developer mode</p>
-        <button type="button" (click)="changeRewardLimite()" class="btn btn-success "
-            *ngIf="!btnRewardLimit">Click to open! (Use of reward limits)</button>
-        <button type="button" (click)="changeRewardLimite()" class="btn btn-danger "
-            *ngIf="btnRewardLimit">Click to close! (Use of reward limits)</button>
-    </div>
+        <button type="button" (click)="changeRewardLimite()" class="btn btn-success " *ngIf="!btnRewardLimit">Click to
+            open! (Use of reward limits)</button>
+        <button type="button" (click)="changeRewardLimite()" class="btn btn-danger " *ngIf="btnRewardLimit">Click to
+            close! (Use of reward limits)</button>
+    </div> -->
 
+    <!-- <div class="card" style="margin-top: 100px; margin-bottom: 20% ;  margin: 24px;">
 
-    <div  class="card" style="margin-top: 100px; margin-bottom: 20% ;  margin: 24px;">
+    </div> -->
+
+    <div style="margin-top: 100px; margin-bottom: 20% ;  margin: 24px;">
         <app-report-charts></app-report-charts>
     </div>
 

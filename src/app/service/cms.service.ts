@@ -14,8 +14,8 @@ export class CmsService {
     reportDetail = new Array();
     reportName = new Array();
     reloadData;
-    private baseUrl = 'https://gameapistg.wisdomcloud.net/api/cms';
-    // private baseUrl = 'https://gameapi.wisdomcloud.net/api/cms';
+    // private baseUrl = 'https://gameapistg.wisdomcloud.net/api/cms';
+    private baseUrl = 'https://gameapi.wisdomcloud.net/api/cms';
     // private baseUrl = 'http://localhost:3000/api/cms';
 
     httpOptions = {
@@ -49,6 +49,16 @@ export class CmsService {
         let urlApi = "/config/rewardlimit";
         var _data = { rewardLimit: _rewardLimit }
         return this.http.post(this.baseUrl + urlApi, _data  );
+    }
+
+    getReport() {
+        let urlApi = "/config/report";
+        return this.http.get(this.baseUrl + urlApi );
+    }
+
+    getReportTime( _stDate, _enDate ) {
+        let urlApi = "/config/report/time";
+        return this.http.post(this.baseUrl + urlApi ,  { st_time: _stDate, en_time: _enDate } );
     }
 
 }

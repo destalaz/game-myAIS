@@ -1,22 +1,185 @@
-
-
-    <div class=container4>
+<!-- <div class=container4>
         <div class="text-center" style="background-color: rgb(255, 255, 255); padding: 14px; " >
             <svg width="120px" viewBox="0 0 16 16" class="bi bi-wrench" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019L13 11l-.471.242-.529.026-.287.445-.445.287-.026.529L11 13l.242.471.026.529.445.287.287.445.529.026L13 15l.471-.242.529-.026.287-.445.445-.287.026-.529L15 13l-.242-.471-.026-.529-.445-.287-.287-.445-.529-.026z"/>
               </svg>
-            <!-- <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div> -->
             <h3> Coming soon...</h3>
         </div>
     </div>
+-->
 
-<div class="row" style="padding: 24px;" >
-    <div class="col-6">
-        <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
-    </div>
-    <div class="col-6">
-        <div id="chartContainer2" style="height: 370px; width: 100%; margin:auto;"></div>
+<!-- modal loadling -->
+<!-- <input type="button" id="modalLoading" name="modalLoading"
+  onclick="document.getElementById('modalLoad').style.display='block'" hidden>
+<input type="button" id="closeModalLoading" name="closeModalLoading"
+  onclick="document.getElementById('modalLoad').style.display='none'" hidden> -->
+
+<div id="modalLoad" class="w3-modal" style=" z-index: 999;" *ngIf="loadStatus">
+    <div class="text-center" style="margin-top:15% ;">
+        <div class="spinner-border " style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     </div>
 </div>
+<div class="text-center" style="margin-top:15% ;" *ngIf="loadStatus">
+    <div class="spinner-border " style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- / modal loadling -->
+
+<div *ngIf="!loadStatus">
+    <div style="margin-top: 48px;">
+        <p><b>Dashboard
+
+                <button *ngIf="titieDate === '' " type="button" class="btn btn-secondary btn-sm float-right "
+                    style="width: 140px;" (click)="ChooseDate()">Choose Date
+                </button>
+
+                <button *ngIf="titieDate !== ''" type="button" class="btn btn-secondary btn-sm float-right "
+                    style="width: 80px;" (click)="getReport()">Reface
+                </button> </b></p>
+    </div>
+
+
+
+
+
+    <div class="card" style="padding: 24px;  ">
+
+        <div *ngIf=" titieDate!== '' " style=" text-align: center; margin-bottom: 24px;">
+            <span style="color: rgb(37, 37, 37);"><b>Report Date: </b> {{ titieDate }}</span>
+        </div>
+        <div id="chartDiv" class="row" style="padding: 24px;">
+            <div class="col-6">
+                <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+            </div>
+            <div class="col-6">
+                <div id="chartContainer2" style="height: 370px; width: 100%; margin:auto;"></div>
+            </div>
+        </div>
+
+        <div id="chartDiv" class="row" style="padding: 24px;">
+            <div class="col-12">
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+            </div>
+
+        </div>
+
+        <table class=" text-center table  table-sm table-bordered text-center" style="margin-top: 24px;">
+            <thead class="table-active thead-dark">
+                <tr>
+                    <th>GameLevel</th>
+                    <th>Visits</th>
+                    <th>Visitors</th>
+                    <th>Game_won</th>
+                    <th>%win</th>
+                    <th>Game_Lost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-nowrap ">Easy</td>
+                    <td class=" text-nowrap">{{ reportData.leve1.visits }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve1.visitors }}</td>
+                    <td class="text-nowrap ">{{ reportData.leve1.game_won }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve1.win_Percent }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve1.game_Lost }}</td>
+                </tr>
+                <tr>
+                    <td class="text-nowrap ">Medium</td>
+                    <td class=" text-nowrap">{{ reportData.leve2.visits }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve2.visitors }}</td>
+                    <td class="text-nowrap ">{{ reportData.leve2.game_won }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve2.win_Percent }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve2.game_Lost }}</td>
+                </tr>
+                <tr>
+                    <td class="text-nowrap ">Hard</td>
+                    <td class=" text-nowrap">{{ reportData.leve3.visits }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve3.visitors }}</td>
+                    <td class="text-nowrap ">{{ reportData.leve3.game_won }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve3.win_Percent }}</td>
+                    <td class=" text-nowrap">{{ reportData.leve3.game_Lost }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!-- <div class="row">
+        <div class="col-9"></div>
+        <div class="col-3">
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                <div class="col-10">
+                    <div style="display: inline ;  clear: none;">
+                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                        
+                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- modal Edit Set -->
+    <input type="button" id="modalChooseDate" name="modalChooseDate"
+        onclick="document.getElementById('ChooseDate').style.display='block'" hidden>
+    <input type="button" id="closemodalChooseDate" name="closemodalChooseDate"
+        onclick="document.getElementById('ChooseDate').style.display='none'" hidden>
+
+
+    <div id="ChooseDate" class="w3-modal" style="display: none;">
+        <div class="text-center" style="margin-top:3% ;">
+            <div>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <span class="d-block p-2 bg-dark text-white" style="margin-top: 24px;">
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true" id="closeXDiff" name="closeXDiff"
+                                    onclick="document.getElementById('ChooseDate').style.display='none'">&times;</span>
+                            </button>
+                            Choose date
+                        </span>
+                        <div class="card" style="padding: 0px 24px 24px 24px;">
+                            <div style="margin: 48px;">
+                                <div class="form-group row">
+                                    <label for="example-date-input" class="col-4 col-form-label">Start Date</label>
+                                    <div class="col-8">
+                                        <input class="form-control" type="datetime-local" value="" id="st_date"
+                                            [(ngModel)]="st_date" #ctrl="ngModel">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-date-input" class="col-4 col-form-label">End Date</label>
+                                    <div class="col-8">
+                                        <input class="form-control" type="datetime-local" value="" id="en_date"
+                                            [(ngModel)]="en_date" #ctrl="ngModel">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2 "></div>
+                                    <div *ngIf="st_date === undefined || en_date == undefined" class="col-8"
+                                        style="margin-top: 28px;">
+                                        <button type="button" disabled
+                                            class="color-ais block butsubmit">Confirm</button>
+                                    </div>
+                                    <div *ngIf="st_date!== undefined && en_date!== undefined" class="col-8"
+                                        style="margin-top: 28px;">
+                                        <button type="button" (click)="getReportTime()"
+                                            class="color-ais block butsubmit">Confirm</button>
+                                    </div>
+                                    <div class="col-2 "></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+        </div>
