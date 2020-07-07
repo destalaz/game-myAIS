@@ -1,30 +1,27 @@
 function gamePause() {
 }
 
-// window.addEventListener("storage", function (e) {
-//   console.log("clear storage");
-//   localStorage.clear();
-//   if (e.storageArea === sessionStorage) {
-//     sessionStorage.clear();
-//     console.log("clear storage session");
-//   }
+window.addEventListener("storage", function (e) {
+  localStorage.clear();
+  if (e.storageArea === sessionStorage) {
+    sessionStorage.clear();
+  }
 
-// }, true);
+}, true);
 
 
 
-// function detectDevTool(allow) {
-//   console.log("watch");
-//   if(isNaN(+allow)) allow = 100;
-//   var start = +new Date();
-//   debugger;
-//   var end = +new Date();
-//   if(isNaN(start) || isNaN(end) || end - start > allow) {
-//     alert('debug detected. all operations will be terminated.');
-//     document.write('debug detected.');
-//   }
-// }
-// var wathch=setInterval(function(){detectDevTool()},1000);
+function detectDevTool(allow) {
+  if(isNaN(+allow)) allow = 100;
+  var start = +new Date();
+  debugger;
+  var end = +new Date();
+  if(isNaN(start) || isNaN(end) || end - start > allow) {
+    alert('debug detected. all operations will be terminated.');
+    document.write('debug detected.');
+  }
+}
+var wathch=setInterval(function(){detectDevTool()},1000);
 
 $(document).ready(function () {
   (function () {
@@ -163,7 +160,6 @@ $(document).ready(function () {
     }
 
     function slide_out() {
-      console.log(localStorage.getItem('sumcclick'));
       kick.css({ left: ans_position_left });
       win = false;
       kick.show();
@@ -178,7 +174,6 @@ $(document).ready(function () {
       });
       HeaderText.show();
       HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
-      HeaderText.show();
       HeaderText.animate({
         top: "17vh"
       }, {
@@ -343,7 +338,7 @@ $(document).ready(function () {
           chk_Choose_click();
         } else {
           flag = 1;
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(500).fadeOut(600,  gameOver);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(500).fadeOut(600,  chk_Choose_click);
          
         }
       }
@@ -568,7 +563,6 @@ $(document).ready(function () {
       secure = playId.substr(playId.length - 8);
       countwin = parseInt(localStorage.getItem('countWin') - 1);
       ans = (parseInt(secure.charAt(countwin)) % 3) + 1;
-      console.log("this ans", ans);
       var kickInitialPosition = 0;
       reset_position();
       divBtn.hide();
