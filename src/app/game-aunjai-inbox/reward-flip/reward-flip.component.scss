@@ -230,12 +230,7 @@ h3 {
         .text-condition {
             position: inherit;
             width: 20vh;
-            margin-top: 8vh;
-
-            @media screen and (min-device-height: 960px) {
-                width: 20vh;
-                margin-top: 7vh;
-            }
+            margin-top: 5vh;
         }
     }
 }
