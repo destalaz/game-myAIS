@@ -182,7 +182,7 @@ $(document).ready(function () {
       HeaderText.animate({
         top: "17vh"
       }, {
-        duration: 800
+        duration: 1500
       });
       setTimeout(() => {
 
@@ -626,7 +626,7 @@ $(document).ready(function () {
               });
               box3.delay(3000).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b" style="width:30vw;">');
-                if (ans == 3) kick.hide();
+                kick.hide();
                 soundFlip.play();
 
                 var box_top = box3.position().top;
