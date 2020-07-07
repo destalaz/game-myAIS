@@ -13,6 +13,14 @@ export class AppComponent {
 
   constructor(private router: Router) {}
   ngOnInit() {
+    console.log("ondinit");
+    sessionStorage.clear();
+    localStorage.clear();
+  }
+  ngOnDestroy(): void {
+    console.log("ondestroy");
+      sessionStorage.clear();
+      localStorage.clear();
   }
 
 }
