@@ -13,7 +13,7 @@ export class RewardFlipEngComponent implements OnInit {
   @Output() changes = new EventEmitter();
 
   open: boolean = false;
-  termUrl = "myais://gamesterm?lang=th&url=https%3A%2F%2Faisgame.wisdomcloud.net%2Fterm.html";
+  termUrl = "myais://gamesterm?lang=en&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip%2Fen";
   goTutorialPage: boolean = false;
   langauge: string;
 
