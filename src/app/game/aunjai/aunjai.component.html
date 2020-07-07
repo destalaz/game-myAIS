@@ -16,7 +16,17 @@
 <div class="container">
     <div class="baground_forest">
         <header-game></header-game>
+        <br><br>
+     
+        <button  id="resume_game">
+            <span > resume </span>
+        </button>
+
+        <button  id="pause_game">
+            <span > pausee </span>
+        </button>
         <div id="divBtn">
+         
             <button class="buttonStart" id="start_game">
                 <span *ngIf="langauge === 'TH'"> เล่นเลย </span>
                 <span *ngIf="langauge === 'ENG'"> PLAY </span>
@@ -46,15 +56,20 @@
 <div id="body-popup-puse" *ngIf="true">
     <div style="text-align: center;" class="bodyThis">
         <div class="redeem-point" id="redeem-point" *ngIf="true">
-            <div *ngIf="langauge === 'TH'">
+            <div >
                 <div class="aunjai-logo">
                 </div>
-                <span class="textBody" id="btnResumeGame"> เกมหยุดชั่วคราว </span>
+                <span *ngIf="langauge === 'TH'" class="textBody"> เกมหยุดชั่วคราว </span>
+                <span  *ngIf="langauge === 'ENG'" class="textBody" > Paused </span>
             </div>
-            <div *ngIf="langauge === 'ENG'">
+            <!-- <div *ngIf="langauge === 'ENG'"> -->
+                <div>
                 <div class="aunjai-logo">
                 </div>
-                <span class="textBody" id="btnResumeGame"> Paused </span>
+                <button class="buttonPause" id="btnResumeGame">
+                    <span *ngIf="langauge === 'TH'"> เล่นเลย </span>
+                    <span *ngIf="langauge === 'ENG'"> RESUME </span>
+                </button>
             </div>
 
 
@@ -66,13 +81,4 @@
 <popup-win [langauge]="langauge"></popup-win>
 <popup-lose [langauge]="langauge"></popup-lose>
 
-<!-- 
-<script type="text/javascript">
-    var obj1 = "somevalue";
-    var obj2 = "someothervalue";
-</script> -->
 <script type="text/javascript" src="../../../assets/aunjaiAssets/js/script.js"></script>
-<script type="text/javascript">
-    MYLIBRARY.init(["somevalue", 1, "controlId"]);
-    MYLIBRARY.helloWorld();
- </script>

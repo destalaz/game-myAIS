@@ -38,6 +38,22 @@
   opacity: 0.92;
   font-family: "DB_Heavent_Bd_It";
 }
+
+.buttonPause{
+  background: transparent url(../../../assets/aunjaiAssets/component/btn@2x.png);
+  position: relative;
+  border: none;
+  outline: none;
+  font-size: 46px;
+  font-family: "DB_Heavent_Bd_It";
+  margin: auto;
+  background-position: center;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  top: 30vh;
+}
 .buttonStart:hover {
   opacity: 1;
 }
