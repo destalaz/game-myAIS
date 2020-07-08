@@ -1,5 +1,6 @@
 .bg-img {
     background: #e9e9e9 url('../assets//Group\ 2048@2x.png');
+    background-size: 32%;
     // -webkit-background-size: cover;
     // background-size: cover;
     background-repeat: no-repeat;
@@ -17,3 +18,31 @@ html, body {
     padding:0;
 }
 
+.suppor-display {
+    display: none;
+}
+
+
+.w3-modal {
+    z-index: 3;
+    display: none;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+     display: none;
+    }
+    .suppor-display {
+        display: block;
+    }
+  }

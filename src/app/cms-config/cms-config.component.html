@@ -8,7 +8,7 @@
 </nav>
 
 
-<body class="container" style=" border-radius: 25px; margin-bottom: 7%;"  >
+<body class="container" style=" border-radius: 25px; margin-bottom: 7%; padding-bottom: 1px;"  >
 
     <!-- detail -->
     <div style="margin: 1rem; margin-top: 7% ; padding-top: 7%; ">
@@ -38,9 +38,9 @@
                                 <td class=" text-nowrap">{{ loopdata.reward }}</td>
                                 <td class=" text-nowrap">{{ loopdata.amountWin }}</td>
                                 <td class=" text-nowrap">
-                                    <button type="button" class="btn btn-secondary  block2 " 
+                                    <button type="button" class="btn color-ais2  block2 " 
                                         (click)="levelOnChange(loopdata.levelIdx,'set')">Edit</button>
-                                    <button type="button" class="btn  btn-info block2 " 
+                                    <button type="button" class="btn  color-ais2 block2 " 
                                         (click)="levelOnChange(loopdata.levelIdx,'diff')">Edit Difficulty</button>
                                 </td>
                             </tr>
@@ -81,13 +81,13 @@
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-4">
-                        <span class="d-block p-2 bg-dark text-white" style="margin-top: 24px;">
+                        <span class="d-block p-2 color-ais " style="margin-top: 24px;">
                             <button type="button" class="close" aria-label="Close">
                                 <span aria-hidden="true" id="closeModalEdit" name="closeModalEdit"
                                     onclick="document.getElementById('Edit').style.display='none'"
                                     (click)="getConfig()">&times;</span>
                             </button>
-                            Setting Config : <span style="color: rgb(196, 196, 196);">{{difficulty}} Level</span>
+                            Setting Config : <span style="color: rgb(73, 73, 73);">{{difficulty}} Level</span>
                         </span>
                         <div class="card" style="padding: 0px 24px 24px 24px; ">
                             <div class="form-group form-config ">
@@ -170,13 +170,13 @@
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-4">
-                        <span style="margin-top: 24px;" class="d-block p-2 bg-dark text-white">
+                        <span style="margin-top: 24px;" class="d-block p-2 color-ais" >
                             <button type="button" class="close" aria-label="Close">
                                 <span aria-hidden="true" id="closeXDiff" name="closeXDiff"
                                     onclick="document.getElementById('diffDetail').style.display='none'"
                                     (click)="getConfig()">&times;</span>
                             </button>
-                            Difficulty Detail : <span style="color: rgb(196, 196, 196);">{{difficulty}}
+                            Difficulty Detail : <span style="color: rgb(73, 73, 73);">{{difficulty}}
                                 Level</span></span>
                         <div class="card" style="padding: 24px; ">
                             <table class=" table table-sm table-bordered text-center">
