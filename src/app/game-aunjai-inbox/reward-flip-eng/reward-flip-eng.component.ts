@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-
+import * as jwtDecode from '../../../../node_modules/jwt-decode';
 @Component({
   selector: 'app-reward-flip-eng',
   templateUrl: './reward-flip-eng.component.html',
@@ -31,16 +31,17 @@ export class RewardFlipEngComponent implements OnInit {
       console.log("check token");
       localStorage.removeItem('resumeGame');
       this.gameService.getMobileId(this.route.snapshot.queryParams.token).subscribe(res => {
+        let data = this.deCode(res["token"]);
         if (res) {
-          sessionStorage.setItem('playerComplete', res["playerComplete"]);
-          if (res["playerComplete"] === true) {
-            this.rout.navigate(["popupContinue"], { queryParams: { langauge: "ENG",playerComplete:true} });
+          sessionStorage.setItem('playerComplete', data.data.playerComplete);
+          if (data.data.playerComplete === true) {
+            this.rout.navigate(["popupContinue"], { queryParams: { langauge: "ENG", playerComplete: true } });
             return;
           }
 
           if (res["resultCode"] === "20000" || res["status"] === true) {
-            sessionStorage.setItem('mobileId', res["mobileId"]);
-            sessionStorage.setItem('firstPlay', res["firstPlay"]);
+            sessionStorage.setItem('mobileId', data.data.mobileId);
+            sessionStorage.setItem('firstPlay', data.data.firstPlay);
             this.loadPage = true;
           }
         }
@@ -82,6 +83,13 @@ export class RewardFlipEngComponent implements OnInit {
     this.open = true;
     this.changes.emit(this.open);
     localStorage.setItem('level', level);
+  }
+
+  deCode(_data) {
+    var _resData;
+    var decoded = jwtDecode(_data);
+    _resData = decoded;
+    return _resData;
   }
 
 }

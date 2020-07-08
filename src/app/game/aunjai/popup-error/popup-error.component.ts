@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
-
+import * as jwtDecode from '../../../../../node_modules/jwt-decode';
 @Component({
   selector: 'popup-error',
   templateUrl: './popup-error.component.html',
@@ -16,7 +16,10 @@ export class PopupErrorComponent implements OnInit {
   langaugeNow: string;
   aispoint: any;
   statusLoad: boolean;
-  insufficientPoint: boolean
+  insufficientPoint: boolean;
+
+
+  
 
   constructor(private gameService: GameService, private router: Router) {
     this.insufficientPoint = false;
@@ -49,15 +52,20 @@ export class PopupErrorComponent implements OnInit {
     if (!level) { return }
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
+      console.log(res);
+      let dataDt = this.deCode(res["token"]);
+      console.log(dataDt.data.playData);
+      console.log(dataDt.data.playData.playId);
+      console.log(dataDt.data.playData.playerDetall);
       if (res["status"].toString() !== "true") {
         this.insufficientPoint = true;
         this.statusLoad = false;
         return
       }
       this.insufficientPoint = false;
-      sessionStorage.setItem('playId', res["playData"].playId);
+      sessionStorage.setItem('playId', dataDt.data.playData.playId);
       localStorage.setItem('countWin', "1");
-      localStorage.setItem('config', JSON.stringify(res["playData"].playerDetall));
+      localStorage.setItem('config', JSON.stringify(dataDt.data.playData.playerDetall));
       localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
       this.openPopupReady = true;
       this.statusLoad = false;
@@ -67,6 +75,13 @@ export class PopupErrorComponent implements OnInit {
 
   refresh(): void {
     window.location.reload();
+  }
+
+  deCode(_data) {
+    var _resData;
+    var decoded = jwtDecode(_data);
+    _resData = decoded;
+    return _resData;
   }
 
 }

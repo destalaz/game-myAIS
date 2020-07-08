@@ -58,6 +58,7 @@ $(document).ready(function () {
       playId = sessionStorage.getItem('playId'),
       click = false,
       bodyLose = $("#body-popup-lose"),
+      chkpopupPause = false,
       shuffleSpeedLeft, shuffleSpeedTop;
 
     if (localStorage.getItem('sumcclick') === null) {
@@ -70,10 +71,14 @@ $(document).ready(function () {
 
 
 
+  
+  
+    
+  
+
+
     var data = JSON.parse(localStorage.getItem('config'));
     var index = parseInt(localStorage.getItem('countWin')) - 1;
-
-
 
 
 
@@ -101,7 +106,7 @@ $(document).ready(function () {
 
     function pause_fn() {
       if (!chkPauseFnGame) {
-        $('#heading-Text').delay(99999);
+        // $('#heading-Text').delay(99999);
         $('#box1').delay(999999);
         $('#box2').delay(999999);
         $('#box3').delay(999999);
@@ -112,7 +117,7 @@ $(document).ready(function () {
           soundFlip.stop();
           chkStatusflip = false;
         }
-       
+
       }
 
 
@@ -120,7 +125,7 @@ $(document).ready(function () {
 
     resumBtn.click(function () {
       if (chkPauseFnGame) {
-        $('#heading-Text').dequeue();
+        // $('#heading-Text').dequeue();
         $('#box1').dequeue();
         $('#box2').dequeue();
         $('#box3').dequeue();
@@ -128,7 +133,7 @@ $(document).ready(function () {
         pauseStatus = false;
         chkPauseFnGame = false;
         console.log("Resume Game on");
-        
+
         if (chksoundFlip) {
           soundFlip.stop();
           soundFlip.play();
@@ -345,6 +350,9 @@ $(document).ready(function () {
     }
 
     function end_game() {
+      chkpopupPause = false;
+      pause_fn();
+      console.log("event pause");
       console.log("5");
       $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round4);
       function round4() {
@@ -425,9 +433,13 @@ $(document).ready(function () {
         } else {
           Howler.mute(false);
           if (!pauseStatus) {
-            $("#body-popup-puse").show();
-            pause_fn();
-            console.log("event pause");
+            if (chkpopupPause) {
+              $("#body-popup-puse").show();
+              pause_fn();
+              console.log("event pause");
+
+            }
+
           }
 
           // setTimeout(() => {
@@ -443,7 +455,7 @@ $(document).ready(function () {
       function gamepPlay() {
         {
 
-  
+
           var myTimeout;
           counNumnOfShuffels++;
 
@@ -490,6 +502,24 @@ $(document).ready(function () {
               $("#box" + array[0]).css("z-index", "0");
               $("#box" + array[1]).css("z-index", "0");
               $("#box" + array[2]).css("z-index", "0");
+
+
+              chkpopupPause = true;
+              if (!chksoundFlip) {
+                soundFlip.stop();
+                soundFlip.play();
+                chksoundFlip = true;
+                chkStatusflip = true;
+              }
+              // setTimeout(() => {
+              //   if (!chksoundFlip) {
+              //     soundFlip.stop();
+              //     soundFlip.play();
+              //     chksoundFlip = true;
+              //     chkStatusflip = true;
+              //   }
+              // }, 3000);
+
 
               if (counNumnOfShuffels < nuberOfShuffels) {
                 gamepPlay();
@@ -706,13 +736,8 @@ $(document).ready(function () {
 
                 interval = setTimeout(gamepPlay, shuffleSpeed);
                 n();
-                if (!chksoundFlip) {
-                  soundFlip.stop();
-                  soundFlip.play();
-                  chksoundFlip = true;
-                  chkStatusflip= true;
-                }
-      
+
+
               });
 
 

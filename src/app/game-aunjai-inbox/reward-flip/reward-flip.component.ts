@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { GameService } from '../../service/game.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import * as jwtDecode from '../../../../node_modules/jwt-decode';
+// import * as jwEncode from '../../../../node_modules/jsonwebtoken/sign.js';
+
+
 @Component({
   selector: 'app-reward-flip',
   templateUrl: './reward-flip.component.html',
@@ -14,10 +18,13 @@ export class RewardFlipComponent implements OnInit {
   goTutorialPage: boolean = false;
   langauge: string;
   open: boolean = false;
+
   dataParams: any;
   optionGame: any;
   openPageRoute: any;
   loadPage = false;
+  testenCode = "mmeanhahahohok123";
+  testToekn: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiUklUNkZZNVFDcEVYdWxvWUVCWm9HeFlDTXo0NGJYN2Y4dDNjUkczSUplbT0iLCJpYXQiOjE1OTQxODI2NjAsImV4cCI6MTU5NDE4NjI2MH0.ifw1rfeAf1_w-rw35pNCfEIvL8V4FhXfsFpo4pc5DkQ";
   @Output() changes = new EventEmitter();
 
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
@@ -32,16 +39,17 @@ export class RewardFlipComponent implements OnInit {
       console.log("check token");
       localStorage.removeItem('resumeGame');
       this.gameService.getMobileId(this.route.snapshot.queryParams.token).subscribe(res => {
+        let data = this.deCode(res["token"]);
         if (res) {
-          sessionStorage.setItem('playerComplete', res["playerComplete"]);
-          if (res["playerComplete"] === true) {
-            this.rout.navigate(["popupContinue"], { queryParams: { langauge: "TH",playerComplete:true} });
+          sessionStorage.setItem('playerComplete', data.data.playerComplete);
+          if (data.data.playerComplete === true) {
+            this.rout.navigate(["popupContinue"], { queryParams: { langauge: "TH", playerComplete: true } });
             return;
           }
 
           if (res["resultCode"] === "20000" || res["status"] === true) {
-            sessionStorage.setItem('mobileId', res["mobileId"]);
-            sessionStorage.setItem('firstPlay', res["firstPlay"]);
+            sessionStorage.setItem('mobileId', data.data.mobileId);
+            sessionStorage.setItem('firstPlay', data.data.firstPlay);
             this.loadPage = true;
           }
         }
@@ -102,6 +110,15 @@ export class RewardFlipComponent implements OnInit {
     localStorage.setItem('level', level);
   }
 
+  deCode(_data) {
+    var _resData;
+    var decoded = jwtDecode(_data);
+    _resData = decoded;
+    return _resData;
+  }
+
+
 }
+
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../service/game.service';
-import { Session, logging } from 'protractor';
+import * as jwtDecode from '../../../node_modules/jwt-decode';
 @Component({
   selector: 'app-check-permission-login',
   templateUrl: './check-permission-login.component.html',
@@ -20,33 +20,36 @@ export class CheckPermissionLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     sessionStorage.clear();
     this.activatedRoute.queryParams.subscribe((params) => {
       let token = params.token
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe(res => {
         if (res) {
-
-          sessionStorage.setItem('playerComplete', res["playerComplete"]);
-          if (res["playerComplete"] === true) { 
+          let data = this.deCode(res["token"]);
+          sessionStorage.setItem('playerComplete', data.data.playerComplete);
+          if (data.data.playerComplete === true) {
             this.router.navigateByUrl('/popupContinue');
             return;
           }
 
           if (res["resultCode"] === "20000" || res["status"] === true) {
-            sessionStorage.setItem('mobileId', res["mobileId"]);
-            sessionStorage.setItem('firstPlay', res["firstPlay"])
+            sessionStorage.setItem('mobileId', data.data.mobileId);
+            sessionStorage.setItem('firstPlay', data.data.firstPlay);
             this.router.navigateByUrl('/loadgame');
             this.loadPage = true;
           }
         }
       })
     });
-
   }
 
 
-
+  deCode(_data) {
+    var _resData;
+    var decoded = jwtDecode(_data,"123");
+    _resData = decoded;
+    return _resData;
+  }
 
 }
