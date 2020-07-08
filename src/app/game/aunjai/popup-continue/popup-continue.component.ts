@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PopupContinueComponent implements OnInit {
   open: boolean = false;
-  reward: any;
+  reward: string;
   load: boolean;
   mobileId: string;
   playId: string
@@ -22,19 +22,19 @@ export class PopupContinueComponent implements OnInit {
   private subscriptions = new Subscription();
   playComplete: boolean;
   constructor(private gameService: GameService, private router: ActivatedRoute, private route: Router) {
-    this.load = false;
-    this.reward = ""
-
-  }
+    this.load = false;}
 
 
   ngOnInit() {
+    this.reward = localStorage.getItem('rewardpoint');
+    console.log(this.reward);
+
     this.load = true;
     this.playerComplete = false;
     this.loadOptionGame();
     if (sessionStorage.getItem('playerComplete') === "true") { this.playerComplete = true }
     // this.playerComplete = sessionStorage.getItem('playerComplete');
-    this.reward = localStorage.getItem('rewardpoint');
+
     this.checkPlayerComplete();
 
   }
@@ -44,6 +44,10 @@ export class PopupContinueComponent implements OnInit {
       .subscribe(params => {
         this.dataParams = params;
         this.langauge = this.dataParams.langauge;
+        this.playerComplete = this.dataParams.playerComplete;
+        if (this.playerComplete) {
+          localStorage.removeItem('resumeGame');
+        }
       }))
   }
 
@@ -51,7 +55,7 @@ export class PopupContinueComponent implements OnInit {
     if (this.langauge === 'TH') {
       this.route.navigate(["reward_flip"], { queryParams: { langauge: "TH", openPage: true } });
     } else {
-      this.route.navigate(["reward_flip_eng"], { queryParams: { langauge:"ENG", openPage: true } });
+      this.route.navigate(["reward_flip_eng"], { queryParams: { langauge: "ENG", openPage: true } });
     }
   }
 
@@ -59,6 +63,7 @@ export class PopupContinueComponent implements OnInit {
 
   checkPlayerComplete() {
     if (this.playerComplete !== true) {
+      console.log(this.playerComplete);
       this.reward = localStorage.getItem('rewardpoint');
       this.mobileId = sessionStorage.getItem('mobileId');
       this.playId = sessionStorage.getItem('playId');

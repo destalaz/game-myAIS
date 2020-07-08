@@ -51,6 +51,9 @@ $(document).ready(function () {
       resumBtn = $("#btnResumeGame"),
       pauseStatus = false,
       cclick, secure, ans,
+      chksoundFlip = false,
+      chkStatusflip = true,
+      chkPauseFnGame = false,
       characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
       playId = sessionStorage.getItem('playId'),
       click = false,
@@ -97,20 +100,43 @@ $(document).ready(function () {
 
 
     function pause_fn() {
-      $('#box1').delay(999999);
-      $('#box2').delay(999999);
-      $('#box3').delay(999999);
-      $('#heading-Text').delay(999999);
+      if (!chkPauseFnGame) {
+        $('#heading-Text').delay(99999);
+        $('#box1').delay(999999);
+        $('#box2').delay(999999);
+        $('#box3').delay(999999);
+        chkPauseFnGame = true;
+        console.log("Pasuse Addd delay");
+
+        if (chksoundFlip) {
+          soundFlip.stop();
+          chkStatusflip = false;
+        }
+       
+      }
+
+
     };
 
     resumBtn.click(function () {
-      $('#box1').dequeue();
-      $('#box2').dequeue();
-      $('#box3').dequeue();
-      $('#heading-Text').dequeue();
+      if (chkPauseFnGame) {
+        $('#heading-Text').dequeue();
+        $('#box1').dequeue();
+        $('#box2').dequeue();
+        $('#box3').dequeue();
+
+        pauseStatus = false;
+        chkPauseFnGame = false;
+        console.log("Resume Game on");
+        
+        if (chksoundFlip) {
+          soundFlip.stop();
+          soundFlip.play();
+        }
+      }
+
+
       $("#body-popup-puse").hide();
-      pauseStatus = false;
-      soundFlip.play();
     });
 
 
@@ -198,7 +224,7 @@ $(document).ready(function () {
       HeaderText.animate({
         top: "17vh"
       }, {
-        duration: 1500
+        duration: 600
       });
       setTimeout(() => {
 
@@ -256,6 +282,7 @@ $(document).ready(function () {
     }
 
     function gameOver() {
+      chksoundFlip = false;
       localStorage.setItem('resumeGame', true);
       var checkGameOver = $("#checkOverGame");
       checkGameOver.click();
@@ -273,7 +300,7 @@ $(document).ready(function () {
       setTimeout(() => {
         localStorage.setItem('countWin', 1);
         bodyLose.show();
-      }, 2000);
+      }, 1000);
     }
 
     function chk_Choose_click() {
@@ -288,19 +315,6 @@ $(document).ready(function () {
     function text_round() {
       setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
     }
-
-
-
-
-
-
-    // function resumeGame(){
-    //   resume_game
-    // }
-
-    // function pauseGame(){
-    //   btn_pause
-    // }
 
     function setMessage(message) {
       messageRound.html(message);
@@ -331,8 +345,10 @@ $(document).ready(function () {
     }
 
     function end_game() {
+      console.log("5");
       $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round4);
       function round4() {
+        console.log("4");
         if (click) {
           $('#heading-Text').stop();
           $('#heading-Text').hide();
@@ -343,6 +359,7 @@ $(document).ready(function () {
 
       }
       function round3() {
+        console.log("3");
         if (click) {
           $('#heading-Text').stop();
           $('#heading-Text').hide();
@@ -353,6 +370,7 @@ $(document).ready(function () {
 
       }
       function round2() {
+        console.log("2");
         if (click) {
           $('#heading-Text').stop();
           $('#heading-Text').hide();
@@ -360,16 +378,16 @@ $(document).ready(function () {
         } else {
           $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round1);
         }
-
       }
       function round1() {
+        console.log("1");
         if (click) {
           $('#heading-Text').stop();
           $('#heading-Text').hide();
           chk_Choose_click();
         } else {
           flag = 1;
-          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(500).fadeOut(600, chk_Choose_click);
+          $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(800).fadeOut(0, chk_Choose_click);
 
         }
       }
@@ -406,12 +424,10 @@ $(document).ready(function () {
           Howler.mute(true);
         } else {
           Howler.mute(false);
-          if (pauseStatus === false) {
-            soundFlip.stop();
-            pauseStatus = true;
+          if (!pauseStatus) {
             $("#body-popup-puse").show();
-            console.log("pause fn");
             pause_fn();
+            console.log("event pause");
           }
 
           // setTimeout(() => {
@@ -426,6 +442,8 @@ $(document).ready(function () {
       //start shuffle
       function gamepPlay() {
         {
+
+  
           var myTimeout;
           counNumnOfShuffels++;
 
@@ -477,6 +495,7 @@ $(document).ready(function () {
                 gamepPlay();
               } else {
                 setTimeout(() => {
+                  chksoundFlip = false;
                   soundFlip.stop();
                   var flag = 0;
                   end_game();
@@ -653,7 +672,11 @@ $(document).ready(function () {
               box3.delay(3000).queue(function (n) {
                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b" style="width:30vw;">');
                 kick.hide();
-                soundFlip.play();
+
+
+
+
+
 
                 var box_top = box3.position().top;
 
@@ -675,6 +698,7 @@ $(document).ready(function () {
                   left: 66 + "vw"
                 });
 
+
                 shuffle = function (o) { //v1.0
                   for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
                   return o;
@@ -682,6 +706,13 @@ $(document).ready(function () {
 
                 interval = setTimeout(gamepPlay, shuffleSpeed);
                 n();
+                if (!chksoundFlip) {
+                  soundFlip.stop();
+                  soundFlip.play();
+                  chksoundFlip = true;
+                  chkStatusflip= true;
+                }
+      
               });
 
 

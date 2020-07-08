@@ -15,14 +15,14 @@
 
             </div>
             <div *ngIf="langauge === 'TH'">
-                <span class="textBody"> เอไอเอสพอยท์ {{reward}} คะแนน </span><br>
+                <span class="textBody"> เอไอเอสพอยท์ {{ reward }} คะแนน </span><br>
                 <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
                 <button class="buttonNext" (click)="openPage();">
                     เล่นต่อ
                 </button>
             </div>
             <div *ngIf="langauge === 'ENG'">
-                <span class="textBody"> {{reward}} AIS Points have been added </span><br>
+                <span class="textBody"> {{ reward }} AIS Points have been added </span><br>
                 <span class="textBody"> to your number</span>
                 <button class="buttonNext" (click)="openPage();">
                     PLAY AGAIN
