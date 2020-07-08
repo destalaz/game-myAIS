@@ -36,7 +36,7 @@ export class RewardFlipComponent implements OnInit {
     this.open = false;
     localStorage.removeItem('sumcclick');
     if (this.route.snapshot.queryParams.token) {
-      console.log("check token");
+     
       localStorage.removeItem('resumeGame');
       this.gameService.getMobileId(this.route.snapshot.queryParams.token).subscribe(res => {
         let data = this.deCode(res["token"]);

@@ -52,11 +52,9 @@ export class PopupErrorComponent implements OnInit {
     if (!level) { return }
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
-      console.log(res);
+  
       let dataDt = this.deCode(res["token"]);
-      console.log(dataDt.data.playData);
-      console.log(dataDt.data.playData.playId);
-      console.log(dataDt.data.playData.playerDetall);
+     
       if (res["status"].toString() !== "true") {
         this.insufficientPoint = true;
         this.statusLoad = false;
@@ -66,7 +64,7 @@ export class PopupErrorComponent implements OnInit {
       sessionStorage.setItem('playId', dataDt.data.playData.playId);
       localStorage.setItem('countWin', "1");
       localStorage.setItem('config', JSON.stringify(dataDt.data.playData.playerDetall));
-      localStorage.setItem('totalRound', JSON.parse(localStorage.getItem('config')).length);
+      localStorage.setItem('totalRound', dataDt.data.playData.amountWin);
       this.openPopupReady = true;
       this.statusLoad = false;
     });
