@@ -27,16 +27,11 @@ export class PopupContinueComponent implements OnInit {
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
-    
-
     this.load = true;
     this.playerComplete = false;
     this.loadOptionGame();
     if (sessionStorage.getItem('playerComplete') === "true") { this.playerComplete = true }
-    // this.playerComplete = sessionStorage.getItem('playerComplete');
-
     this.checkPlayerComplete();
-
   }
 
   public loadOptionGame() {
@@ -52,6 +47,7 @@ export class PopupContinueComponent implements OnInit {
   }
 
   openPage() {
+    localStorage.setItem('resumeGame', 'true');
     if (this.langauge === 'TH') {
       this.route.navigate(["reward_flip"], { queryParams: { langauge: "TH", openPage: true } });
     } else {
