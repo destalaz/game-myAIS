@@ -58,6 +58,10 @@ $(document).ready(function () {
             click = false,
             bodyLose = $("#body-popup-lose"),
             chkpopupPause = false,
+            countRound = 0,
+            totolCountRound = 3,
+            countRoundStop = 0,
+            totolCountRoundStop = 5,
             shuffle,
             shuffleSpeedLeft, shuffleSpeedTop;
 
@@ -185,6 +189,9 @@ $(document).ready(function () {
         }
 
         function slide_out() {
+            HeaderText.show();
+            HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
+            HeaderText.show();
             kick.css({ left: ans_position_left });
             win = false;
             kick.show();
@@ -197,13 +204,7 @@ $(document).ready(function () {
                     top: 'easeInQuint'
                 }
             });
-            HeaderText.show();
-            HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
-            HeaderText.animate({
-                top: "17vh"
-            }, {
-                duration: 600
-            });
+
             setTimeout(() => {
 
                 win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
@@ -303,77 +304,6 @@ $(document).ready(function () {
 
         }
 
-
-
-        function ready_game() {
-            console.log("round 3");
-            $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>').fadeIn(200).delay(600).fadeOut(200, round2);
-
-            function round2() {
-                console.log("round 2");
-                $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>').fadeIn(200).delay(600).fadeOut(200, round3);
-            }
-
-            function round3() {
-                console.log("round 1");
-                $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>').fadeIn(200).delay(600).fadeOut(200);
-            }
-        }
-
-        function end_game() {
-            chkpopupPause = false;
-            console.log("round 5");
-            $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round4);
-
-            function round4() {
-                console.log("round 4");
-                if (click) {
-                    $('#heading-Text').stop();
-                    $('#heading-Text').hide();
-                    chk_Choose_click();
-                } else {
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round3);
-                }
-
-            }
-
-            function round3() {
-                console.log("round 3");
-                if (click) {
-                    $('#heading-Text').stop();
-                    $('#heading-Text').hide();
-                    chk_Choose_click();
-                } else {
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round2);
-                }
-
-            }
-
-            function round2() {
-                console.log("round 2");
-                if (click) {
-                    $('#heading-Text').stop();
-                    $('#heading-Text').hide();
-                    chk_Choose_click();
-                } else {
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(600).fadeOut(200, round1);
-                }
-            }
-
-            function round1() {
-                console.log("round 1");
-                if (click) {
-                    $('#heading-Text').stop();
-                    $('#heading-Text').hide();
-                    chk_Choose_click();
-                } else {
-                    flag = 1;
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">').fadeIn(200).delay(800).fadeOut(0, chk_Choose_click);
-
-                }
-            }
-        }
-
         function check_round_img() {
             if (localStorage.getItem('countWin') === "2") {
                 HeaderText.html('<img src="../../assets/aunjaiAssets/header/game2_ic@2x.png" id="box_o_t"  style="width:60vw;">');
@@ -400,18 +330,17 @@ $(document).ready(function () {
                     pause_fn();
                 } else {
                     Howler.mute(false);
-                    // $("#body-popup-puse").show();
                 }
             }, false);
 
             function pause_fn() {
                 if (chkPauseFnGame) {
-                    // if (pauseStatus === false) {
-                    //     console.log("pause");
-                    //     $("#body-popup-puse").show();
-                    //     pauseStatus = true;
-                    // }
-    
+                    if (pauseStatus === false) {
+                        console.log("pause");
+                        $("#body-popup-puse").show();
+                        pauseStatus = true;
+                    }
+
                     if (chksoundFlip) {
                         soundFlip.stop();
                         chkStatusflip = false;
@@ -425,171 +354,269 @@ $(document).ready(function () {
                     soundFlip.stop();
                     soundFlip.play();
                 }
-                // if(counNumnOfShuffels < nuberOfShuffels){
-                //     gamepPlay();
-                // }
-                
-                // pauseStatus = false;
-                // $("#body-popup-puse").hide();
+                if (counNumnOfShuffels > 0) {
+                    if (counNumnOfShuffels < nuberOfShuffels) {
+                        gamepPlay();
+                    }
+                }
+
+                if (totolCountRound > countRound) {
+                    roundStart();
+                }
+
+                if (countRoundStop > 0) {
+                    roundStop();
+                }
+
+                pauseStatus = false;
+                $("#body-popup-puse").hide();
             });
+
+
+
+            //start   round 
+            function roundStart() {
+                countRound++;
+                // console.log("Round Start", countRound);
+                // console.log("totaocoundRound",totolCountRound);
+                if (countRound == 1) {
+                    console.log("If 1");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
+                } else if (countRound == 2) {
+                    console.log("If 2");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
+
+                } else if (countRound == 3) {
+                    console.log("If 3");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
+                }
+                $('#heading-Text').animate({
+                    fadeIn: 1000,
+                    fadeOut: 1000,
+                }, {
+                    duration: 1000, complete: function () {
+
+                        console.log("Round Start", countRound);
+                        console.log("totaocoundRound", totolCountRound);
+                        if (totolCountRound > countRound) {
+                            if (!pauseStatus) {
+                                roundStart();
+                            }
+                        }
+                        else {
+                            $('#heading-Text').hide();
+                            gamepPlay();
+                        }
+                    }
+                });
+            }
+
+            ////finished round start
+
+
+
+
+            //roundStop-count Start
+            function roundStop() {
+                $('#heading-Text').show();
+                countRoundStop++;
+                console.log("Round Stop", countRoundStop);
+                console.log("totaoCoundRound-Stop", totolCountRoundStop);
+                if (countRoundStop == 1) {
+                    console.log("If 1");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">');
+                } else if (countRoundStop == 2) {
+                    console.log("If 2");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:36vw;">');
+
+                } else if (countRoundStop == 3) {
+                    console.log("If 3");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:36vw;">');
+                } else if (countRoundStop == 4) {
+                    console.log("If 4");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">');
+                } else if (countRoundStop == 5) {
+                    console.log("If 5");
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">');
+                }
+
+                $('#heading-Text').animate({
+                    fadeIn: (1000),
+                    fadeOut: (1000),
+                }, {
+                    duration: 1000, complete: function () {
+                        console.log("Round Start", countRound);
+                        console.log("totaocoundRound", totolCountRound);
+                        if (totolCountRoundStop > countRoundStop) {
+                            if (!pauseStatus) {
+                                roundStop();
+                            }
+                        } else {
+                            flag = 1;
+                            $('#heading-Text').hide();
+                            gameOver();
+                        }
+                    }
+                });
+            }
+
+            //roundStop-count Stop
 
 
 
             //start shuffle
             function gamepPlay() {
-                {
-                    counNumnOfShuffels++;
-                    console.log("Shuffle Round", counNumnOfShuffels, "/", nuberOfShuffels);
-                    var array = shuffle([1, 2, 3]);
-                    $("#box" + array[0]).css("z-index", "100");
-                    $("#box" + array[1]).css("z-index", "300");
-                    $("#box" + array[2]).css("z-index", "200");
+                counNumnOfShuffels++;
+                console.log("Shuffle Round", counNumnOfShuffels, "/", nuberOfShuffels);
+                var array = shuffle([1, 2, 3]);
+                $("#box" + array[0]).css("z-index", "100");
+                $("#box" + array[1]).css("z-index", "300");
+                $("#box" + array[2]).css("z-index", "200");
 
-                    $("#box" + array[0]).animate({
-                        top: ($("#box" + array[2]).position().top) - 40 + "px"
-                    }, {
-                        duration: shuffleSpeedTop,
-                    });
+                $("#box" + array[0]).animate({
+                    top: ($("#box" + array[2]).position().top) - 40 + "px"
+                }, {
+                    duration: shuffleSpeedTop,
+                });
 
-                    $("#box" + array[0]).animate({
-                        left: $("#box" + array[1]).position().left + "px",
-                    }, {
-                        duration: shuffleSpeedLeft,
-                    });
-                    $("#box" + array[0]).animate({
-                        top: ($("#box" + array[2]).position().top) + "px"
-                    }, {
-                        duration: shuffleSpeedTop,
-                    });
-
-
-                    $("#box" + array[1]).animate({
-                        top: ($("#box" + array[2]).position().top) + 40 + "px"
-                    }, {
-                        duration: shuffleSpeedLeft,
-                    });
-
-                    $("#box" + array[1]).animate({
-                        left: $("#box" + array[0]).position().left + "px",
-                    }, {
-                        duration: shuffleSpeedLeft,
-                    });
-
-                    $("#box" + array[1]).animate({
-                        top: ($("#box" + array[2]).position().top) + "px"
-                    }, {
-                        duration: shuffleSpeedTop
-                        , complete: function () {
-                            $("#box" + array[0]).css("z-index", "0");
-                            $("#box" + array[1]).css("z-index", "0");
-                            $("#box" + array[2]).css("z-index", "0");
+                $("#box" + array[0]).animate({
+                    left: $("#box" + array[1]).position().left + "px",
+                }, {
+                    duration: shuffleSpeedLeft,
+                });
+                $("#box" + array[0]).animate({
+                    top: ($("#box" + array[2]).position().top) + "px"
+                }, {
+                    duration: shuffleSpeedTop,
+                });
 
 
-                            chkpopupPause = true;
-                            if (chksoundFlip === false) {
+                $("#box" + array[1]).animate({
+                    top: ($("#box" + array[2]).position().top) + 40 + "px"
+                }, {
+                    duration: shuffleSpeedLeft,
+                });
+
+                $("#box" + array[1]).animate({
+                    left: $("#box" + array[0]).position().left + "px",
+                }, {
+                    duration: shuffleSpeedLeft,
+                });
+
+                $("#box" + array[1]).animate({
+                    top: ($("#box" + array[2]).position().top) + "px"
+                }, {
+                    duration: shuffleSpeedTop
+                    , complete: function () {
+                        $("#box" + array[0]).css("z-index", "0");
+                        $("#box" + array[1]).css("z-index", "0");
+                        $("#box" + array[2]).css("z-index", "0");
+
+
+                        chkpopupPause = true;
+                        if (chksoundFlip === false) {
+                            soundFlip.stop();
+                            soundFlip.play();
+                            chksoundFlip = true;
+                            chkStatusflip = true;
+                        }
+
+                        if (counNumnOfShuffels < nuberOfShuffels) {
+                            if (!pauseStatus) {
+                                gamepPlay();
+                            }
+
+                        } else {
+                            setTimeout(() => {
+                                chksoundFlip = false;
                                 soundFlip.stop();
-                                soundFlip.play();
-                                chksoundFlip = true;
-                                chkStatusflip = true;
-                            }
-
-                            if (counNumnOfShuffels < nuberOfShuffels) {
-                                if (!pauseStatus) {
-                                    gamepPlay();
-                                }
-
-                            } else {
-                                setTimeout(() => {
-                                    chksoundFlip = false;
-                                    soundFlip.stop();
-                                    var flag = 0;
-                                    end_game();
-                                    box1.click(function () {
-                                        if (flag == 0) {
-                                            click = true;
-                                            $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
-                                            box1.animate({
-                                                top: $(this).position().top + -20 + "vh"
-                                            });
-                                            if (ans == 1) {
-                                                flag = 1;
-                                                change_cup();
-                                                flag = 1;
-                                                ans_position_left = box1.position().left;
-                                                soundWin.fade(1, 0, 1200, soundWin.play());
-                                                cclick = '';
-                                                cclick += characters.charAt(Math.floor(Math.random() * characters.length));
-                                                cclick += String.fromCharCode(64 + ans);
-                                                var cclickDf = localStorage.getItem('sumcclick');
-                                                var totolclick = cclickDf + cclick;
-                                                localStorage.setItem('sumcclick', totolclick);
-                                                slide_out();
-                                            } else {
-                                                flag = 1;
-                                                soundLose.fade(1, 0, 1500, soundLose.play());
-                                                gameOver();
-                                            }
+                                var flag = 0;
+                                roundStop();
+                                box1.click(function () {
+                                    if (flag == 0) {
+                                        click = true;
+                                        $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
+                                        box1.animate({
+                                            top: $(this).position().top + -20 + "vh"
+                                        });
+                                        if (ans == 1) {
+                                            flag = 1;
+                                            change_cup();
+                                            flag = 1;
+                                            ans_position_left = box1.position().left;
+                                            soundWin.fade(1, 0, 1200, soundWin.play());
+                                            cclick = '';
+                                            cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                                            cclick += String.fromCharCode(64 + ans);
+                                            var cclickDf = localStorage.getItem('sumcclick');
+                                            var totolclick = cclickDf + cclick;
+                                            localStorage.setItem('sumcclick', totolclick);
+                                            slide_out();
+                                        } else {
+                                            flag = 1;
+                                            soundLose.fade(1, 0, 1500, soundLose.play());
+                                            gameOver();
                                         }
-                                    });
+                                    }
+                                });
 
-                                    box2.click(function () {
-                                        if (flag == 0) {
-                                            click = true;
-                                            $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
-                                            box2.animate({
-                                                top: $(this).position().top - 20 + "vh"
-                                            });
-                                            if (ans == 2) {
-                                                flag = 1;
-                                                change_cup();
-                                                ans_position_left = box2.position().left;
-                                                soundWin.fade(1, 0, 1500, soundWin.play());
-                                                cclick = '';
-                                                cclick += characters.charAt(Math.floor(Math.random() * characters.length));
-                                                cclick += String.fromCharCode(64 + ans);
-                                                var cclickDf = localStorage.getItem('sumcclick');
-                                                var totolclick = cclickDf + cclick;
-                                                localStorage.setItem('sumcclick', totolclick);
-                                                slide_out();
-                                            } else {
-                                                flag = 1;
-                                                soundLose.fade(1, 0, 1500, soundLose.play());
-                                                gameOver();
-                                            }
+                                box2.click(function () {
+                                    if (flag == 0) {
+                                        click = true;
+                                        $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
+                                        box2.animate({
+                                            top: $(this).position().top - 20 + "vh"
+                                        });
+                                        if (ans == 2) {
+                                            flag = 1;
+                                            change_cup();
+                                            ans_position_left = box2.position().left;
+                                            soundWin.fade(1, 0, 1500, soundWin.play());
+                                            cclick = '';
+                                            cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                                            cclick += String.fromCharCode(64 + ans);
+                                            var cclickDf = localStorage.getItem('sumcclick');
+                                            var totolclick = cclickDf + cclick;
+                                            localStorage.setItem('sumcclick', totolclick);
+                                            slide_out();
+                                        } else {
+                                            flag = 1;
+                                            soundLose.fade(1, 0, 1500, soundLose.play());
+                                            gameOver();
                                         }
-                                    });
+                                    }
+                                });
 
-                                    $("#box3").click(function () {
-                                        if (flag == 0) {
-                                            click = true;
-                                            $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
-                                            box3.animate({
-                                                top: $(this).position().top + -20 + "vh"
-                                            });
-                                            if (ans == 3) {
-                                                change_cup();
-                                                flag = 1;
-                                                ans_position_left = box3.position().left;
-                                                soundWin.fade(1, 0, 1200, soundWin.play()); soundWin.fade(1, 0, 1500, soundWin.play());
-                                                cclick = '';
-                                                cclick += characters.charAt(Math.floor(Math.random() * characters.length));
-                                                cclick += String.fromCharCode(64 + ans);
-                                                var cclickDf = localStorage.getItem('sumcclick');
-                                                var totolclick = cclickDf + cclick;
-                                                localStorage.setItem('sumcclick', totolclick);
-                                                slide_out();
-                                            } else {
-                                                flag = 1;
-                                                soundLose.fade(1, 0, 1500, soundLose.play());
-                                                gameOver();
-                                            }
+                                $("#box3").click(function () {
+                                    if (flag == 0) {
+                                        click = true;
+                                        $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
+                                        box3.animate({
+                                            top: $(this).position().top + -20 + "vh"
+                                        });
+                                        if (ans == 3) {
+                                            change_cup();
+                                            flag = 1;
+                                            ans_position_left = box3.position().left;
+                                            soundWin.fade(1, 0, 1200, soundWin.play()); soundWin.fade(1, 0, 1500, soundWin.play());
+                                            cclick = '';
+                                            cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                                            cclick += String.fromCharCode(64 + ans);
+                                            var cclickDf = localStorage.getItem('sumcclick');
+                                            var totolclick = cclickDf + cclick;
+                                            localStorage.setItem('sumcclick', totolclick);
+                                            slide_out();
+                                        } else {
+                                            flag = 1;
+                                            soundLose.fade(1, 0, 1500, soundLose.play());
+                                            gameOver();
                                         }
-                                    });
-                                }, 10);
-                            }
-                        },
-                    })
-                }
+                                    }
+                                });
+                            }, 1000);
+                        }
+                    },
+                })
             }
 
             var nuberOfShuffels = entoken.amt;
@@ -598,7 +625,6 @@ $(document).ready(function () {
             shuffleSpeedTop = shuffleSpeed / 5;
             shuffleSpeedLeft = shuffleSpeed / 2;
 
-            ready_game();
 
             if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
                 localStorage.setItem('countWin', 1);
@@ -654,17 +680,17 @@ $(document).ready(function () {
                         },
                         complete: function () {
                             // Close all the three boxes in a regular interval.
-                            box1.delay(2000).queue(function (n) {
+                            box1.delay(1000).queue(function (n) {
                                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b"  style="width:30vw;">');
                                 if (ans == 1) kick.hide();
                                 n();
                             });
-                            box2.delay(2500).queue(function (n) {
+                            box2.delay(1500).queue(function (n) {
                                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b" style="width:30vw;">');
                                 if (ans == 2) kick.hide();
                                 n();
                             });
-                            box3.delay(3000).queue(function (n) {
+                            box3.delay(2000).queue(function (n) {
                                 $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2069@2x-min.png" id="box_o_b" style="width:30vw;">');
                                 kick.hide();
                                 var box_top = box3.position().top;
@@ -692,7 +718,7 @@ $(document).ready(function () {
                                     return o;
                                 };
 
-                                interval = setTimeout(gamepPlay, shuffleSpeed);
+                                interval = setTimeout(roundStart, gamepPlay, shuffleSpeed);
                                 n();
                             });
                         }
