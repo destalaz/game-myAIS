@@ -35,27 +35,6 @@ export class RewardFlipComponent implements OnInit {
     }
     this.open = false;
     localStorage.removeItem('sumcclick');
-    if (this.route.snapshot.queryParams.token) {
-     
-      localStorage.removeItem('resumeGame');
-      this.gameService.getMobileId(this.route.snapshot.queryParams.token).subscribe(res => {
-        let data = this.deCode(res["token"]);
-        if (res) {
-          sessionStorage.setItem('playerComplete', data.data.playerComplete);
-          if (data.data.playerComplete === true) {
-            this.rout.navigate(["popupContinue"], { queryParams: { langauge: "TH", playerComplete: true } });
-            return;
-          }
-
-          if (res["resultCode"] === "20000" || res["status"] === true) {
-            sessionStorage.setItem('mobileId', data.data.mobileId);
-            sessionStorage.setItem('firstPlay', data.data.firstPlay);
-            this.loadPage = true;
-          }
-        }
-      })
-    }
-
 
 
     ////next popup fix success close and open
@@ -71,14 +50,6 @@ export class RewardFlipComponent implements OnInit {
 
 
     this.goTutorialPage = false;
-
-
-    if (this.route.queryParams['langauge']) {
-      this.langauge = this.dataParams.langauge;
-      this.open = this.dataParams.openPage;
-    }
-
-
 
   }
 
