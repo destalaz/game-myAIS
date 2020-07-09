@@ -381,21 +381,23 @@ $(document).ready(function () {
                 // console.log("totaocoundRound",totolCountRound);
                 if (countRound == 1) {
                     console.log("If 1");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
+                    $('#heading-Text').fadeOut();
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
+                   
                 } else if (countRound == 2) {
                     console.log("If 2");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
-
+                    $('#heading-Text').fadeIn();
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
+                    $('#heading-Text').fadeOut();
                 } else if (countRound == 3) {
                     console.log("If 3");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"  style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
-                }
-                $('#heading-Text').animate({
-                    fadeIn: 1000,
-                    fadeOut: 1000,
+                    $('#heading-Text').fadeIn();
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
+                    $('#heading-Text').fadeOut();
+                } $('#heading-Text').animate({
+                    fadeIn: (1000),
                 }, {
                     duration: 1000, complete: function () {
-
                         console.log("Round Start", countRound);
                         console.log("totaocoundRound", totolCountRound);
                         if (totolCountRound > countRound) {
@@ -447,15 +449,18 @@ $(document).ready(function () {
                     duration: 1000, complete: function () {
                         console.log("Round Start", countRound);
                         console.log("totaocoundRound", totolCountRound);
-                        if (totolCountRoundStop > countRoundStop) {
-                            if (!pauseStatus) {
-                                roundStop();
+                        if(click === false){
+                            if (totolCountRoundStop > countRoundStop) {
+                                if (!pauseStatus) {
+                                    roundStop();
+                                }
+                            } else {
+                                flag = 1;
+                                $('#heading-Text').hide();
+                                gameOver();
                             }
-                        } else {
-                            flag = 1;
-                            $('#heading-Text').hide();
-                            gameOver();
                         }
+
                     }
                 });
             }
@@ -718,7 +723,7 @@ $(document).ready(function () {
                                     return o;
                                 };
 
-                                interval = setTimeout(roundStart, gamepPlay, shuffleSpeed);
+                                interval = setTimeout(roundStart, gamepPlay, shuffleSpeed, roundStop);
                                 n();
                             });
                         }
