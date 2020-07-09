@@ -21,11 +21,13 @@ export class CheckPermissionLoginComponent implements OnInit {
 
   ngOnInit() {
     sessionStorage.clear();
+    localStorage.clear();
     this.activatedRoute.queryParams.subscribe((params) => {
       let token = params.token
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe(res => {
         if (res) {
+          // console.log("token",res["token"]);
           let data = this.deCode(res["token"]);
           sessionStorage.setItem('playerComplete', data.data.playerComplete);
           if (data.data.playerComplete === true) {
