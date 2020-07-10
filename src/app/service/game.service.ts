@@ -14,7 +14,7 @@ export class GameService {
     httpOptions = {
         headers: new HttpHeaders({
             "Content-Type": "application/json",
-            "Authorization": "Bearer "+  sessionStorage.getItem('mobileId'),
+            "Authorization": "Bearer "+  sessionStorage.getItem('token'),
         })
     };
 
