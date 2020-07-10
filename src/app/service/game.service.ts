@@ -13,9 +13,7 @@ export class GameService {
 
     httpOptions = {
         headers: new HttpHeaders({
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Methods": "GET, POST",
-            "Access-Control-Allow-Origin": "*"
+            "Content-Type": "application/json"
         })
     };
 
@@ -24,7 +22,7 @@ export class GameService {
     getMobileId(tokenParams: any) {
         let urlApi = "/api/cms/customer/id";
         let body = { tokenId: tokenParams }
-        return this.http.post(this.baseUrl + urlApi, body);
+        return this.http.post(this.baseUrl + urlApi, body,this.httpOptions);
     }
 
     getPlayDetails(_mobileId: string, _level: Number) {
