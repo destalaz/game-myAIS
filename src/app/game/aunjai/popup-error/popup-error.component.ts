@@ -51,7 +51,7 @@ export class PopupErrorComponent implements OnInit {
     const level = localStorage.getItem('level');
     if (!level) { return }
 
-    this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level)).subscribe(res => {
+    this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level) ,sessionStorage.getItem('token') ).subscribe(res => {
   
       let dataDt = this.deCode(res["token"]);
      

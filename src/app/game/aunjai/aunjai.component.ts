@@ -57,7 +57,7 @@ export class AunjaiComponent implements OnInit {
 
   servedPlayResult(playId, cclick) {
     this.load = true;
-    this.gameService.getPlayResult(playId, cclick).subscribe(res => {
+    this.gameService.getPlayResult(playId, cclick,sessionStorage.getItem('token')).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
         this.load = false;
       }

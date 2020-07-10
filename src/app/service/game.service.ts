@@ -8,13 +8,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GameService {
     private baseUrl = 'https://gameapistg.wisdomcloud.net';
+    _tokenParams = sessionStorage.getItem('token');
     // private baseUrl = 'https://gameapi.wisdomcloud.net';
     // private baseUrl = 'http://localhost:3000';
-    
+
     httpOptions = {
         headers: new HttpHeaders({
             "Content-Type": "application/json",
-            "Authorization": "Bearer "+  sessionStorage.getItem('token'),
+            "Authorization": "Bearer " + this._tokenParams,
         })
     };
 
@@ -24,28 +25,53 @@ export class GameService {
     getMobileId(tokenParams: any) {
         let urlApi = "/api/cms/customer/id";
         let body = { tokenId: tokenParams }
-        return this.http.post(this.baseUrl + urlApi, body,this.httpOptions);
+        let Options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + tokenParams,
+            })
+        };
+        return this.http.post(this.baseUrl + urlApi, body, Options)
     }
 
-    getPlayDetails(_mobileId: string, _level: Number) {
+    getPlayDetails(_mobileId: string, _level: Number, tokenParams: String) {
         let urlApi = "/api/cms/game/detail";
         let body =
             { mobileId: _mobileId, level: _level }
-        return this.http.post(this.baseUrl + urlApi, body,this.httpOptions);
+        let Options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + tokenParams,
+            })
+        };
+
+        return this.http.post(this.baseUrl + urlApi, body, Options);
     }
 
-    getPlayResult(_playId: string, cclick: string) {
+    getPlayResult(_playId: string, cclick: string, tokenParams: String) {
         let urlApi = "/api/cms/game/result";
         const body =
-            { playId: _playId, cclick:cclick}
-        return this.http.post(this.baseUrl + urlApi, body,this.httpOptions);
+            { playId: _playId, cclick: cclick }
+        let Options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + tokenParams,
+            })
+        };
+        return this.http.post(this.baseUrl + urlApi, body, Options);
     }
 
-    getReward(_playId: string) {
+    getReward(_playId: string, tokenParams: String) {
         let urlApi = "/api/cms/game/getReward";
         const body =
-            { playId: _playId}
-        return this.http.post(this.baseUrl + urlApi, body,this.httpOptions);
+            { playId: _playId }
+        let Options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + tokenParams,
+            })
+        };
+        return this.http.post(this.baseUrl + urlApi, body, Options);
     }
 
 

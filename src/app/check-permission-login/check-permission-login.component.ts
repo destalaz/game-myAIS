@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../service/game.service';
@@ -27,11 +28,12 @@ export class CheckPermissionLoginComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params) => {
       let token = params.token;
       if (!token) { return }
-      this.gameService.getMobileId(token).subscribe(res => {
+      this.gameService.getMobileId(token).subscribe((res) => {
+
         if (res) {
-          console.log(token)
+
           sessionStorage.setItem('token', token);
-          // console.log("token",res["token"]);
+
           let data = this.deCode(res["token"]);
           sessionStorage.setItem('playerComplete', data.data.playerComplete);
           if (data.data.playerComplete === true) {
@@ -53,7 +55,7 @@ export class CheckPermissionLoginComponent implements OnInit {
 
   deCode(_data) {
     let _resData;
-    let decoded = jwtDecode(_data,"123");
+    let decoded = jwtDecode(_data, "123");
     _resData = decoded;
     return _resData;
   }
