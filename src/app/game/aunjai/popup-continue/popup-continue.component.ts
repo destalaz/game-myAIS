@@ -3,7 +3,7 @@ import { GameService } from 'src/app/service/game.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import * as jwtDecode from '../../../../../node_modules/jwt-decode';
+
 @Component({
   selector: 'popup-continue',
   templateUrl: './popup-continue.component.html',
@@ -61,8 +61,6 @@ export class PopupContinueComponent implements OnInit {
   checkPlayerComplete() {
     if (this.playerComplete !== true) {
       // this.gameService.getMobileId(token).subscribe((res) => {
-
-
       this.reward = localStorage.getItem('rewardpoint');
       this.mobileId = sessionStorage.getItem('mobileId');
       this.playId = sessionStorage.getItem('playId');
@@ -70,12 +68,6 @@ export class PopupContinueComponent implements OnInit {
     } else {
       this.reward = '';
     }
-  }
-  deCode(_data) {
-    let _resData;
-    let decoded = jwtDecode(_data, "123");
-    _resData = decoded;
-    return _resData;
   }
 
 }

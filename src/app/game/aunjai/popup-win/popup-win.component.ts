@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
+import * as jwtDecode from '../../../../../node_modules/jwt-decode';
 @Component({
   selector: 'popup-win',
   templateUrl: './popup-win.component.html',
@@ -28,14 +29,14 @@ export class PopupWinComponent implements OnInit {
   // this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
 
   servedPlayReward() {
-  
-
     this.gameService.getReward(sessionStorage.getItem('playId'),sessionStorage.getItem('token')).subscribe(res => {
       this.load = true;
-      if (res["resultCode"] === "20000" && res["data"].status === "20000" && res["data"].description === "SUCCESS") {
+      let data = this.deCode(res["token"]);
+      if (res["resultCode"] === "20000" && data.data.status === "20000" && data.data.description === "SUCCESS") {
         sessionStorage.removeItem("playId");
-        if (res["playerComplete"] === true) {
-          sessionStorage.setItem('playerComplete', 'true');
+        sessionStorage.setItem('playerComplete', data.data.playerComplete)
+        if (data.data.playerComplete === true) {
+          sessionStorage.setItem('playerComplete', data.data.playerComplete)
         }
         else {
           sessionStorage.setItem('playerComplete', 'false');
@@ -44,6 +45,13 @@ export class PopupWinComponent implements OnInit {
         this.router.navigate(["popupContinue"], { queryParams: { langauge: this.langauge } });
       }
     });
+  }
+
+  deCode(_data) {
+    let _resData;
+    let decoded = jwtDecode(_data, "123");
+    _resData = decoded;
+    return _resData;
   }
 
 }

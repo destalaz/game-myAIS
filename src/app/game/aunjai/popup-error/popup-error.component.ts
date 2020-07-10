@@ -19,7 +19,7 @@ export class PopupErrorComponent implements OnInit {
   insufficientPoint: boolean;
 
 
-  
+
 
   constructor(private gameService: GameService, private router: Router) {
     this.insufficientPoint = false;
@@ -51,10 +51,15 @@ export class PopupErrorComponent implements OnInit {
     const level = localStorage.getItem('level');
     if (!level) { return }
 
-    this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level) ,sessionStorage.getItem('token') ).subscribe(res => {
-  
+    this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level), sessionStorage.getItem('token')).subscribe(res => {
+
       let dataDt = this.deCode(res["token"]);
-     
+    
+      if (dataDt.data.playerComplete === true) {
+        this.router.navigateByUrl('/popupContinue');
+        return;
+      }
+
       if (res["status"].toString() !== "true") {
         this.insufficientPoint = true;
         this.statusLoad = false;
