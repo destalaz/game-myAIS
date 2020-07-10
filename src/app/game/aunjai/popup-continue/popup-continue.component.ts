@@ -41,8 +41,9 @@ export class PopupContinueComponent implements OnInit {
         this.dataParams = params;
         this.langauge = this.dataParams.langauge;
         this.playerComplete = this.dataParams.playerComplete;
-        if (this.playerComplete) {
+        if (this.playerComplete === true) {
           localStorage.removeItem('resumeGame');
+          localStorage.removeItem('rewardpoint');
         }
       }))
   }
