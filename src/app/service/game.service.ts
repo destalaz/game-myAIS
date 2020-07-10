@@ -10,12 +10,13 @@ export class GameService {
     private baseUrl = 'https://gameapistg.wisdomcloud.net';
     // private baseUrl = 'https://gameapi.wisdomcloud.net';
     // private baseUrl = 'http://localhost:3000';
-
     httpOptions = {
         headers: new HttpHeaders({
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": "Bearer "+  sessionStorage.getItem('mobileId'),
         })
     };
+
 
     constructor(private http: HttpClient) { }
 

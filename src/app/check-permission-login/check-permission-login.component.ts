@@ -23,7 +23,8 @@ export class CheckPermissionLoginComponent implements OnInit {
     sessionStorage.clear();
     localStorage.clear();
     this.activatedRoute.queryParams.subscribe((params) => {
-      let token = params.token
+      sessionStorage.setItem('token', params.token);
+      let token = params.token;
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe(res => {
         if (res) {
