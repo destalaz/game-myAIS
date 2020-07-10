@@ -2,26 +2,26 @@ function gamePause() {
 
 }
 
-// window.addEventListener("storage", function (e) {
-//     localStorage.clear();
-//     if (e.storageArea === sessionStorage) {
-//         sessionStorage.clear();
-//     }
-// }, true);
+window.addEventListener("storage", function (e) {
+    localStorage.clear();
+    if (e.storageArea === sessionStorage) {
+        sessionStorage.clear();
+    }
+}, true);
 
 
 
-// function detectDevTool(allow) {
-//     if (isNaN(+allow)) allow = 100;
-//     var start = +new Date();
-//     debugger;
-//     var end = +new Date();
-//     if (isNaN(start) || isNaN(end) || end - start > allow) {
-//         alert('debug detected. all operations will be terminated.');
-//         document.write('debug detected.');
-//     }
-// }
-// var wathch = setInterval(function () { detectDevTool() }, 1000);
+function detectDevTool(allow) {
+    if (isNaN(+allow)) allow = 100;
+    var start = +new Date();
+    debugger;
+    var end = +new Date();
+    if (isNaN(start) || isNaN(end) || end - start > allow) {
+        alert('debug detected. all operations will be terminated.');
+        document.write('debug detected.');
+    }
+}
+var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -328,7 +328,7 @@ $(document).ready(function () {
                 soundFlip.stop();
                 if (chkPauseFnGame) {
                     if (pauseStatus === false) {
-                        console.log("pause");
+                        // console.log("pause");
                         $("#body-popup-puse").show();
                         pauseStatus = true;
                     }
@@ -341,7 +341,7 @@ $(document).ready(function () {
             };
 
             resumBtn.click(function () {
-                console.log("Resume");
+                // console.log("Resume");
                 if (chksoundFlip) {
                     soundFlip.stop();
                     soundFlip.play();
@@ -372,18 +372,18 @@ $(document).ready(function () {
                 // console.log("Round Start", countRound);
                 // console.log("totaocoundRound",totolCountRound);
                 if (countRound == 1) {
-                    console.log("If 1");
-                    
+                    // console.log("If 1");
+
                     $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
                     $('#heading-Text').fadeOut();
                 } else if (countRound == 2) {
-                    console.log("If 2");
+                    // console.log("If 2");
                     $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
                     $('#heading-Text').fadeOut();
                 } else if (countRound == 3) {
-                    console.log("If 3");
+                    // console.log("If 3");
                     $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
                     $('#heading-Text').fadeOut();
@@ -391,8 +391,8 @@ $(document).ready(function () {
                     fadeIn: (1000),
                 }, {
                     duration: 1000, complete: function () {
-                        console.log("Round Start", countRound);
-                        console.log("totaocoundRound", totolCountRound);
+                        // console.log("Round Start", countRound);
+                        // console.log("totaocoundRound", totolCountRound);
                         if (totolCountRound > countRound) {
                             if (!pauseStatus) {
                                 roundStart();
@@ -415,35 +415,38 @@ $(document).ready(function () {
             function roundStop() {
                 $('#heading-Text').show();
                 countRoundStop++;
-                console.log("Round Stop", countRoundStop);
-                console.log("totaoCoundRound-Stop", totolCountRoundStop);
+                // console.log("Round Stop", countRoundStop);
+                // console.log("totaoCoundRound-Stop", totolCountRoundStop);
                 if (countRoundStop == 1) {
-                    console.log("If 1");
+                    // console.log("If 1");
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">');
                 } else if (countRoundStop == 2) {
-                    console.log("If 2");
+                    // console.log("If 2");
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:36vw;">');
 
                 } else if (countRoundStop == 3) {
-                    console.log("If 3");
+                    // console.log("If 3");
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:36vw;">');
                 } else if (countRoundStop == 4) {
-                    console.log("If 4");
+                    // console.log("If 4");
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">');
                 } else if (countRoundStop == 5) {
-                    console.log("If 5");
+                    // console.log("If 5");
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">');
+                }
+                else if (countRoundStop == 6) {
+                    // console.log("If 6");
+                    $('#heading-Text').html('');
                 }
 
                 $('#heading-Text').animate({
                     fadeIn: (1000),
-                    fadeOut: (1000),
                 }, {
                     duration: 1000, complete: function () {
-                        console.log("Round Start", countRound);
-                        console.log("totaocoundRound", totolCountRound);
+                        // console.log("Round Stop", countRoundStop);
+                        // console.log("totao Round Stop", totolCountRoundStop);
                         if (click === false) {
-                            if (totolCountRoundStop > countRoundStop) {
+                            if (parseInt(totolCountRoundStop + 1) > countRoundStop) {
                                 if (!pauseStatus) {
                                     roundStop();
                                 }
@@ -470,17 +473,17 @@ $(document).ready(function () {
 
                 if (chksoundFlip === false) {
                     if (counNumnOfShuffels == 1) {
-                        console.log("soundd start");
+                        // console.log("soundd start");
                         soundFlip.stop();
                         soundFlip.play();
-                        if(pauseStatus === true){
+                        if (pauseStatus === true) {
                             soundFlip.stop();
                         }
                         chksoundFlip = true;
                         chkStatusflip = true;
                     }
                 }
-                console.log("Shuffle Round", counNumnOfShuffels, "/", nuberOfShuffels);
+                // console.log("Shuffle Round", counNumnOfShuffels, "/", nuberOfShuffels);
                 var array = shuffle([1, 2, 3]);
                 $("#box" + array[0]).css("z-index", "100");
                 $("#box" + array[1]).css("z-index", "300");
@@ -527,7 +530,7 @@ $(document).ready(function () {
 
 
                         chkpopupPause = true;
- 
+
 
                         if (counNumnOfShuffels < nuberOfShuffels) {
                             if (!pauseStatus) {
