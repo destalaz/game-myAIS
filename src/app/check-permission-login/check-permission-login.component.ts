@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../service/game.service';
 import * as jwtDecode from '../../../node_modules/jwt-decode';
+
 @Component({
   selector: 'app-check-permission-login',
   templateUrl: './check-permission-login.component.html',
@@ -22,12 +23,14 @@ export class CheckPermissionLoginComponent implements OnInit {
   ngOnInit() {
     sessionStorage.clear();
     localStorage.clear();
+    // let token = params.token;
     this.activatedRoute.queryParams.subscribe((params) => {
-      sessionStorage.setItem('token', params.token);
       let token = params.token;
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe(res => {
         if (res) {
+          console.log(token)
+          sessionStorage.setItem('token', token);
           // console.log("token",res["token"]);
           let data = this.deCode(res["token"]);
           sessionStorage.setItem('playerComplete', data.data.playerComplete);
