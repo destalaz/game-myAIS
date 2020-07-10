@@ -276,15 +276,6 @@ $(document).ready(function () {
             }, 1000);
         }
 
-        function chk_Choose_click() {
-            $('#heading-Text').stop();
-            $('#heading-Text').hide();
-            if (click === false) {
-                gameOver();
-            }
-        }
-
-
         function text_round() {
             setMessage("Game" + "&nbsp;" + localStorage.getItem('countWin') + "&nbsp;" + "of" + "&nbsp;" + localStorage.getItem('totalRound'));
         }
