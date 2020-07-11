@@ -195,7 +195,7 @@ $(document).ready(function () {
             win = false;
             kick.show();
             kick.animate({
-                top: "20%",
+                top: "56%",
                 left: ans_position_left
             }, {
                 duration: 400,
