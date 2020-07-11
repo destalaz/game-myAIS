@@ -189,13 +189,13 @@ $(document).ready(function () {
         function slide_out() {
             chkpopupPause = false;
             HeaderText.show();
-            HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:60vw; zoom:100%;">');
+            HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:66vw; zoom:100%;">');
             HeaderText.show();
             kick.css({ left: ans_position_left });
             win = false;
             kick.show();
             kick.animate({
-                top: "56%",
+                top: "20%",
                 left: ans_position_left
             }, {
                 duration: 400,
@@ -297,9 +297,9 @@ $(document).ready(function () {
 
         function check_round_img() {
             if (localStorage.getItem('countWin') === "2") {
-                HeaderText.html('<img src="../../assets/aunjaiAssets/header/game2_ic@2x.png" id="box_o_t"  style="width:60vw;">');
+                HeaderText.html('<img src="../../assets/aunjaiAssets/header/game2_ic@2x.png" id="box_o_t"  style="width:76vw;">');
             } else if (localStorage.getItem('countWin') === "3") {
-                HeaderText.html('<img src="../../assets/aunjaiAssets/header/game3_ic@2x.png" id="box_o_t"  style="width:60vw;">');
+                HeaderText.html('<img src="../../assets/aunjaiAssets/header/game3_ic@2x.png" id="box_o_t"  style="width:76vw;">');
             }
 
         }
@@ -377,8 +377,6 @@ $(document).ready(function () {
                 // console.log("totaocoundRound",totolCountRound);
                 if (countRound == 1) {
                     // console.log("If 1");
-
-                    $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
                     $('#heading-Text').fadeOut();
                 } else if (countRound == 2) {
@@ -418,27 +416,27 @@ $(document).ready(function () {
             //roundStop-count Start
             function roundStop() {
                 $('#heading-Text').show();
+                $('#heading-Text').css("top", "25vh");
                 countRoundStop++;
                 // console.log("Round Stop", countRoundStop);
                 // console.log("totaoCoundRound-Stop", totolCountRoundStop);
                 if (countRoundStop == 1) {
                     // console.log("If 1");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:36vw;">');
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:28vw">');
                 } else if (countRoundStop == 2) {
                     // console.log("If 2");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:36vw;">');
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:28vw;">');
 
                 } else if (countRoundStop == 3) {
                     // console.log("If 3");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:36vw;">');
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:28vw;">');
                 } else if (countRoundStop == 4) {
                     // console.log("If 4");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:36vw;">');
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:28vw;">');
                 } else if (countRoundStop == 5) {
                     // console.log("If 5");
-                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:36vw;">');
-                }
-                else if (countRoundStop == 6) {
+                    $('#heading-Text').html('<img src="../../assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:28vw;">');
+                } else if (countRoundStop == 6) {
                     // console.log("If 6");
                     $('#heading-Text').html('');
                 }
@@ -549,7 +547,7 @@ $(document).ready(function () {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
                                     box1.animate({
-                                        top: $(this).position().top + -20 + "vh"
+                                        top: $(this).position().top + -16 + "vh"
                                     });
                                     if (ans == 1) {
                                         flag = 1;
@@ -577,7 +575,7 @@ $(document).ready(function () {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
                                     box2.animate({
-                                        top: $(this).position().top - 20 + "vh"
+                                        top: $(this).position().top - 16 + "vh"
                                     });
                                     if (ans == 2) {
                                         flag = 1;
@@ -604,7 +602,7 @@ $(document).ready(function () {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
                                     box3.animate({
-                                        top: $(this).position().top + -20 + "vh"
+                                        top: $(this).position().top + -16 + "vh"
                                     });
                                     if (ans == 3) {
                                         change_cup();

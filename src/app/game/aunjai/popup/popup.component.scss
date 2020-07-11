@@ -76,7 +76,7 @@
 .bodyThis {
     position: relative;
     width: 90%;
-    height: 60vh;
+    height: 50%;
     display: table;
     margin: 0 auto;
     z-index: 100;
@@ -90,10 +90,10 @@
 .buttonResume {
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
     border: none;
-    top: 60vh;
+    top: 58vh;
     margin: auto;
     background-position: center;
-    min-height: 14%;
+    min-height: 10%;
     min-width: 42%;
     position: fixed;
     background-size: 100% 100%;

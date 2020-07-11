@@ -33,7 +33,7 @@
 
 .textBody {
     position: relative;
-    font-size: 4vw;
+    font-size: 5vw;
     top: 20vh;
     color: #49382f;
     font-style: italic;
@@ -57,7 +57,7 @@
 .bodyThis {
     position: relative;
     width: 90%;
-    height: 66%;
+    height: 50%;
     display: table;
     margin: 0 auto;
     z-index: 100;
@@ -70,7 +70,7 @@
 .buttonLose {
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
     border: none;
-    top: 70vh;
+    top: 58vh;
     margin: auto;
     background-position: center;
     min-height: 10%;
