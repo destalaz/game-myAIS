@@ -11,9 +11,8 @@ export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
   @Input() langauge: any;
-  load: boolean;
+  statusLoad: boolean;
   constructor(private gameService: GameService, private router: Router) {
-    this.load = false;
     this.reward = localStorage.getItem('rewardpoint');
   }
 
@@ -30,7 +29,7 @@ export class PopupWinComponent implements OnInit {
 
   servedPlayReward() {
     this.gameService.getReward(sessionStorage.getItem('playId'), sessionStorage.getItem('token')).subscribe(res => {
-      this.load = true;
+      this.statusLoad = true;
       let data = this.deCode(res["token"]);
       if (res["msg"] === "Success" && res["resultCode"] === "20000") {
         sessionStorage.removeItem("playId");
@@ -42,7 +41,7 @@ export class PopupWinComponent implements OnInit {
         else {
           sessionStorage.setItem('playerComplete', 'false');
         }
-        this.load = false;
+        this.statusLoad = false;
         this.router.navigate(["popupContinue"], { queryParams: { langauge: this.langauge } });
       }
     });
