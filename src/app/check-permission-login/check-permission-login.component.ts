@@ -22,8 +22,9 @@ export class CheckPermissionLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    sessionStorage.clear();
+    localStorage.clear();
     this.activatedRoute.queryParams.subscribe((params) => {
-     this.resetData();
       let token = params.token;
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe((res) => {
@@ -48,15 +49,6 @@ export class CheckPermissionLoginComponent implements OnInit {
       })
     });
   }
-
-
-  public async resetData() {
-    sessionStorage.clear();
-    localStorage.clear();
-  }
-
-
-
   deCode(_data) {
     let _resData;
     let decoded = jwtDecode(_data, "123");
