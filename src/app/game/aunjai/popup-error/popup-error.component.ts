@@ -46,10 +46,12 @@ export class PopupErrorComponent implements OnInit {
 
 
   ServedPlayGame() {
-    this.statusLoad = true;
-    localStorage.removeItem('resumeGame');
+    if (localStorage.getItem('resumeGame')) {
+      localStorage.removeItem('resumeGame');
+    }
     const level = localStorage.getItem('level');
-
+    if (!level) { return }
+    this.statusLoad = true;
     if (!sessionStorage.getItem('mobileId') || !sessionStorage.getItem('token')) {
       this.router.navigateByUrl('/reload');
       return;
