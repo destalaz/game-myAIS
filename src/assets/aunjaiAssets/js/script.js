@@ -321,6 +321,13 @@ $(document).ready(function () {
                     pause_fn();
                 } else {
                     Howler.mute(false);
+                    if (chkPauseFnGame) {
+                        if (pauseStatus === false) {
+                            // console.log("pause");
+                            $("#body-popup-puse").show();
+                            pauseStatus = true;
+                        }
+                    }
                 }
             }, false);
 
@@ -328,11 +335,6 @@ $(document).ready(function () {
                 if (chkpopupPause === true) {
                     soundFlip.stop();
                     if (chkPauseFnGame) {
-                        if (pauseStatus === false) {
-                            // console.log("pause");
-                            $("#body-popup-puse").show();
-                            pauseStatus = true;
-                        }
 
                         if (chksoundFlip) {
                             soundFlip.stop();
