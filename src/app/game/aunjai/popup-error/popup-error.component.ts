@@ -56,6 +56,7 @@ export class PopupErrorComponent implements OnInit {
       let dataDt = this.deCode(res["token"]);
     
       if (dataDt.data.playerComplete === true) {
+        sessionStorage.setItem('playerComplete', "true");
         this.router.navigateByUrl('/popupContinue');
         return;
       }
