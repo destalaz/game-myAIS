@@ -10,7 +10,7 @@ import * as jwtDecode from '../../../../../node_modules/jwt-decode';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  btnShow: boolean = false;
+  btnClick: boolean = false;
   @Input() langauge: any;
   statusLoad: boolean;
   constructor(private gameService: GameService, private router: Router) {
@@ -29,26 +29,29 @@ export class PopupWinComponent implements OnInit {
   // this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
 
   servedPlayReward() {
-    this.btnShow = true;
-    this.gameService.getReward(sessionStorage.getItem('playId'), sessionStorage.getItem('token')).subscribe(res => {
-      this.statusLoad = true;
-      console.log(res);
-      console.log(res["resultCode"]);
-      let data = this.deCode(res["token"]);
-      if (res["resultCode"] === "20000") {
-        sessionStorage.removeItem("playId");
-        sessionStorage.setItem('playerComplete', data.data.playerComplete)
-        if (data.data.playerComplete === true) {
-          localStorage.removeItem('resumeGame');
-          localStorage.removeItem('rewardpoint');
+    if (!this.btnClick) {
+      this.btnClick = true;
+      this.gameService.getReward(sessionStorage.getItem('playId'), sessionStorage.getItem('token')).subscribe(res => {
+        if (!sessionStorage.getItem('mobileId') || !sessionStorage.getItem('token')) {
+          this.router.navigateByUrl('/reload');
+          return;
         }
-        else {
-          sessionStorage.setItem('playerComplete', 'false');
+        let data = this.deCode(res["token"]);
+        if (res["resultCode"] === "20000") {
+          sessionStorage.removeItem("playId");
+          sessionStorage.setItem('playerComplete', data.data.playerComplete)
+          if (data.data.playerComplete === true) {
+            localStorage.removeItem('resumeGame');
+            localStorage.removeItem('rewardpoint');
+          }
+          else {
+            sessionStorage.setItem('playerComplete', 'false');
+          }
+          this.statusLoad = false;
+          this.router.navigate(["popupContinue"], { queryParams: { langauge: this.langauge } });
         }
-        this.statusLoad = false;
-        this.router.navigate(["popupContinue"], { queryParams: { langauge: this.langauge } });
-      }
-    });
+      });
+    }
   }
 
   deCode(_data) {

@@ -22,8 +22,8 @@ export class CheckPermissionLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.resetData();
     this.activatedRoute.queryParams.subscribe((params) => {
+     this.resetData();
       let token = params.token;
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe((res) => {

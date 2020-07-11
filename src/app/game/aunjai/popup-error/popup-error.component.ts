@@ -49,12 +49,16 @@ export class PopupErrorComponent implements OnInit {
     this.statusLoad = true;
     localStorage.removeItem('resumeGame');
     const level = localStorage.getItem('level');
-    if (!level) { return }
+
+    if (!sessionStorage.getItem('mobileId') || !sessionStorage.getItem('token')) {
+      this.router.navigateByUrl('/reload');
+      return;
+    }
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level), sessionStorage.getItem('token')).subscribe(res => {
 
       let dataDt = this.deCode(res["token"]);
-    
+
       if (dataDt.data.playerComplete === true) {
         sessionStorage.setItem('playerComplete', "true");
         this.router.navigateByUrl('/popupContinue');

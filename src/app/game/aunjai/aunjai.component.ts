@@ -3,6 +3,7 @@ import { GameService } from 'src/app/service/game.service';
 import { DetailService } from '../../service/detail.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'game-aunjai',
   templateUrl: './aunjai.component.html',
@@ -34,7 +35,7 @@ export class AunjaiComponent implements OnInit {
   cclick = localStorage.getItem('sumcclick');
   load: boolean;
 
-  constructor(private router: ActivatedRoute, private gameService: GameService, private detailService: DetailService) {
+  constructor(private router: ActivatedRoute, private gameService: GameService, private detailService: DetailService, private route: Router) {
     this.load = false;
     this.playId = sessionStorage.getItem('playId');
   }
@@ -57,6 +58,12 @@ export class AunjaiComponent implements OnInit {
 
   servedPlayResult(playId, cclick) {
     this.load = true;
+
+    if (!sessionStorage.getItem('mobileId') || !sessionStorage.getItem('token')) {
+      this.route.navigateByUrl('/reload');
+      return;
+    }
+
     this.gameService.getPlayResult(playId, cclick,sessionStorage.getItem('token')).subscribe(res => {
       if (res["resultCode"] === "20000" && res["status"] === true) {
         this.load = false;

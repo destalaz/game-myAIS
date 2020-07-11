@@ -29,6 +29,7 @@ import { TutorialPageEngComponent } from './game-aunjai-inbox/tutorial-page-eng/
 
 const appRoutes: Routes = [
   { path: '', component: CheckPermissionLoginComponent },
+  { path: 'reload', component: CheckPermissionLoginComponent },
   { path: 'loadgame', component: LoadingGameComponent },
   { path: 'tutorial', component: TutorialPageComponent },
   { path: 'reward_flip', component: RewardFlipComponent },
