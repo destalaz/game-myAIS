@@ -20,7 +20,7 @@
         </div>
         <span class="textBody" style="font-size: 6vw;"> <b> เย้.!!! </b></span><br>
         <span class="textBody"> คุณได้รับของ รางวัล</span>
-        <button class="buttonGetTreat" id="btn_get_treat" (click)="servedPlayReward()">รับของรางวัล
+        <button class="buttonGetTreat" id="btn_get_treat" *ngIf="!btnShow" (click)="servedPlayReward()">รับของรางวัล
         </button>
     </div>
 
@@ -37,7 +37,7 @@
         </div>
         <span class="textBody" style="font-size: 6vw;"> <b>Congratulations,</b></span><br>
         <span class="textBody">You’ve earned</span>
-        <button class="buttonGetTreat" id="btn_get_treat" (click)="servedPlayReward()">
+        <button class="buttonGetTreat" id="btn_get_treat"  *ngIf="!btnShow" (click)="servedPlayReward()">
             COLLECT
         </button>
     </div>

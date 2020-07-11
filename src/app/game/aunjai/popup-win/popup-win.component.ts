@@ -10,6 +10,7 @@ import * as jwtDecode from '../../../../../node_modules/jwt-decode';
 export class PopupWinComponent implements OnInit {
   open: boolean = false;
   reward: any;
+  btnShow: boolean = false;
   @Input() langauge: any;
   statusLoad: boolean;
   constructor(private gameService: GameService, private router: Router) {
@@ -28,10 +29,13 @@ export class PopupWinComponent implements OnInit {
   // this.playerComplete = Boolean(sessionStorage.getItem('playerComplete'));
 
   servedPlayReward() {
+    this.btnShow = true;
     this.gameService.getReward(sessionStorage.getItem('playId'), sessionStorage.getItem('token')).subscribe(res => {
       this.statusLoad = true;
+      console.log(res);
+      console.log(res["resultCode"]);
       let data = this.deCode(res["token"]);
-      if (res["msg"] === "Success" && res["resultCode"] === "20000") {
+      if (res["resultCode"] === "20000") {
         sessionStorage.removeItem("playId");
         sessionStorage.setItem('playerComplete', data.data.playerComplete)
         if (data.data.playerComplete === true) {

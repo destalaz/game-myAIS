@@ -23,6 +23,7 @@ export class GameService {
     constructor(private http: HttpClient) { }
 
     getMobileId(tokenParams: any) {
+        console.log("token send",tokenParams);
         let urlApi = "/api/cms/customer/id";
         let body = { tokenId: tokenParams }
         let Options = {
@@ -35,6 +36,7 @@ export class GameService {
     }
 
     getPlayDetails(_mobileId: string, _level: Number, tokenParams: String) {
+        console.log("token send",tokenParams);
         let urlApi = "/api/cms/game/detail";
         let body =
             { mobileId: _mobileId, level: _level }
@@ -49,6 +51,7 @@ export class GameService {
     }
 
     getPlayResult(_playId: string, cclick: string, tokenParams: String) {
+        console.log("token send",tokenParams);
         let urlApi = "/api/cms/game/result";
         const body =
             { playId: _playId, cclick: cclick }
@@ -62,6 +65,7 @@ export class GameService {
     }
 
     getReward(_playId: string, tokenParams: String) {
+        console.log("token send",tokenParams);
         let urlApi = "/api/cms/game/getReward";
         const body =
             { playId: _playId }
