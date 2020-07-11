@@ -22,9 +22,10 @@ export class CheckPermissionLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    sessionStorage.clear();
-    localStorage.clear();
+    this.resetData();
     // let token = params.token;
+
+
     this.activatedRoute.queryParams.subscribe((params) => {
       let token = params.token;
       if (!token) { return }
@@ -51,6 +52,13 @@ export class CheckPermissionLoginComponent implements OnInit {
       })
     });
   }
+
+
+  public async resetData() {
+    sessionStorage.clear();
+    localStorage.clear();
+  }
+
 
 
   deCode(_data) {
