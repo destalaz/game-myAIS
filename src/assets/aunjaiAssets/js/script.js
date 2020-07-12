@@ -9,17 +9,17 @@ function gamePause() {
 //     }
 // }, true);
 
-// function detectDevTool(allow) {
-//     if (isNaN(+allow)) allow = 100;
-//     var start = +new Date();
-//     debugger;
-//     var end = +new Date();
-//     if (isNaN(start) || isNaN(end) || end - start > allow) {
-//         alert('debug detected. all operations will be terminated.');
-//         document.write('debug detected.');
-//     }
-// }
-// var wathch = setInterval(function () { detectDevTool() }, 1000);
+function detectDevTool(allow) {
+    if (isNaN(+allow)) allow = 100;
+    var start = +new Date();
+    debugger;
+    var end = +new Date();
+    if (isNaN(start) || isNaN(end) || end - start > allow) {
+        alert('debug detected. all operations will be terminated.');
+        document.write('debug detected.');
+    }
+}
+var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -31,6 +31,7 @@ $(document).ready(function () {
             HeaderText = $("#heading-Text"),
             startButton = $("#start_game"),
             messageRound = $("#msg_bd"),
+            chkgameFirst = false,
             kickDropDownAnimationDelay = 1200,
             btnResume = $("#btn_resume"),
             bodyPopup = $("#body-popup"),
@@ -45,6 +46,7 @@ $(document).ready(function () {
             btnResume4 = $("#btn_resume4"),
             btnResume5 = $("#btn_resume5"),
             bodyWin = $("#body-popup-win"),
+            chkStartGame = false,
             counNumnOfShuffels = 0,
             resumBtn = $("#btnResumeGame"),
             pauseStatus = false,
@@ -187,8 +189,10 @@ $(document).ready(function () {
         }
 
         function slide_out() {
+            chkStartGame = false;
             chkpopupPause = false;
             HeaderText.show();
+            $('#heading-Text').css("top", "15vh");
             HeaderText.html('<img src="../../assets/aunjaiAssets/header/win_ic.svg" id="box_o_t"  style="width:66vw; zoom:100%;">');
             HeaderText.show();
             kick.css({ left: ans_position_left });
@@ -260,6 +264,7 @@ $(document).ready(function () {
         }
 
         function gameOver() {
+            chkStartGame = false;
             chksoundFlip = false;
             chkpopupPause = false;
             localStorage.setItem('resumeGame', true);
@@ -308,6 +313,7 @@ $(document).ready(function () {
         text_round();
         check_round_img();
         startButton.on("click", function startGame(event) {
+            chkStartGame = true;
             $('#heading-Text').html('');
             $('#heading-Text').hide();
             Howler.stop();
@@ -321,13 +327,18 @@ $(document).ready(function () {
                     pause_fn();
                 } else {
                     Howler.mute(false);
-                    if (chkPauseFnGame) {
-                        if (pauseStatus === false) {
-                            // console.log("pause");
-                            $("#body-popup-puse").show();
-                            pauseStatus = true;
+                    if (chkStartGame) {
+                        if (chkPauseFnGame) {
+                            if (pauseStatus === false) {
+                                // console.log("pause");
+
+                                chkgameFirst = true;
+                                $("#body-popup-puse").show();
+                                pauseStatus = true;
+                            }
                         }
                     }
+
                 }
             }, false);
 
@@ -347,26 +358,36 @@ $(document).ready(function () {
 
             resumBtn.click(function () {
                 $("#body-popup-puse").hide();
-                // console.log("Resume");
-                if (chksoundFlip) {
-                    soundFlip.stop();
-                    soundFlip.play();
-                }
-                if (counNumnOfShuffels > 0) {
-                    if (counNumnOfShuffels < nuberOfShuffels) {
-                        gamepPlay();
+
+                chkgameFirst = false;
+                setTimeout(() => {
+
+                    // console.log("Resume");
+                    if (chksoundFlip) {
+                        soundFlip.stop();
+                        soundFlip.play();
                     }
-                }
+                    if (counNumnOfShuffels > 0) {
+                        if (counNumnOfShuffels < nuberOfShuffels) {
+                            soundFlip.stop();
+                            soundFlip.play();
+                            gamepPlay();
+                        }
+                    }
 
-                if (totolCountRound > countRound) {
-                    roundStart();
-                }
+                    if (totolCountRound > countRound) {
+                        roundStart();
+                    }
 
-                if (countRoundStop > 0) {
-                    roundStop();
-                }
+                    if (countRoundStop > 0) {
+                        roundStop();
+                    }
 
-                pauseStatus = false;
+                    pauseStatus = false;
+                }, 1000);
+
+
+
 
             });
 
@@ -471,14 +492,21 @@ $(document).ready(function () {
 
             //start shuffle
             function gamepPlay() {
+                chkpopupPause = true;
                 counNumnOfShuffels++;
-
+                console.log("round",counNumnOfShuffels);
+                if (chkgameFirst) {
+                    nuberOfShuffels++;
+                    console.log("total round",nuberOfShuffels);
+                    return;
+                }
                 if (chksoundFlip === false) {
                     if (counNumnOfShuffels == 1) {
                         // console.log("soundd start");
                         soundFlip.stop();
                         soundFlip.play();
                         if (pauseStatus === true) {
+                            console.log("sound pause");
                             soundFlip.stop();
                         }
                         chksoundFlip = true;
@@ -531,7 +559,7 @@ $(document).ready(function () {
                         $("#box" + array[2]).css("z-index", "0");
 
 
-                        chkpopupPause = true;
+                        
 
 
                         if (counNumnOfShuffels < nuberOfShuffels) {
