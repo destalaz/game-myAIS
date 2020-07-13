@@ -22,27 +22,26 @@ export class CheckPermissionLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadPage = true;
     sessionStorage.clear();
     localStorage.clear();
-    this.loadData();
-  }
-
-  loadData() {
-    this.activatedRoute.queryParams.subscribe((params) => {
+    this.activatedRoute.queryParams.subscribe(async (params) => {
       let token = params.token;
       if (!token) { return }
       this.gameService.getMobileId(token).subscribe(async (res) => {
+        console.log(res);
         if (res) {
-          console.log(res);
           sessionStorage.setItem('token', token);
-          let data =  await this.deCode(res["token"]);
-          console.log(data);
+
+          let data = await this.deCode(res["token"]);
           console.log(data.data.playerComplete);
           sessionStorage.setItem('playerComplete', data.data.playerComplete);
           if (sessionStorage.getItem('playerComplete') === "true") {
             this.router.navigateByUrl('/popupContinue');
             return;
-          } else {
+          }
+
+          if (res["resultCode"] === "20000" || res["status"] === true) {
             sessionStorage.setItem('mobileId', data.data.mobileId);
             sessionStorage.setItem('firstPlay', data.data.firstPlay);
             this.router.navigateByUrl('/loadgame');
@@ -52,7 +51,8 @@ export class CheckPermissionLoginComponent implements OnInit {
       })
     });
   }
-  deCode(_data) {
+
+  async deCode(_data) {
     let _resData;
     let decoded = jwtDecode(_data, "123");
     _resData = decoded;
