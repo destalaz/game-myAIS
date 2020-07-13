@@ -494,10 +494,10 @@ $(document).ready(function () {
             function gamepPlay() {
                 chkpopupPause = true;
                 counNumnOfShuffels++;
-                console.log("round",counNumnOfShuffels);
+                // console.log("round",counNumnOfShuffels);
                 if (chkgameFirst) {
                     nuberOfShuffels++;
-                    console.log("total round",nuberOfShuffels);
+                    // console.log("total round",nuberOfShuffels);
                     return;
                 }
                 if (chksoundFlip === false) {
@@ -506,7 +506,7 @@ $(document).ready(function () {
                         soundFlip.stop();
                         soundFlip.play();
                         if (pauseStatus === true) {
-                            console.log("sound pause");
+                            // console.log("sound pause");
                             soundFlip.stop();
                         }
                         chksoundFlip = true;
