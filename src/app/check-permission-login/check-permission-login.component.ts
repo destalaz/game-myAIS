@@ -24,22 +24,25 @@ export class CheckPermissionLoginComponent implements OnInit {
   ngOnInit() {
     sessionStorage.clear();
     localStorage.clear();
+    this.loadData();
+  }
+
+  loadData() {
     this.activatedRoute.queryParams.subscribe((params) => {
       let token = params.token;
       if (!token) { return }
-      this.gameService.getMobileId(token).subscribe((res) => {
-
+      this.gameService.getMobileId(token).subscribe(async (res) => {
         if (res) {
+          console.log(res);
           sessionStorage.setItem('token', token);
-
-          let data = this.deCode(res["token"]);
+          let data =  await this.deCode(res["token"]);
+          console.log(data);
+          console.log(data.data.playerComplete);
           sessionStorage.setItem('playerComplete', data.data.playerComplete);
           if (sessionStorage.getItem('playerComplete') === "true") {
             this.router.navigateByUrl('/popupContinue');
             return;
-          }
-
-          if (res["resultCode"] === "20000" || res["status"] === true) {
+          } else {
             sessionStorage.setItem('mobileId', data.data.mobileId);
             sessionStorage.setItem('firstPlay', data.data.firstPlay);
             this.router.navigateByUrl('/loadgame');

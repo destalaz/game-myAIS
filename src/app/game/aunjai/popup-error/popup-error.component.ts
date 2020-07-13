@@ -59,18 +59,20 @@ export class PopupErrorComponent implements OnInit {
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level), sessionStorage.getItem('token')).subscribe(res => {
       
-      if (res["status"] === false) {
-        this.insufficientPoint = true;
-        this.statusLoad = false;
-        return
-      }
-
       let dataDt = this.deCode(res["token"]);
       if (dataDt.data.playerComplete === true) {
         sessionStorage.setItem('playerComplete', "true");
         this.router.navigateByUrl('/popupContinue');
         return;
       }
+
+      if (res["status"] === false) {
+        this.insufficientPoint = true;
+        this.statusLoad = false;
+        return
+      }
+
+
 
       this.insufficientPoint = false;
       sessionStorage.setItem('playId', dataDt.data.playData.playId);
