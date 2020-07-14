@@ -1,4 +1,3 @@
-import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../service/game.service';
@@ -28,35 +27,42 @@ export class CheckPermissionLoginComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(async (params) => {
       let token = params.token;
       if (!token) { return }
-      this.gameService.getMobileId(token).subscribe(async (res) => {
-        console.log(res);
+      await this.gameService.getMobileId(token).subscribe((res) => {
         if (res) {
+          // console.log(res);
+          // console.log(res["o"]);
           sessionStorage.setItem('token', token);
+          let data = jwtDecode(res["token"], "123");
+          sessionStorage.setItem('playerComplete', res["o"]);
+          // console.log(sessionStorage.getItem('playerComplete'));
+          setTimeout(() => {
+            if (sessionStorage.getItem('playerComplete') === "true") {
+              this.router.navigateByUrl('/popupContinue');
+              return;
+            }
 
-          let data = await this.deCode(res["token"]);
-          console.log(data.data.playerComplete);
-          sessionStorage.setItem('playerComplete', data.data.playerComplete);
-          if (sessionStorage.getItem('playerComplete') === "true") {
-            this.router.navigateByUrl('/popupContinue');
-            return;
-          }
-
-          if (res["resultCode"] === "20000" || res["status"] === true) {
-            sessionStorage.setItem('mobileId', data.data.mobileId);
-            sessionStorage.setItem('firstPlay', data.data.firstPlay);
-            this.router.navigateByUrl('/loadgame');
-            this.loadPage = true;
-          }
+            if (res["resultCode"] === "20000" || res["status"] === true) {
+              sessionStorage.setItem('mobileId', data.data.mobileId);
+              sessionStorage.setItem('firstPlay', data.data.firstPlay);
+              this.router.navigateByUrl('/loadgame');
+              this.loadPage = true;
+            }
+          }, 1500);
         }
       })
     });
   }
 
-  async deCode(_data) {
+  deCode(_data) {
     let _resData;
     let decoded = jwtDecode(_data, "123");
     _resData = decoded;
     return _resData;
+  }
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+
   }
 
 }

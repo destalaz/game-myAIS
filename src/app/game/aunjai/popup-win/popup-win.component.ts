@@ -32,11 +32,9 @@ export class PopupWinComponent implements OnInit {
     if (!this.btnClick) {
       this.btnClick = true;
       this.gameService.getReward(sessionStorage.getItem('playId'), sessionStorage.getItem('token')).subscribe(res => {
-        if (!sessionStorage.getItem('mobileId') || !sessionStorage.getItem('token')) {
-          this.router.navigateByUrl('/reload');
-          return;
-        }
+        // console.log(res);
         let data = this.deCode(res["token"]);
+
         if (res["resultCode"] === "20000") {
           sessionStorage.removeItem("playId");
           sessionStorage.setItem('playerComplete', data.data.playerComplete)
@@ -49,6 +47,8 @@ export class PopupWinComponent implements OnInit {
           }
           this.statusLoad = false;
           this.router.navigate(["popupContinue"], { queryParams: { langauge: this.langauge } });
+        } else {
+          this.router.navigateByUrl('/error-page');
         }
       });
     }

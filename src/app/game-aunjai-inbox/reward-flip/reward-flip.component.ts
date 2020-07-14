@@ -23,13 +23,19 @@ export class RewardFlipComponent implements OnInit {
   optionGame: any;
   openPageRoute: any;
   loadPage = false;
-  testenCode = "mmeanhahahohok123";
-  testToekn: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiUklUNkZZNVFDcEVYdWxvWUVCWm9HeFlDTXo0NGJYN2Y4dDNjUkczSUplbT0iLCJpYXQiOjE1OTQxODI2NjAsImV4cCI6MTU5NDE4NjI2MH0.ifw1rfeAf1_w-rw35pNCfEIvL8V4FhXfsFpo4pc5DkQ";
   @Output() changes = new EventEmitter();
 
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
 
   ngOnInit() {
+    this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
+      if (res["o"] === true) {
+        sessionStorage.setItem('playerComplete', "true");
+        this.router.navigateByUrl('/popupContinue');
+      }
+    });
+
+
     if (!this.langauge) {
       this.langauge = 'TH';
     }

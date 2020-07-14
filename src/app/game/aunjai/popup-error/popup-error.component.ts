@@ -65,7 +65,7 @@ export class PopupErrorComponent implements OnInit {
         this.router.navigateByUrl('/popupContinue');
         return;
       }
-
+      
       if (res["status"] === false) {
         this.insufficientPoint = true;
         this.statusLoad = false;

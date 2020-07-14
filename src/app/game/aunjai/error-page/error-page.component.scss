@@ -1,0 +1,23 @@
+::ng-deep game-aunjai {
+    font-family: "DB Heavent";
+}
+
+.bg {
+    background-position: center;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/min/bg_AIS_Game_1024x768-min.png);
+    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+button {
+    /* width: 200px; */
+    height: 100px;
+    min-width: 100%;
+    background-color: orange;
+}
