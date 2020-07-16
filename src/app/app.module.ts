@@ -19,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'config', component: CmsConfigComponent },
   { path: 'report', component: ReportChartsComponent },
+
   {
     path: '',
     redirectTo: '/login',

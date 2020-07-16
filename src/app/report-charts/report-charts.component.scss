@@ -40,7 +40,7 @@ div.container4 {
     /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, #c9e557, #6bc60f);
     /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #c9e557, #6bc60f);
+    background: linear-gradient(to right, #c9e557, #78aa47);
     /* Standard syntax (must be last) */
 }
 .butsubmit {
@@ -58,3 +58,21 @@ div.container4 {
     cursor: pointer;
     text-align: center;
 }
+
+
+.wrapper{
+    width:60%;
+    display:block;
+    overflow:hidden;
+    margin:0 auto;
+    padding: 60px 50px;
+    background:#fff;
+    border-radius:4px;
+  }
+  
+  canvas{
+    background:#fff;
+    height:400px;
+  }
+
+    

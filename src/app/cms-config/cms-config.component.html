@@ -2,13 +2,15 @@
     <div class="container">
         <h5>{{title}}</h5>
         <div class="navbar-header ">
+            <a (click)="pageReport()" class="navbar-brand text-light" routerLinkActive="active">Report</a>
             <a (click)="logout()" class="navbar-brand text-light" routerLinkActive="active">Logout</a>
+
         </div>
     </div>
 </nav>
 
 
-<body class="container" style=" border-radius: 25px; margin-bottom: 7%; padding-bottom: 1px;"  >
+<body class="container" style=" border-radius: 25px; margin-bottom: 20%; padding-bottom: 1px; zoom: 90%;"  >
 
     <!-- detail -->
     <div style="margin: 1rem; margin-top: 7% ; padding-top: 7%; ">
@@ -89,7 +91,7 @@
                             </button>
                             Setting Config : <span style="color: rgb(73, 73, 73);">{{difficulty}} Level</span>
                         </span>
-                        <div class="card" style="padding: 0px 24px 24px 24px; ">
+                        <div class="card" style="padding: 0px 24px 0px 24px; ">
                             <div class="form-group form-config ">
                                 <form [formGroup]="configForm" (ngSubmit)="save()">
 
@@ -142,7 +144,7 @@
                                     </div>
 
                                     <div>
-                                        <button type="submit" class="color-ais block butsubmit">Save</button>
+                                        <button  style="margin-top: 24px;" type="submit" class="color-ais block butsubmit">Save</button>
                                     </div>
 
                                 </form>
@@ -236,8 +238,6 @@
     </div>
     <!-- / modal Edit -->
 
-
-
     <!-- btnRewardstaus -->
     <!-- <div class="" style="padding-top: 24px; margin: 12px; ">
         <p style="color: red;">* Temporary use for developer mode</p>
@@ -252,7 +252,7 @@
     </div> -->
 
     <div style="margin-top: 100px; margin-bottom: 20% ;  margin: 24px;">
-        <app-report-charts></app-report-charts>
+        <!-- <app-report-charts></app-report-charts> -->
     </div>
 
     <div style="margin-bottom: 20%;"></div>

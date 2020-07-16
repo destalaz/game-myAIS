@@ -185,6 +185,10 @@ export class CmsConfigComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  pageReport () {
+    this.router.navigate(['/report']);
+  }
+
 
   changeRewardLimite() {
     this.alertLoading(true);

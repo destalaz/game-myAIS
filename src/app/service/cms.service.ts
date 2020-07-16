@@ -14,8 +14,8 @@ export class CmsService {
     reportDetail = new Array();
     reportName = new Array();
     reloadData;
-    // private baseUrl = 'https://gameapistg.wisdomcloud.net/api/cms';
-    private baseUrl = 'https://gameapi.wisdomcloud.net/api/cms';
+    private baseUrl = 'https://gameapistg.wisdomcloud.net/api/cms';
+    // private baseUrl = 'https://gameapi.wisdomcloud.net/api/cms';
     // private baseUrl = 'http://localhost:3000/api/cms';
 
     httpOptions = {
