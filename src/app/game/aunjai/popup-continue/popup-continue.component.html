@@ -11,22 +11,27 @@
 <div id="body-popup-win">
     <div style="text-align: center;" class="bodyThis">
         <div class="firstPage" *ngIf="!playerComplete">
-            <div class="aunjai_Social">
 
-            </div>
             <div *ngIf="langauge === 'TH'">
+               
                 <span class="textBody"> เอไอเอสพอยท์ {{ reward }} คะแนน </span><br>
                 <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
-                <button class="buttonNext" (click)="openPage();">
-                    เล่นต่อ
-                </button>
+                <div id="divBtn">
+                    <button class="buttonplayTH" (click)="openPage();">
+                       เล่นต่อ
+                    </button>
+                </div>
+               
             </div>
             <div *ngIf="langauge === 'ENG'">
                 <span class="textBody"> {{ reward }} AIS Points have been added </span><br>
                 <span class="textBody"> to your number</span>
-                <button class="buttonNext" (click)="openPage();">
-                    PLAY AGAIN
-                </button>
+                <div id="divBtn">
+                    <button class="buttonplayENG" (click)="openPage();">
+                        PLAY AGAIN
+                    </button>
+                </div>
+
             </div>
 
         </div>
@@ -40,31 +45,15 @@
             <div class="aunjai_fly"></div>
 
             <div *ngIf="langauge === 'TH' || langauge !== 'ENG'">
-                <div *ngIf="reward !== '' ">
-                    <span class="textBody"> เอไอเอสพอยท์ {{reward}} คะแนน </span><br>
-                    <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
-                </div>
-                <div id="heading-Text">
-                    <span class="text" id="bottom"> คุณได้รับรางวัลครบแล้ว </span><br><br>
-                    <span class="text" id="bottom"> มาร่วมสนุกใหม่เกมหน้า</span>
+                <div class="playcompleteTH">
 
                 </div>
             </div>
             <div *ngIf="langauge === 'ENG'">
-                <div *ngIf="reward !== '' ">
-                    <span class="textBody"> {{reward}} AIS Points have been added </span><br>
-                    <span class="textBody"> to your number </span>
-                </div>
-                <div id="heading-Text">
-                    <span class="text" id="bottom"> You have reached the quota of </span><br><br>
-                    <span class="text" id="bottom"> 3 rewards. Come </span><br>
-                    <span class="text" id="bottom"> Come back next game.</span>
+                <div class="playcompleteENG">
 
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </div>

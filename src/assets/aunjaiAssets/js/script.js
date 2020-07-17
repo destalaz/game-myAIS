@@ -9,17 +9,17 @@ function gamePause() {
 //     }
 // }, true);
 
-function detectDevTool(allow) {
-    if (isNaN(+allow)) allow = 100;
-    var start = +new Date();
-    debugger;
-    var end = +new Date();
-    if (isNaN(start) || isNaN(end) || end - start > allow) {
-        alert('debug detected. all operations will be terminated.');
-        document.write('debug detected.');
-    }
-}
-var wathch = setInterval(function () { detectDevTool() }, 1000);
+// function detectDevTool(allow) {
+//     if (isNaN(+allow)) allow = 100;
+//     var start = +new Date();
+//     debugger;
+//     var end = +new Date();
+//     if (isNaN(start) || isNaN(end) || end - start > allow) {
+//         alert('debug detected. all operations will be terminated.');
+//         document.write('debug detected.');
+//     }
+// }
+// var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -576,7 +576,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
-                                    box1.animate({ top:'-120px' });
+                                    box1.animate({ top:'-110px' });
                                     if (ans == 1) {
                                         flag = 1;
                                         change_cup();
@@ -602,7 +602,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
-                                    box2.animate({ top:'-120px' });
+                                    box2.animate({ top:'-110px' });
                                     if (ans == 2) {
                                         flag = 1;
                                         change_cup();
@@ -627,7 +627,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
-                                    box3.animate({ top:'-120px' });
+                                    box3.animate({ top:'-110px' });
                                     if (ans == 3) {
                                         change_cup();
                                         flag = 1;

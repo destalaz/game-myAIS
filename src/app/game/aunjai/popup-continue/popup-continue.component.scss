@@ -1,6 +1,46 @@
 ::ng-deep popup-continue {
     font-family: "DB Heavent";
 }
+
+.firstPage{
+    background-position: center;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/play_agin_bg.png);
+    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    margin-left: -12px;
+}
+.playcompleteTH {
+    background-position: center;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/ge_points_th.png);
+    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    margin-left: -12px;
+    top: -10vh;
+}
+
+.playcompleteENG {
+    background-position: center;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    background: transparent url(../../../../assets/aunjaiAssets/bg/ge_points_eng.png);
+    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
+    background-size: auto 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    margin-left: -12px;
+    top: -10vh;
+}
 .close {
     background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
     top: 0%;
@@ -122,7 +162,7 @@
     display: table;
     margin: 0 auto;
     z-index: 100;
-    background-color: #a4ce29;
+    background-color: #A4CE29;
     padding: 2vh;
 }
 
@@ -139,22 +179,61 @@
     zoom: 45%;
 }
 
+.buttonplayENG{
+    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    width: 440px;
+    height: 164px;
+    position: relative;
+    margin: auto;
+    border: none;
+    outline: none;
+    opacity: 0.92;
+    font-size: 46px;
+    font-family: "DB_Heavent_Bd_It";
+    color: #49382F;
+}
+
+.buttonplayTH{
+    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    width: 440px;
+    height: 164px;
+    position: relative;
+    margin: auto;
+    border: none;
+    outline: none;
+    opacity: 0.92;
+    font-size: 46px;
+    font-family: "DB_Heavent_Bd_It";
+    color: #49382F;
+}
+#divBtn {
+    position: absolute;
+    top: 84%;
+    width: 440px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
 .buttonNext {
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
     border: none;
-    top: 73vh;
+    top: 80vh;
     margin: auto;
     background-position: center;
     min-height: 14%;
-    min-width: 42%;
+    min-width: 46%;
     position: fixed;
     background-size: 100% 100%;
     background-position-x: center;
     background-repeat: no-repeat;
     outline: none;
-    opacity: 1;
     font-size: 6vw;
-    left: 30%;
+    left: 28%;
     font-family: "DB_Heavent_Bd_It";
 }
 
