@@ -166,18 +166,6 @@
     padding: 2vh;
 }
 
-#divBtn {
-    position: absolute;
-    top: 866px;
-    width: 440px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 50%;
-    transform: translateX(-50%);
-    zoom: 45%;
-}
 
 .buttonplayENG{
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
@@ -187,8 +175,7 @@
     margin: auto;
     border: none;
     outline: none;
-    opacity: 0.92;
-    font-size: 46px;
+    font-size: 50px;
     font-family: "DB_Heavent_Bd_It";
     color: #49382F;
 }
@@ -201,8 +188,7 @@
     margin: auto;
     border: none;
     outline: none;
-    opacity: 0.92;
-    font-size: 46px;
+    font-size: 50px;
     font-family: "DB_Heavent_Bd_It";
     color: #49382F;
 }
@@ -215,8 +201,8 @@
     justify-content: center;
     align-items: center;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);
   }
 
 .buttonNext {
