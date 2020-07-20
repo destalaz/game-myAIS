@@ -15,7 +15,6 @@ export class PopupWinComponent implements OnInit {
   @Input() langauge: any;
   @Input() winShow: boolean;
   statusLoad: boolean = false;
-  statusApi: boolean = false;
   isConnected: boolean = true;
   constructor(private gameService: GameService, private router: Router, private connectionService: ConnectionService) {
     this.reward = localStorage.getItem('rewardpoint');

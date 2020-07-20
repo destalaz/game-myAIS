@@ -21,25 +21,19 @@ export class RewardFlipEngComponent implements OnInit {
 
   ngOnInit() {
     this.goTutorialPage = false;
+    this.open = false;
+    localStorage.removeItem('sumcclick');
+
     if (!this.langauge) {
       this.langauge = 'ENG';
     }
 
-    this.open = false;
-    localStorage.removeItem('sumcclick');
-
-
     if (localStorage.getItem('resumeGame')) {
       this.open = true;
     }
-    ////next popup fix success close and open
-
     localStorage.setItem('countWin', "1");
     localStorage.setItem('language', "ENG");
-
-
   }
-
 
   goTutorial() {
     this.goTutorialPage = true;
@@ -71,5 +65,4 @@ export class RewardFlipEngComponent implements OnInit {
     _resData = decoded;
     return _resData;
   }
-
 }

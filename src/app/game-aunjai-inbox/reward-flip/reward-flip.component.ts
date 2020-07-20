@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../../service/game.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 import * as jwtDecode from '../../../../node_modules/jwt-decode';
 // import * as jwEncode from '../../../../node_modules/jsonwebtoken/sign.js';
 
@@ -13,15 +12,11 @@ import * as jwtDecode from '../../../../node_modules/jwt-decode';
   styleUrls: ['./reward-flip.component.scss']
 })
 export class RewardFlipComponent implements OnInit {
-  private subscriptions = new Subscription();
+ 
   termUrl = "myais://gamesterm?lang=th&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip";
   goTutorialPage: boolean = false;
   langauge: string;
   open: boolean = false;
-
-  dataParams: any;
-  optionGame: any;
-  openPageRoute: any;
   loadPage = false;
   @Output() changes = new EventEmitter();
 
@@ -35,28 +30,16 @@ export class RewardFlipComponent implements OnInit {
       }
     });
 
-
     if (!this.langauge) {
       this.langauge = 'TH';
     }
     this.open = false;
     localStorage.removeItem('sumcclick');
 
-
-    ////next popup fix success close and open
-
-
-
     if (localStorage.getItem('resumeGame')) {
       this.open = true;
     }
-    ////next popup fix success close and open
-
-
-
-
     this.goTutorialPage = false;
-
   }
 
 
@@ -93,9 +76,4 @@ export class RewardFlipComponent implements OnInit {
     _resData = decoded;
     return _resData;
   }
-
-
 }
-
-
-
