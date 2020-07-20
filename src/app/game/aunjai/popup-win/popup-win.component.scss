@@ -116,9 +116,8 @@ aunjai-logo-ENG{
     top: 13vh;
 }
 #body-popup-win {
-    display: none;
     pointer-events: all;
-    z-index: 99999;
+    z-index: 1000;
     border: none;
     margin: 0px;
     padding: 0px;
@@ -129,7 +128,19 @@ aunjai-logo-ENG{
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
+.loading{
+    pointer-events: all;
+    z-index: 1001;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 .bodyThis {
     position: relative;
     width: 90%;

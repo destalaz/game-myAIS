@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     providedIn: 'root'
 })
 export class GameService {
-     private baseUrl = 'https://gameapistg.wisdomcloud.net';
+    private baseUrl = 'https://gameapistg.wisdomcloud.net';
     _tokenParams = sessionStorage.getItem('token');
     // private baseUrl = 'https://gameapi.wisdomcloud.net';
     // private baseUrl = 'http://localhost:3000';
@@ -32,7 +32,7 @@ export class GameService {
                 "Authorization": "Bearer " + tokenParams,
             })
         };
-        return this.http.post(this.baseUrl + urlApi, body, Options)
+        return this.http.post(this.baseUrl + urlApi, body, Options);
     }
 
     getPlayDetails(_mobileId: string, _level: Number, tokenParams: String) {
@@ -46,11 +46,10 @@ export class GameService {
                 "Authorization": "Bearer " + tokenParams,
             })
         };
-
         return this.http.post(this.baseUrl + urlApi, body, Options);
     }
 
-    getPlayResult(_playId: string, cclick: string, tokenParams: String) {
+    getPlayResult(_playId: string, cclick: string, tokenParams: String): Promise<any> {
         // console.log("token send",tokenParams);
         let urlApi = "/api/cms/game/result";
         const body =
@@ -61,10 +60,11 @@ export class GameService {
                 "Authorization": "Bearer " + tokenParams,
             })
         };
-        return this.http.post(this.baseUrl + urlApi, body, Options);
+        const getResult = this.http.post(this.baseUrl + urlApi, body, Options).toPromise();
+        return getResult;
     }
 
-    getReward(_playId: string, tokenParams: String) {
+    getReward(_playId: string, tokenParams: String): Promise<any> {
         // console.log("token send",tokenParams);
         let urlApi = "/api/cms/game/getReward";
         const body =
@@ -75,7 +75,8 @@ export class GameService {
                 "Authorization": "Bearer " + tokenParams,
             })
         };
-        return this.http.post(this.baseUrl + urlApi, body, Options);
+        const getReward = this.http.post(this.baseUrl + urlApi, body, Options).toPromise();
+        return getReward;
     }
 
 

@@ -29,6 +29,7 @@
     "howler": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
+    "ng-connection-service": "^1.0.4",
     "ngx-bootstrap": "^5.6.1",
     "node": "^10.14.1",
     "rxjs": "~6.4.0",

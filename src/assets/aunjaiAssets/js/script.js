@@ -9,17 +9,17 @@ function gamePause() {
 //     }
 // }, true);
 
-// function detectDevTool(allow) {
-//     if (isNaN(+allow)) allow = 100;
-//     var start = +new Date();
-//     debugger;
-//     var end = +new Date();
-//     if (isNaN(start) || isNaN(end) || end - start > allow) {
-//         alert('debug detected. all operations will be terminated.');
-//         document.write('debug detected.');
-//     }
-// }
-// var wathch = setInterval(function () { detectDevTool() }, 1000);
+function detectDevTool(allow) {
+    if (isNaN(+allow)) allow = 100;
+    var start = +new Date();
+    debugger;
+    var end = +new Date();
+    if (isNaN(start) || isNaN(end) || end - start > allow) {
+        alert('debug detected. all operations will be terminated.');
+        document.write('debug detected.');
+    }
+}
+var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -223,7 +223,7 @@ $(document).ready(function () {
                     bodyPopup.show();
                 } else if (localStorage.getItem('countWin') === "3") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        bodyWin.show();
+                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -232,7 +232,7 @@ $(document).ready(function () {
                     }
                 } else if (localStorage.getItem('countWin') === "4") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        bodyWin.show();
+                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -242,7 +242,7 @@ $(document).ready(function () {
                 }
                 else if (localStorage.getItem('countWin') === "5") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        bodyWin.show();
+                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -252,7 +252,7 @@ $(document).ready(function () {
                 }
                 else if (localStorage.getItem('countWin') === "6") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        bodyWin.show();
+                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -268,17 +268,10 @@ $(document).ready(function () {
             chksoundFlip = false;
             chkpopupPause = false;
             localStorage.setItem('resumeGame', true);
-            var checkGameOver = $("#checkOverGame");
-            checkGameOver.click();
+            var resultGameWin = $("#resultGameWin");
+            resultGameWin.click();
             localStorage.setItem('countWin', '1');
             localStorage.setItem('gameOver', "true");
-
-
-            win = false;
-            setTimeout(() => {
-                localStorage.setItem('countWin', 1);
-                bodyLose.show();
-            }, 1000);
         }
 
         function text_round() {
@@ -559,7 +552,7 @@ $(document).ready(function () {
                         $("#box" + array[2]).css("z-index", "0");
 
 
-                        
+
 
 
                         if (counNumnOfShuffels < nuberOfShuffels) {
@@ -576,7 +569,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
-                                    box1.animate({ top:'-110px' });
+                                    box1.animate({ top: '-110px' });
                                     if (ans == 1) {
                                         flag = 1;
                                         change_cup();
@@ -602,7 +595,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
-                                    box2.animate({ top:'-110px' });
+                                    box2.animate({ top: '-110px' });
                                     if (ans == 2) {
                                         flag = 1;
                                         change_cup();
@@ -627,7 +620,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
-                                    box3.animate({ top:'-110px' });
+                                    box3.animate({ top: '-110px' });
                                     if (ans == 3) {
                                         change_cup();
                                         flag = 1;

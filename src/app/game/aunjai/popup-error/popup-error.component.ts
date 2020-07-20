@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { Router } from '@angular/router';
 import * as jwtDecode from '../../../../../node_modules/jwt-decode';
+import 'rxjs';
 @Component({
   selector: 'popup-error',
   templateUrl: './popup-error.component.html',
@@ -52,13 +53,13 @@ export class PopupErrorComponent implements OnInit {
     const level = localStorage.getItem('level');
     if (!level) { return }
     this.statusLoad = true;
-    if (!sessionStorage.getItem('mobileId') || !sessionStorage.getItem('token')) {
-      this.router.navigateByUrl('/reload');
-      return;
-    }
+    // if (!sessionStorage.getItem('mobileId') || !sessionStorage.getItem('token')) {
+    //   this.router.navigateByUrl('/reload');
+    //   return;
+    // }
 
     this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level), sessionStorage.getItem('token')).subscribe(res => {
-
+      
       let dataDt = this.deCode(res["token"]);
       // console.log("descrup", dataDt);
       // console.log("No descrup", res);
@@ -83,7 +84,7 @@ export class PopupErrorComponent implements OnInit {
         this.openPopupReady = true;
         this.statusLoad = false;
       }
-    });
+    }, err =>  this.statusLoad = false);
   }
 
   refresh(): void {

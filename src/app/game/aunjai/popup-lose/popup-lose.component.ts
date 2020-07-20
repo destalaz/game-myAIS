@@ -9,6 +9,7 @@ export class PopupLoseComponent implements OnInit {
   open: boolean = false;
   reward: any;
   @Input() langauge: any;
+  @Input()loseShow: boolean;
   constructor() { }
 
   ngOnInit() {

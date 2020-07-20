@@ -1,25 +1,15 @@
-<!-- checkOverGame -->
-<button id="checkOverGame" name="checkOverGame" style="display:none;" (click)="resultGame('false')"></button>
-<button id="resultGameWin" name="resultGameWin" style="display:none;" (click)="resultGame('true')"></button>
+<button id="resultGameWin"  style="display:none;" (click)="resultGame()"></button>
 
 
-<div *ngIf="load" class="bg-load">
-    <div class=container4>
-        <div class="text-center">
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <div class="container">
     <div class="baground_forest">
         <header-game></header-game>
         <br><br>
-     
+
         <div id="divBtn">
-         
+
             <button class="buttonStart" id="start_game">
                 <span *ngIf="langauge === 'TH'"> เล่นเลย </span>
                 <span *ngIf="langauge === 'ENG'"> PLAY </span>
@@ -49,14 +39,14 @@
 <div id="body-popup-puse" *ngIf="true">
     <div style="text-align: center;" class="bodyThis">
         <div class="redeem-point" id="redeem-point" *ngIf="true">
-            <div >
+            <div>
                 <div class="aunjai-logo">
                 </div>
                 <span *ngIf="langauge === 'TH'" class="textBody"> เกมหยุดชั่วคราว </span>
-                <span  *ngIf="langauge === 'ENG'" class="textBody" > Paused </span>
+                <span *ngIf="langauge === 'ENG'" class="textBody"> Paused </span>
             </div>
             <!-- <div *ngIf="langauge === 'ENG'"> -->
-                <div>
+            <div>
                 <div class="aunjai-logo">
                 </div>
                 <button class="buttonPause" id="btnResumeGame">
@@ -70,8 +60,16 @@
     </div>
 </div>
 
-<popup-game [langauge]="langauge"></popup-game>
-<popup-win [langauge]="langauge"></popup-win>
-<popup-lose [langauge]="langauge"></popup-lose>
+<div class="loading" *ngIf="load">
+    <div style="text-align: center;" class="bodyThis">
+        <div class="spinner-border" role="status" style="margin-top: 35%;">
+            <span class="sr-only ">Loading...</span>
+        </div>
+        <p>Loading...</p>
+    </div>
+</div>
 
-<script type="text/javascript" src="../../../assets/aunjaiAssets/js/script.js"></script>
+<popup-game [langauge]="langauge"></popup-game>
+<popup-win [langauge]="langauge" [winShow]="winShow"></popup-win>
+<popup-lose [langauge]="langauge" [loseShow]="loseShow"></popup-lose>
+<!-- <network-Chk></network-Chk> -->

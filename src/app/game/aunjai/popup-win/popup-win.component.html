@@ -1,14 +1,4 @@
-<div *ngIf="statusLoad">
-    <div class="spinner-border" role="status" style="margin-top: 35%;">
-        <span class="sr-only ">Loading...</span>
-    </div>
-    <p>Loading...</p>
-</div>
-
-
-<div id="body-popup-win">
-    <div class="baground_forest">
-    </div>
+<div id="body-popup-win" *ngIf="winShow">
     <div style="text-align: center;" class="bodyThis" *ngIf="langauge === 'TH'">
         <div class="aunjai-logo">
         </div>
@@ -27,7 +17,6 @@
 
     <div style="text-align: center;" class="bodyThis" *ngIf="langauge === 'ENG'">
         <div class="aunjai-logo">
-
         </div>
         <div class="treatBox_20_ENG" id="win-goto" *ngIf="reward === '20'">
         </div>
@@ -37,8 +26,19 @@
         </div>
         <span class="textBody" style="font-size: 6vw;"> <b>Congratulations,</b></span><br>
         <span class="textBody">You’ve earned</span>
-        <button class="buttonGetTreat" id="btn_get_treat"   (click)="servedPlayReward()">
+        <button class="buttonGetTreat" id="btn_get_treat" (click)="servedPlayReward()">
             COLLECT
         </button>
+    </div>
+</div>
+
+<div *ngIf="winShow">
+    <div class="loading" *ngIf="statusLoad || !isConnected">
+        <div style="text-align: center;" class="bodyThis">
+            <div class="spinner-border" role="status" style="margin-top: 35%;">
+                <span class="sr-only ">Loading...</span>
+            </div>
+            <p>Loading...</p>
+        </div>
     </div>
 </div>

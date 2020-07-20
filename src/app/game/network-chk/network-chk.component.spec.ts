@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopupWinComponent } from './popup-win.component';
+import { NetworkChkComponent } from './network-chk.component';
 
-describe('PopupWinComponent', () => {
-  let component: PopupWinComponent;
-  let fixture: ComponentFixture<PopupWinComponent>;
+describe('NetworkChkComponent', () => {
+  let component: NetworkChkComponent;
+  let fixture: ComponentFixture<NetworkChkComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopupWinComponent ]
+      declarations: [ NetworkChkComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopupWinComponent);
+    fixture = TestBed.createComponent(NetworkChkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

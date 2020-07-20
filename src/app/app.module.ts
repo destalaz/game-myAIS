@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule, Routes } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
-import { GameAunjaiInboxComponent } from './game-aunjai-inbox/game-aunjai-inbox.component';
 import { TutorialPageComponent } from './game-aunjai-inbox/tutorial-page/tutorial-page.component';  // npm i @types/datatables.net --save-dev
 
 import { AunjaiComponent } from './game/aunjai/aunjai.component';
@@ -26,6 +25,7 @@ import { CheckPermissionLoginComponent } from './check-permission-login/check-pe
 import { RewardFlipEngComponent } from './game-aunjai-inbox/reward-flip-eng/reward-flip-eng.component';
 import { TutorialPageEngComponent } from './game-aunjai-inbox/tutorial-page-eng/tutorial-page-eng.component';
 import { ErrorPageComponent } from './game/aunjai/error-page/error-page.component';
+import { NetworkChkComponent } from './game/network-chk/network-chk.component';
 
 
 const appRoutes: Routes = [
@@ -49,13 +49,13 @@ const appRoutes: Routes = [
   { path: 'popupError', component: PopupErrorComponent },
   { path: 'popupReady', component: PopupReadyComponent },
   { path: 'error-page', component: ErrorPageComponent },
+  { path: 'network-Chk', component: NetworkChkComponent },
   // { path: '**', component: PagenofoundComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameAunjaiInboxComponent,
     TutorialPageComponent,
     AunjaiComponent,
     HeaderGameComponent,
@@ -70,7 +70,8 @@ const appRoutes: Routes = [
     CheckPermissionLoginComponent,
     RewardFlipEngComponent,
     TutorialPageEngComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    NetworkChkComponent
   ],
   imports: [
     DataTablesModule,
