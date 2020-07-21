@@ -72,22 +72,28 @@ export class AunjaiComponent implements OnInit {
         }
       }
     }).catch(() => {
-      this.load =true;
+      this.load = true;
+      setTimeout(() => {
+        this.resultGame();
+      }, 10000);
+      
     });
   }
 
 
 
   resultGame() {
-    try {
+    setTimeout(() => {
       this.load = true;
-      if (this.isConnected) {
-        this.ansVal = localStorage.getItem('sumcclick');
-        this.servedPlayResult(this.playId, this.addChar(this.ansVal));
-      }
-    } catch{
+      try {
+        if (this.isConnected) {
+          this.ansVal = localStorage.getItem('sumcclick');
+          this.servedPlayResult(this.playId, this.addChar(this.ansVal));
+        }
+      } catch{
 
-    }
+      }
+    }, 2000);
   }
 
 

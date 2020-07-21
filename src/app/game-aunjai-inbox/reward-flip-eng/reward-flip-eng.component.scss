@@ -169,45 +169,44 @@ h3 {
 
     .footer {
         position: relative;
-        margin: 2vh;
+        margin: 1vh;
         text-align: center;
 
         .how-to-play-border {
             position: inherit;
             width: 23vh;
-            margin-top: 0vh;
+            margin-top: 1vh;
+            // @media screen and (min-device-height: 960px) {
+            //     width: 21vh;
+            //     margin-top: 3vh;
+            // }
 
-            @media screen and (min-device-height: 960px) {
-                width: 21vh;
-                margin-top: 3vh;
-            }
+            // @media screen and (max-device-width: 414px) {
+            //     margin-top: 6vh;
 
-            @media screen and (max-device-width: 414px) {
-                margin-top: 6vh;
+            //     @media screen and (max-device-height: 823px) {
+            //         margin-top: 4vh;
+            //     }
+            //     @media screen and (max-device-height: 736px) {
+            //         margin-top: 0vh;
+            //     }
+            // }
 
-                @media screen and (max-device-height: 823px) {
-                    margin-top: 4vh;
-                }
-                @media screen and (max-device-height: 736px) {
-                    margin-top: 0vh;
-                }
-            }
+            // @media screen and (max-device-width: 375px) {
+            //     margin-top: 6vh;
 
-            @media screen and (max-device-width: 375px) {
-                margin-top: 6vh;
-
-                @media screen and (max-device-height: 812px) {
-                    margin-top: 6vh;
-                }
-                @media screen and (max-device-height: 667px) {
-                    margin-top: 0vh;
-                }
-            }
+            //     @media screen and (max-device-height: 812px) {
+            //         margin-top: 6vh;
+            //     }
+            //     @media screen and (max-device-height: 667px) {
+            //         margin-top: 0vh;
+            //     }
+            // }
         }
         .text-condition {
             position: inherit;
             width: 23vh;
-            margin-top: 5vh;
+            margin-top: 1.5vh;
         }
     }
 }

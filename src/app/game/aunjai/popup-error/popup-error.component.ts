@@ -57,34 +57,34 @@ export class PopupErrorComponent implements OnInit {
     //   this.router.navigateByUrl('/reload');
     //   return;
     // }
+    setTimeout(() => {
+      this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level), sessionStorage.getItem('token')).subscribe(res => {
+        let dataDt = this.deCode(res["token"]);
+        // console.log("descrup", dataDt);
+        // console.log("No descrup", res);
+        // console.log(res["status"]);
+        // console.log(res["deductCode"]);
+        if (dataDt.data.playerComplete === true) {
+          sessionStorage.setItem('playerComplete', "true");
+          this.router.navigateByUrl('/popupContinue');
+          return;
+        }
 
-    this.gameService.getPlayDetails(sessionStorage.getItem('mobileId'), Number(level), sessionStorage.getItem('token')).subscribe(res => {
-      
-      let dataDt = this.deCode(res["token"]);
-      // console.log("descrup", dataDt);
-      // console.log("No descrup", res);
-      // console.log(res["status"]);
-      // console.log(res["deductCode"]);
-      if (dataDt.data.playerComplete === true) {
-        sessionStorage.setItem('playerComplete', "true");
-        this.router.navigateByUrl('/popupContinue');
-        return;
-      }
-
-      if (res["deductCode"] !== "20000") {
-        this.insufficientPoint = true;
-        this.statusLoad = false;
-        return
-      } else {
-        this.insufficientPoint = false;
-        sessionStorage.setItem('playId', dataDt.data.playData.playId);
-        localStorage.setItem('countWin', "1");
-        localStorage.setItem('config', JSON.stringify(dataDt.data.playData.playerDetall));
-        localStorage.setItem('totalRound', dataDt.data.playData.amountWin);
-        this.openPopupReady = true;
-        this.statusLoad = false;
-      }
-    }, err =>  this.statusLoad = false);
+        if (res["deductCode"] !== "20000") {
+          this.insufficientPoint = true;
+          this.statusLoad = false;
+          return
+        } else {
+          this.insufficientPoint = false;
+          sessionStorage.setItem('playId', dataDt.data.playData.playId);
+          localStorage.setItem('countWin', "1");
+          localStorage.setItem('config', JSON.stringify(dataDt.data.playData.playerDetall));
+          localStorage.setItem('totalRound', dataDt.data.playData.amountWin);
+          this.openPopupReady = true;
+          this.statusLoad = false;
+        }
+      }, err => this.statusLoad = false);
+    }, 2000);
   }
 
   refresh(): void {

@@ -29,7 +29,7 @@ export class PopupWinComponent implements OnInit {
     this.reward = localStorage.getItem('rewardpoint');
   }
 
-   servedPlayReward() {
+  servedPlayReward() {
     this.statusLoad = true;
     this.gameService.getReward(sessionStorage.getItem('playId'), sessionStorage.getItem('token')).then(res => {
       let data = this.deCode(res["token"]);
@@ -53,7 +53,7 @@ export class PopupWinComponent implements OnInit {
         // this.router.navigateByUrl('/error-page');
       }
     }).catch(() => {
-      this.statusLoad = true;
+
     });
   }
 

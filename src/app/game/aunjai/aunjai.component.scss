@@ -108,7 +108,29 @@
   display: none;
 }
 
+#win-img{
+  z-index: 200;
+  position: absolute;
+  margin: auto;
+  top: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+#heading-Round{
+  z-index: 200;
+  position: absolute;
+  top: 19vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 #heading-Text {
   z-index: 200;
