@@ -1,7 +1,3 @@
-function gamePause() {
-
-}
-
 // window.addEventListener("storage", function (e) {
 //     localStorage.clear();
 //     if (e.storageArea === sessionStorage) {
@@ -9,17 +5,17 @@ function gamePause() {
 //     }
 // }, true);
 
-function detectDevTool(allow) {
-    if (isNaN(+allow)) allow = 100;
-    var start = +new Date();
-    debugger;
-    var end = +new Date();
-    if (isNaN(start) || isNaN(end) || end - start > allow) {
-        alert('debug detected. all operations will be terminated.');
-        document.write('debug detected.');
-    }
-}
-var wathch = setInterval(function () { detectDevTool() }, 1000);
+// function detectDevTool(allow) {
+//     if (isNaN(+allow)) allow = 100;
+//     var start = +new Date();
+//     debugger;
+//     var end = +new Date();
+//     if (isNaN(start) || isNaN(end) || end - start > allow) {
+//         alert('debug detected. all operations will be terminated.');
+//         document.write('debug detected.');
+//     }
+// }
+// var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -45,7 +41,6 @@ $(document).ready(function () {
             btnResume3 = $("#btn_resume3"),
             btnResume4 = $("#btn_resume4"),
             btnResume5 = $("#btn_resume5"),
-            bodyWin = $("#body-popup-win"),
             chkStartGame = false,
             counNumnOfShuffels = 0,
             resumBtn = $("#btnResumeGame"),
@@ -56,7 +51,6 @@ $(document).ready(function () {
             characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
             playId = sessionStorage.getItem('playId'),
             click = false,
-            bodyLose = $("#body-popup-lose"),
             chkpopupPause = false,
             countRound = 0,
             totolCountRound = 3,
@@ -84,17 +78,7 @@ $(document).ready(function () {
 
         var data = JSON.parse(localStorage.getItem('config'));
         var index = parseInt(localStorage.getItem('countWin')) - 1;
-
         var entoken = configdecode(data[index].o, data[index].hash);
-
-
-
-
-
-
-
-
-
 
 
         soundGame = new Howl({
@@ -117,12 +101,6 @@ $(document).ready(function () {
             volume: 0.2,
         });
 
-
-
-
-
-
-
         function change_cup() {
             if (localStorage.getItem('totalRound') === "3") {
                 cup1.css('display', 'inline-block');
@@ -143,8 +121,6 @@ $(document).ready(function () {
                 cup4.css('display', 'inline-block');
                 cup5.css('display', 'inline-block');
             }
-
-
 
 
             if (localStorage.getItem('countWin') === "1") {
@@ -209,11 +185,9 @@ $(document).ready(function () {
             });
 
             setTimeout(() => {
-
                 win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
                 localStorage.setItem('countWin', win_now);
                 change_cup();
-
 
                 if (localStorage.getItem('countWin') === "1") {
                     btnResume1.show();
@@ -223,7 +197,6 @@ $(document).ready(function () {
                     bodyPopup.show();
                 } else if (localStorage.getItem('countWin') === "3") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -232,7 +205,6 @@ $(document).ready(function () {
                     }
                 } else if (localStorage.getItem('countWin') === "4") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -242,7 +214,6 @@ $(document).ready(function () {
                 }
                 else if (localStorage.getItem('countWin') === "5") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -252,7 +223,6 @@ $(document).ready(function () {
                 }
                 else if (localStorage.getItem('countWin') === "6") {
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-                        // bodyWin.show();
                         var resultGameWin = $("#resultGameWin");
                         resultGameWin.click();
                     } else {
@@ -378,13 +348,7 @@ $(document).ready(function () {
 
                     pauseStatus = false;
                 }, 1000);
-
-
-
-
             });
-
-
 
             //start   round 
             function roundStart() {
@@ -423,7 +387,6 @@ $(document).ready(function () {
                     }
                 });
             }
-
             ////finished round start
 
 
@@ -561,6 +524,8 @@ $(document).ready(function () {
                             }
 
                         } else {
+                            chkStartGame = false;
+                            chkpopupPause = false;
                             chksoundFlip = false;
                             soundFlip.stop();
                             var flag = 0;
