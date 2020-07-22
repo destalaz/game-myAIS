@@ -83,7 +83,12 @@ export class PopupErrorComponent implements OnInit {
           this.openPopupReady = true;
           this.statusLoad = false;
         }
-      }, err => this.statusLoad = false);
+      }, err => {
+        this.statusLoad = true;
+        setTimeout(() => {
+          this.ServedPlayGame();
+        }, 10000);
+      });
     }, 2000);
   }
 

@@ -3,7 +3,7 @@
 //     if (e.storageArea === sessionStorage) {
 //         sessionStorage.clear();
 //     }
-// }, true);
+// // }, true);
 
 function detectDevTool(allow) {
     if (isNaN(+allow)) allow = 100;
@@ -174,7 +174,7 @@ $(document).ready(function () {
             win = false;
             kick.show();
             kick.animate({
-                top: "58%",
+                top: "66%",
                 left: ans_position_left
             });
 
@@ -542,7 +542,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;">');
-                                    box1.animate({ top: '-34vw' });
+                                    box1.animate({ top: '-25vw' });
                                     if (ans == 1) {
                                         flag = 1;
                                         change_cup();
@@ -568,7 +568,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;" >');
-                                    box2.animate({ top: '-34vw' });
+                                    box2.animate({ top: '-25vw' });
                                     if (ans == 2) {
                                         flag = 1;
                                         change_cup();
@@ -594,7 +594,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;">');
-                                    box3.animate({ top: '-34vw' });
+                                    box3.animate({ top: '-25vw' });
                                     if (ans == 3) {
                                         change_cup();
                                         flag = 1;
@@ -659,7 +659,7 @@ $(document).ready(function () {
 
             // Droping kick from the top into the box.
             kick.animate({
-                top: "50%"
+                top: "60%"
             }, {
                 duration: kickDropDownAnimationDelay,
                 specialEasing: {
@@ -668,7 +668,7 @@ $(document).ready(function () {
                 complete: function () {
                     kick.html("<img src='../../../assets/aunjaiAssets/avatar/min/Cloth_Point_02@2x-min.png' style='width:28vw;' />");
                     kick.animate({
-                        top: "52%"
+                        top: "62%"
                     }, {
                         duration: 500,
                         specialEasing: {

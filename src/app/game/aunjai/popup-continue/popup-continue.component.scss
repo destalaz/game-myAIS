@@ -169,41 +169,42 @@
 
 .buttonplayENG{
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
-    width: 440px;
-    height: 164px;
-    position: relative;
-    margin: auto;
     border: none;
+    top: 82%;
+    background-position: center;
+    min-height: 10%;
+    min-width: 42%;
+    position: fixed;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
     outline: none;
-    font-size: 50px;
-    font-family: "DB_Heavent_Bd_It";
+    opacity: 1;
+    font-size: 6vw;
+    left: 30%;
     color: #49382F;
+    font-family: "DB_Heavent_Bd_It";
 }
 
 .buttonplayTH{
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
-    width: 440px;
-    height: 164px;
-    position: relative;
-    margin: auto;
     border: none;
+    top: 82%;
+    background-position: center;
+    min-height: 10%;
+    min-width: 42%;
+    position: fixed;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
     outline: none;
-    font-size: 50px;
-    font-family: "DB_Heavent_Bd_It";
+    opacity: 1;
+    font-size: 6vw;
+    left: 30%;
     color: #49382F;
+    font-family: "DB_Heavent_Bd_It";
 }
-#divBtn {
-    position: absolute;
-    top: 84%;
-    width: 440px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%) scale(0.5);
-    transform: translate(-50%, -50%) scale(0.5);
-  }
+
 
 .buttonNext {
     background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);

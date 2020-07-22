@@ -13,15 +13,14 @@
         <div class="firstPage" *ngIf="!playerComplete">
 
             <div *ngIf="langauge === 'TH'">
-               
+
                 <span class="textBody"> เอไอเอสพอยท์ {{ reward }} คะแนน </span><br>
                 <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
-                <div id="divBtn">
-                    <button class="buttonplayTH" (click)="openPage();">
-                       เล่นต่อ
-                    </button>
-                </div>
-               
+
+                <button class="buttonplayTH" (click)="openPage();">
+                    เล่นต่อ
+                </button>
+
             </div>
             <div *ngIf="langauge === 'ENG'">
                 <span class="textBody"> {{ reward }} AIS Points have been added </span><br>
@@ -38,10 +37,10 @@
 
 
         <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playerComplete">
-            <div *ngIf="langauge === 'TH'"> <button class="close" [routerLinkActive]="['isActive']"
+            <!-- <div *ngIf="langauge === 'TH'"> <button class="close" [routerLinkActive]="['isActive']"
                     [routerLink]="['/reward_flip']"></button></div>
             <div *ngIf="langauge === 'ENG'"> <button class="close" [routerLinkActive]="['isActive']"
-                    [routerLink]="['/reward_flip_eng']"></button></div>
+                    [routerLink]="['/reward_flip_eng']"></button></div> -->
             <div class="aunjai_fly"></div>
 
             <div *ngIf="langauge === 'TH' || langauge !== 'ENG'">

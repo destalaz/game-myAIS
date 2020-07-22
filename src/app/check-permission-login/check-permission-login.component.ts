@@ -55,7 +55,7 @@ export class CheckPermissionLoginComponent implements OnInit {
 
   deCode(_data) {
     let _resData;
-    let decoded = jwtDecode(_data, "123");
+    let decoded = jwtDecode(_data);
     _resData = decoded;
     return _resData;
   }
