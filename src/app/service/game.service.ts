@@ -12,12 +12,7 @@ export class GameService {
     // private baseUrl = 'https://gameapi.wisdomcloud.net';
     // private baseUrl = 'http://localhost:3000';
 
-    httpOptions = {
-        headers: new HttpHeaders({
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + this._tokenParams,
-        })
-    };
+
 
 
     constructor(private http: HttpClient) { }

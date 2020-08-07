@@ -5,17 +5,17 @@
 //     }
 // // }, true);
 
-function detectDevTool(allow) {
-    if (isNaN(+allow)) allow = 100;
-    var start = +new Date();
-    debugger;
-    var end = +new Date();
-    if (isNaN(start) || isNaN(end) || end - start > allow) {
-        alert('debug detected. all operations will be terminated.');
-        document.write('debug detected.');
-    }
-}
-var wathch = setInterval(function () { detectDevTool() }, 1000);
+// function detectDevTool(allow) {
+//     if (isNaN(+allow)) allow = 100;
+//     var start = +new Date();
+//     debugger;
+//     var end = +new Date();
+//     if (isNaN(start) || isNaN(end) || end - start > allow) {
+//         alert('debug detected. all operations will be terminated.');
+//         document.write('debug detected.');
+//     }
+// }
+// var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -359,7 +359,7 @@ $(document).ready(function () {
                 // console.log("Round Start", countRound);
                 // console.log("totaocoundRound",totolCountRound);
                 if (countRound == 1) {
-                    // console.log("If 1");
+                    $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
                     $('#heading-Text').fadeOut();
                 } else if (countRound == 2) {

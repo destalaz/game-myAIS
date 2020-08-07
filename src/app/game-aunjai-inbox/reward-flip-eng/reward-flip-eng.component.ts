@@ -23,7 +23,8 @@ export class RewardFlipEngComponent implements OnInit {
     this.goTutorialPage = false;
     this.open = false;
     localStorage.removeItem('sumcclick');
-
+    localStorage.setItem('countWin', "1");
+    localStorage.setItem('language', "ENG");
     if (!this.langauge) {
       this.langauge = 'ENG';
     }
@@ -31,8 +32,7 @@ export class RewardFlipEngComponent implements OnInit {
     if (localStorage.getItem('resumeGame')) {
       this.open = true;
     }
-    localStorage.setItem('countWin', "1");
-    localStorage.setItem('language', "ENG");
+
   }
 
   goTutorial() {

@@ -23,6 +23,7 @@ export class RewardFlipComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
 
   ngOnInit() {
+    localStorage.setItem('countWin', "1");
     this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
       if (res["o"] === true) {
         sessionStorage.setItem('playerComplete', "true");
