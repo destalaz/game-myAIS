@@ -10,7 +10,7 @@
                 <div class="tutorial-card">
 
                     <img class="h-t-p-1" *ngIf="pageNo === 0"
-                        src="../../../assets/aunjaiAssets/component/how_to_play1.png">
+                        src="../../../assets/aunjaiAssets/component/0_how_to_play_th.png" (click)="nextPage()">
                     <img class="h-t-p-2" *ngIf="pageNo === 1"
                         src="../../../assets/aunjaiAssets/component/untitled folder/how_to_play2-min.png">
                     <img class="h-t-p-3" *ngIf="pageNo === 2"
@@ -19,7 +19,7 @@
                         src="../../../assets/aunjaiAssets/component/how_to_play4.png">
 
 
-                    <div class="tab-next" *ngIf="pageNo !== 4">
+                    <div class="tab-next" *ngIf="pageNo !== 0">
                         <img class="ic-next" src="../../../assets/aunjaiAssets/component/arrow_next_ic.svg"
                             (click)="nextPage()">
                         <img *ngIf="pageNo !== 0" class="ic-back"
