@@ -33,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'reload', component: CheckPermissionLoginComponent },
   { path: 'loadgame', component: LoadingGameComponent },
   { path: 'tutorial', component: TutorialPageComponent },
+  { path: 'tutorial_eng', component: TutorialPageEngComponent },
   { path: 'reward_flip', component: RewardFlipComponent },
   { path: 'reward_flip_eng', component: RewardFlipEngComponent},
 

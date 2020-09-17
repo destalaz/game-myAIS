@@ -18,6 +18,7 @@ export class RewardFlipComponent implements OnInit {
   langauge: string;
   open: boolean = false;
   loadPage = false;
+  openPage: boolean;
   @Output() changes = new EventEmitter();
 
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
@@ -33,14 +34,21 @@ export class RewardFlipComponent implements OnInit {
     });
     if (localStorage.getItem('language_Params') == 'th') {
       this.langauge = 'TH';
+      //console.log(this.langauge);
     } else if (localStorage.getItem('language_Params') == 'en') {
       this.langauge = 'EN';
+      //console.log(this.langauge);
     }
 
-    if (!this.langauge) {
-      this.langauge = 'TH';
-    }
-    console.log(this.langauge);
+    this.route.queryParams.subscribe(params => {
+      this.openPage = params.openPage;
+    })
+
+    // if (!this.langauge) {
+    //   this.langauge = 'TH';
+    // }
+    // console.log(this.langauge);
+
     this.open = false;
     localStorage.removeItem('sumcclick');
 

@@ -22,10 +22,19 @@ export class LoadingGameComponent implements OnInit {
     setTimeout(() => {
       this.loading = true;
       setTimeout(() => {
-        if (sessionStorage.getItem('firstPlay') !== "true") {
-          this.router.navigateByUrl('/reward_flip');
-        } else {
-          this.router.navigateByUrl('/tutorial');
+
+        if (localStorage.getItem('language_Params') == 'th') {
+          if (sessionStorage.getItem('firstPlay') !== "true") {
+            this.router.navigate(["reward_flip"], { queryParams: { openPage: "TH" } });
+          } else {
+            this.router.navigate(["tutorial"], { queryParams: { langauge: "TH", firstplay: true } });
+          }
+        } else if (localStorage.getItem('language_Params') == 'en') {
+          if (sessionStorage.getItem('firstPlay') !== "true") {
+            this.router.navigate(["reward_flip_eng"], { queryParams: { openPage: "EN" } });
+          } else {
+            this.router.navigate(["tutorial_eng"], { queryParams: { langauge: "EN", firstplay: true } });
+          }
         }
       }, 2000);
     }, 2000);

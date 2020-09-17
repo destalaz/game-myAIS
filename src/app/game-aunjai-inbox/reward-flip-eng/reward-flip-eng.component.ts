@@ -17,6 +17,7 @@ export class RewardFlipEngComponent implements OnInit {
   goTutorialPage: boolean = false;
   langauge: string;
   loadPage = false;
+  openPage: boolean;
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
 
   ngOnInit() {
@@ -25,9 +26,21 @@ export class RewardFlipEngComponent implements OnInit {
     localStorage.removeItem('sumcclick');
     localStorage.setItem('countWin', "1");
     localStorage.setItem('language', "ENG");
-    if (!this.langauge) {
-      this.langauge = 'ENG';
+
+    if (localStorage.getItem('language_Params') == 'th') {
+      this.langauge = 'TH';
+      //console.log(this.langauge);
+    } else if (localStorage.getItem('language_Params') == 'en') {
+      this.langauge = 'EN';
+      //console.log(this.langauge);
     }
+
+    this.route.queryParams.subscribe(params => {
+      this.openPage = params.openPage;
+    })
+    // if (!this.langauge) {
+    //   this.langauge = 'ENG';
+    // }
 
     if (localStorage.getItem('resumeGame')) {
       this.open = true;
