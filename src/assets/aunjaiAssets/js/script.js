@@ -1,21 +1,14 @@
-// window.addEventListener("storage", function (e) {
-//     localStorage.clear();
-//     if (e.storageArea === sessionStorage) {
-//         sessionStorage.clear();
+// function detectDevTool(allow) {
+//     if (isNaN(+allow)) allow = 100;
+//     var start = +new Date();
+//     debugger;
+//     var end = +new Date();
+//     if (isNaN(start) || isNaN(end) || end - start > allow) {
+//         alert('debug detected. all operations will be terminated.');
+//         document.write('debug detected.');
 //     }
-// // }, true);
-
-function detectDevTool(allow) {
-    if (isNaN(+allow)) allow = 100;
-    var start = +new Date();
-    debugger;
-    var end = +new Date();
-    if (isNaN(start) || isNaN(end) || end - start > allow) {
-        alert('debug detected. all operations will be terminated.');
-        document.write('debug detected.');
-    }
-}
-var wathch = setInterval(function () { detectDevTool() }, 1000);
+// }
+// var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -57,7 +50,6 @@ $(document).ready(function () {
             totolCountRound = 3,
             countRoundStop = 0,
             flag = 0,
-            totolCountRoundStop = 5,
             shuffle,
             shuffleSpeedLeft, shuffleSpeedTop;
 
@@ -356,19 +348,15 @@ $(document).ready(function () {
             //start   round 
             function roundStart() {
                 countRound++;
-                // console.log("Round Start", countRound);
-                // console.log("totaocoundRound",totolCountRound);
                 if (countRound == 1) {
                     $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">3</div>');
                     $('#heading-Text').fadeOut();
                 } else if (countRound == 2) {
-                    // console.log("If 2");
                     $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">2</div>');
                     $('#heading-Text').fadeOut();
                 } else if (countRound == 3) {
-                    // console.log("If 3");
                     $('#heading-Text').fadeIn();
                     $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/component/random_bg@2x.png" id="box_o_t"   style="width:64vw;"><div style="position: absolute;font-size:20vw; font-style:italic;">1</div>');
                     $('#heading-Text').fadeOut();
@@ -376,8 +364,6 @@ $(document).ready(function () {
                     fadeIn: (1000),
                 }, {
                     duration: 1000, complete: function () {
-                        // console.log("Round Start", countRound);
-                        // console.log("totaocoundRound", totolCountRound);
                         if (totolCountRound > countRound) {
                             if (!pauseStatus) {
                                 roundStart();
@@ -400,14 +386,12 @@ $(document).ready(function () {
                 chkpopupPause = false;
                 setTimeout(() => {
                     if (!click) {
-                        // console.log("5");
                         $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/random_number/5.png" id="box_o_t"  style="width:28vw;">').fadeIn().fadeOut();
                     } else {
                         chk_Choose_click();
                     }
                     setTimeout(() => {
                         if (!click) {
-                            // console.log("4");
                             $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/random_number/4.png" id="box_o_t"  style="width:28vw;">').fadeIn().fadeOut();
                         } else {
                             chk_Choose_click();
@@ -415,7 +399,6 @@ $(document).ready(function () {
                     }, 1000);
                     setTimeout(() => {
                         if (!click) {
-                            // console.log("3");
                             $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/random_number/3.png" id="box_o_t"  style="width:28vw;">').fadeIn().fadeOut();
                         } else {
                             chk_Choose_click();
@@ -423,7 +406,6 @@ $(document).ready(function () {
                     }, 2000);
                     setTimeout(() => {
                         if (!click) {
-                            // console.log("2");
                             $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/random_number/2.png" id="box_o_t"  style="width:28vw;">').fadeIn().fadeOut();
                         } else {
                             chk_Choose_click();
@@ -431,7 +413,6 @@ $(document).ready(function () {
                     }, 3000);
                     setTimeout(() => {
                         if (!click) {
-                            // console.log("1");
                             $('#heading-Text').html('<img src="../../../../rewardflip/assets/aunjaiAssets/random_number/1.png" id="box_o_t"  style="width:28vw;">').fadeIn().fadeOut();
                         } else {
                             chk_Choose_click();
@@ -443,7 +424,6 @@ $(document).ready(function () {
 
                     setTimeout(() => {
                         $('#heading-Text').hide();
-                        // console.log("gameover");
                         flag = 1;
                         chk_Choose_click();
                     }, 6000);
@@ -459,26 +439,21 @@ $(document).ready(function () {
             function gamepPlay() {
                 chkpopupPause = true;
                 counNumnOfShuffels++;
-                // console.log("round",counNumnOfShuffels);
                 if (chkgameFirst) {
                     nuberOfShuffels++;
-                    // console.log("total round",nuberOfShuffels);
                     return;
                 }
                 if (chksoundFlip === false) {
                     if (counNumnOfShuffels == 1) {
-                        // console.log("soundd start");
                         soundFlip.stop();
                         soundFlip.play();
                         if (pauseStatus === true) {
-                            // console.log("sound pause");
                             soundFlip.stop();
                         }
                         chksoundFlip = true;
                         chkStatusflip = true;
                     }
                 }
-                // console.log("Shuffle Round", counNumnOfShuffels, "/", nuberOfShuffels);
                 var array = shuffle([1, 2, 3]);
                 $("#box" + array[0]).css("z-index", "100");
                 $("#box" + array[1]).css("z-index", "300");
@@ -522,11 +497,6 @@ $(document).ready(function () {
                         $("#box" + array[0]).css("z-index", "0");
                         $("#box" + array[1]).css("z-index", "0");
                         $("#box" + array[2]).css("z-index", "0");
-
-
-
-
-
                         if (counNumnOfShuffels < nuberOfShuffels) {
                             if (!pauseStatus) {
                                 gamepPlay();
