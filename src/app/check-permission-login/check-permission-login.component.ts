@@ -26,6 +26,7 @@ export class CheckPermissionLoginComponent implements OnInit {
     localStorage.clear();
     this.activatedRoute.queryParams.subscribe(async (params) => {
       let token = params.token;
+      localStorage.setItem('language_Params', params.language)
       if (!token) { return }
       await this.gameService.getMobileId(token).subscribe((res) => {
         if (res) {

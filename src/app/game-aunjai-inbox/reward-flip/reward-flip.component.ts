@@ -12,7 +12,7 @@ import * as jwtDecode from '../../../../node_modules/jwt-decode';
   styleUrls: ['./reward-flip.component.scss']
 })
 export class RewardFlipComponent implements OnInit {
- 
+
   termUrl = "myais://gamesterm?lang=th&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip";
   goTutorialPage: boolean = false;
   langauge: string;
@@ -23,6 +23,7 @@ export class RewardFlipComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
 
   ngOnInit() {
+
     localStorage.setItem('countWin', "1");
     this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
       if (res["o"] === true) {
@@ -30,10 +31,16 @@ export class RewardFlipComponent implements OnInit {
         this.router.navigateByUrl('/popupContinue');
       }
     });
+    if (localStorage.getItem('language_Params') == 'th') {
+      this.langauge = 'TH';
+    } else if (localStorage.getItem('language_Params') == 'en') {
+      this.langauge = 'EN';
+    }
 
     if (!this.langauge) {
       this.langauge = 'TH';
     }
+    console.log(this.langauge);
     this.open = false;
     localStorage.removeItem('sumcclick');
 
