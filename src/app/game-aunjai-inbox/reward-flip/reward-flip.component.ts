@@ -18,7 +18,7 @@ export class RewardFlipComponent implements OnInit {
   langauge: string;
   open: boolean = false;
   loadPage = false;
-  openPage: boolean;
+  openPage: string;
   @Output() changes = new EventEmitter();
 
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
@@ -26,12 +26,7 @@ export class RewardFlipComponent implements OnInit {
   ngOnInit() {
 
     localStorage.setItem('countWin', "1");
-    this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
-      if (res["o"] === true) {
-        sessionStorage.setItem('playerComplete', "true");
-        this.router.navigateByUrl('/popupContinue');
-      }
-    });
+
     if (localStorage.getItem('language_Params') == 'th') {
       this.langauge = 'TH';
       //console.log(this.langauge);
@@ -40,8 +35,16 @@ export class RewardFlipComponent implements OnInit {
       //console.log(this.langauge);
     }
 
+    this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
+      if (res["o"] === true) {
+        sessionStorage.setItem('playerComplete', "true");
+        this.router.navigateByUrl('/popupContinue', { queryParams: { langauge: "TH" } });
+      }
+    });
+
     this.route.queryParams.subscribe(params => {
       this.openPage = params.openPage;
+      //console.log('openPage => ', this.openPage)
     })
 
     // if (!this.langauge) {

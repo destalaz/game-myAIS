@@ -17,7 +17,7 @@ export class RewardFlipEngComponent implements OnInit {
   goTutorialPage: boolean = false;
   langauge: string;
   loadPage = false;
-  openPage: boolean;
+  openPage: string;
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
 
   ngOnInit() {
@@ -35,8 +35,16 @@ export class RewardFlipEngComponent implements OnInit {
       //console.log(this.langauge);
     }
 
+    this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
+      if (res['o'] === true) {
+        sessionStorage.setItem('playerComplete', "true");
+        this.router.navigateByUrl('/popupContinue', { queryParams: { langauge: "ENG" } });
+      }
+    })
+
     this.route.queryParams.subscribe(params => {
       this.openPage = params.openPage;
+      //console.log('openPage => ', this.openPage)
     })
     // if (!this.langauge) {
     //   this.langauge = 'ENG';

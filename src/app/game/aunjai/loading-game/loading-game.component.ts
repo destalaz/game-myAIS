@@ -31,7 +31,7 @@ export class LoadingGameComponent implements OnInit {
           }
         } else if (localStorage.getItem('language_Params') == 'en') {
           if (sessionStorage.getItem('firstPlay') !== "true") {
-            this.router.navigate(["reward_flip_eng"], { queryParams: { openPage: "EN" } });
+            this.router.navigate(["reward_flip_eng"], { queryParams: { openPage: "ENG" } });
           } else {
             this.router.navigate(["tutorial_eng"], { queryParams: { langauge: "EN", firstplay: true } });
           }
