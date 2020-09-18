@@ -13,7 +13,7 @@ export class CheckPermissionLoginComponent implements OnInit {
   loadPage = false;
   msg = "Loading...";
 
-
+  language_params: string = '';
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -26,7 +26,14 @@ export class CheckPermissionLoginComponent implements OnInit {
     localStorage.clear();
     this.activatedRoute.queryParams.subscribe(async (params) => {
       let token = params.token;
+      if (params.language == 'th') {
+        this.language_params = "TH";
+      } else if (params.language == 'en') {
+        this.language_params = "ENG";
+      }
+      console.log(this.language_params)
       localStorage.setItem('language_Params', params.language)
+      console.log(this.language_params);
       if (!token) { return }
       await this.gameService.getMobileId(token).subscribe((res) => {
         if (res) {
@@ -38,7 +45,7 @@ export class CheckPermissionLoginComponent implements OnInit {
           // console.log(sessionStorage.getItem('playerComplete'));
           setTimeout(() => {
             if (sessionStorage.getItem('playerComplete') === "true") {
-              this.router.navigateByUrl('/popupContinue');
+              this.router.navigate(["/popupContinue"], { queryParams: { langauge: this.language_params, openPage: true } });
               return;
             }
 

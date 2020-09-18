@@ -27,13 +27,7 @@ export class RewardFlipEngComponent implements OnInit {
     localStorage.setItem('countWin', "1");
     localStorage.setItem('language', "ENG");
 
-    if (localStorage.getItem('language_Params') == 'th') {
-      this.langauge = 'TH';
-      //console.log(this.langauge);
-    } else if (localStorage.getItem('language_Params') == 'en') {
-      this.langauge = 'EN';
-      //console.log(this.langauge);
-    }
+    this.langauge = 'ENG';
 
     this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
       if (res['o'] === true) {
@@ -44,7 +38,7 @@ export class RewardFlipEngComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       this.openPage = params.openPage;
-      //console.log('openPage => ', this.openPage)
+      console.log('openPage => ', this.openPage)
     })
     // if (!this.langauge) {
     //   this.langauge = 'ENG';

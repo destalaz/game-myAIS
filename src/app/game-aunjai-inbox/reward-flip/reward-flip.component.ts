@@ -44,7 +44,7 @@ export class RewardFlipComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       this.openPage = params.openPage;
-      //console.log('openPage => ', this.openPage)
+      console.log('openPage => ', this.openPage)
     })
 
     // if (!this.langauge) {

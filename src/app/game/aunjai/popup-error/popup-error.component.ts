@@ -27,6 +27,7 @@ export class PopupErrorComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.langauge)
     this.aispoint = localStorage.getItem('aispoint');
     this.statusLoad = false;
     this.langaugeNow = this.langauge;
