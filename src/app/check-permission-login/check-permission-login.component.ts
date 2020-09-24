@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../service/game.service';
 import * as jwtDecode from '../../../node_modules/jwt-decode';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-check-permission-login',
   templateUrl: './check-permission-login.component.html',
@@ -17,10 +17,12 @@ export class CheckPermissionLoginComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private gameService: GameService
+    private gameService: GameService,
+    private _location: Location
   ) { }
 
   ngOnInit() {
+    // this._location.back();
     this.loadPage = true;
     sessionStorage.clear();
     localStorage.clear();

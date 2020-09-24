@@ -5,16 +5,16 @@
 //     }
 // // }, true);
 
-function detectDevTool(allow) {
-    if (isNaN(+allow)) allow = 100;
-    var start = +new Date();
-    debugger;
-    var end = +new Date();
-    if (isNaN(start) || isNaN(end) || end - start > allow) {
-        alert('debug detected. all operations will be terminated.');
-        document.write('debug detected.');
-    }
-}
+// function detectDevTool(allow) {
+//     if (isNaN(+allow)) allow = 100;
+//     var start = +new Date();
+//     debugger;
+//     var end = +new Date();
+//     if (isNaN(start) || isNaN(end) || end - start > allow) {
+//         alert('debug detected. all operations will be terminated.');
+//         document.write('debug detected.');
+//     }
+// }
 var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {

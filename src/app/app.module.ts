@@ -26,11 +26,17 @@ import { RewardFlipEngComponent } from './game-aunjai-inbox/reward-flip-eng/rewa
 import { TutorialPageEngComponent } from './game-aunjai-inbox/tutorial-page-eng/tutorial-page-eng.component';
 import { ErrorPageComponent } from './game/aunjai/error-page/error-page.component';
 import { NetworkChkComponent } from './game/network-chk/network-chk.component';
+import { FinishedComponent } from './finished/finished.component';
 
 
 const appRoutes: Routes = [
+  // {
+  //   path: '', component: FinishedComponent
+  // },
+  // { path: '**', component: FinishedComponent }
+
+  // { path: '', component: CheckPermissionLoginComponent },
   { path: '', component: CheckPermissionLoginComponent },
-  { path: 'reload', component: CheckPermissionLoginComponent },
   { path: 'loadgame', component: LoadingGameComponent },
   { path: 'tutorial', component: TutorialPageComponent },
   { path: 'tutorial_eng', component: TutorialPageEngComponent },
@@ -42,6 +48,7 @@ const appRoutes: Routes = [
   { path: 'aunjai2', component: AunjaiComponent },
   { path: 'aunjai3', component: AunjaiComponent },
   { path: 'aunjai4', component: AunjaiComponent },
+  { path: '', component: AunjaiComponent },
   { path: 'aunjai5', component: AunjaiComponent },
   { path: 'popup', component: PopupComponent },
   { path: 'popupWin', component: PopupWinComponent },
@@ -72,7 +79,8 @@ const appRoutes: Routes = [
     RewardFlipEngComponent,
     TutorialPageEngComponent,
     ErrorPageComponent,
-    NetworkChkComponent
+    NetworkChkComponent,
+    FinishedComponent
   ],
   imports: [
     DataTablesModule,
