@@ -39,61 +39,27 @@ export class AunjaiComponent implements OnInit {
   };
 
   constructor(private router: ActivatedRoute, private gameService: GameService, private route: Router, private connectionService: ConnectionService) {
-    this.playId = sessionStorage.getItem('playId');
-    this.connectionService.monitor().subscribe(isConnected => {
-      this.isConnected = isConnected;
-
-      if (this.isConnected) {
-        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound')) || localStorage.getItem('gameOver') === "true") {
-          this.resultGame();
-        }
-      }
-    })
   }
 
 
 
-  servedPlayResult(playId, cclick) {
-    this.gameService.getPlayResult(playId, cclick, sessionStorage.getItem('token')).then(res => {
-      if (res["resultCode"] === "20000") {
-        this.statusApi = true;
-        this.load = false;
-        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-          this.winShow = true;
-        } else if (localStorage.getItem('gameOver') === "true") {
-          this.loseShow = true;
-        }
-      } else if (res["resultCode"] === "S.20001") {
-        this.load = false;
-        if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
-          this.winShow = true;
-        } else if (localStorage.getItem('gameOver') === "true") {
-          this.loseShow = true;
-        }
-      }
-    }).catch(() => {
-      this.load = true;
-      setTimeout(() => {
-        this.resultGame();
-      }, 10000);
-      
-    });
+  servedPlayResult() {
+    if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
+      this.winShow = true;
+    } else if (localStorage.getItem('gameOver') === "true") {
+      this.loseShow = true;
+    }
   }
 
 
 
   resultGame() {
+    this.load = true;
     setTimeout(() => {
-      this.load = true;
-      try {
-        if (this.isConnected) {
-          this.ansVal = localStorage.getItem('sumcclick');
-          this.servedPlayResult(this.playId, this.addChar(this.ansVal));
-        }
-      } catch{
-
-      }
-    }, 2000);
+      this.load = false;
+      this.ansVal = localStorage.getItem('sumcclick');
+      this.servedPlayResult();
+    }, 1000);
   }
 
 

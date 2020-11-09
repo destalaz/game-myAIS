@@ -35,26 +35,14 @@ export class RewardFlipComponent implements OnInit {
       //console.log(this.langauge);
     }
 
-    this.gameService.getMobileId(sessionStorage.getItem('token')).subscribe((res) => {
-      if (res["o"] === true) {
-        sessionStorage.setItem('playerComplete', "true");
-        this.router.navigateByUrl('/popupContinue', { queryParams: { langauge: "TH" } });
-      }
-    });
 
     this.route.queryParams.subscribe(params => {
       this.openPage = params.openPage;
-      console.log('openPage => ', this.openPage)
     })
 
-    // if (!this.langauge) {
-    //   this.langauge = 'TH';
-    // }
-    // console.log(this.langauge);
 
     this.open = false;
     localStorage.removeItem('sumcclick');
-
     if (localStorage.getItem('resumeGame')) {
       this.open = true;
     }
@@ -89,10 +77,4 @@ export class RewardFlipComponent implements OnInit {
     localStorage.setItem('level', level);
   }
 
-  deCode(_data) {
-    var _resData;
-    var decoded = jwtDecode(_data);
-    _resData = decoded;
-    return _resData;
-  }
 }

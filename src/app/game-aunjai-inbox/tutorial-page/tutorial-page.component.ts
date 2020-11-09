@@ -24,13 +24,12 @@ export class TutorialPageComponent implements OnInit {
   ngOnInit() {
     this.pageNo = 0;
 
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.langauge = params.langauge,
-      this.firstPlay = params.firstplay
-
-      // console.log(this.langauge);
-      // console.log(this.firstPlay);
-    })
+    // this.activatedRoute.queryParams.subscribe(params => {
+    //   this.langauge = params.langauge,
+    //   this.firstPlay = params.firstplay
+    //   // console.log(this.langauge);
+    //   // console.log(this.firstPlay);
+    // })
  
   }
 

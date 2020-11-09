@@ -14,30 +14,21 @@ export class LoadingGameComponent implements OnInit {
 
   ngOnInit() {
 
-    if (!sessionStorage.getItem('mobileId')) {
-      this.router.navigateByUrl('/');
-      // this.router.navigateByUrl('/popupError');
-      return
-    }
+    // if (!sessionStorage.getItem('mobileId')) {
+    //   this.router.navigateByUrl('/');
+    //   // this.router.navigateByUrl('/popupError');
+    //   return
+    // }
     setTimeout(() => {
       this.loading = true;
       setTimeout(() => {
-
         if (localStorage.getItem('language_Params') == 'th') {
-          if (sessionStorage.getItem('firstPlay') !== "true") {
-            this.router.navigate(["reward_flip"], { queryParams: { openPage: "TH" } });
-          } else {
-            this.router.navigate(["tutorial"], { queryParams: { langauge: "TH", firstplay: true } });
-          }
+          this.router.navigate(["tutorial"], { queryParams: { langauge: "TH", firstplay: true } });
         } else if (localStorage.getItem('language_Params') == 'en') {
-          if (sessionStorage.getItem('firstPlay') !== "true") {
-            this.router.navigate(["reward_flip_eng"], { queryParams: { openPage: "ENG" } });
-          } else {
-            this.router.navigate(["tutorial_eng"], { queryParams: { langauge: "EN", firstplay: true } });
-          }
+          this.router.navigate(["tutorial_eng"], { queryParams: { langauge: "EN", firstplay: true } });
         }
-      }, 2000);
-    }, 2000);
+      }, 1000);
+    }, 1000);
 
   }
 
