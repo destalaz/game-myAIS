@@ -12,7 +12,7 @@ import { async } from '@angular/core/testing';
   styleUrls: ['./aunjai.component.scss']
 })
 export class AunjaiComponent implements OnInit {
-  url = '../../../../rewardflip/assets/aunjaiAssets/js/script.js';
+  url = '../../../assets/aunjaiAssets/js/script.js';
   private subscriptions = new Subscription();
   private optionGame = this.router.queryParams;
   dataParams: any;
