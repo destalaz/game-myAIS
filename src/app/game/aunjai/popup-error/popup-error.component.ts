@@ -55,7 +55,7 @@ export class PopupErrorComponent implements OnInit {
     }else if(level == '2'){
       localStorage.setItem('totalRound', '4');
     }else if(level == '3'){
-      localStorage.setItem('totalRound', '5');
+      localStorage.setItem('totalRound', '4');
     }
     this.statusLoad = true;
     setTimeout(() => {

@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     providedIn: 'root'
 })
 export class GameService {
+    
     private baseUrl = 'https://gameapistg.wisdomcloud.net';
     _tokenParams = sessionStorage.getItem('token');
     // private baseUrl = 'https://gameapi.wisdomcloud.net';

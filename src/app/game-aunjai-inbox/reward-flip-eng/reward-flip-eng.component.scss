@@ -168,8 +168,11 @@ h3 {
     }
 
     .footer {
-        position: relative;
-        margin: 1vh;
+        text-align: center;
+        position: absolute;
+        bottom: 20vh;
+        left: 50%;
+        transform: translate(-50%, 0);
         text-align: center;
 
         .how-to-play-border {
