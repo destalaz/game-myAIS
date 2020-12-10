@@ -8,7 +8,6 @@
     min-width: 100%;
     position: fixed;
     background: transparent url(../../../../assets/aunjaiAssets/bg/play_agin_bg.png);
-    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
     background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
@@ -20,7 +19,6 @@
     min-width: 100%;
     position: fixed;
     background: transparent url(../../../../assets/aunjaiAssets/bg/ge_points_th.png);
-    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
     background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
@@ -34,7 +32,6 @@
     min-width: 100%;
     position: fixed;
     background: transparent url(../../../../assets/aunjaiAssets/bg/ge_points_eng.png);
-    // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
     background-size: auto 100%;
     background-position-x: center;
     background-repeat: no-repeat;
@@ -42,7 +39,7 @@
     top: -10vh;
 }
 .close {
-    background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
+    background: transparent url(../../../../assets/aunjaiAssets/component/close_ic-min.png);
     top: 0%;
     margin: auto;
     background-position: center;
@@ -72,7 +69,7 @@
 }
 
 .aunjai_fly {
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2047@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/min/Group_2047@2x-min.png);
     top: 25vh;
     margin: auto;
     background-position: center;
@@ -85,7 +82,7 @@
     left: 30%;
 }
 .aunjai_Social {
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/aunjai_play_agin.png);
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/min/aunjai_play_agin-min.png);
     top: 29vh;
     margin: auto;
     background-position: center;
@@ -98,7 +95,7 @@
     left: 28%;
 }
 .aunjai-logo {
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2061@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/min/Group_2061@2x-min.png);
     top: 0px;
     margin: auto;
     background-position: center;
@@ -168,7 +165,7 @@
 
 
 .buttonplayENG{
-    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/component/mini/btn@2x-min.png);
     border: none;
     top: 82%;
     background-position: center;
@@ -187,7 +184,7 @@
 }
 
 .buttonplayTH{
-    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/component/mini/btn@2x-min.png);
     border: none;
     top: 82%;
     background-position: center;
@@ -207,7 +204,7 @@
 
 
 .buttonNext {
-    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/component/mini/btn@2x-min.png);
     border: none;
     top: 80vh;
     margin: auto;

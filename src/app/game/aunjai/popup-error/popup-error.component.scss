@@ -71,7 +71,7 @@
 }
 
 .buttonGetTreat {
-    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/component/mini/btn@2x-min.png);
     border: none;
     margin-top: 28vh;
     background-position: center;
@@ -94,17 +94,15 @@
     margin: 0px;
 }
 .close {
-    background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
-    top: 17%;
+    background: transparent url(../../../../assets/aunjaiAssets/component/close_ic-min.png);
+    top: 16%;
     margin: auto;
     background-position: center;
-    min-height: 9%;
-    min-width: 26%;
+    min-height: 10%;
+    min-width: 10%;
     position: fixed;
-    background-size: 100% 100%;
-    background-position-x: center;
     background-repeat: no-repeat;
-    right: -5%;
+    right: 1%;
     outline: none;
     opacity: 1;
     z-index: 1;

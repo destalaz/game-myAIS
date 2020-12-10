@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameService } from 'src/app/service/game.service';
 
 @Component({
   selector: 'popup-ready',
@@ -7,14 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./popup-ready.component.scss']
 })
 export class PopupReadyComponent implements OnInit {
-  @Input() langauge;
-  totalRound: number;
-  constructor(private router: Router) { }
+  @Input() language:string='';
+  round: string='1';
+  server: string = '';
+  // this.dataGame
+  constructor(private router: Router, private gameService: GameService) {
+    this.server = this.gameService.server;
+  }
 
   ngOnInit() {
-    this.totalRound = parseInt(localStorage.getItem('totalRound'));
     setTimeout(() => {
-      this.router.navigate(["aunjai1"], { queryParams: { langauge:  this.langauge }});
+      this.router.navigate(["aunjai"+this.round], { queryParams: { language: this.language} });
     }, 2000);
   }
 

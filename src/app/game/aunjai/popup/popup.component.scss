@@ -2,7 +2,7 @@
     font-family: "DB Heavent";
 }
 .close {
-    background: transparent url(../../../../assets/aunjaiAssets/component/close_ic.svg);
+    background: transparent url(../../../../assets/aunjaiAssets/component/close_ic-min.png);
     top: 17%;
     margin: auto;
     background-position: center;
@@ -18,7 +18,7 @@
 }
 
 .aunjai-logo {
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2061@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/min/Group_2061@2x-min.png);
     top: 0px;
     margin: auto;
     background-position: center;
@@ -31,7 +31,7 @@
     left: 1vw;
 }
 .aunjai-logo-ENG{
-    background: transparent url(../../../../assets/aunjaiAssets/avatar/Group_2061@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/avatar/min/Group_2061@2x-min.png);
     top: 0px;
     margin: auto;
     background-position: center;
@@ -88,7 +88,7 @@
 
 
 .buttonResume {
-    background: transparent url(../../../../assets/aunjaiAssets/component/btn@2x.png);
+    background: transparent url(../../../../assets/aunjaiAssets/component/mini/btn@2x-min.png);
     border: none;
     margin-top: 26vh;
     background-position: center;
@@ -107,11 +107,7 @@
 }
 
 
-#btn_resume1,
-#btn_resume2,
-#btn_resume3,
-#btn_resume4,
-#btn_resume5 {
+#btn_resume {
     display: none;
 }
 

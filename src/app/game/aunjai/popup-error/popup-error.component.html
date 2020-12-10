@@ -1,4 +1,4 @@
-<div id="body-popup-win" *ngIf="redeem_point === true && !openPopupReady">
+<div id="body-popup-win" *ngIf="open_redeem_point == true && !openPopupReady">
     <div style="text-align: center;" class="bodyThis">
 
         <div *ngIf="statusLoad">
@@ -9,33 +9,31 @@
         </div>
 
         <div *ngIf="!statusLoad">
-
             <div class="redeem-point" id="redeem-point" *ngIf="!insufficientPoint">
-                <div *ngIf="langauge === 'TH'">
-                    <button class="close" (click)="close()"></button>
+                <div *ngIf="language === 'th'">
+                    <button class="close" (click)="close_popup()"></button>
                     <div class="aunjai-logo">
                     </div>
-                    <span class="textBody"> ใช้เอไอเอสพอยท์ {{aispoint}} คะแนน </span><br>
+                    <span class="textBody"> ใช้เอไอเอสพอยท์ 3 คะแนน </span><br>
                     <span class="textBody"> เพื่อเล่นเกม?</span>
-                    <button class="buttonGetTreat" id="btn_get_treat" (click)="ServedPlayGame()">
+                    <button class="buttonGetTreat" id="btn_get_treat" (click)="redeem_point()">
                         แลกคะแนน
                     </button>
-
                 </div>
-                <div *ngIf="langauge === 'ENG'">
+                <div *ngIf="language === 'en'">
                     <div class="redeem-point" id="redeem-point" *ngIf="!insufficientPoint">
-                        <button class="close" (click)="close()"></button>
+                        <button class="close" (click)="close_popup()"></button>
                         <div class="aunjai-logo">
                         </div>
                     </div>
-                    <span class="textBody"> Redeem {{aispoint}} Points to play </span>
-                    <button class="buttonGetTreat" id="btn_get_treat" (click)="ServedPlayGame()">
+                    <span class="textBody"> Redeem 3 Points to play </span>
+                    <button class="buttonGetTreat" id="btn_get_treat" (click)="redeem_point()">
                         REDEEM
                     </button>
                 </div>
             </div>
             <div class="redeem-point-failed" id="redeem-point-failed" *ngIf="insufficientPoint">
-                <div *ngIf="langauge === 'TH'">
+                <div *ngIf="language === 'th'">
                     <div class="aunjai-logo">
                     </div>
                     <div class="treatBox" id="win-goto">
@@ -43,11 +41,11 @@
                     </div>
                     <span class="textBody"> คุณมีเอไอเอสพอยท์ไม่พอ </span><br>
                     <span class="textBody"> เพื่อเล่นเกม </span>
-                    <button class="buttonGetTreat" id="btn_get_treat" (click)="close()">
+                    <button class="buttonGetTreat" id="btn_get_treat" (click)="close_popup()">
                         กลับไปหน้าแรก
                     </button>
                 </div>
-                <div *ngIf="langauge === 'ENG'">
+                <div *ngIf="language === 'en'">
                     <div class="aunjai-logo">
                     </div>
                     <div class="treatBox" id="win-goto">
@@ -55,7 +53,7 @@
                     </div>
                     <span class="textBody"> You have insufficient AIS Points </span><br>
                     <span class="textBody"> to play this game </span>
-                    <button class="buttonGetTreat" id="btn_get_treat" (click)="close()">
+                    <button class="buttonGetTreat" id="btn_get_treat" (click)="close_popup()">
                         HOMEPAGE
                     </button>
                 </div>
@@ -64,7 +62,7 @@
     </div>
 </div>
 
-<app-reward-flip *ngIf="redeem_point === false && langauge === 'TH'"></app-reward-flip>
-<app-reward-flip-eng *ngIf="redeem_point === false && langauge === 'ENG'"></app-reward-flip-eng>
+<!-- <app-reward-flip *ngIf="redeem_point == false && language === 'th'"></app-reward-flip>
+<app-reward-flip-eng *ngIf="redeem_point == false && language === 'en'"></app-reward-flip-eng> -->
 
-<popup-ready *ngIf="openPopupReady" [langauge]="langauge"></popup-ready>
+<popup-ready *ngIf="openPopupReady" [language]="language" ></popup-ready>

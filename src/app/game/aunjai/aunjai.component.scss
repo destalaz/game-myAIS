@@ -27,7 +27,7 @@
 }
 
 .buttonStart {
-  background: transparent url(../../../assets/aunjaiAssets/component/btn@2x.png);
+  background: transparent url(../../../assets/aunjaiAssets/component/mini/btn@2x-min.png);
   width: 440px;
   height: 164px;
   position: relative;
@@ -41,7 +41,7 @@
 }
 
 .buttonPause{
-  background: transparent url(../../../assets/aunjaiAssets/component/btn@2x.png);
+  background: transparent url(../../../assets/aunjaiAssets/component/mini/btn@2x-min.png);
   position: relative;
   border: none;
   outline: none;
@@ -70,7 +70,7 @@
   display: -webkit-flex;
   display: flex;
   justify-content: space-around;
-  top: 62vh;
+  top: 56vh;
   z-index: 300;
 }
 
@@ -155,7 +155,6 @@
   min-width: 100%;
   position: fixed;
   background: transparent url(../../../assets/aunjaiAssets/bg/min/bg_AIS_Game_1024x768-min.png);
-  // background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS-Game_tablet.png);
   background-size: auto 100%;
   background-position-x: center;
   background-repeat: no-repeat;

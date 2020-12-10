@@ -7,7 +7,7 @@ h3 {
     min-height: 100%;
     position: fixed;
     box-shadow: #888 0px 0px 5px;
-    background: transparent url(../../../assets/aunjaiAssets/bg/bg_AIS_Game_1024x768.png);
+    background: transparent url(../../../assets/aunjaiAssets/bg/min/bg_AIS_Game_1024x768-min.png);
     background-size: 245% 100%;
     background-position-x: center;
 
@@ -16,220 +16,49 @@ h3 {
         width: 14vh;
         margin: 1vh;
         right: 0;
+        top: 2vh;
     }
     .img-logo-reward-flip {
         position: inherit;
-        width: 90%;
-        margin-top: 12vh;
-        margin-left: 2vh;
-
-        @media screen and (min-device-height: 960px) {
-            margin-top: 6vh;
-        }
-
-        @media screen and (min-device-width: 641px) {
-            margin-top: 0vh;
-
-            @media screen and (max-device-height: 1024px) {
-                margin-top: 1vh;
-            }
-        }
-
-        @media screen and (max-device-width: 375px) {
-            margin-top: 14vh;
-
-            @media screen and (max-device-height: 667px) {
-                margin-top: 12vh;
-            }
-
-            @media screen and (max-device-height: 812px) {
-                margin-top: 12vh;
-            }
-        }
-
-        @media screen and (max-device-width: 320px) {
-            margin-top: 12vh;
-
-            @media screen and (max-device-height: 480px) {
-                margin-top: 5vh;
-            }
+        width: 100%;
+        margin: 4vh auto 0 auto;
+        display: block;
+        @media only screen and (max-width: 700px) {
+            margin: 36% auto 0 auto;
         }
     }
     .box-landing_1 {
-        position: relative;
-        border-radius: 76px;
-        background: #f8f9fa96;
-        height: 10vh;
-        box-shadow: 0px 3px 5px grey;
-        margin: 2%;
-        text-align: center;
-    }
-    .box-landing_2 {
-        position: relative;
-        border-radius: 76px;
-        background: #f8f9fa96;
-        height: 10vh;
-        box-shadow: 0px 3px 5px grey;
-        margin: 2%;
-        text-align: center;
-    }
-    .box-landing_3 {
-        position: relative;
-        border-radius: 76px;
-        background: #f8f9fa96;
-        height: 10vh;
-        box-shadow: 0px 3px 5px grey;
-        margin: 2%;
-        text-align: center;
-    }
-    .point_20 {
-        position: absolute;
-        width: 9vh;
-        top: 0.6vh;
-        left: 0.5vh;
-        z-index: 1;
-    }
-
-    .point_50 {
-        position: absolute;
-        width: 9vh;
-        top: 0.6vh;
-        left: 0.5vh;
-        z-index: 1;
-    }
-
-    .point_100 {
-        position: absolute;
-        width: 9vh;
-        top: 0.6vh;
-        left: 0.5vh;
-        z-index: 1;
-    }
-
-    .btn_play_20 {
-        position: absolute;
-        width: 11%;
-        top: 2.5vh;
-        right: 1vh;
-        z-index: 1;
-
-        @media screen and (min-device-width: 641px) {
-            top: 1vh;
-        }
-    }
-    .btn_play_50 {
-        position: absolute;
-        width: 11%;
-        top: 2.5vh;
-        right: 1vh;
-        z-index: 1;
-
-        @media screen and (min-device-width: 641px) {
-            top: 1vh;
-        }
-    }
-    .btn_play_100 {
-        position: absolute;
-        width: 11%;
-        top: 2.5vh;
-        right: 1vh;
-        z-index: 1;
-
-        @media screen and (min-device-width: 641px) {
-            top: 1vh;
-        }
-    }
-
-    .text_detail_1 {
-        margin-top: 1vh;
-        width: 26vh;
-
-        @media screen and (min-device-width: 641px) {
-            width: 28vh;
-        }
-    }
-    .text_detail_2 {
-        margin-top: 1vh;
-        width: 26vh;
-
-        @media screen and (min-device-width: 641px) {
-            width: 28vh;
-        }
-    }
-    .text_detail_3 {
-        margin-top: 1vh;
-        width: 26vh;
-
-        @media screen and (min-device-width: 641px) {
-            top: 1vh;
-        }
-    }
-
-    .text_detail_1_eng {
-        margin-top: 1vh;
-        width: 24vh;
-
-        @media screen and (min-device-width: 641px) {
-            width: 28vh;
-        }
-    }
-    .text_detail_2_eng {
-        margin-top: 1vh;
-        width: 24vh;
-
-        @media screen and (min-device-width: 641px) {
-            width: 28vh;
-        }
-    }
-    .text_detail_3_eng {
-        margin-top: 1vh;
-        width: 24vh;
-
-        @media screen and (min-device-width: 641px) {
-            top: 1vh;
+        background: transparent url(../../../assets/aunjaiAssets/component/redeem_th.png);
+        height: 28vw;
+        background-size: contain;
+        margin: 10% auto 0 auto;
+        background-repeat: no-repeat;
+        @media only screen and (max-height: 800px) {
+            margin: -5% 2% 0 2%;
         }
     }
 
     .footer {
-        position: relative;
-        margin: 1vh;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
         text-align: center;
+        bottom: 20%;
 
         .how-to-play-border {
-            position: inherit;
-            width: 20vh;
-            margin-top: 1vh;
-            // @media screen and (min-device-height: 960px) {
-            //     width: 20vh;
-            //     margin-top: 0vh;
-            // }
-
-            // @media screen and (max-device-width: 414px) {
-            //     margin-top: 6vh;
-
-            //     @media screen and (max-device-height: 823px) {
-            //         margin-top: 4vh;
-            //     }
-            //     @media screen and (max-device-height: 736px) {
-            //         margin-top: 0vh;
-            //     }
-            // }
-
-            // @media screen and (max-device-width: 375px) {
-            //     margin-top: 6vh;
-
-            //     @media screen and (max-device-height: 812px) {
-            //         margin-top: 6vh;
-            //     }
-            //     @media screen and (max-device-height: 667px) {
-            //         margin-top: 0vh;
-            //     }
-            // }
+            position: absolute;
+            width: 40vw;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-top: -4vh;
+            
         }
         .text-condition {
-            position: inherit;
-            width: 20vh;
-            margin-top: 1.5vh;
+            position: absolute;
+            width: 40vw;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-top: 7vh;
         }
     }
 }

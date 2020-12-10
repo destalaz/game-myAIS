@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "angular-datatables": "^8.0.0",
     "bootstrap": "^4.5.0",
+    "crypto-js": "^4.0.0",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
     "file-saver": "^2.0.2",
@@ -62,6 +63,12 @@
   "browser": {
     "fs": false,
     "path": false,
-    "os": false
+    "os": false,
+    "http": false,
+    "https":false,
+    "net": false,
+    "stream": false,
+    "tls": false,
+    "crypto": false
   }
 }

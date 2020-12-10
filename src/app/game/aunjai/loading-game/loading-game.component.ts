@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GameService } from 'src/app/service/game.service';
 @Component({
   selector: 'loading-game',
   templateUrl: './loading-game.component.html',
@@ -7,26 +8,23 @@ import { Router } from '@angular/router';
 })
 export class LoadingGameComponent implements OnInit {
   loading: boolean;
-
-  constructor(private router: Router,) {
+  server: string = '';
+  constructor(private router: Router, private gameService: GameService,
+    private activatedRoute: ActivatedRoute) {
     this.loading = false;
+    this.server = this.gameService.server;
   }
-
   ngOnInit() {
-
-    // if (!sessionStorage.getItem('mobileId')) {
-    //   this.router.navigateByUrl('/');
-    //   // this.router.navigateByUrl('/popupError');
-    //   return
-    // }
     setTimeout(() => {
       this.loading = true;
       setTimeout(() => {
-        if (localStorage.getItem('language_Params') == 'th') {
-          this.router.navigate(["tutorial"], { queryParams: { langauge: "TH", firstplay: true } });
-        } else if (localStorage.getItem('language_Params') == 'en') {
-          this.router.navigate(["tutorial_eng"], { queryParams: { langauge: "EN", firstplay: true } });
-        }
+        this.activatedRoute.queryParams.subscribe(params => {
+          if (params.language == 'th') {
+            this.router.navigate(["reward_flip"], { queryParams: { language: "th"} });
+          } else if (params.language === 'en') {
+            this.router.navigate(["reward_flip_eng"], { queryParams: { language: 'en' } });
+          }
+        });
       }, 1000);
     }, 1000);
 

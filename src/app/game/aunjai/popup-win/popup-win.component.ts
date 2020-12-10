@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class PopupWinComponent implements OnInit {
   reward: any;
   btnClick: boolean = false;
-  @Input() langauge: any;
+  @Input() language: any;
   @Input() winShow: boolean;
   statusLoad: boolean = false;
   isConnected: boolean = true;
@@ -23,15 +23,23 @@ export class PopupWinComponent implements OnInit {
     this.reward = localStorage.getItem('rewardpoint');
   }
 
-  servedPlayReward() {
+  getReward() {
     this.statusLoad = true;
-    setTimeout(() => {
-        localStorage.removeItem('resumeGame');
-        localStorage.removeItem('rewardpoint');
-     
+
+   this.gameService.getReward().subscribe(
+    data => {
+     if(data["statusCode"] ==20000){
       this.statusLoad = false;
-      this.router.navigate(["popupContinue"], { queryParams: { langauge: this.langauge } });
-    }, 2000);
+      this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:data.playcomplete } });
+     }else if(data["statusCode"] == 'F:25001') {
+      this.statusLoad = false;
+      this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:data.playcomplete } });
+     }
+    },
+    error => {
+      console.log(error);
+      // this.statusLoad = false;
+    });
   }
 
 }

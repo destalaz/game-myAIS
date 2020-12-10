@@ -6,25 +6,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
-  @Input() langauge:any;
+  @Input() language:string;
+ 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  resume1() {
-    this.router.navigate(["aunjai1"], { queryParams: { langauge:  this.langauge }});
-  }
-  resume2() {
-    this.router.navigate(["aunjai2"], { queryParams: { langauge:  this.langauge }});
-  }
-  resume3() {
-    this.router.navigate(["aunjai3"], { queryParams: { langauge:  this.langauge }});
-  }
-  resume4() {
-    this.router.navigate(["aunjai4"], { queryParams: { langauge:  this.langauge }});
-  }
-  resume5() {
-    this.router.navigate(["aunjai5"], { queryParams: { langauge:  this.langauge }});
+
+  resume() {
+    
+    this.router.navigate(["aunjai"+localStorage.getItem('countWin')], { queryParams: { language:  this.language}});
   }
 
 

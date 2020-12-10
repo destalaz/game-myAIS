@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../../../service/game.service';
 
 @Component({
   selector: 'header-game',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-game.component.scss']
 })
 export class HeaderGameComponent implements OnInit {
+  server: string = '';
+  totalRound: number;
 
-  totalRound: any;
- 
-  constructor() { }
+  constructor(private gameService: GameService) {
+    this.server = this.gameService.server;
+  }
 
   ngOnInit() {
     this.totalRound = parseInt(localStorage.getItem('totalRound'));

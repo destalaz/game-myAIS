@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -10,39 +10,36 @@ import * as jwtDecode from '../../../../node_modules/jwt-decode';
 })
 export class RewardFlipEngComponent implements OnInit {
 
-  @Output() changes = new EventEmitter();
-
-  open: boolean = false;
+  open_redeem_point: boolean = false;
   termUrl = "myais://gamesterm?lang=en&url=http%3A%2F%2Fwww.ais.co.th%2Frewardflip%2Fen";
-  goTutorialPage: boolean = false;
-  langauge: string;
+  @Input() goTutorialPage: boolean = false;
+  language = 'en';
   loadPage = false;
   openPage: string;
-  constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) { }
+  server: string = '';
+  profile: any;
+  aispoint: string = '';
+  _tokenParams:string='';
+  constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) {
+    this.server = this.gameService.server;
+  }
 
   ngOnInit() {
-    localStorage.setItem('countWin', "1");
-
-    if (localStorage.getItem('language_Params') == 'th') {
-      this.langauge = 'TH';
-      //console.log(this.langauge);
-    } else if (localStorage.getItem('language_Params') == 'en') {
-      this.langauge = 'ENG';
-      //console.log(this.langauge);
-    }
-
-
     this.route.queryParams.subscribe(params => {
-      this.openPage = params.openPage;
+      this.language = params.language;
+      console.log(params.language)
+      this.profile = this.gameService.storageDecrypt(localStorage.getItem('profile'));
+
+      if (this.profile.playcomplete == true) {
+        this.goTutorialPage = true;
+        this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true' } });
+      }
+
+
+      if (this.profile.firstPlay == true) {
+        this.goTutorialPage = true;
+      }
     })
-
-
-    this.open = false;
-    localStorage.removeItem('sumcclick');
-    if (localStorage.getItem('resumeGame')) {
-      this.open = true;
-    }
-    this.goTutorialPage = false;
   }
 
 
@@ -54,22 +51,21 @@ export class RewardFlipEngComponent implements OnInit {
     window.location.href = this.termUrl;
   }
 
+  change_language() {
+    this.profile.firstPlay = 'true';
+    localStorage.setItem('profile',this.gameService.storageEncrypt(JSON.stringify(this.profile)));
+    this.router.navigate(["reward_flip"], { queryParams: { language: "th"}});
+  }
+
   setLevel(level) {
-    if (level == 1) {
-      localStorage.setItem('aispoint', "1");
-      localStorage.setItem('rewardpoint', "20");
-      localStorage.setItem('level', "1");
-    } else if (level == 2) {
-      localStorage.setItem('aispoint', "2");
-      localStorage.setItem('rewardpoint', "50");
-      localStorage.setItem('level', "2");
-    } else {
-      localStorage.setItem('aispoint', "3");
-      localStorage.setItem('rewardpoint', "100");
-      localStorage.setItem('level', "3");
-    }
-    this.open = true;
-    this.changes.emit(this.open);
-    localStorage.setItem('level', level);
+    this.aispoint = level;
+    this.open_redeem_point = true;
+  }
+
+  close_popup_reedeem($event) {
+    this.open_redeem_point = false;
+  }
+  close_popup_tutorial($event) {
+    this.goTutorialPage = false;
   }
 }

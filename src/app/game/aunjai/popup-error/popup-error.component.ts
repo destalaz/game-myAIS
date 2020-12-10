@@ -7,63 +7,65 @@ import { Router } from '@angular/router';
   styleUrls: ['./popup-error.component.scss']
 })
 export class PopupErrorComponent implements OnInit {
-  @Input() redeem_point: boolean;
-  @Input() langauge: string;
-  @Input() open: boolean;
-  @Output() change = new EventEmitter();
+  @Input() open_redeem_point: boolean;
+  @Input() language: string;
+  @Output() close_redeem_point = new EventEmitter();
   openPopupReady: boolean = false;
-  langaugeNow: string;
-  aispoint: any;
+  @Input() aispoint: string = '';
+  @Input() profile: any;
+  @Input() _tokenParams: string = '';
+  dataGame: any;
   statusLoad: boolean;
-  insufficientPoint: boolean;
+  insufficientPoint: boolean = false;
 
 
 
 
-  constructor(private gameService: GameService, private router: Router) {
-    this.insufficientPoint = false;
+
+  constructor(private _api: GameService, private router: Router) {
   }
 
   ngOnInit() {
-    console.log(this.langauge)
-    this.aispoint = localStorage.getItem('aispoint');
-    this.statusLoad = false;
-    this.langaugeNow = this.langauge;
+
+    // this.statusLoad = false;
   }
 
-  close() {
+  close_popup() {
     localStorage.removeItem('resumeGame');
-    if (this.langaugeNow === 'TH') {
-      this.langauge = 'TH';
-      this.redeem_point = false;
-      this.change.emit(this.redeem_point);
-    } else {
-      this.langauge = 'ENG';
-      this.redeem_point = false;
-      this.change.emit(this.redeem_point);
-    }
+    this.close_redeem_point.emit(this.open_redeem_point);
   }
 
-
-  ServedPlayGame() {
-    if (localStorage.getItem('resumeGame')) {
-      localStorage.removeItem('resumeGame');
-    }
-    const level = localStorage.getItem('level');
-    if(level == '1'){
-      localStorage.setItem('totalRound', '3');
-    }else if(level == '2'){
-      localStorage.setItem('totalRound', '4');
-    }else if(level == '3'){
-      localStorage.setItem('totalRound', '5');
-    }
+  redeem_point() {
     this.statusLoad = true;
-    setTimeout(() => {
-      this.insufficientPoint = false;
-          localStorage.setItem('countWin', "1");
-          
-          this.openPopupReady = true;
+    this._api.reedeemPoint().subscribe(
+      data => {
+        if (data["statusCode"] == 20000) {
+          this.dataGame = data["data"];
+          localStorage.setItem('playId', this.dataGame.o);
+          localStorage.setItem('totalRound', '4');
+          localStorage.setItem('gameSetting', this._api.storageEncrypt(JSON.stringify(this.dataGame.token)));
+          localStorage.setItem('config', JSON.stringify(this._api.decrypt(this.dataGame.token)));
+          if (localStorage.getItem('countWin') === null) {
+            localStorage.setItem('countWin', '1');
+          }
+          setTimeout(() => {
+            this.statusLoad = false;
+            this.openPopupReady = true;
+          }, 1000);
+        } else if (data["statusCode"] == 'E:16310') {
           this.statusLoad = false;
-    }, 1000);
+          this.insufficientPoint = true;
+        } else if (data["statusCode"] == 'F:25001'){
+          this.statusLoad = false;
+          this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true' } });
+        }
+      },
+      error => {
+        this.statusLoad = false;
+        console.log(error);
+      });
   }
+
+
+
 }

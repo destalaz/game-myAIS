@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,30 +8,34 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./tutorial-page-eng.component.scss']
 })
 export class TutorialPageEngComponent implements OnInit {
-
+@Output() close_tutorial = new EventEmitter();
   @Input() goTutorialPage: boolean;
   pageNo: number = 0;
-  langauge: string;
+  language: string;
   firstPlay: boolean;
-
+  server: string='';
   constructor(
     private gameService: GameService,
     private activatedRoute: ActivatedRoute,
-  ) { }
+
+  ) {
+    this.server = this.gameService.server;
+  }
 
   ngOnInit() {
 
     this.activatedRoute.queryParams.subscribe(params => {
-      this.langauge = params.langauge,
-      this.firstPlay = params.firstplay
+      this.language = params.language,
+        this.firstPlay = params.firstplay
 
-      // console.log(this.langauge);
+      // console.log(this.language);
       // console.log(this.firstPlay);
     })
   }
 
-  checkStatusRead() {
+  close_popup() {
     this.goTutorialPage = false;
+    this.close_tutorial.emit(this.goTutorialPage);
   }
 
   backPage() {

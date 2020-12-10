@@ -7,38 +7,55 @@ import { GameService } from '../service/game.service';
   styleUrls: ['./check-permission-login.component.scss']
 })
 export class CheckPermissionLoginComponent implements OnInit {
-
-  loadPage = false;
-  msg = "Loading...";
-
-  language_params: string = '';
+  paramToken: string;
+  paramTlanguage: string;
+  retryAuthen: number = 1;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private gameService: GameService
+    private _api: GameService
   ) { }
 
   ngOnInit() {
-    this.loadPage = true;
     sessionStorage.clear();
     localStorage.clear();
-    this.activatedRoute.queryParams.subscribe(async (params) => {
-      if (params.language == 'th') {
-        this.language_params = "th";
-      } else if (params.language == 'en') {
-        this.language_params = "en";
-      }else{
-        this.language_params = "th";
-      }
-      localStorage.setItem('language_Params', this.language_params)
-      sessionStorage.setItem('firstPlay', 'true');
-      this.router.navigateByUrl('/loadgame');
-      this.loadPage = true;
-    });
+
+    setTimeout(() => {
+      this.activatedRoute.queryParams.subscribe(params => {
+        this.paramToken = params.token;
+
+        if (params.language == 'th') {
+          this.paramTlanguage = 'th';
+          // this.router.navigate(["loadgame"], { queryParams: { language: 'th', token: params.token } });
+        } else if(params.language == 'en') {
+          this.paramTlanguage = 'en';
+        }else{
+          this.paramTlanguage = 'th';
+        }
+        this.call_Authen(this.paramToken, this.paramTlanguage);
+      });
+    }, 700);
   }
 
-
-  ngOnDestroy(): void {
+  call_Authen(paramsToken: string, language: string) {
+    let profile;
+    this._api.getAuthen(paramsToken).subscribe(
+      data => {
+        if(data["statusCode"] == 20000){
+          profile = Object.assign(data.data, { "transactionID": data.transactionID }, { paramToken: this.paramToken });
+          localStorage.setItem('profile', this._api.storageEncrypt(JSON.stringify(profile)));
+          this.router.navigate(["loadgame"], { queryParams: { language: language } });
+        }
+      },
+      error => {
+        console.log(error);
+        setTimeout(() => {
+          if (this.retryAuthen <= 3) {
+            this.call_Authen(this.paramToken, this.paramTlanguage);
+            console.log(this.retryAuthen);
+            this.retryAuthen++;
+          }
+        }, 3000);
+      });
   }
-
 }

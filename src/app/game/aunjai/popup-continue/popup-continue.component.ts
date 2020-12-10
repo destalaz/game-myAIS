@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'popup-continue',
@@ -11,64 +9,46 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PopupContinueComponent implements OnInit {
   open: boolean = false;
-  reward: string;
-  load: boolean;
-  mobileId: string;
-  playId: string
-  winnerStatus: boolean
-  playerComplete: boolean;
-  dataParams: any;
-  langauge: string;
-  private optionGame = this.router.queryParams;
-  private subscriptions = new Subscription();
-  playComplete: boolean;
-  constructor(private gameService: GameService, private router: ActivatedRoute, private route: Router) {
-    this.load = false;}
+  playerComplete: string;
+  language: string;
+  playComplete: string='';
+  constructor(private activatedRoute: ActivatedRoute, private route: Router) {
+
+  }
 
 
   ngOnInit() {
-    this.loadOptionGame();
-    this.reward = localStorage.getItem('rewardpoint');
-    this.load = true;
-    this.playerComplete = false;
-    if (sessionStorage.getItem('playerComplete') === "true") { this.playerComplete = true }
-    this.checkPlayerComplete();
+    localStorage.removeItem('totalRound');
+    localStorage.removeItem('countPause');
+    localStorage.removeItem('gameOver');
+    localStorage.removeItem('playId');
+    localStorage.removeItem('config');
+    localStorage.removeItem('sumcclick');
+    localStorage.removeItem('countWin');
+    localStorage.removeItem('timeTotal');
+    localStorage.removeItem('gameSetting');
+    localStorage.removeItem('cclick');
+
+
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.language = params.language;
+      this.playComplete = params.playcomplete;
+
+      console.log(this.playComplete);
+      console.log(this.language);
+    });
   }
 
-  public loadOptionGame() {
-    this.subscriptions.add(this.optionGame
-      .subscribe(params => {
-        this.dataParams = params;
-        this.langauge = this.dataParams.langauge;
-        this.playerComplete = this.dataParams.playerComplete;
-        if (this.playerComplete === true) {
-          localStorage.removeItem('resumeGame');
-          localStorage.removeItem('rewardpoint');
-        }
-      }))
-  }
 
   openPage() {
-    localStorage.setItem('resumeGame', 'true');
-    if (this.langauge === 'TH') {
-      this.route.navigate(["reward_flip"], { queryParams: { langauge: "TH", openPage: true } });
+    if (this.language === 'th') {
+      this.route.navigate(["reward_flip"], { queryParams: { language: "th", play_again: true } });
     } else {
-      this.route.navigate(["reward_flip_eng"], { queryParams: { langauge: "ENG", openPage: true } });
+      this.route.navigate(["reward_flip_eng"], { queryParams: { language: "en", play_again: true } });
     }
   }
 
 
-
-  checkPlayerComplete() {
-    if (this.playerComplete !== true) {
-      // this.gameService.getMobileId(token).subscribe((res) => {
-      this.reward = localStorage.getItem('rewardpoint');
-      this.mobileId = sessionStorage.getItem('mobileId');
-      this.playId = sessionStorage.getItem('playId');
-      localStorage.setItem('resumeGame', 'true');
-    } else {
-      this.reward = '';
-    }
-  }
 
 }

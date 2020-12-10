@@ -34,7 +34,8 @@
             ],
             "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
               "src/assets/aunjaiAssets/js/jqueryui.js",
-              "src/assets/aunjaiAssets/js/howler.js"
+              "src/assets/aunjaiAssets/js/howler.js",
+              "src/assets/aunjaiAssets/js/crypto-js.js"
             ]
           },
           "configurations": {
@@ -105,7 +106,8 @@
             ],
             "scripts": ["src/assets/aunjaiAssets/js/jquery.js",
               "src/assets/aunjaiAssets/js/jqueryui.js",
-              "src/assets/aunjaiAssets/js/howler.js"
+              "src/assets/aunjaiAssets/js/howler.js",
+              "src/assets/aunjaiAssets/js/crypto-js.js"
             ]
           }
         },

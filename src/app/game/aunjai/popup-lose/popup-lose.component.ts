@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'popup-lose',
@@ -8,13 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PopupLoseComponent implements OnInit {
   open: boolean = false;
   reward: any;
-  @Input() langauge: any;
-  @Input()loseShow: boolean;
-  constructor() { }
+  @Input() language: any;
+  @Input() loseShow: boolean;
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.reward = localStorage.getItem('rewardpoint');
   }
 
-
+  endGame() {
+      if (this.language == 'th') {
+        this.router.navigate(["reward_flip"], { queryParams: { language: "th",play_again: true } });
+      } else if (this.language  === 'en') {
+        this.router.navigate(["reward_flip_eng"], { queryParams: { language: 'en',play_again: true  } });
+      }
+  }
 }

@@ -1,20 +1,11 @@
-<div *ngIf="load" class="bg-load">
-    <div class=container4>
-        <div class="text-center">
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="body-popup-win">
     <div style="text-align: center;" class="bodyThis">
-        <div class="firstPage" *ngIf="!playerComplete">
+        <div class="firstPage" *ngIf="playComplete == 'false'">
 
-            <div *ngIf="langauge === 'TH'">
+            <div *ngIf="language === 'th'">
 
-                <span class="textBody"> เอไอเอสพอยท์ {{ reward }} คะแนน </span><br>
+                <span class="textBody"> เอไอเอสพอยท์ 100 คะแนน </span><br>
                 <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
 
                 <button class="buttonplayTH" (click)="openPage();">
@@ -22,8 +13,8 @@
                 </button>
 
             </div>
-            <div *ngIf="langauge === 'ENG'">
-                <span class="textBody"> {{ reward }} AIS Points have been added </span><br>
+            <div *ngIf="language === 'en'">
+                <span class="textBody"> 100 AIS Points have been added </span><br>
                 <span class="textBody"> to your number</span>
                 <div id="divBtn">
                     <button class="buttonplayENG" (click)="openPage();">
@@ -36,19 +27,13 @@
         </div>
 
 
-        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playerComplete">
-            <!-- <div *ngIf="langauge === 'TH'"> <button class="close" [routerLinkActive]="['isActive']"
-                    [routerLink]="['/reward_flip']"></button></div>
-            <div *ngIf="langauge === 'ENG'"> <button class="close" [routerLinkActive]="['isActive']"
-                    [routerLink]="['/reward_flip_eng']"></button></div> -->
+        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playComplete  == 'true'">
             <div class="aunjai_fly"></div>
-
-            <div *ngIf="langauge === 'TH' || langauge !== 'ENG'">
+            <div *ngIf="language === 'th' || language !== 'en'">
                 <div class="playcompleteTH">
-
                 </div>
             </div>
-            <div *ngIf="langauge === 'ENG'">
+            <div *ngIf="language === 'en'">
                 <div class="playcompleteENG">
 
                 </div>
