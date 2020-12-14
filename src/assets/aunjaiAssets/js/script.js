@@ -1,14 +1,14 @@
-function detectDevTool(allow) {
-    if (isNaN(+allow)) allow = 100;
-    var start = +new Date();
-    debugger;
-    var end = +new Date();
-    if (isNaN(start) || isNaN(end) || end - start > allow) {
-        alert('debug detected. all operations will be terminated.');
-        document.write('debug detected.');
-    }
-}
-var wathch = setInterval(function () { detectDevTool() }, 1000);
+// function detectDevTool(allow) {
+//     if (isNaN(+allow)) allow = 100;
+//     var start = +new Date();
+//     debugger;
+//     var end = +new Date();
+//     if (isNaN(start) || isNaN(end) || end - start > allow) {
+//         alert('debug detected. all operations will be terminated.');
+//         document.write('debug detected.');
+//     }
+// }
+// var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
             shuffleSpeedLeft, shuffleSpeedTop;
         server = '../rewardflip/';
-        //  server = '';
+        // server = '';
 
         if (localStorage.getItem('sumcclick') === null) {
             localStorage.setItem('sumcclick', "");
@@ -619,9 +619,15 @@ $(document).ready(function () {
             shuffleSpeed = 40 + (shuffleSpeed / 2);
             shuffleSpeedTop = shuffleSpeed / 5;
             shuffleSpeedLeft = shuffleSpeed / 2;
+            // secure = '60230bxi';
             secure = playId.substr(playId.length - 8);
             countwin = parseInt(localStorage.getItem('countWin') - 1);
-            ans = ((parseInt(secure.charAt(countwin)) % 3) + 1);
+            ans = parseInt(secure.charAt(countwin) % 3 + 1);
+
+            // console.log("game1:" +parseInt(secure.charAt(0) % 3 + 1));
+            // console.log("game2:" +parseInt(secure.charAt(1) % 3 + 1));
+            // console.log("game3:" +parseInt(secure.charAt(2) % 3 + 1));
+            // console.log("game4:" +parseInt(secure.charAt(3) % 3 + 1));
             btnResume.click(function () {
                 bodyPopup.hide();
             });
@@ -722,3 +728,7 @@ $(document).ready(function () {
         });
     })();
 });
+
+
+
+
