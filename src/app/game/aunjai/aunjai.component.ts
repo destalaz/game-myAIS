@@ -12,6 +12,7 @@ import { ConnectionService } from 'ng-connection-service';
 })
 export class AunjaiComponent implements OnInit {
   url: string = '';
+  height;
   private subscriptions = new Subscription();
   dataParams: any;
   language: string;
@@ -45,6 +46,7 @@ export class AunjaiComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private route: Router, private connectionService: ConnectionService) {
     this.server = this.gameService.server;
+    this.height = window.screen.availHeight;
     this.secret = 'nnvdJ#3x,!DUKrP">I^s#.62MoZk*,znCiwsAYr4RWNQ2lkDEFdzTqCF10uod2';
     if (this.server) {
       this.url = '../../../../rewardflip/assets/aunjaiAssets/js/script.js';

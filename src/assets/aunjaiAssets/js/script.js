@@ -46,11 +46,11 @@ $(document).ready(function () {
             countRoundStop = 0,
             flag = 0,
             totolCountRoundStop = 5,
-            shuffle,
-
+            shuffle, jump, jumplast,
             shuffleSpeedLeft, shuffleSpeedTop;
-        server = '../rewardflip/';
-        //server = '';
+
+         server = '../rewardflip/';
+       // server = '';
 
         if (localStorage.getItem('sumcclick') === null) {
             localStorage.setItem('sumcclick', "");
@@ -109,7 +109,17 @@ $(document).ready(function () {
             src: ['../../../' + server + 'assets/aunjaiAssets/sound/XYLO0.mp3'],
             volume: 0.2,
         });
-
+        console.log(window.screen.availHeight);
+        if (window.screen.availHeight < 750) {
+            jump = "58vh";
+            jumplast = "52%";
+        } else if (window.screen.availHeight > 750) {
+            jump = "64%";
+            jumplast = "58%";
+        }
+        // jump = "90%";
+        // jumplast = "85%";
+        // console.log(jump)
         function change_cup() {
             if (localStorage.getItem('totalRound') === "3") {
                 cup1.css('display', 'inline-block');
@@ -686,7 +696,7 @@ $(document).ready(function () {
 
             // Droping kick from the top into the box.
             kick.animate({
-                top: "58vh"
+                top: jump
             }, {
                 duration: kickDropDownAnimationDelay,
                 specialEasing: {
@@ -695,7 +705,7 @@ $(document).ready(function () {
                 complete: function () {
                     kick.html('<img src="../../../' + server + 'assets/aunjaiAssets/avatar/min/Cloth_Point_02@2x-min.png"   style="width:28vw;">');
                     kick.animate({
-                        top: "52vh"
+                        top: jumplast
                     }, {
                         duration: 500,
                         specialEasing: {

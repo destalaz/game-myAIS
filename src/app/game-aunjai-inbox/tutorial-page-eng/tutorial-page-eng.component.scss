@@ -24,20 +24,20 @@ body {
         background-color: rgba(85, 100, 47, 0.9); //สีตาม design แปลง rgba
     }
     .card-tutorial {
-        width: 100vw;
-        height: 100vh;
-        vertical-align: middle;
-        display: table-cell;
+        // width: 100vw;
+        // height: 100vh;
+        // vertical-align: middle;
+        // display: table-cell;
 
         .tutorial-card {
             width: 90%;
             margin-left: 5%;
             position: relative;
-
-            @media screen and (min-device-width: 641px) {
-                width: 70%;
-                margin-left: 15%;
+            top: 10vh;
+            @media screen and (min-device-height: 750px) {
+                top: 20vh;
             }
+
 
             .h-t-p-1 {
                 width: 100%;

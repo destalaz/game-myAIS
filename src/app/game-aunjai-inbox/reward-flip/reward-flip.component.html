@@ -1,14 +1,14 @@
 <body>
     <div class="bg-img-style">
         <div class="reward-flip">
-            <img class="language" (click)="change_language()" 
+            <img class="language" (click)="change_language()"
                 src="../../../{{server}}assets/aunjaiAssets/component/mini/th_btn-min.png">
 
             <img class="img-logo-reward-flip" src="../../../{{server}}assets/aunjaiAssets/header/logo_ic@2x.png">
 
             <div class="box-landing_1" (click)="setLevel(3);">
             </div>
-
+           
             <div class="footer">
                 <div>
                     <img class="how-to-play-border" (click)="goTutorial()"
@@ -21,7 +21,9 @@
             </div>
         </div>
     </div>
-    <app-tutorial-page *ngIf="goTutorialPage === true" [goTutorialPage]="goTutorialPage" (close_tutorial)="close_popup_tutorial($event)"></app-tutorial-page>
-    <popup-error *ngIf="open_redeem_point" [open_redeem_point]="open_redeem_point" [language]="language" [aispoint]="aispoint" [profile]="profile" [_tokenParams]="_tokenParams"
+    <app-tutorial-page *ngIf="goTutorialPage === true" [goTutorialPage]="goTutorialPage"
+        (close_tutorial)="close_popup_tutorial($event)"></app-tutorial-page>
+    <popup-error *ngIf="open_redeem_point" [open_redeem_point]="open_redeem_point" [language]="language"
+        [aispoint]="aispoint" [profile]="profile" [_tokenParams]="_tokenParams"
         (close_redeem_point)="close_popup_reedeem($event)"></popup-error>
 </body>

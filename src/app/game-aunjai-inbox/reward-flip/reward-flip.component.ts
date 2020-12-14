@@ -26,6 +26,7 @@ export class RewardFlipComponent implements OnInit {
   _tokenParams: string = '';
   constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) {
     this.server = this.gameService.server;
+    
   }
 
   ngOnInit() {
