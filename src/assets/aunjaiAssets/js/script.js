@@ -50,7 +50,7 @@ $(document).ready(function () {
 
             shuffleSpeedLeft, shuffleSpeedTop;
         server = '../rewardflip/';
-        // server = '';
+        //  server = '';
 
         if (localStorage.getItem('sumcclick') === null) {
             localStorage.setItem('sumcclick', "");
@@ -551,6 +551,12 @@ $(document).ready(function () {
                                         slide_out();
                                     } else {
                                         flag = 1;
+                                        cclick = '';
+                                        cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                                        cclick += String.fromCharCode(64 + ans);
+                                        var cclickDf = localStorage.getItem('sumcclick');
+                                        var totolclick = cclickDf + cclick;
+                                        localStorage.setItem('sumcclick', totolclick);
                                         soundLose.fade(1, 0, 1500, soundLose.play());
                                         gameOver();
                                     }
@@ -577,6 +583,12 @@ $(document).ready(function () {
                                         slide_out();
                                     } else {
                                         flag = 1;
+                                        cclick = '';
+                                        cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                                        cclick += String.fromCharCode(64 + ans);
+                                        var cclickDf = localStorage.getItem('sumcclick');
+                                        var totolclick = cclickDf + cclick;
+                                        localStorage.setItem('sumcclick', totolclick);
                                         soundLose.fade(1, 0, 1500, soundLose.play());
                                         gameOver();
                                     }
@@ -603,6 +615,12 @@ $(document).ready(function () {
                                         slide_out();
                                     } else {
                                         flag = 1;
+                                        cclick = '';
+                                        cclick += characters.charAt(Math.floor(Math.random() * characters.length));
+                                        cclick += String.fromCharCode(64 + ans);
+                                        var cclickDf = localStorage.getItem('sumcclick');
+                                        var totolclick = cclickDf + cclick;
+                                        localStorage.setItem('sumcclick', totolclick);
                                         soundLose.fade(1, 0, 1500, soundLose.play());
                                         gameOver();
                                     }
