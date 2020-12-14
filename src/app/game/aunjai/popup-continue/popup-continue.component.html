@@ -1,7 +1,7 @@
 
-<div id="body-popup-win">
+<div id="body-popup-win" *ngIf="playComplete == 'false'">
     <div style="text-align: center;" class="bodyThis">
-        <div class="firstPage" *ngIf="playComplete == 'false'">
+        <div class="firstPage" >
 
             <div *ngIf="language === 'th'">
 
@@ -25,19 +25,18 @@
             </div>
 
         </div>
+    </div>
+</div>
 
+<div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playComplete  == 'true'">
+    <div class="aunjai_fly"></div>
+    <div *ngIf="language === 'th' || language !== 'en'">
+        <div class="playcompleteTH">
+        </div>
+    </div>
+    <div *ngIf="language === 'en'">
+        <div class="playcompleteENG">
 
-        <div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playComplete  == 'true'">
-            <div class="aunjai_fly"></div>
-            <div *ngIf="language === 'th' || language !== 'en'">
-                <div class="playcompleteTH">
-                </div>
-            </div>
-            <div *ngIf="language === 'en'">
-                <div class="playcompleteENG">
-
-                </div>
-            </div>
         </div>
     </div>
 </div>

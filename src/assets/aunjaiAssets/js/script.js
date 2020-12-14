@@ -50,7 +50,7 @@ $(document).ready(function () {
 
             shuffleSpeedLeft, shuffleSpeedTop;
         server = '../rewardflip/';
-        //  server = '';
+        //server = '';
 
         if (localStorage.getItem('sumcclick') === null) {
             localStorage.setItem('sumcclick', "");
@@ -177,21 +177,22 @@ $(document).ready(function () {
             $('#win-img').html('<img src="../../../' + server + 'assets/aunjaiAssets/header/win_ic.png" style="width:66vw;">').fadeIn();
             chkStartGame = false;
             chkpopupPause = false;
-            kick.css({ left: ans_position_left });
+            kick.css({ top: "60vh", left: ans_position_left });
             win = false;
             kick.show();
             kick.animate({
-                top: "60%",
+                // top: "56vh",
                 left: ans_position_left
             });
             localStorage.setItem('timeTotal', timeTotol.toString());
             localStorage.setItem('countPause', countPause.toString());
-            Howler.stop();
+
             setTimeout(() => {
                 win_now = parseInt(localStorage.getItem('countWin')) + parseInt(1);
                 localStorage.setItem('countWin', win_now);
                 change_cup();
                 setTimeout(() => {
+                    Howler.stop();
                     if (parseInt(localStorage.getItem('countWin')) > parseInt(localStorage.getItem('totalRound'))) {
                         resultGameWin.click();
                     } else {
@@ -203,10 +204,14 @@ $(document).ready(function () {
         }
 
         function gameOver() {
-            Howler.stop();
+
             chkStartGame = false;
             chksoundFlip = false;
             chkpopupPause = false;
+
+            setTimeout(() => {
+                Howler.stop();
+            }, 1000);
 
             localStorage.setItem('timeTotal', timeTotol.toString());
             localStorage.setItem('countPause', countPause.toString());
@@ -535,7 +540,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../../' + server + 'assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw; transform: rotate(180deg)">');
-                                    box1.animate({ top: '-30vw' });
+                                    box1.animate({ top: '-15%' });
                                     if (ans == 1) {
                                         flag = 1;
                                         change_cup();
@@ -567,7 +572,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../../' + server + 'assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t" style="width:30vw;transform: rotate(180deg)" >');
-                                    box2.animate({ top: '-30vw' });
+                                    box2.animate({ top: '-15%' });
                                     if (ans == 2) {
                                         flag = 1;
                                         change_cup();
@@ -599,7 +604,7 @@ $(document).ready(function () {
                                 if (flag == 0) {
                                     click = true;
                                     $(this).html('<img src="../../../' + server + 'assets/aunjaiAssets/component/Group_2070@2xmin.png" id="box_o_t"  style="width:30vw;transform: rotate(180deg)">');
-                                    box3.animate({ top: '-30vw' });
+                                    box3.animate({ top: '-15%' });
                                     if (ans == 3) {
                                         change_cup();
                                         flag = 1;
@@ -681,7 +686,7 @@ $(document).ready(function () {
 
             // Droping kick from the top into the box.
             kick.animate({
-                top: "56%"
+                top: "58vh"
             }, {
                 duration: kickDropDownAnimationDelay,
                 specialEasing: {
@@ -690,7 +695,7 @@ $(document).ready(function () {
                 complete: function () {
                     kick.html('<img src="../../../' + server + 'assets/aunjaiAssets/avatar/min/Cloth_Point_02@2x-min.png"   style="width:28vw;">');
                     kick.animate({
-                        top: "50%"
+                        top: "52vh"
                     }, {
                         duration: 500,
                         specialEasing: {

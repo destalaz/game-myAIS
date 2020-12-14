@@ -34,10 +34,9 @@ export class RewardFlipComponent implements OnInit {
       if (params.play_again == 'true') {
         this.setLevel(3);
       }
-
+      this.goTutorialPage = true;
       this.profile = this.gameService.storageDecrypt(localStorage.getItem('profile'));
       if (this.profile.playcomplete == true) {
-        this.goTutorialPage = true;
         this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true' } });
       }
 

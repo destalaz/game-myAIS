@@ -84,16 +84,16 @@ export class AunjaiComponent implements OnInit {
           if (data["statusCode"] == 20000) {
             this.load = false;
             this.loseShow = true;
-            localStorage.removeItem('totalRound');
-            localStorage.removeItem('countPause');
-            localStorage.removeItem('gameOver');
-            localStorage.removeItem('playId');
-            localStorage.removeItem('config');
-            localStorage.removeItem('sumcclick');
-            localStorage.removeItem('countWin');
-            localStorage.removeItem('timeTotal');
-            localStorage.removeItem('gameSetting');
-            localStorage.removeItem('cclick');
+            // localStorage.removeItem('totalRound');
+            // localStorage.removeItem('countPause');
+            // localStorage.removeItem('gameOver');
+            // localStorage.removeItem('playId');
+            // localStorage.removeItem('config');
+            // localStorage.removeItem('sumcclick');
+            // localStorage.removeItem('countWin');
+            // localStorage.removeItem('timeTotal');
+            // localStorage.removeItem('gameSetting');
+            // localStorage.removeItem('cclick');
           }
         },
         error => {
