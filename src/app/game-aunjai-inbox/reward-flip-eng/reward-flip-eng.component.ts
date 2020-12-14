@@ -30,7 +30,6 @@ export class RewardFlipEngComponent implements OnInit {
       if (params.play_again == 'true') {
         this.setLevel(3);
       }
-      console.log(params.language)
       this.profile = this.gameService.storageDecrypt(localStorage.getItem('profile'));
 
       if (this.profile.playcomplete == true) {
