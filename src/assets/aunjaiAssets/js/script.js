@@ -17,6 +17,7 @@ $(document).ready(function () {
             box2 = $("#box2"),
             box3 = $("#box3"),
             kick = $("#kick_jump"),
+            kickLast= $("#kick_last"),
             HeaderText = $("#heading-Text"),
             startButton = $("#start_game"),
             messageRound = $("#msg_bd"),
@@ -49,8 +50,8 @@ $(document).ready(function () {
             shuffle, jump, jumplast,
             shuffleSpeedLeft, shuffleSpeedTop;
 
-         server = '../rewardflip/';
-       // server = '';
+        server = '../rewardflip/';
+       //  server = '';
 
         if (localStorage.getItem('sumcclick') === null) {
             localStorage.setItem('sumcclick', "");
@@ -111,11 +112,11 @@ $(document).ready(function () {
         });
         console.log(window.screen.availHeight);
         if (window.screen.availHeight < 750) {
-            jump = "58vh";
-            jumplast = "52%";
+            jump = "60%";
+            jumplast = "55%";
         } else if (window.screen.availHeight > 750) {
-            jump = "64%";
-            jumplast = "58%";
+            jump = "60%";
+            jumplast = "55%";
         }
         // jump = "90%";
         // jumplast = "85%";
@@ -187,10 +188,10 @@ $(document).ready(function () {
             $('#win-img').html('<img src="../../../' + server + 'assets/aunjaiAssets/header/win_ic.png" style="width:66vw;">').fadeIn();
             chkStartGame = false;
             chkpopupPause = false;
-            kick.css({ top: "60vh", left: ans_position_left });
+            kickLast.css({ top: "64%", left: ans_position_left });
             win = false;
-            kick.show();
-            kick.animate({
+            kickLast.show();
+            kickLast.animate({
                 // top: "56vh",
                 left: ans_position_left
             });

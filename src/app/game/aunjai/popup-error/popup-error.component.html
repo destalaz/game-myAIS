@@ -9,13 +9,16 @@
         </div>
 
         <div *ngIf="!statusLoad">
-            <div class="redeem-point" id="redeem-point" *ngIf="!insufficientPoint">
+            <div *ngIf="!insufficientPoint">
                 <div *ngIf="language === 'th'">
                     <button class="close" (click)="close_popup()"></button>
                     <div class="aunjai-logo">
                     </div>
-                    <span class="textBody"> ใช้เอไอเอสพอยท์ 3 คะแนน </span><br>
-                    <span class="textBody"> เพื่อเล่นเกม?</span>
+                    <div>
+                        <span class="textBody"> ใช้เอไอเอสพอยท์ 3 คะแนน </span><br>
+                        <span class="textBody"> เพื่อเล่นเกม?</span>
+                    </div>
+
                     <button class="buttonGetTreat" id="btn_get_treat" (click)="redeem_point()">
                         แลกคะแนน
                     </button>
@@ -27,7 +30,7 @@
                         </div>
                     </div>
                     <span class="textBody"> Redeem 3 Points to play </span>
-                    <button class="buttonGetTreat" id="btn_get_treat" (click)="redeem_point()">
+                    <button class="buttonGetTreat" id="btn_get_treat" (click)="redeem_point()" style="margin-top: 30vh;">
                         REDEEM
                     </button>
                 </div>
@@ -39,8 +42,17 @@
                     <div class="treatBox" id="win-goto">
 
                     </div>
-                    <span class="textBody"> คุณมีเอไอเอสพอยท์ไม่พอ </span><br>
-                    <span class="textBody"> เพื่อเล่นเกม </span>
+
+                    <div *ngIf="error_code !== 'E:16348'">
+                        <span class="textBody"> คุณมีเอไอเอสพอยท์ไม่พอ </span><br>
+                        <span class="textBody"> เพื่อเล่นเกม </span>
+                    </div>
+                    <div *ngIf="error_code === 'E:16348'">
+                        <span class="textBody">โครงการนี้สำหรับผู้ใช้งานเอไอเอส</span> <br>
+                        <span class="textBody">เอไอเอสไฟเบอร์ บุคคลธรรมดาเท่านั้น</span>
+                    </div>
+
+
                     <button class="buttonGetTreat" id="btn_get_treat" (click)="close_popup()">
                         กลับไปหน้าแรก
                     </button>
@@ -51,8 +63,18 @@
                     <div class="treatBox" id="win-goto">
 
                     </div>
-                    <span class="textBody"> You have insufficient AIS Points </span><br>
-                    <span class="textBody"> to play this game </span>
+                    <div *ngIf="error_code !== 'E:16348'">
+                        <span class="textBody"> You have insufficient AIS Points </span><br>
+                        <span class="textBody"> to play this game
+                        </span>
+                    </div>
+                    <div *ngIf="error_code === 'E:16348'">
+                        <span class="textBody"> This campaign is reserved for AIS</span><br>
+                        <span class="textBody"> AIS Fibre residential customers only.</span>
+                    </div>
+
+
+
                     <button class="buttonGetTreat" id="btn_get_treat" (click)="close_popup()">
                         HOMEPAGE
                     </button>
@@ -65,4 +87,4 @@
 <!-- <app-reward-flip *ngIf="redeem_point == false && language === 'th'"></app-reward-flip>
 <app-reward-flip-eng *ngIf="redeem_point == false && language === 'en'"></app-reward-flip-eng> -->
 
-<popup-ready *ngIf="openPopupReady" [language]="language" ></popup-ready>
+<popup-ready *ngIf="openPopupReady" [language]="language"></popup-ready>

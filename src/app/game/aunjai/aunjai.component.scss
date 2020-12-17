@@ -70,7 +70,7 @@
   display: -webkit-flex;
   display: flex;
   justify-content: space-around;
-  top: 56vh;
+  top: 60%;
   z-index: 300;
 }
 
@@ -100,7 +100,7 @@
 }
 
 
-#kick_jump {
+#kick_jump ,#kick_last{
   position: absolute;
   z-index: 200;
  

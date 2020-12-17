@@ -14,6 +14,7 @@ export class PopupErrorComponent implements OnInit {
   @Input() aispoint: string = '';
   @Input() profile: any;
   @Input() _tokenParams: string = '';
+  error_code: string = '';
   dataGame: any;
   statusLoad: boolean;
   insufficientPoint: boolean = false;
@@ -26,7 +27,16 @@ export class PopupErrorComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    localStorage.removeItem('totalRound');
+    localStorage.removeItem('countPause');
+    localStorage.removeItem('gameOver');
+    localStorage.removeItem('playId');
+    localStorage.removeItem('config');
+    localStorage.removeItem('sumcclick');
+    localStorage.removeItem('countWin');
+    localStorage.removeItem('timeTotal');
+    localStorage.removeItem('gameSetting');
+    localStorage.removeItem('cclick');
     // this.statusLoad = false;
   }
 
@@ -55,10 +65,17 @@ export class PopupErrorComponent implements OnInit {
         } else if (data["statusCode"] == 'E:16310') {
           this.statusLoad = false;
           this.insufficientPoint = true;
-        } else if (data["statusCode"] == 'F:25001'){
+        } else if (data["statusCode"] == 'F:25001') {
           this.statusLoad = false;
-          this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true' } });
+          this.router.navigate(["popupContinue"], { queryParams: { language: this.language, playcomplete: 'true' } });
+        } else if (data["statusCode"] == 'E:16348') {
+          this.statusLoad = false;
+          this.insufficientPoint = true;
+          this.error_code = 'E:16348';
         }
+        //  else {
+        //   this.statusLoad = false;
+        // }
       },
       error => {
         this.statusLoad = false;
