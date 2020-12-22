@@ -37,7 +37,7 @@ export class RewardFlipComponent implements OnInit {
       }
       this.profile = this.gameService.storageDecrypt(localStorage.getItem('profile'));
       if (this.profile.playcomplete == true) {
-        this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true' } });
+        this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true',first_login:'true' } });
       }
 
       if (this.profile.firstPlay == true) {

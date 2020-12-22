@@ -2,17 +2,19 @@ body {
     font-family: "DB Heavent";
 }
 .bg-img-style {
-    width: 100%;
-    min-height: 100%;
-    position: fixed;
-    box-shadow: #888 0px 0px 5px;
     background: transparent url(../../../assets/aunjaiAssets/bg/min/bg_AIS_Game_1024x768-min.png);
-    // background-size: auto 100%;
-    background-size: 245% 100%;
+    background-position: center;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    background-size: auto 100%;
     background-position-x: center;
+    background-repeat: no-repeat;
 }
 
 .container_bg {
+    width: 90%;
+    margin: auto;
     .bg {
         position: fixed;
         top: 0;
@@ -23,60 +25,136 @@ body {
         z-index: 1005;
         background-color: rgba(85, 100, 47, 0.9); //สีตาม design แปลง rgba
     }
-    .card-tutorial {
-        // width: 100vw;
-        // height: 100vh;
-        // vertical-align: middle;
-        // display: table-cell;
+    .tutorial-card {
+        width: 90%;
+        margin: auto;
+        position: relative;
 
-        .tutorial-card {
-            width: 90%;
-            margin-left: 5%;
-            position: relative;
-            top: 10vh;
-            // @media screen and (min-device-height: 750px) {
-            //     top: 20vh;
-            // }
+        top: 10vh;
+        // @media screen and (min-device-height: 750px) {
+        //     top: 20vh;
+        // }
 
-
-            .h-t-p-1 {
-                width: 100%;
+        .h-t-p-1 {
+            background: transparent url(../../../assets/aunjaiAssets/component/mini/how_en/how_to_play1_en.png);
+            width: 100%;
+            min-height: 140vw;
+            display: inline-block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            // //margin: 6vh auto 0 auto;
+            @media screen and (min-height: 1000px) {
+                min-height: 100vw;
             }
-            .h-t-p-2 {
-                width: 100%;
+        }
+        .h-t-p-2 {
+            background: transparent url(../../../assets/aunjaiAssets/component/mini/how_en/how_to_play2_en.png);
+            width: 100%;
+            min-height: 140vw;
+            display: inline-block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            // //margin: 6vh auto 0 auto;
+            @media screen and (min-height: 1000px) {
+                min-height: 100vw;
             }
-            .h-t-p-3 {
-                width: 100%;
+        }
+        .h-t-p-3 {
+            background: transparent url(../../../assets/aunjaiAssets/component/mini/how_en/how_to_play3_en.png);
+            width: 100%;
+            min-height: 140vw;
+            display: inline-block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            //margin: 6vh auto 0 auto;
+            @media screen and (min-height: 1000px) {
+                min-height: 100vw;
             }
-            .h-t-p-4 {
-                width: 100%;
-            }
-            .last-tutorial {
-                position: relative;
-
-                .how-to-play5 {
-                    width: 100%;
-                }
-                .close-ic {
-                    position: absolute;
-                    right: 0px;
-                }
+        }
+        .h-t-p-4 {
+            background: transparent url(../../../assets/aunjaiAssets/component/mini/how_en/how_to_play4_eng-min.png);
+            width: 100%;
+            min-height: 140vw;
+            display: inline-block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            //margin: 6vh auto 0 auto;
+            @media screen and (min-height: 1000px) {
+                min-height: 100vw;
             }
         }
 
-        .tab-next {
-            position: absolute;
-            bottom: 0;
-            width: 98%;
-            padding: 8px;
-            height: 60px;
+        .h-t-p-5 {
+            background: transparent url(../../../assets/aunjaiAssets/component/mini/how_en/how_to_play5_eng-min.png);
+            width: 100%;
+            min-height: 140vw;
+            display: inline-block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            //margin: 6vh auto 0 auto;
 
-            .ic-next {
+            @media screen and (min-height: 1000px) {
+                min-height: 100vw;
+            }
+            .close-ic {
                 position: absolute;
-                right: 0px;
-            }
-            .ic-back {
+                right: 0vw;
+                width: 15vw;
+
+                @media screen and (min-width: 500px) {
+                    position: absolute;
+                    right: 13vw;
+                    // width: 10vw;
+                }
             }
         }
+    }
+}
+
+.icon_prev {
+    background: url(../../../assets/aunjaiAssets/component/arrow_back_ic-min.png);
+    min-height: 11vw;
+    min-width: 12vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 200;
+    bottom: 0;
+    left: 6.6vw;
+    overflow: hidden !important;
+    border: none;
+    outline: none;
+    padding: 0px;
+    position: relative;
+    float: left;
+    @media screen and (min-width: 500px) {
+        bottom: 0;
+        left: 19vw;
+    }
+}
+
+.icon_next {
+    background: url(../../../assets/aunjaiAssets/component/arrow_next_ic-min.png);
+    min-height: 11vw;
+    min-width: 12vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 200;
+    bottom: 0;
+    left: -6vw;
+
+    overflow: hidden !important;
+    border: none;
+    outline: none;
+    padding: 0px;
+    position: relative;
+    float: right;
+    @media screen and (min-width: 500px) {
+        bottom: 0vw;
+        left: -17vw;
     }
 }

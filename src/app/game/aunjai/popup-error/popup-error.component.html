@@ -30,7 +30,8 @@
                         </div>
                     </div>
                     <span class="textBody"> Redeem 3 Points to play </span>
-                    <button class="buttonGetTreat" id="btn_get_treat" (click)="redeem_point()" style="margin-top: 30vh;">
+                    <button class="buttonGetTreat" id="btn_get_treat" (click)="redeem_point()"
+                        style="margin-top: 30vh;">
                         REDEEM
                     </button>
                 </div>
@@ -51,7 +52,9 @@
                         <span class="textBody">โครงการนี้สำหรับผู้ใช้งานเอไอเอส</span> <br>
                         <span class="textBody">เอไอเอสไฟเบอร์ บุคคลธรรมดาเท่านั้น</span>
                     </div>
-
+                    <div *ngIf="error_code === 'G:20001'">
+                        <span class="textBody"> เกมยังไม่เปิดให้บริการ</span><br>
+                    </div>
 
                     <button class="buttonGetTreat" id="btn_get_treat" (click)="close_popup()">
                         กลับไปหน้าแรก
@@ -72,6 +75,10 @@
                         <span class="textBody"> This campaign is reserved for AIS</span><br>
                         <span class="textBody"> AIS Fibre residential customers only.</span>
                     </div>
+                    <div *ngIf="error_code === 'G:20001'">
+                        <span class="textBody">The game is not yet available.</span><br>
+                    </div>
+
 
 
 

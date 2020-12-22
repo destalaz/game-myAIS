@@ -11,7 +11,9 @@ export class PopupContinueComponent implements OnInit {
   open: boolean = false;
   playerComplete: string;
   language: string;
-  playComplete: string='';
+  playComplete: string = '';
+  finished_complete: boolean = false;
+  first_page: string = '';
   constructor(private activatedRoute: ActivatedRoute, private route: Router) {
 
   }
@@ -34,18 +36,30 @@ export class PopupContinueComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.language = params.language;
       this.playComplete = params.playcomplete;
-
-      console.log(this.playComplete);
-      console.log(this.language);
+      this.first_page = params.first_login;
+      if (this.first_page == 'true') {
+        this.finished_complete = true;
+      }
     });
   }
 
 
   openPage() {
     if (this.language === 'th') {
-      this.route.navigate(["reward_flip"], { queryParams: { language: "th", play_again: true } });
+      if (this.playComplete == 'true') {
+        this.finished_complete = true;
+  
+      } else {
+        this.route.navigate(["reward_flip"], { queryParams: { language: "th", play_again: true } });
+      }
+
     } else {
-      this.route.navigate(["reward_flip_eng"], { queryParams: { language: "en", play_again: true } });
+      if (this.playComplete == 'true') {
+        this.finished_complete = true;
+      } else {
+        this.route.navigate(["reward_flip_eng"], { queryParams: { language: "en", play_again: true } });
+      }
+
     }
   }
 

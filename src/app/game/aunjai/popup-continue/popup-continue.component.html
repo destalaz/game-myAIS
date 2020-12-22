@@ -1,34 +1,35 @@
+<div *ngIf="first_page != 'true'">
+    <div id="body-popup-win" *ngIf="!finished_complete">
+        <div style="text-align: center;" class="bodyThis">
+            <div class="firstPage">
 
-<div id="body-popup-win" *ngIf="playComplete == 'false'">
-    <div style="text-align: center;" class="bodyThis">
-        <div class="firstPage" >
+                <div *ngIf="language === 'th'">
 
-            <div *ngIf="language === 'th'">
+                    <span class="textBody"> เอไอเอสพอยท์ 100 คะแนน </span><br>
+                    <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
 
-                <span class="textBody"> เอไอเอสพอยท์ 100 คะแนน </span><br>
-                <span class="textBody"> ได้ถูกเพิ่มไปที่หมายเลขของคุณแล้ว</span>
-
-                <button class="buttonplayTH" (click)="openPage();">
-                    เล่นต่อ
-                </button>
-
-            </div>
-            <div *ngIf="language === 'en'">
-                <span class="textBody"> 100 AIS Points have been added </span><br>
-                <span class="textBody"> to your number</span>
-                <div id="divBtn">
-                    <button class="buttonplayENG" (click)="openPage();">
-                        PLAY AGAIN
+                    <button class="buttonplayTH" (click)="openPage();">
+                        เล่นต่อ
                     </button>
+                </div>
+                <div *ngIf="language === 'en'">
+                    <span class="textBody"> 100 AIS Points have been added </span><br>
+                    <span class="textBody"> to your number</span>
+                    <div id="divBtn">
+                        <button class="buttonplayENG" (click)="openPage();">
+                            PLAY AGAIN
+                        </button>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
     </div>
 </div>
 
-<div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="playComplete  == 'true'">
+
+<div class="secondPage" style="text-align: center;    height: 100%;" *ngIf="finished_complete  == true">
     <div class="aunjai_fly"></div>
     <div *ngIf="language === 'th' || language !== 'en'">
         <div class="playcompleteTH">

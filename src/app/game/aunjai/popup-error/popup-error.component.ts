@@ -72,6 +72,10 @@ export class PopupErrorComponent implements OnInit {
           this.statusLoad = false;
           this.insufficientPoint = true;
           this.error_code = 'E:16348';
+        }else if (data["statusCode"] == 'G:20001') {
+          this.statusLoad = false;
+          this.insufficientPoint = true;
+          this.error_code = 'G:20001';
         }
         //  else {
         //   this.statusLoad = false;

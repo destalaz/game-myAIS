@@ -1,14 +1,14 @@
-// function detectDevTool(allow) {
-//     if (isNaN(+allow)) allow = 100;
-//     var start = +new Date();
-//     debugger;
-//     var end = +new Date();
-//     if (isNaN(start) || isNaN(end) || end - start > allow) {
-//         alert('debug detected. all operations will be terminated.');
-//         document.write('debug detected.');
-//     }
-// }
-// var wathch = setInterval(function () { detectDevTool() }, 1000);
+function detectDevTool(allow) {
+    if (isNaN(+allow)) allow = 100;
+    var start = +new Date();
+    debugger;
+    var end = +new Date();
+    if (isNaN(start) || isNaN(end) || end - start > allow) {
+        alert('debug detected. all operations will be terminated.');
+        document.write('debug detected.');
+    }
+}
+var wathch = setInterval(function () { detectDevTool() }, 1000);
 
 $(document).ready(function () {
     (function () {
@@ -17,7 +17,7 @@ $(document).ready(function () {
             box2 = $("#box2"),
             box3 = $("#box3"),
             kick = $("#kick_jump"),
-            kickLast= $("#kick_last"),
+            kickLast = $("#kick_last"),
             HeaderText = $("#heading-Text"),
             startButton = $("#start_game"),
             messageRound = $("#msg_bd"),
@@ -50,8 +50,8 @@ $(document).ready(function () {
             shuffle, jump, jumplast,
             shuffleSpeedLeft, shuffleSpeedTop;
 
-        server = '../rewardflip/';
-       //  server = '';
+         server = '../rewardflip/';
+        // server = '';
 
         if (localStorage.getItem('sumcclick') === null) {
             localStorage.setItem('sumcclick', "");
@@ -295,14 +295,14 @@ $(document).ready(function () {
 
             }
 
+            document.addEventListener('visibilitychange', gamePause, false);
 
-            document.addEventListener('visibilitychange', function () {
+
+            function gamePause() {
                 if (document.hidden) {
                     Howler.mute(true);
                     chkPauseFnGame = true;
-                    pause_fn();
                 } else {
-                    Howler.mute(false);
                     if (chkStartGame) {
                         if (chkPauseFnGame) {
                             if (pauseStatus === false) {
@@ -313,15 +313,11 @@ $(document).ready(function () {
                             }
                         }
                     }
-
                 }
-            }, false);
 
-            function pause_fn() {
                 if (chkpopupPause === true) {
                     soundFlip.stop();
                     if (chkPauseFnGame) {
-
                         if (chksoundFlip) {
                             soundFlip.stop();
                             chkStatusflip = false;
@@ -334,6 +330,7 @@ $(document).ready(function () {
             resumBtn.click(function () {
                 $("#body-popup-puse").hide();
                 $("#heading-Round").hide();
+                Howler.mute(false);
                 chkgameFirst = false;
                 setTimeout(() => {
 
