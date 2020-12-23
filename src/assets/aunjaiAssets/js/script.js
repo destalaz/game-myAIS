@@ -10,6 +10,60 @@ function detectDevTool(allow) {
 }
 var wathch = setInterval(function () { detectDevTool() }, 1000);
 
+var gameStart = false;
+var chkPauseFnGame = false;
+var chkStartGame = false
+var pauseStatus = false;
+var countPause = 0;
+var chkgameFirst = false;
+var chkpopupPause = false;
+var chksoundFlip = false;
+var server = '../rewardflip/';
+//var server = '';
+var soundFlip = new Howl({
+    src: ['../../../' + server + 'assets/aunjaiAssets/sound/LONGTUNE.mp3'],
+    loop: true,
+    volume: 0.2,
+});
+if (localStorage.getItem('countPause') === null) {
+    countPause = 0;
+} else {
+    countPause = localStorage.getItem('countPause');
+}
+
+
+document.addEventListener('visibilitychange', gamePause, false);
+
+
+function gamePause() {
+    if (gameStart) {
+        Howler.mute(true);
+        chkPauseFnGame = true;
+        if (chkStartGame) {
+            if (chkPauseFnGame) {
+                if (pauseStatus === false) {
+                    countPause++;
+                    chkgameFirst = true;
+                    $("#body-popup-puse").show();
+                    pauseStatus = true;
+                }
+            }
+        }
+    }
+
+    if (chkpopupPause === true) {
+        soundFlip.stop();
+        if (chkPauseFnGame) {
+            if (chksoundFlip) {
+                soundFlip.stop();
+            }
+        }
+    }
+
+};
+
+
+
 $(document).ready(function () {
     (function () {
         var box1 = $("#box1"),
@@ -21,7 +75,6 @@ $(document).ready(function () {
             HeaderText = $("#heading-Text"),
             startButton = $("#start_game"),
             messageRound = $("#msg_bd"),
-            chkgameFirst = false,
             kickDropDownAnimationDelay = 1200,
             btnResume = $("#btn_resume"),
             bodyPopup = $("#body-popup"),
@@ -31,17 +84,12 @@ $(document).ready(function () {
             cup4 = $("#img-Round-cup4"),
             cup5 = $("#img-Round-cup5"),
             roundIMG = $("#heading-Round"),
-            chkStartGame = false,
             counNumnOfShuffels = 0,
             resumBtn = $("#btnResumeGame"),
-            pauseStatus = false,
             cclick, secure, ans,
-            chksoundFlip = false,
-            chkPauseFnGame = false,
             characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
             playId = localStorage.getItem('playId'),
             click = false,
-            chkpopupPause = false,
             countRound = 0,
             totolCountRound = 3,
             countRoundStop = 0,
@@ -50,8 +98,7 @@ $(document).ready(function () {
             shuffle, jump, jumplast,
             shuffleSpeedLeft, shuffleSpeedTop;
 
-         server = '../rewardflip/';
-        // server = '';
+
 
         if (localStorage.getItem('sumcclick') === null) {
             localStorage.setItem('sumcclick', "");
@@ -62,11 +109,7 @@ $(document).ready(function () {
         } else {
             timeTotol = localStorage.getItem('timeTotol');
         }
-        if (localStorage.getItem('countPause') === null) {
-            countPause = 0;
-        } else {
-            countPause = localStorage.getItem('countPause');
-        }
+
 
 
         if (localStorage.getItem('countWin') === null) {
@@ -86,6 +129,8 @@ $(document).ready(function () {
         }
 
 
+
+
         var data = JSON.parse(localStorage.getItem('config'));
         var index = parseInt(localStorage.getItem('countWin')) - 1;
         var entoken = configdecode(data[index].o, data[index].hash);
@@ -97,11 +142,7 @@ $(document).ready(function () {
             volume: 0.05,
         });
 
-        var soundFlip = new Howl({
-            src: ['../../../' + server + 'assets/aunjaiAssets/sound/LONGTUNE.mp3'],
-            loop: true,
-            volume: 0.2,
-        });
+
         var soundLose = new Howl({
             src: ['../../../' + server + 'assets/aunjaiAssets/sound/HORNNOTS.mp3'],
             volume: 0.2,
@@ -110,7 +151,6 @@ $(document).ready(function () {
             src: ['../../../' + server + 'assets/aunjaiAssets/sound/XYLO0.mp3'],
             volume: 0.2,
         });
-        console.log(window.screen.availHeight);
         if (window.screen.availHeight < 750) {
             jump = "60%";
             jumplast = "55%";
@@ -121,6 +161,10 @@ $(document).ready(function () {
         // jump = "90%";
         // jumplast = "85%";
         // console.log(jump)
+
+
+
+
         function change_cup() {
             if (localStorage.getItem('totalRound') === "3") {
                 cup1.css('display', 'inline-block');
@@ -278,6 +322,7 @@ $(document).ready(function () {
         check_round_img();
         startButton.on("click", function startGame(event) {
             chkStartGame = true;
+            gameStart = true;
             Howler.stop();
             roundIMG.hide();
             soundGame.stop();
@@ -295,37 +340,7 @@ $(document).ready(function () {
 
             }
 
-            document.addEventListener('visibilitychange', gamePause, false);
 
-
-            function gamePause() {
-                if (document.hidden) {
-                    Howler.mute(true);
-                    chkPauseFnGame = true;
-                } else {
-                    if (chkStartGame) {
-                        if (chkPauseFnGame) {
-                            if (pauseStatus === false) {
-                                countPause++;
-                                chkgameFirst = true;
-                                $("#body-popup-puse").show();
-                                pauseStatus = true;
-                            }
-                        }
-                    }
-                }
-
-                if (chkpopupPause === true) {
-                    soundFlip.stop();
-                    if (chkPauseFnGame) {
-                        if (chksoundFlip) {
-                            soundFlip.stop();
-                            chkStatusflip = false;
-                        }
-                    }
-                }
-
-            };
 
             resumBtn.click(function () {
                 $("#body-popup-puse").hide();
