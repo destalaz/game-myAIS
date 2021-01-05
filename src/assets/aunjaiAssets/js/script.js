@@ -663,7 +663,7 @@ $(document).ready(function () {
             var nuberOfShuffels = entoken.amt;
             var shuffleSpeed = entoken.speed;
             shuffleSpeed = 40 + (shuffleSpeed / 2);
-            shuffleSpeedTop = shuffleSpeed / 5;
+            shuffleSpeedTop = shuffleSpeed / 10;
             shuffleSpeedLeft = shuffleSpeed / 2;
             // secure = '60230bxi';
             secure = playId.substr(playId.length - 8);

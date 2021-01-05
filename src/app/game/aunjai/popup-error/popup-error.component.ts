@@ -38,6 +38,9 @@ export class PopupErrorComponent implements OnInit {
     localStorage.removeItem('gameSetting');
     localStorage.removeItem('cclick');
     // this.statusLoad = false;
+    // this.error_code = 'E:02325';
+    // this.insufficientPoint = true;
+    // this.statusLoad = false;
   }
 
   close_popup() {
@@ -76,6 +79,10 @@ export class PopupErrorComponent implements OnInit {
           this.statusLoad = false;
           this.insufficientPoint = true;
           this.error_code = 'G:20001';
+        }else{
+            this.statusLoad = true;
+            this.insufficientPoint = true;
+            this.error_code = data["statusCode"];
         }
         //  else {
         //   this.statusLoad = false;

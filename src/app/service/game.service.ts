@@ -7,7 +7,7 @@ import * as CryptoJS from 'crypto-js';
 })
 export class GameService {
     //prod
-   //  private baseUrl = 'https://rewardflip-phase2-api.wisdomcloud.net/rewardflip-phase2';
+    // private baseUrl = 'https://rewardflip-phase2-api.wisdomcloud.net/rewardflip-phase2';
     //stg
    private baseUrl = 'https://rewardflip-phase2-apistg.wisdomcloud.net/rewardflip-phase2';
     private Mode: string = '';
@@ -19,8 +19,8 @@ export class GameService {
 
     constructor(private http: HttpClient) {
         //select Mode local / Host
-         this.Mode = 'local';
-       //this.Mode = 'host';
+          // this.Mode = 'local';
+       this.Mode = 'host';
         if (this.Mode == 'host') {
             this.server = '../rewardflip/';
         } else if (this.Mode == 'local') {
