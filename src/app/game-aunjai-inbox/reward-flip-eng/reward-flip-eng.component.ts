@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import * as jwtDecode from '../../../../node_modules/jwt-decode';
+import { GoogleAnalyticsService } from '../../service/google-analytics.service';
 @Component({
   selector: 'app-reward-flip-eng',
   templateUrl: './reward-flip-eng.component.html',
@@ -20,7 +20,7 @@ export class RewardFlipEngComponent implements OnInit {
   profile: any;
   aispoint: string = '';
   _tokenParams:string='';
-  constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) {
+  constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router,private _ga: GoogleAnalyticsService) {
     this.server = this.gameService.server;
   }
 
@@ -33,6 +33,7 @@ export class RewardFlipEngComponent implements OnInit {
       this.profile = this.gameService.storageDecrypt(localStorage.getItem('profile'));
 
       if (this.profile.playcomplete == true) {
+        this._ga.eventEmitter("main_page", "chk_played", "playCompleted", localStorage.getItem('o_decode'));
         this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true',first_login:'true' } });
       }
 
@@ -54,7 +55,7 @@ export class RewardFlipEngComponent implements OnInit {
 
   change_language() {
     this.profile.firstPlay = 'true';
-    localStorage.setItem('profile',this.gameService.storageEncrypt(JSON.stringify(this.profile)));
+    this._ga.eventEmitter("main_page", "chk_played", "playCompleted", localStorage.getItem('o_decode'));
     this.router.navigate(["reward_flip"], { queryParams: { language: "th"}});
   }
 

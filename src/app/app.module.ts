@@ -27,6 +27,8 @@ import { TutorialPageEngComponent } from './game-aunjai-inbox/tutorial-page-eng/
 import { ErrorPageComponent } from './game/aunjai/error-page/error-page.component';
 import { NetworkChkComponent } from './game/network-chk/network-chk.component';
 import { FinishedComponent } from './finished/finished.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 const appRoutes: Routes = [
@@ -92,7 +94,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only set true
-    )
+    ),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     // other imports here
 
   ],

@@ -2,8 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../../service/game.service';
 import { ActivatedRoute } from '@angular/router';
-import * as jwtDecode from '../../../../node_modules/jwt-decode';
-import { JsonPipe } from '@angular/common';
+import { GoogleAnalyticsService } from '../../service/google-analytics.service';
 // import * as jwEncode from '../../../../node_modules/jsonwebtoken/sign.js';
 
 
@@ -24,9 +23,9 @@ export class RewardFlipComponent implements OnInit {
   profile: any;
   aispoint: string = '';
   _tokenParams: string = '';
-  constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router) {
+  constructor(private gameService: GameService, private router: Router, private route: ActivatedRoute, private rout: Router, private _ga: GoogleAnalyticsService) {
     this.server = this.gameService.server;
-    
+
   }
 
   ngOnInit() {
@@ -37,7 +36,8 @@ export class RewardFlipComponent implements OnInit {
       }
       this.profile = this.gameService.storageDecrypt(localStorage.getItem('profile'));
       if (this.profile.playcomplete == true) {
-        this.router.navigate(["popupContinue"], { queryParams: { language: this.language,playcomplete:'true',first_login:'true' } });
+        this._ga.eventEmitter("main_page", "chk_played", "playCompleted", localStorage.getItem('o_decode'));
+        this.router.navigate(["popupContinue"], { queryParams: { language: this.language, playcomplete: 'true', first_login: 'true' } });
       }
 
       if (this.profile.firstPlay == true) {

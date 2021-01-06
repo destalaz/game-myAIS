@@ -60,10 +60,14 @@
                         <span class="textBody">โครงการนี้สำหรับผู้ใช้งานเอไอเอส <br> เอไอเอสไฟเบอร์
                             บุคคลธรรมดาเท่านั้น</span>
                     </div>
-                    <div *ngIf="error_code === 'E:02325'">
-                        <span class="textBody">สงวนสิทธิ์สำหรับหมายเลข ที่มีสถานะการ</span><br> 
-                        <span class="textBody">ใช้งานปกติ และไม่ถูกระงับการใช้งานเท่านั้น</span>
+                    <div *ngIf="error_code === 'E:02325' || error_code ===  'E:16311'">
+                        <span class="textBody" style="font-size: 4vw;">สงวนสิทธิ์สำหรับหมายเลข ที่มีสถานะการ</span><br>
+                        <span class="textBody" style="font-size: 4vw;">ใช้งานปกติ และไม่ถูกระงับการใช้งานเท่านั้น</span>
                     </div>
+                    <div *ngIf="error_code === 'other'">
+                        <span class="textBody"> พบข้อผิดพลาด กรุณาลองใหม่อีกครั้ง</span>
+                    </div>
+
 
                     <button class="buttonGetTreat" id="btn_get_treat" (click)="close_popup()">
                         กลับไปหน้าแรก
@@ -87,11 +91,16 @@
                     <div *ngIf="error_code === 'G:20001'">
                         <span class="textBody">The game is not yet available.</span><br>
                     </div>
-                    <div *ngIf="error_code === 'E:02325'">
-                        <span class="textBody" style="font-size: 4.6vw;"> This campaign is exclusively for active</span><br>
-                        <span class="textBody" style="font-size: 4.6vw;"> individual customers of AIS or AIS Fibre</span>
+                    <div *ngIf="error_code === 'E:02325' || error_code ===  'E:16311'">
+                        <span class="textBody" style="font-size: 4.4vw;"> This campaign is exclusively for
+                            active</span><br>
+                        <span class="textBody" style="font-size: 4.4vw;"> individual customers of AIS or AIS
+                            Fibre</span>
                     </div>
 
+                    <div *ngIf="error_code === 'other'">
+                        <span class="textBody">The game is not yet available.</span><br>
+                    </div>
 
 
                     <button class="buttonGetTreat" id="btn_get_treat" (click)="close_popup()">

@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/service/game.service';
-import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { ConnectionService } from 'ng-connection-service';
+import { GoogleAnalyticsService } from 'src/app/service/google-analytics.service';
+
 @Component({
   selector: 'game-aunjai',
   templateUrl: './aunjai.component.html',
@@ -13,7 +14,6 @@ import { ConnectionService } from 'ng-connection-service';
 export class AunjaiComponent implements OnInit {
   url: string = '';
   height;
-  private subscriptions = new Subscription();
   dataParams: any;
   language: string;
   ansVal: any;
@@ -44,7 +44,7 @@ export class AunjaiComponent implements OnInit {
     return val.toString().substring(0, 10);
   };
 
-  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private route: Router, private connectionService: ConnectionService) {
+  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private route: Router, private connectionService: ConnectionService,private _ga: GoogleAnalyticsService) {
     this.server = this.gameService.server;
     this.height = window.screen.availHeight;
     this.secret = 'nnvdJ#3x,!DUKrP">I^s#.62MoZk*,znCiwsAYr4RWNQ2lkDEFdzTqCF10uod2';
@@ -71,12 +71,15 @@ export class AunjaiComponent implements OnInit {
           if (data["statusCode"] == 20000) {
             this.load = false;
             this.winShow = true;
+            this._ga.eventEmitter("gameResult", "win", data["statusCode"], localStorage.getItem('o_decode'));
           } else if (data["statusCode"] == 'F:25001') {
             this.load = false;
+            this._ga.eventEmitter("gameResult", "win", data["statusCode"], localStorage.getItem('o_decode'));
             this.route.navigate(["popupContinue"], { queryParams: { language: this.language, playcomplete: 'true' } });
           }
         },
         error => {
+          this._ga.eventEmitter("gameResult", "win", error, localStorage.getItem('o_decode'));
           console.log(error)
         });
     } else if (localStorage.getItem('gameOver') === "true") {
@@ -86,6 +89,8 @@ export class AunjaiComponent implements OnInit {
           if (data["statusCode"] == 20000) {
             this.load = false;
             this.loseShow = true;
+            let countwin =  parseInt(localStorage.getItem('countWin')) -1;
+            this._ga.eventEmitter("gameResult", "lose", "winAmt"+countwin.toString(), localStorage.getItem('o_decode'));
             localStorage.removeItem('totalRound');
             localStorage.removeItem('countPause');
             localStorage.removeItem('gameOver');
