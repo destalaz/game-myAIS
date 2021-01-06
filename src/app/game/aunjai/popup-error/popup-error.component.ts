@@ -24,7 +24,7 @@ export class PopupErrorComponent implements OnInit {
 
 
 
-  constructor(private _api: GameService, private router: Router,private _ga: GoogleAnalyticsService) {
+  constructor(private _api: GameService, private router: Router, private _ga: GoogleAnalyticsService) {
   }
 
   ngOnInit() {
@@ -38,6 +38,11 @@ export class PopupErrorComponent implements OnInit {
     localStorage.removeItem('timeTotal');
     localStorage.removeItem('gameSetting');
     localStorage.removeItem('cclick');
+
+
+    // this.error_code = 'E:16310';
+    // this.statusLoad = false;
+    // this.insufficientPoint = true;
     // this.statusLoad = false;
     // this.error_code = 'E:16311';
     // this.insufficientPoint = true;
@@ -70,31 +75,34 @@ export class PopupErrorComponent implements OnInit {
         } else if (data["statusCode"] == 'E:16310') {
           this.statusLoad = false;
           this.insufficientPoint = true;
+          this.error_code = data["statusCode"];
           this._ga.eventEmitter("reedeem_page", "failed", data["statusCode"], localStorage.getItem('o_decode'));
         } else if (data["statusCode"] == 'F:25001') {
           this.statusLoad = false;
+          this.error_code = data["statusCode"];
           this._ga.eventEmitter("reedeem_page", "failed", data["statusCode"], localStorage.getItem('o_decode'));
           this.router.navigate(["popupContinue"], { queryParams: { language: this.language, playcomplete: 'true' } });
         } else if (data["statusCode"] == 'E:16348') {
           this.statusLoad = false;
           this.insufficientPoint = true;
+          this.error_code = data["statusCode"];
           this._ga.eventEmitter("reedeem_page", "failed", data["statusCode"], localStorage.getItem('o_decode'));
-          this.error_code = 'E:16348';
-        }else if (data["statusCode"] == 'G:20001') {
+   
+        } else if (data["statusCode"] == 'G:20001') {
           this.statusLoad = false;
           this.insufficientPoint = true;
           this.error_code = 'G:20001';
           this._ga.eventEmitter("reedeem_page", "failed", data["statusCode"], localStorage.getItem('o_decode'));
-        }else if (data["statusCode"] == 'E:16311' ||data["statusCode"] == 'E:02325' ) {
+        } else if (data["statusCode"] == 'E:16311' || data["statusCode"] == 'E:02325') {
           this.statusLoad = false;
           this.insufficientPoint = true;
           this.error_code = data["statusCode"];
           this._ga.eventEmitter("reedeem_page", "failed", data["statusCode"], localStorage.getItem('o_decode'));
-        }else{
-            this.statusLoad = false;
-            this.insufficientPoint = true;
-            this.error_code = "other";
-            this._ga.eventEmitter("reedeem_page", "failed", data["statusCode"], localStorage.getItem('o_decode'));
+        } else {
+          this.statusLoad = false;
+          this.insufficientPoint = true;
+          this.error_code = "other";
+          this._ga.eventEmitter("reedeem_page", "failed", data["statusCode"], localStorage.getItem('o_decode'));
         }
         //  else {
         //   this.statusLoad = false;

@@ -19,8 +19,8 @@ export class GameService {
 
     constructor(private http: HttpClient) {
         //select Mode local / Host
-        //  this.Mode = 'local';
-        this.Mode = 'host';
+        // this.Mode = 'local';
+         this.Mode = 'host';
         if (this.Mode == 'host') {
             this.server = '../rewardflip/';
         } else if (this.Mode == 'local') {
